@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "LUX"
-            VALUE "FileDescription",    "luxd (OSS daemon/client for Lux)"
+            VALUE "CompanyName",        "ASTRA"
+            VALUE "FileDescription",    "astrad (OSS daemon/client for Astra)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "luxd"
+            VALUE "InternalName",       "astrad"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "luxd.exe"
-            VALUE "ProductName",        "luxd"
+            VALUE "OriginalFilename",   "astrad.exe"
+            VALUE "ProductName",        "astrad"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

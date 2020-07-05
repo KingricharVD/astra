@@ -1,10 +1,10 @@
-![LUX Logo](../src/qt/res/images/lux_logo_horizontal.png)
+![ASTRA Logo](../src/qt/res/images/astra_logo_horizontal.png)
 
 "FIRST OF ITS KIND"
 
-Luxcore is GNU AGPLv3 licensed.
+Astracore is GNU AGPLv3 licensed.
 
-Technical description of the implementation of a distributed file storage based on the Luxcore blockchain
+Technical description of the implementation of a distributed file storage based on the Astracore blockchain
 ==========================================================================================================
 
 ## Table of Contents
@@ -53,15 +53,15 @@ Let's introduce several abbreviations used in the text below:
 
     DFS - decentralized file storage. 
     
-    - PMN - parallel masternode. A new layer of masternodes of the Luxcoin network that implements dfs functionality 
-      using its own protocol. PMNs are completely independent of the usual Luxcoin masternodes networks and 
+    - PMN - parallel masternode. A new layer of masternodes of the Astracoin network that implements dfs functionality 
+      using its own protocol. PMNs are completely independent of the usual Astracoin masternodes networks and 
       not support their protocol. PMN organize a network among themselves, by analogy with the usual masternodes.
    
-    - To install a PMN, a Luxcoin network user should not undergo additional checks or block any amounts of coins 
+    - To install a PMN, a Astracoin network user should not undergo additional checks or block any amounts of coins 
       on his account (as was done for ordinary master notes). It is enough to have s GB of free disk space
       (s in the current implementation is a constant network parameter that is the same for all PMNs).
    
-    - A user of any lux network node may request to add multiple copies of his file(s) to the PMN network for a 
+    - A user of any astra network node may request to add multiple copies of his file(s) to the PMN network for a 
       time-based fee. For this, a user needs to create a transaction of a certain type that stores the address 
       of the node that created the request, which will not be added to the blockchain but will be transmitted 
       over the network in the same way as normal transactions.
@@ -84,10 +84,10 @@ Let's introduce several abbreviations used in the text below:
       mining time) to make a transaction, with [Proof of File Storage] and receive a reward equal to [p * t * s], 
       where p is the rate for storage (network parameter), s - size of stored data.
     
-    - The user of any node of the lux network node can download the file saved in dfs, specifying the Merkle root 
+    - The user of any node of the astra network node can download the file saved in dfs, specifying the Merkle root 
       of the desired file.
     
-    - The user of any node of the lux network node can check a file saved in dfs, indicating Merkle root the 
+    - The user of any node of the astra network node can check a file saved in dfs, indicating Merkle root the 
       desired file.
     
 ### Description of user functions

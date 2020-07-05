@@ -38,7 +38,7 @@
 #include "sha3_cryptopp.h"
 
 #else
-#ifndef LUX_BUILD
+#ifndef ASTRA_BUILD
 #include "sha3.h"
 #else
 #ifdef __cplusplus
@@ -70,7 +70,7 @@ void SHA3_512(uint8_t* ret, uint8_t const* data, size_t const size)
 #ifdef __cplusplus
 }
 #endif
-#endif //else LUX_BUILD
+#endif //else ASTRA_BUILD
 #endif // WITH_CRYPTOPP
 
 uint64_t ethash_get_datasize(uint64_t const block_number)

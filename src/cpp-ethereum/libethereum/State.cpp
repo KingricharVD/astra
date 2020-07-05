@@ -26,7 +26,7 @@
 #include <boost/timer.hpp>
 #include <libdevcore/CommonIO.h>
 #include <libdevcore/Assertions.h>
-#ifndef LUX_BUILD
+#ifndef ASTRA_BUILD
 #include <libdevcore/TrieHash.h>
 #endif
 #include <libevmcore/Instruction.h>

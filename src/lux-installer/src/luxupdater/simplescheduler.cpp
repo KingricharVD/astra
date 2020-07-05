@@ -1,10 +1,10 @@
 #include "simplescheduler_p.h"
-#include "luxupdater_p.h"
+#include "astraupdater_p.h"
 
 #include <QtCore/QTimerEvent>
 #include <QtCore/QDebug>
 
-using namespace QtLuxUpdater;
+using namespace QtAstraUpdater;
 
 SimpleScheduler::SimpleScheduler(QObject *parent) :
 	QObject(parent),
@@ -14,7 +14,7 @@ SimpleScheduler::SimpleScheduler(QObject *parent) :
 int SimpleScheduler::startSchedule(int msecs, bool repeated, const QVariant &parameter)
 {
 	if(msecs < 0) {
-		qCWarning(logLuxUpdater) << "Cannot schedule update tasks for the past!";
+		qCWarning(logAstraUpdater) << "Cannot schedule update tasks for the past!";
 		return 0;
 	}
 
@@ -28,7 +28,7 @@ int SimpleScheduler::startSchedule(const QDateTime &when, const QVariant &parame
 {
 	const auto delta = QDateTime::currentDateTime().msecsTo(when);
 	if(delta > (qint64)INT_MAX) {
-		qCWarning(logLuxUpdater) << "Time interval to big, timepoint to far in the future.";
+		qCWarning(logAstraUpdater) << "Time interval to big, timepoint to far in the future.";
 		return 0;
 	} else
 		return startSchedule((int)delta, false, parameter);

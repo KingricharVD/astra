@@ -1,5 +1,5 @@
 ---
-name: "lux-linux-2.2"
+name: "astra-linux-2.2"
 enable_cache: true
 suites:
 - "trusty"
@@ -33,8 +33,8 @@ packages:
 - "python"
 - "libudev-dev"
 remotes:
-- "url": "https://github.com/lux-core/lux.git"
-  "dir": "lux"
+- "url": "https://github.com/astra-core/astra.git"
+  "dir": "astra"
 files: []
 script: |
   # prepare
@@ -128,7 +128,7 @@ script: |
   chmod +x ${WRAP_DIR}/${prog}
   done
 
-  cd lux
+  cd astra
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
@@ -150,13 +150,13 @@ script: |
   ./autogen.sh
   CONFIG_SITE=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`/share/config.site ./configure --prefix=/
   make dist
-  SOURCEDIST=`echo lux-*.tar.gz`
+  SOURCEDIST=`echo astra-*.tar.gz`
   DISTNAME=`echo ${SOURCEDIST} | sed 's/.tar.*//'`
   # Correct tar file order
   mkdir -p temp
   pushd temp
   tar xf ../$SOURCEDIST
-  find lux-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+  find astra-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
   popd
 
   # Workaround for tarball not building with the bare tag version (prep)

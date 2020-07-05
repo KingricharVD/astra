@@ -1,7 +1,7 @@
 #include "masternodemanager.h"
 #include "ui_masternodemanager.h"
-#include "addeditluxnode.h"
-#include "luxnodeconfigdialog.h"
+#include "addeditastranode.h"
+#include "astranodeconfigdialog.h"
 
 #include "sync.h"
 #include "clientmodel.h"
@@ -78,7 +78,7 @@ MasternodeManager::~MasternodeManager()
     delete ui;
 }
 
-static void NotifyLuxNodeUpdated(MasternodeManager *page, CLuxNodeConfig nodeConfig)
+static void NotifyAstraNodeUpdated(MasternodeManager *page, CAstraNodeConfig nodeConfig)
 {
     // alias, address, privkey, collateral address
     QString alias = QString::fromStdString(nodeConfig.sAlias);
@@ -86,7 +86,7 @@ static void NotifyLuxNodeUpdated(MasternodeManager *page, CLuxNodeConfig nodeCon
     QString privkey = QString::fromStdString(nodeConfig.sMasternodePrivKey);
     QString collateral = QString::fromStdString(nodeConfig.sCollateralAddress);
     
-    QMetaObject::invokeMethod(page, "updateLuxNode", Qt::QueuedConnection,
+    QMetaObject::invokeMethod(page, "updateAstraNode", Qt::QueuedConnection,
                               Q_ARG(QString, alias),
                               Q_ARG(QString, addr),
                               Q_ARG(QString, privkey),
@@ -97,13 +97,13 @@ static void NotifyLuxNodeUpdated(MasternodeManager *page, CLuxNodeConfig nodeCon
 void MasternodeManager::subscribeToCoreSignals()
 {
     // Connect signals to core
-    uiInterface.NotifyLuxNodeChanged.connect(boost::bind(&NotifyLuxNodeUpdated, this, _1));
+    uiInterface.NotifyAstraNodeChanged.connect(boost::bind(&NotifyAstraNodeUpdated, this, _1));
 }
 
 void MasternodeManager::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from core
-    uiInterface.NotifyLuxNodeChanged.disconnect(boost::bind(&NotifyLuxNodeUpdated, this, _1));
+    uiInterface.NotifyAstraNodeChanged.disconnect(boost::bind(&NotifyAstraNodeUpdated, this, _1));
 }
 
 void MasternodeManager::on_tableWidget_2_itemSelectionChanged()
@@ -118,9 +118,9 @@ void MasternodeManager::on_tableWidget_2_itemSelectionChanged()
     }
 }
 
-void MasternodeManager::updateLuxNode(QString alias, QString addr, QString privkey, QString collateral)
+void MasternodeManager::updateAstraNode(QString alias, QString addr, QString privkey, QString collateral)
 {
-    LOCK(cs_lux);
+    LOCK(cs_astra);
    
     ui->tableWidget_2->insertRow(0);
 
@@ -227,10 +227,10 @@ void MasternodeManager::updateNodeList()
     
     if(pwalletMain)
     {
-        LOCK(cs_lux);
-        for (PAIRTYPE(std::string, CLuxNodeConfig) lux : pwalletMain->mapMyLuxNodes)
+        LOCK(cs_astra);
+        for (PAIRTYPE(std::string, CAstraNodeConfig) astra : pwalletMain->mapMyAstraNodes)
         {
-            updateLuxNode(QString::fromStdString(lux.second.sAlias), QString::fromStdString(lux.second.sAddress), QString::fromStdString(lux.second.sMasternodePrivKey), QString::fromStdString(lux.second.sCollateralAddress));
+            updateAstraNode(QString::fromStdString(astra.second.sAlias), QString::fromStdString(astra.second.sAddress), QString::fromStdString(astra.second.sMasternodePrivKey), QString::fromStdString(astra.second.sCollateralAddress));
         }
     }
 }
@@ -270,7 +270,7 @@ void MasternodeManager::setPMNsVisible(bool visible)
 
 void MasternodeManager::on_createButton_clicked()
 {
-    AddEditLuxNode* aenode = new AddEditLuxNode();
+    AddEditAstraNode* aenode = new AddEditAstraNode();
     aenode->exec();
 }
 #if 0
@@ -312,9 +312,9 @@ void MasternodeManager::on_getConfigButton_clicked()
     QModelIndex index = selected.at(0);
     int r = index.row();
     std::string sAddress = ui->tableWidget_2->item(r, 1)->text().toStdString();
-    CLuxNodeConfig c = pwalletMain->mapMyLuxNodes[sAddress];
+    CAstraNodeConfig c = pwalletMain->mapMyAstraNodes[sAddress];
     std::string sPrivKey = c.sMasternodePrivKey;
-    LuxNodeConfigDialog* d = new LuxNodeConfigDialog(this, QString::fromStdString(sAddress), QString::fromStdString(sPrivKey));
+    AstraNodeConfigDialog* d = new AstraNodeConfigDialog(this, QString::fromStdString(sAddress), QString::fromStdString(sPrivKey));
     d->exec();
 }
 
@@ -326,22 +326,22 @@ void MasternodeManager::on_removeButton_clicked()
         return;
 
     QMessageBox::StandardButton confirm;
-    confirm = QMessageBox::question(this, "Delete LUX Node?", "Are you sure you want to delete this LUX node configuration?", QMessageBox::Yes|QMessageBox::No);
+    confirm = QMessageBox::question(this, "Delete ASTRA Node?", "Are you sure you want to delete this ASTRA node configuration?", QMessageBox::Yes|QMessageBox::No);
 
     if(confirm == QMessageBox::Yes)
     {
         QModelIndex index = selected.at(0);
         int r = index.row();
         std::string sAddress = ui->tableWidget_2->item(r, 1)->text().toStdString();
-        CLuxNodeConfig c = pwalletMain->mapMyLuxNodes[sAddress];
+        CAstraNodeConfig c = pwalletMain->mapMyAstraNodes[sAddress];
         CWalletDB walletdb(pwalletMain->strWalletFile);
-        pwalletMain->mapMyLuxNodes.erase(sAddress);
-        walletdb.EraseLuxNodeConfig(c.sAddress);
+        pwalletMain->mapMyAstraNodes.erase(sAddress);
+        walletdb.EraseAstraNodeConfig(c.sAddress);
         ui->tableWidget_2->clearContents();
         ui->tableWidget_2->setRowCount(0);
-        for (PAIRTYPE(std::string, CLuxNodeConfig) lux : pwalletMain->mapMyLuxNodes)
+        for (PAIRTYPE(std::string, CAstraNodeConfig) astra : pwalletMain->mapMyAstraNodes)
         {
-            updateLuxNode(QString::fromStdString(lux.second.sAlias), QString::fromStdString(lux.second.sAddress), QString::fromStdString(lux.second.sMasternodePrivKey), QString::fromStdString(lux.second.sCollateralAddress));
+            updateAstraNode(QString::fromStdString(astra.second.sAlias), QString::fromStdString(astra.second.sAddress), QString::fromStdString(astra.second.sMasternodePrivKey), QString::fromStdString(astra.second.sCollateralAddress));
         }
     }
 }
@@ -357,14 +357,14 @@ void MasternodeManager::on_startButton_clicked()
     QModelIndex index = selected.at(0);
     int r = index.row();
     std::string sAddress = ui->tableWidget_2->item(r, 1)->text().toStdString();
-    CLuxNodeConfig c = pwalletMain->mapMyLuxNodes[sAddress];
+    CAstraNodeConfig c = pwalletMain->mapMyAstraNodes[sAddress];
 
     std::string errorMessage;
     bool result = activeMasternode.RegisterByPubKey(c.sAddress, c.sMasternodePrivKey, c.sCollateralAddress, errorMessage);
 
     QMessageBox msg;
     if(result)
-        msg.setText("LUX Node at " + QString::fromStdString(c.sAddress) + " started.");
+        msg.setText("ASTRA Node at " + QString::fromStdString(c.sAddress) + " started.");
     else
         msg.setText("Error: " + QString::fromStdString(errorMessage));
 
@@ -382,14 +382,14 @@ void MasternodeManager::on_stopButton_clicked()
     QModelIndex index = selected.at(0);
     int r = index.row();
     std::string sAddress = ui->tableWidget_2->item(r, 1)->text().toStdString();
-    CLuxNodeConfig c = pwalletMain->mapMyLuxNodes[sAddress];
+    CAstraNodeConfig c = pwalletMain->mapMyAstraNodes[sAddress];
 
     std::string errorMessage;
     bool result = activeMasternode.StopMasterNode(c.sAddress, c.sMasternodePrivKey, errorMessage);
     QMessageBox msg;
     if(result)
     {
-        msg.setText("LUX Node at " + QString::fromStdString(c.sAddress) + " stopped.");
+        msg.setText("ASTRA Node at " + QString::fromStdString(c.sAddress) + " stopped.");
     }
     else
     {
@@ -401,9 +401,9 @@ void MasternodeManager::on_stopButton_clicked()
 void MasternodeManager::on_startAllButton_clicked()
 {
     std::string results;
-    for (PAIRTYPE(std::string, CLuxNodeConfig) lux : pwalletMain->mapMyLuxNodes)
+    for (PAIRTYPE(std::string, CAstraNodeConfig) astra : pwalletMain->mapMyAstraNodes)
     {
-        CLuxNodeConfig c = lux.second;
+        CAstraNodeConfig c = astra.second;
 	std::string errorMessage;
         bool result = activeMasternode.RegisterByPubKey(c.sAddress, c.sMasternodePrivKey, c.sCollateralAddress, errorMessage);
 	if(result)
@@ -424,9 +424,9 @@ void MasternodeManager::on_startAllButton_clicked()
 void MasternodeManager::on_stopAllButton_clicked()
 {
     std::string results;
-    for (PAIRTYPE(std::string, CLuxNodeConfig) lux : pwalletMain->mapMyLuxNodes)
+    for (PAIRTYPE(std::string, CAstraNodeConfig) astra : pwalletMain->mapMyAstraNodes)
     {
-        CLuxNodeConfig c = lux.second;
+        CAstraNodeConfig c = astra.second;
 	std::string errorMessage;
         bool result = activeMasternode.StopMasterNode(c.sAddress, c.sMasternodePrivKey, errorMessage);
 	if(result)

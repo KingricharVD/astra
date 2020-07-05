@@ -2,7 +2,7 @@ from .address import *
 from .script import *
 from .mininode import *
 from .util import *
-from .luxconfig import *
+from .astraconfig import *
 from .blocktools import *
 from .key import *
 import io
@@ -51,7 +51,7 @@ def make_op_call_output(value, version, gas_limit, gas_price, data, contract):
     scriptPubKey += OP_CALL
     return CTxOut(value, scriptPubKey)
 
-def convert_btc_address_to_lux(addr, main=False):
+def convert_btc_address_to_astra(addr, main=False):
     version, hsh, checksum = base58_to_byte(addr, 25)
     if version == 111:
         return keyhash_to_p2pkh(binascii.unhexlify(hsh), main)
@@ -162,19 +162,19 @@ class DGPState:
 
     def send_set_initial_admin(self, sender):
         self.node.sendtoaddress(sender, 1)
-        self.node.sendtocontract(self.contract_address, self.abiSetInitialAdmin, 0, 2000000, LUX_MIN_GAS_PRICE_STR, sender)
+        self.node.sendtocontract(self.contract_address, self.abiSetInitialAdmin, 0, 2000000, ASTRA_MIN_GAS_PRICE_STR, sender)
 
     def send_add_address_proposal(self, proposal_address, type1, sender):
         self.node.sendtoaddress(sender, 1)
-        self.node.sendtocontract(self.contract_address, self.abiAddAddressProposal + proposal_address.zfill(64) + hex(type1)[2:].zfill(64), 0, 2000000, LUX_MIN_GAS_PRICE_STR, sender)
+        self.node.sendtocontract(self.contract_address, self.abiAddAddressProposal + proposal_address.zfill(64) + hex(type1)[2:].zfill(64), 0, 2000000, ASTRA_MIN_GAS_PRICE_STR, sender)
 
     def send_remove_address_proposal(self, proposal_address, type1, sender):
         self.node.sendtoaddress(sender, 1)
-        self.node.sendtocontract(self.contract_address, self.abiRemoveAddressProposal + proposal_address.zfill(64) + hex(type1)[2:].zfill(64), 0, 2000000, LUX_MIN_GAS_PRICE_STR, sender)
+        self.node.sendtocontract(self.contract_address, self.abiRemoveAddressProposal + proposal_address.zfill(64) + hex(type1)[2:].zfill(64), 0, 2000000, ASTRA_MIN_GAS_PRICE_STR, sender)
 
     def send_change_value_proposal(self, uint_proposal, type1, sender):
         self.node.sendtoaddress(sender, 1)
-        self.node.sendtocontract(self.contract_address, self.abiChangeValueProposal + hex(uint_proposal)[2:].zfill(64) + hex(type1)[2:].zfill(64), 0, 2000000, LUX_MIN_GAS_PRICE_STR, sender)
+        self.node.sendtocontract(self.contract_address, self.abiChangeValueProposal + hex(uint_proposal)[2:].zfill(64) + hex(type1)[2:].zfill(64), 0, 2000000, ASTRA_MIN_GAS_PRICE_STR, sender)
 
     def assert_state(self):
         # This assertion is only to catch potential errors in the test code (if we forget to add a generate after an evm call)

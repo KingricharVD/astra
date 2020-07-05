@@ -1,10 +1,10 @@
-#ifndef LUXUPDATER_ADMINAUTHORISER_H
-#define LUXUPDATER_ADMINAUTHORISER_H
+#ifndef ASTRAUPDATER_ADMINAUTHORISER_H
+#define ASTRAUPDATER_ADMINAUTHORISER_H
 
 #include <QtCore/qstring.h>
 #include <QtCore/qstringlist.h>
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
 //! An interface to run programs with elevated rights
@@ -20,4 +20,4 @@ public:
 
 }
 
-#endif // LUXUPDATER_ADMINAUTHORISER_H
+#endif // ASTRAUPDATER_ADMINAUTHORISER_H

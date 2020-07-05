@@ -3,18 +3,18 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR/..
 
-DOCKER_IMAGE=${DOCKER_IMAGE:-luxcore/lux}
+DOCKER_IMAGE=${DOCKER_IMAGE:-astracore/astra}
 DOCKER_TAG=${DOCKER_TAG:-latest}
 
 BUILD_DIR=${BUILD_DIR:-.}
 
 rm docker/bin/*
 mkdir docker/bin
-cp $BUILD_DIR/src/luxd docker/bin/
-cp $BUILD_DIR/src/lux-cli docker/bin/
-cp $BUILD_DIR/src/lux-tx docker/bin/
-strip docker/bin/luxd
-strip docker/bin/lux-cli
-strip docker/bin/lux-tx
+cp $BUILD_DIR/src/astrad docker/bin/
+cp $BUILD_DIR/src/astra-cli docker/bin/
+cp $BUILD_DIR/src/astra-tx docker/bin/
+strip docker/bin/astrad
+strip docker/bin/astra-cli
+strip docker/bin/astra-tx
 
 docker build --pull -t $DOCKER_IMAGE:$DOCKER_TAG -f docker/Dockerfile docker

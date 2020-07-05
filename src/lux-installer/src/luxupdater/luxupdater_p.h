@@ -1,7 +1,7 @@
-#ifndef LUXUPDATER_LUXUPDATER_P_H
-#define LUXUPDATER_LUXUPDATER_P_H
+#ifndef ASTRAUPDATER_ASTRAUPDATER_P_H
+#define ASTRAUPDATER_ASTRAUPDATER_P_H
 
-#include "luxupdater.h"
+#include "astraupdater.h"
 #include "simplescheduler_p.h"
 #include "atomfeeder.h"
 #include "downloadmanager.h"
@@ -12,16 +12,16 @@
 
 #include <exception>
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
-class LuxUpdaterPrivate : public QObject
+class AstraUpdaterPrivate : public QObject
 {
 public:
-	LuxUpdater *q;
+	AstraUpdater *q;
 
 	QString currentVersion;
-	QList<LuxUpdater::LuxUpdateInfo> updateInfos;
+	QList<AstraUpdater::AstraUpdateInfo> updateInfos;
 	bool normalExit;
 	int lastErrorCode;
 	QByteArray lastErrorLog;
@@ -37,8 +37,8 @@ public:
 	QStringList runArguments;
 	QScopedPointer<AdminAuthoriser> adminAuth;
 
-	LuxUpdaterPrivate(LuxUpdater *q_ptr);
-	~LuxUpdaterPrivate();
+	AstraUpdaterPrivate(AstraUpdater *q_ptr);
+	~AstraUpdaterPrivate();
 
 	bool startUpdateCheck();
 	void stopUpdateCheck(int delay, bool async);
@@ -58,6 +58,6 @@ private:
 
 }
 
-Q_DECLARE_LOGGING_CATEGORY(logLuxUpdater)
+Q_DECLARE_LOGGING_CATEGORY(logAstraUpdater)
 
-#endif // LUXUPDATER_LUXUPDATER_P_H
+#endif // ASTRAUPDATER_ASTRAUPDATER_P_H

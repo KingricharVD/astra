@@ -2,24 +2,24 @@
 
 # backward compatibility for existing gentoo layout
 #
-if [ -d "/var/lib/lux/.lux" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/lux/.lux"
+if [ -d "/var/lib/astra/.astra" ]; then
+	BITCOIND_DEFAULT_DATADIR="/var/lib/astra/.astra"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/luxd"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/astrad"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/lux/lux.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/luxd}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/luxd.pid}
+BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/astra/astra.conf}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/astrad}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/astrad.pid}
 BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-lux}
-BITCOIND_GROUP=${BITCOIND_GROUP:-lux}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/luxd}
+BITCOIND_USER=${BITCOIND_USER:-astra}
+BITCOIND_GROUP=${BITCOIND_GROUP:-astra}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/astrad}
 
-name="Luxcore Daemon"
-description="LUX crypto-currency p2p network daemon"
+name="Astracore Daemon"
+description="ASTRA crypto-currency p2p network daemon"
 
-command="/usr/bin/luxd"
+command="/usr/bin/astrad"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
 		-conf=\"${BITCOIND_CONFIGFILE}\" \
 		-datadir=\"${BITCOIND_DATADIR}\" \
@@ -65,7 +65,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run luxd."
+		eerror "ERROR: You must set a secure rpcpassword to run astrad."
 		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
@@ -78,7 +78,7 @@ checkconfig()
 		eerror "It is also recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Lux Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Astra Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

@@ -4,17 +4,17 @@
 # Copyright (c) 2010-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Lux P2P network half-a-node.
+"""Astra P2P network half-a-node.
 
 This python code was modified from ArtForz' public domain  half-a-node, as
 found in the mini-node branch of http://github.com/jgarzik/pynode.
 
-NodeConn: an object which manages p2p connectivity to a lux node
+NodeConn: an object which manages p2p connectivity to a astra node
 NodeConnCB: a base class that describes the interface for receiving
             callbacks with network messages from a NodeConn
 CBlock, CTransaction, CBlockHeader, CTxIn, CTxOut, etc....:
     data structures that should map to corresponding structures in
-    lux/primitives
+    astra/primitives
 msg_block, msg_tx, msg_headers, etc.:
     data structures that represent network messages
 ser_*, deser_*: functions that handle serialization/deserialization
@@ -36,7 +36,7 @@ from threading import RLock, Thread
 
 from test_framework.siphash import siphash256
 from test_framework.util import hex_str_to_bytes, bytes_to_hex_str, wait_until
-from test_framework.luxconfig import INITIAL_HASH_UTXO_ROOT, INITIAL_HASH_STATE_ROOT
+from test_framework.astraconfig import INITIAL_HASH_UTXO_ROOT, INITIAL_HASH_STATE_ROOT
 
 BIP0031_VERSION = 60000
 MY_VERSION = 70016  # past bip-31 for ping/pong
@@ -218,7 +218,7 @@ def FromHex(obj, hex_string):
 def ToHex(obj):
     return bytes_to_hex_str(obj.serialize())
 
-# Objects that map to luxd objects, which can be serialized/deserialized
+# Objects that map to astrad objects, which can be serialized/deserialized
 
 class CAddress(object):
     def __init__(self):
@@ -450,7 +450,7 @@ class CTransaction(object):
         if len(self.vin) == 0:
             flags = struct.unpack("<B", f.read(1))[0]
             # Not sure why flags can't be zero, but this
-            # matches the implementation in luxd
+            # matches the implementation in astrad
             if (flags != 0):
                 self.vin = deser_vector(f, CTxIn)
                 self.vout = deser_vector(f, CTxOut)
@@ -1375,7 +1375,7 @@ class msg_headers(object):
         self.headers = []
 
     def deserialize(self, f):
-        # comment in luxd indicates these should be deserialized as blocks
+        # comment in astrad indicates these should be deserialized as blocks
         blocks = deser_vector(f, CBlock)
         for x in blocks:
             self.headers.append(CBlockHeader(x))
@@ -1516,7 +1516,7 @@ class msg_witness_blocktxn(msg_blocktxn):
         return r
 
 class NodeConnCB(object):
-    """Callback and helper functions for P2P connection to a luxd node.
+    """Callback and helper functions for P2P connection to a astrad node.
 
     Individual testcases should subclass this and override the on_* methods
     if they want to alter message handling behaviour.
@@ -1743,7 +1743,7 @@ class NodeConn(asyncore.dispatcher):
             vt.addrFrom.port = 0
             self.send_message(vt, True)
 
-        logger.info('Connecting to Lux Node: %s:%d' % (self.dstaddr, self.dstport))
+        logger.info('Connecting to Astra Node: %s:%d' % (self.dstaddr, self.dstport))
 
         try:
             self.connect((dstaddr, dstport))

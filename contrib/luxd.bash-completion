@@ -1,12 +1,12 @@
-# bash programmable completion for luxd(1) and lux-cli(1)
+# bash programmable completion for astrad(1) and astra-cli(1)
 # Copyright (c) 2012,2014 Christian von Roques <roques@mti.ag>
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-have luxd && {
+have astrad && {
 
-# call $luxd for RPC
-_lux_rpc() {
+# call $astrad for RPC
+_astra_rpc() {
     # determine already specified args necessary for RPC
     local rpcargs=()
     for i in ${COMP_LINE}; do
@@ -16,23 +16,23 @@ _lux_rpc() {
                 ;;
         esac
     done
-    $luxd "${rpcargs[@]}" "$@"
+    $astrad "${rpcargs[@]}" "$@"
 }
 
-# Add lux accounts to COMPREPLY
-_lux_accounts() {
+# Add astra accounts to COMPREPLY
+_astra_accounts() {
     local accounts
-    accounts=$(_lux_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
+    accounts=$(_astra_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
-_luxd() {
+_astrad() {
     local cur prev words=() cword
-    local luxd
+    local astrad
 
-    # save and use original argument to invoke luxd
-    # luxd might not be in $PATH
-    luxd="$1"
+    # save and use original argument to invoke astrad
+    # astrad might not be in $PATH
+    astrad="$1"
 
     COMPREPLY=()
     _get_comp_words_by_ref -n = cur prev words cword
@@ -53,7 +53,7 @@ _luxd() {
     if ((cword > 3)); then
         case ${words[cword-3]} in
             addmultisigaddress)
-                _lux_accounts
+                _astra_accounts
                 return 0
                 ;;
             getbalance|gettxout|importaddress|importprivkey|listreceivedbyaccount|listreceivedbyaddress|listsinceblock)
@@ -74,7 +74,7 @@ _luxd() {
                 return 0
                 ;;
             move|setaccount)
-                _lux_accounts
+                _astra_accounts
                 return 0
                 ;;
         esac
@@ -90,7 +90,7 @@ _luxd() {
             return 0
             ;;
         getaccountaddress|getaddressesbyaccount|getbalance|getnewaddress|getreceivedbyaccount|listtransactions|move|sendfrom|sendmany)
-            _lux_accounts
+            _astra_accounts
             return 0
             ;;
     esac
@@ -114,12 +114,12 @@ _luxd() {
 
             # only parse --help if senseful
             if [[ -z "$cur" || "$cur" =~ ^- ]]; then
-                helpopts=$($luxd --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
+                helpopts=$($astrad --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
             fi
 
             # only parse help if senseful
             if [[ -z "$cur" || "$cur" =~ ^[a-z] ]]; then
-                commands=$(_lux_rpc help 2>/dev/null | awk '$1 ~ /^[a-z]/ { print $1; }')
+                commands=$(_astra_rpc help 2>/dev/null | awk '$1 ~ /^[a-z]/ { print $1; }')
             fi
 
             COMPREPLY=( $( compgen -W "$helpopts $commands" -- "$cur" ) )
@@ -133,7 +133,7 @@ _luxd() {
     esac
 }
 
-complete -F _luxd luxd lux-cli
+complete -F _astrad astrad astra-cli
 }
 
 # Local variables:

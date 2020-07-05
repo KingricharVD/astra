@@ -1,6 +1,6 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build luxd (headless client) for OSX.
+This guide will show you how to build astrad (headless client) for OSX.
 
 Notes
 -----
@@ -51,14 +51,14 @@ Instructions: Homebrew
 
         brew link boost@1.60 --force
 
-### Building `luxd`
+### Building `astrad`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/LUX-Project/LUX.git
-        cd LUX
+        git clone https://github.com/ASTRA-Project/ASTRA.git
+        cd ASTRA
 
-2.  Build luxd:
+2.  Build astrad:
 
         export LDFLAGS=-L/usr/local/opt/openssl/lib
         export CPPFLAGS=-I/usr/local/opt/openssl/include
@@ -70,7 +70,7 @@ Instructions: Homebrew
 
         make check
 
-4.  (Optional) You can also install luxd to your path:
+4.  (Optional) You can also install astrad to your path:
 
         make install
 
@@ -82,7 +82,7 @@ Download Qt Creator from http://www.qt.io/download/. Download the "community edi
 1. Make sure you installed everything through homebrew mentioned above
 2. Do a proper ./configure --with-gui=qt5 --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "lux-qt" as project name, enter src/qt as location
+4. Enter "astra-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."
@@ -92,11 +92,11 @@ Download Qt Creator from http://www.qt.io/download/. Download the "community edi
 
 Creating a release build
 ------------------------
-You can ignore this section if you are building `luxd` for your own use.
+You can ignore this section if you are building `astrad` for your own use.
 
-luxd/lux-cli binaries are not included in the lux-Qt.app bundle.
+astrad/astra-cli binaries are not included in the astra-Qt.app bundle.
 
-If you are building `luxd` or `lux-qt` for others, your build machine should be set up
+If you are building `astrad` or `astra-qt` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -105,30 +105,30 @@ All dependencies should be compiled with these flags:
  -arch x86_64
  -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
 
-Once dependencies are compiled, see release-process.md for how the LUX-Qt.app
+Once dependencies are compiled, see release-process.md for how the ASTRA-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
 -------
 
-It's now available at `./luxd`, provided that you are still in the `src`
+It's now available at `./astrad`, provided that you are still in the `src`
 directory. We have to first create the RPC configuration file, though.
 
-Run `./luxd` to get the filename where it should be put, or just try these
+Run `./astrad` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=luxrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/LUX/lux.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/LUX/lux.conf"
+    echo -e "rpcuser=astrarpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/ASTRA/astra.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/ASTRA/astra.conf"
 
 The next time you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours;
 you can monitor its process by looking at the debug.log file, like this:
 
-    tail -f $HOME/Library/Application\ Support/LUX/debug.log
+    tail -f $HOME/Library/Application\ Support/ASTRA/debug.log
 
 Other commands:
 -------
 
-    ./luxd -daemon # to start the lux daemon.
-    ./lux-cli --help  # for a list of command-line options.
-    ./lux-cli help    # When the daemon is running, to get a list of RPC commands
+    ./astrad -daemon # to start the astra daemon.
+    ./astra-cli --help  # for a list of command-line options.
+    ./astra-cli help    # When the daemon is running, to get a list of RPC commands

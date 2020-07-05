@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The LUX developers
+// Copyright (c) 2015-2017 The ASTRA developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -81,7 +81,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
                 sub.credit = txout.nValue;
                 sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
                 if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address)) {
-                    // Received by LUX Address
+                    // Received by ASTRA Address
                     sub.type = TransactionRecord::RecvWithAddress;
                     sub.address = EncodeDestination(address);
                 } else {
@@ -143,7 +143,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
             if (mapValue["DS"] == "1") {
                 sub.type = TransactionRecord::Darksend;
                 if (ExtractDestination(wtx.vout[0].scriptPubKey, address)) {
-                    // Sent to LUX Address
+                    // Sent to ASTRA Address
                     sub.address = EncodeDestination(address);
                 } else {
                     // Sent to IP, or other non-address transaction like OP_EVAL
@@ -191,7 +191,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
 
                 CTxDestination address;
                 if (ExtractDestination(txout.scriptPubKey, address)) {
-                    // Sent to LUX Address
+                    // Sent to ASTRA Address
                     sub.type = TransactionRecord::SendToAddress;
                     sub.address = EncodeDestination(address);
                 } else {
@@ -202,7 +202,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
 
                 if (txout.scriptPubKey.HasOpCreate()) {
                     sub.type = TransactionRecord::SCcreate;
-                    address = CKeyID(uint160(LuxState::createLuxAddress(uintToh256(wtx.GetHash()), nOut).asBytes()));
+                    address = CKeyID(uint160(AstraState::createAstraAddress(uintToh256(wtx.GetHash()), nOut).asBytes()));
                     sub.address = EncodeDestination(address);
                 } else if (txout.scriptPubKey.HasOpCall()) {
                     sub.type = TransactionRecord::SCsent;
