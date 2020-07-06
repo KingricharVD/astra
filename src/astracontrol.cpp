@@ -1,10 +1,10 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "astracontrol.h"
+#include "Luxcontrol.h"
 #include "utilstrencodings.h"
 #include "netbase.h"
 #include "net.h"
@@ -31,32 +31,32 @@
 #include <event2/thread.h>
 
 /** Default control port */
-const std::string DEFAULT_ASTRA_CONTROL = "127.0.0.1:9051";
-/** Astra cookie size (from control-spec.txt) */
-static const int ASTRA_COOKIE_SIZE = 32;
+const std::string DEFAULT_LUX_CONTROL = "127.0.0.1:9051";
+/** Lux cookie size (from control-spec.txt) */
+static const int LUX_COOKIE_SIZE = 32;
 /** Size of client/server nonce for SAFECOOKIE */
-static const int ASTRA_NONCE_SIZE = 32;
+static const int LUX_NONCE_SIZE = 32;
 /** For computing serverHash in SAFECOOKIE */
-static const std::string ASTRA_SAFE_SERVERKEY = "Astra safe cookie authentication server-to-controller hash";
+static const std::string LUX_SAFE_SERVERKEY = "Lux safe cookie authentication server-to-controller hash";
 /** For computing clientHash in SAFECOOKIE */
-static const std::string ASTRA_SAFE_CLIENTKEY = "Astra safe cookie authentication controller-to-server hash";
+static const std::string LUX_SAFE_CLIENTKEY = "Lux safe cookie authentication controller-to-server hash";
 /** Exponential backoff configuration - initial timeout in seconds */
 static const float RECONNECT_TIMEOUT_START = 1.0;
 /** Exponential backoff configuration - growth factor */
 static const float RECONNECT_TIMEOUT_EXP = 1.5;
-/** Maximum length for lines received on AstraControlConnection.
- * astra-control-spec.txt mentions that there is explicitly no limit defined to line length,
+/** Maximum length for lines received on LuxControlConnection.
+ * Lux-control-spec.txt mentions that there is explicitly no limit defined to line length,
  * this is belt-and-suspenders sanity limit to prevent memory exhaustion.
  */
 static const int MAX_LINE_LENGTH = 100000;
 
-/****** Low-level AstraControlConnection ********/
+/****** Low-level LuxControlConnection ********/
 
-/** Reply from Astra, can be single or multi-line */
-class AstraControlReply
+/** Reply from Lux, can be single or multi-line */
+class LuxControlReply
 {
 public:
-    AstraControlReply() { Clear(); }
+    LuxControlReply() { Clear(); }
 
     int code;
     std::vector<std::string> lines;
@@ -68,22 +68,22 @@ public:
     }
 };
 
-/** Low-level handling for Astra control connection.
- * Speaks the SMTP-like protocol as defined in astraspec/control-spec.txt
+/** Low-level handling for Lux control connection.
+ * Speaks the SMTP-like protocol as defined in Luxspec/control-spec.txt
  */
-class AstraControlConnection
+class LuxControlConnection
 {
 public:
-    typedef boost::function<void(AstraControlConnection&)> ConnectionCB;
-    typedef boost::function<void(AstraControlConnection &,const AstraControlReply &)> ReplyHandlerCB;
+    typedef boost::function<void(LuxControlConnection&)> ConnectionCB;
+    typedef boost::function<void(LuxControlConnection &,const LuxControlReply &)> ReplyHandlerCB;
 
-    /** Create a new AstraControlConnection.
+    /** Create a new LuxControlConnection.
      */
-    AstraControlConnection(struct event_base *base);
-    ~AstraControlConnection();
+    LuxControlConnection(struct event_base *base);
+    ~LuxControlConnection();
 
     /**
-     * Connect to a Astra control port.
+     * Connect to a Lux control port.
      * target is address of the form host:port.
      * connected is the handler that is called when connection is successfully established.
      * disconnected is a handler that is called when the connection is broken.
@@ -92,7 +92,7 @@ public:
     bool Connect(const std::string &target, const ConnectionCB& connected, const ConnectionCB& disconnected);
 
     /**
-     * Disconnect from Astra control port.
+     * Disconnect from Lux control port.
      */
     bool Disconnect();
 
@@ -103,18 +103,18 @@ public:
     bool Command(const std::string &cmd, const ReplyHandlerCB& reply_handler);
 
     /** Response handlers for async replies */
-    boost::signals2::signal<void(AstraControlConnection &,const AstraControlReply &)> async_handler;
+    boost::signals2::signal<void(LuxControlConnection &,const LuxControlReply &)> async_handler;
 private:
     /** Callback when ready for use */
-    boost::function<void(AstraControlConnection&)> connected;
+    boost::function<void(LuxControlConnection&)> connected;
     /** Callback when connection lost */
-    boost::function<void(AstraControlConnection&)> disconnected;
+    boost::function<void(LuxControlConnection&)> disconnected;
     /** Libevent event base */
     struct event_base *base;
     /** Connection to control socket */
     struct bufferevent *b_conn;
     /** Message being received */
-    AstraControlReply message;
+    LuxControlReply message;
     /** Response handlers */
     std::deque<ReplyHandlerCB> reply_handlers;
 
@@ -123,20 +123,20 @@ private:
     static void eventcb(struct bufferevent *bev, short what, void *ctx);
 };
 
-AstraControlConnection::AstraControlConnection(struct event_base *_base):
+LuxControlConnection::LuxControlConnection(struct event_base *_base):
     base(_base), b_conn(0)
 {
 }
 
-AstraControlConnection::~AstraControlConnection()
+LuxControlConnection::~LuxControlConnection()
 {
     if (b_conn)
         bufferevent_free(b_conn);
 }
 
-void AstraControlConnection::readcb(struct bufferevent *bev, void *ctx)
+void LuxControlConnection::readcb(struct bufferevent *bev, void *ctx)
 {
-    AstraControlConnection *self = (AstraControlConnection*)ctx;
+    LuxControlConnection *self = (LuxControlConnection*)ctx;
     struct evbuffer *input = bufferevent_get_input(bev);
     size_t n_read_out = 0;
     char *line;
@@ -164,7 +164,7 @@ void AstraControlConnection::readcb(struct bufferevent *bev, void *ctx)
                     self->reply_handlers.front()(*self, self->message);
                     self->reply_handlers.pop_front();
                 } else {
-                    LogPrint("astra", "astra: Received unexpected sync reply %i\n", self->message.code);
+                    LogPrint("Lux", "Lux: Received unexpected sync reply %i\n", self->message.code);
                 }
             }
             self->message.Clear();
@@ -174,29 +174,29 @@ void AstraControlConnection::readcb(struct bufferevent *bev, void *ctx)
     //  Do this after evbuffer_readln to make sure all full lines have been
     //  removed from the buffer. Everything left is an incomplete line.
     if (evbuffer_get_length(input) > MAX_LINE_LENGTH) {
-        LogPrintf("astra: Disconnecting because MAX_LINE_LENGTH exceeded\n");
+        LogPrintf("Lux: Disconnecting because MAX_LINE_LENGTH exceeded\n");
         self->Disconnect();
     }
 }
 
-void AstraControlConnection::eventcb(struct bufferevent *bev, short what, void *ctx)
+void LuxControlConnection::eventcb(struct bufferevent *bev, short what, void *ctx)
 {
-    AstraControlConnection *self = (AstraControlConnection*)ctx;
+    LuxControlConnection *self = (LuxControlConnection*)ctx;
     if (what & BEV_EVENT_CONNECTED) {
-        LogPrint("astra", "astra: Successfully connected!\n");
+        LogPrint("Lux", "Lux: Successfully connected!\n");
         self->connected(*self);
     } else if (what & (BEV_EVENT_EOF|BEV_EVENT_ERROR)) {
         if (what & BEV_EVENT_ERROR) {
-            LogPrint("astra", "astra: Error connecting to Astra control socket\n");
+            LogPrint("Lux", "Lux: Error connecting to Lux control socket\n");
         } else {
-            LogPrint("astra", "astra: End of stream\n");
+            LogPrint("Lux", "Lux: End of stream\n");
         }
         self->Disconnect();
         self->disconnected(*self);
     }
 }
 
-bool AstraControlConnection::Connect(const std::string &target, const ConnectionCB& _connected, const ConnectionCB&  _disconnected)
+bool LuxControlConnection::Connect(const std::string &target, const ConnectionCB& _connected, const ConnectionCB&  _disconnected)
 {
     if (b_conn)
         Disconnect();
@@ -205,7 +205,7 @@ bool AstraControlConnection::Connect(const std::string &target, const Connection
     int connect_to_addrlen = sizeof(connect_to_addr);
     if (evutil_parse_sockaddr_port(target.c_str(),
         (struct sockaddr*)&connect_to_addr, &connect_to_addrlen)<0) {
-        LogPrintf("astra: Error parsing socket address %s\n", target);
+        LogPrintf("Lux: Error parsing socket address %s\n", target);
         return false;
     }
 
@@ -213,20 +213,20 @@ bool AstraControlConnection::Connect(const std::string &target, const Connection
     b_conn = bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
     if (!b_conn)
         return false;
-    bufferevent_setcb(b_conn, AstraControlConnection::readcb, NULL, AstraControlConnection::eventcb, this);
+    bufferevent_setcb(b_conn, LuxControlConnection::readcb, NULL, LuxControlConnection::eventcb, this);
     bufferevent_enable(b_conn, EV_READ|EV_WRITE);
     this->connected = _connected;
     this->disconnected = _disconnected;
 
     // Finally, connect to target
     if (bufferevent_socket_connect(b_conn, (struct sockaddr*)&connect_to_addr, connect_to_addrlen) < 0) {
-        LogPrintf("astra: Error connecting to address %s\n", target);
+        LogPrintf("Lux: Error connecting to address %s\n", target);
         return false;
     }
     return true;
 }
 
-bool AstraControlConnection::Disconnect()
+bool LuxControlConnection::Disconnect()
 {
     if (b_conn)
         bufferevent_free(b_conn);
@@ -234,7 +234,7 @@ bool AstraControlConnection::Disconnect()
     return true;
 }
 
-bool AstraControlConnection::Command(const std::string &cmd, const ReplyHandlerCB& reply_handler)
+bool LuxControlConnection::Command(const std::string &cmd, const ReplyHandlerCB& reply_handler)
 {
     if (!b_conn)
         return false;
@@ -247,7 +247,7 @@ bool AstraControlConnection::Command(const std::string &cmd, const ReplyHandlerC
     return true;
 }
 
-static std::pair<std::string,std::string> SplitAstraReplyLine(const std::string &s)
+static std::pair<std::string,std::string> SplitLuxReplyLine(const std::string &s)
 {
     size_t ptr=0;
     std::string type;
@@ -261,7 +261,7 @@ static std::pair<std::string,std::string> SplitAstraReplyLine(const std::string 
 }
 
 
-static std::map<std::string,std::string> ParseAstraReplyMapping(const std::string &s)
+static std::map<std::string,std::string> ParseLuxReplyMapping(const std::string &s)
 {
     std::map<std::string,std::string> mapping;
     size_t ptr=0;
@@ -309,7 +309,7 @@ static std::map<std::string,std::string> ParseAstraReplyMapping(const std::strin
                         // but terminate at the first character that is not a valid
                         // octal digit if encountered sooner.
                         for (j = 1; j < 3 && (i+j) < value.size() && '0' <= value[i+j] && value[i+j] <= '7'; ++j) {}
-                        // Astra restricts first digit to 0-3 for three-digit octals.
+                        // Lux restricts first digit to 0-3 for three-digit octals.
                         // A leading digit of 4-7 would therefore be interpreted as
                         // a two-digit octal.
                         if (j == 3 && value[i] > '3') {
@@ -383,16 +383,16 @@ static bool WriteBinaryFile(const std::string &filename, const std::string &data
     return true;
 }
 
-/****** Bitcoin specific AstraController implementation ********/
+/****** Bitcoin specific LuxController implementation ********/
 
-/** Controller that connects to Astra control socket, authenticate, then create
+/** Controller that connects to Lux control socket, authenticate, then create
  * and maintain a ephemeral hidden service.
  */
-class AstraController
+class LuxController
 {
 public:
-    AstraController(struct event_base* base, const std::string& target);
-    ~AstraController();
+    LuxController(struct event_base* base, const std::string& target);
+    ~LuxController();
 
     /** Get name fo file to store private key in */
     std::string GetPrivateKeyFile();
@@ -402,7 +402,7 @@ public:
 private:
     struct event_base* base;
     std::string target;
-    AstraControlConnection conn;
+    LuxControlConnection conn;
     std::string private_key;
     std::string service_id;
     bool reconnect;
@@ -415,44 +415,44 @@ private:
     std::vector<uint8_t> clientNonce;
 
     /** Callback for ADD_ONION result */
-    void add_onion_cb(AstraControlConnection& conn, const AstraControlReply& reply);
+    void add_onion_cb(LuxControlConnection& conn, const LuxControlReply& reply);
     /** Callback for AUTHENTICATE result */
-    void auth_cb(AstraControlConnection& conn, const AstraControlReply& reply);
+    void auth_cb(LuxControlConnection& conn, const LuxControlReply& reply);
     /** Callback for AUTHCHALLENGE result */
-    void authchallenge_cb(AstraControlConnection& conn, const AstraControlReply& reply);
+    void authchallenge_cb(LuxControlConnection& conn, const LuxControlReply& reply);
     /** Callback for PROTOCOLINFO result */
-    void protocolinfo_cb(AstraControlConnection& conn, const AstraControlReply& reply);
+    void protocolinfo_cb(LuxControlConnection& conn, const LuxControlReply& reply);
     /** Callback after successful connection */
-    void connected_cb(AstraControlConnection& conn);
+    void connected_cb(LuxControlConnection& conn);
     /** Callback after connection lost or failed connection attempt */
-    void disconnected_cb(AstraControlConnection& conn);
+    void disconnected_cb(LuxControlConnection& conn);
 
     /** Callback for reconnect timer */
     static void reconnect_cb(evutil_socket_t fd, short what, void *arg);
 };
 
-AstraController::AstraController(struct event_base* _base, const std::string& _target):
+LuxController::LuxController(struct event_base* _base, const std::string& _target):
     base(_base),
     target(_target), conn(base), reconnect(true), reconnect_ev(0),
     reconnect_timeout(RECONNECT_TIMEOUT_START)
 {
     reconnect_ev = event_new(base, -1, 0, reconnect_cb, this);
     if (!reconnect_ev)
-        LogPrintf("astra: Failed to create event for reconnection: out of memory?\n");
+        LogPrintf("Lux: Failed to create event for reconnection: out of memory?\n");
     // Start connection attempts immediately
-    if (!conn.Connect(_target, boost::bind(&AstraController::connected_cb, this, _1),
-         boost::bind(&AstraController::disconnected_cb, this, _1) )) {
-        LogPrintf("astra: Initiating connection to Astra control port %s failed\n", _target);
+    if (!conn.Connect(_target, boost::bind(&LuxController::connected_cb, this, _1),
+         boost::bind(&LuxController::disconnected_cb, this, _1) )) {
+        LogPrintf("Lux: Initiating connection to Lux control port %s failed\n", _target);
     }
     // Read service private key if cached
     std::pair<bool,std::string> pkf = ReadBinaryFile(GetPrivateKeyFile());
     if (pkf.first) {
-        LogPrint("astra", "astra: Reading cached private key from %s\n", GetPrivateKeyFile());
+        LogPrint("Lux", "Lux: Reading cached private key from %s\n", GetPrivateKeyFile());
         private_key = pkf.second;
     }
 }
 
-AstraController::~AstraController()
+LuxController::~LuxController()
 {
     if (reconnect_ev) {
         event_free(reconnect_ev);
@@ -463,12 +463,12 @@ AstraController::~AstraController()
     }
 }
 
-void AstraController::add_onion_cb(AstraControlConnection& _conn, const AstraControlReply& reply)
+void LuxController::add_onion_cb(LuxControlConnection& _conn, const LuxControlReply& reply)
 {
     if (reply.code == 250) {
-        LogPrint("astra", "astra: ADD_ONION successful\n");
+        LogPrint("Lux", "Lux: ADD_ONION successful\n");
         for (const std::string &s : reply.lines) {
-            std::map<std::string,std::string> m = ParseAstraReplyMapping(s);
+            std::map<std::string,std::string> m = ParseLuxReplyMapping(s);
             std::map<std::string,std::string>::iterator i;
             if ((i = m.find("ServiceID")) != m.end())
                 service_id = i->second;
@@ -476,34 +476,34 @@ void AstraController::add_onion_cb(AstraControlConnection& _conn, const AstraCon
                 private_key = i->second;
         }
         if (service_id.empty()) {
-            LogPrintf("astra: Error parsing ADD_ONION parameters:\n");
+            LogPrintf("Lux: Error parsing ADD_ONION parameters:\n");
             for (const std::string &s : reply.lines) {
                 LogPrintf("    %s\n", SanitizeString(s));
             }
             return;
         }
         LookupNumeric(std::string(service_id+".onion").c_str(), service, GetListenPort());
-        LogPrintf("astra: Got service ID %s, advertising service %s\n", service_id, service.ToString());
+        LogPrintf("Lux: Got service ID %s, advertising service %s\n", service_id, service.ToString());
         if (WriteBinaryFile(GetPrivateKeyFile(), private_key)) {
-            LogPrint("astra", "astra: Cached service private key to %s\n", GetPrivateKeyFile());
+            LogPrint("Lux", "Lux: Cached service private key to %s\n", GetPrivateKeyFile());
         } else {
-            LogPrintf("astra: Error writing service private key to %s\n", GetPrivateKeyFile());
+            LogPrintf("Lux: Error writing service private key to %s\n", GetPrivateKeyFile());
         }
         AddLocal(service, LOCAL_MANUAL);
         // ... onion requested - keep connection open
     } else if (reply.code == 510) { // 510 Unrecognized command
-        LogPrintf("astra: Add onion failed with unrecognized command (You probably need to upgrade Astra)\n");
+        LogPrintf("Lux: Add onion failed with unrecognized command (You probably need to upgrade Lux)\n");
     } else {
-        LogPrintf("astra: Add onion failed; error code %d\n", reply.code);
+        LogPrintf("Lux: Add onion failed; error code %d\n", reply.code);
     }
 }
 
-void AstraController::auth_cb(AstraControlConnection& _conn, const AstraControlReply& reply)
+void LuxController::auth_cb(LuxControlConnection& _conn, const LuxControlReply& reply)
 {
     if (reply.code == 250) {
-        LogPrint("astra", "astra: Authentication successful\n");
+        LogPrint("Lux", "Lux: Authentication successful\n");
 
-        // Now that we know Astra is running setup the proxy for onion addresses
+        // Now that we know Lux is running setup the proxy for onion addresses
         // if -onion isn't set to something else.
         if (GetArg("-onion", "") == "") {
             CService resolved;
@@ -520,16 +520,16 @@ void AstraController::auth_cb(AstraControlConnection& _conn, const AstraControlR
         // Note that the 'virtual' port doesn't have to be the same as our internal port, but this is just a convenient
         // choice.  TODO; refactor the shutdown sequence some day.
         _conn.Command(strprintf("ADD_ONION %s Port=%i,127.0.0.1:%i", private_key, GetListenPort(), GetListenPort()),
-            boost::bind(&AstraController::add_onion_cb, this, _1, _2));
+            boost::bind(&LuxController::add_onion_cb, this, _1, _2));
     } else {
-        LogPrintf("astra: Authentication failed\n");
+        LogPrintf("Lux: Authentication failed\n");
     }
 }
 
-/** Compute Astra SAFECOOKIE response.
+/** Compute Lux SAFECOOKIE response.
  *
  *    ServerHash is computed as:
- *      HMAC-SHA256("Astra safe cookie authentication server-to-controller hash",
+ *      HMAC-SHA256("Lux safe cookie authentication server-to-controller hash",
  *                  CookieString | ClientNonce | ServerNonce)
  *    (with the HMAC key as its first argument)
  *
@@ -538,7 +538,7 @@ void AstraController::auth_cb(AstraControlConnection& _conn, const AstraControlR
  *    and the only authentication string which that AUTHENTICATE command
  *    will accept is:
  *
- *      HMAC-SHA256("Astra safe cookie authentication controller-to-server hash",
+ *      HMAC-SHA256("Lux safe cookie authentication controller-to-server hash",
  *                  CookieString | ClientNonce | ServerNonce)
  *
  */
@@ -553,124 +553,124 @@ static std::vector<uint8_t> ComputeResponse(const std::string &key, const std::v
     return computedHash;
 }
 
-void AstraController::authchallenge_cb(AstraControlConnection& _conn, const AstraControlReply& reply)
+void LuxController::authchallenge_cb(LuxControlConnection& _conn, const LuxControlReply& reply)
 {
     if (reply.code == 250) {
-        LogPrint("astra", "astra: SAFECOOKIE authentication challenge successful\n");
-        std::pair<std::string,std::string> l = SplitAstraReplyLine(reply.lines[0]);
+        LogPrint("Lux", "Lux: SAFECOOKIE authentication challenge successful\n");
+        std::pair<std::string,std::string> l = SplitLuxReplyLine(reply.lines[0]);
         if (l.first == "AUTHCHALLENGE") {
-            std::map<std::string,std::string> m = ParseAstraReplyMapping(l.second);
+            std::map<std::string,std::string> m = ParseLuxReplyMapping(l.second);
             if (m.empty()) {
-                LogPrintf("astra: Error parsing AUTHCHALLENGE parameters: %s\n", SanitizeString(l.second));
+                LogPrintf("Lux: Error parsing AUTHCHALLENGE parameters: %s\n", SanitizeString(l.second));
                 return;
             }
             std::vector<uint8_t> serverHash = ParseHex(m["SERVERHASH"]);
             std::vector<uint8_t> serverNonce = ParseHex(m["SERVERNONCE"]);
-            LogPrint("astra", "astra: AUTHCHALLENGE ServerHash %s ServerNonce %s\n", HexStr(serverHash), HexStr(serverNonce));
+            LogPrint("Lux", "Lux: AUTHCHALLENGE ServerHash %s ServerNonce %s\n", HexStr(serverHash), HexStr(serverNonce));
             if (serverNonce.size() != 32) {
-                LogPrintf("astra: ServerNonce is not 32 bytes, as required by spec\n");
+                LogPrintf("Lux: ServerNonce is not 32 bytes, as required by spec\n");
                 return;
             }
 
-            std::vector<uint8_t> computedServerHash = ComputeResponse(ASTRA_SAFE_SERVERKEY, cookie, clientNonce, serverNonce);
+            std::vector<uint8_t> computedServerHash = ComputeResponse(LUX_SAFE_SERVERKEY, cookie, clientNonce, serverNonce);
             if (computedServerHash != serverHash) {
-                LogPrintf("astra: ServerHash %s does not match expected ServerHash %s\n", HexStr(serverHash), HexStr(computedServerHash));
+                LogPrintf("Lux: ServerHash %s does not match expected ServerHash %s\n", HexStr(serverHash), HexStr(computedServerHash));
                 return;
             }
 
-            std::vector<uint8_t> computedClientHash = ComputeResponse(ASTRA_SAFE_CLIENTKEY, cookie, clientNonce, serverNonce);
-            _conn.Command("AUTHENTICATE " + HexStr(computedClientHash), boost::bind(&AstraController::auth_cb, this, _1, _2));
+            std::vector<uint8_t> computedClientHash = ComputeResponse(LUX_SAFE_CLIENTKEY, cookie, clientNonce, serverNonce);
+            _conn.Command("AUTHENTICATE " + HexStr(computedClientHash), boost::bind(&LuxController::auth_cb, this, _1, _2));
         } else {
-            LogPrintf("astra: Invalid reply to AUTHCHALLENGE\n");
+            LogPrintf("Lux: Invalid reply to AUTHCHALLENGE\n");
         }
     } else {
-        LogPrintf("astra: SAFECOOKIE authentication challenge failed\n");
+        LogPrintf("Lux: SAFECOOKIE authentication challenge failed\n");
     }
 }
 
-void AstraController::protocolinfo_cb(AstraControlConnection& _conn, const AstraControlReply& reply)
+void LuxController::protocolinfo_cb(LuxControlConnection& _conn, const LuxControlReply& reply)
 {
     if (reply.code == 250) {
         std::set<std::string> methods;
         std::string cookiefile;
         /*
-         * 250-AUTH METHODS=COOKIE,SAFECOOKIE COOKIEFILE="/home/x/.astra/control_auth_cookie"
+         * 250-AUTH METHODS=COOKIE,SAFECOOKIE COOKIEFILE="/home/x/.Lux/control_auth_cookie"
          * 250-AUTH METHODS=NULL
          * 250-AUTH METHODS=HASHEDPASSWORD
          */
         for (const std::string &s : reply.lines) {
-            std::pair<std::string,std::string> l = SplitAstraReplyLine(s);
+            std::pair<std::string,std::string> l = SplitLuxReplyLine(s);
             if (l.first == "AUTH") {
-                std::map<std::string,std::string> m = ParseAstraReplyMapping(l.second);
+                std::map<std::string,std::string> m = ParseLuxReplyMapping(l.second);
                 std::map<std::string,std::string>::iterator i;
                 if ((i = m.find("METHODS")) != m.end())
                     boost::split(methods, i->second, boost::is_any_of(","));
                 if ((i = m.find("COOKIEFILE")) != m.end())
                     cookiefile = i->second;
             } else if (l.first == "VERSION") {
-                std::map<std::string,std::string> m = ParseAstraReplyMapping(l.second);
+                std::map<std::string,std::string> m = ParseLuxReplyMapping(l.second);
                 std::map<std::string,std::string>::iterator i;
-                if ((i = m.find("Astra")) != m.end()) {
-                    LogPrint("astra", "astra: Connected to Astra version %s\n", i->second);
+                if ((i = m.find("Lux")) != m.end()) {
+                    LogPrint("Lux", "Lux: Connected to Lux version %s\n", i->second);
                 }
             }
         }
         for (const std::string &s : methods) {
-            LogPrint("astra", "astra: Supported authentication method: %s\n", s);
+            LogPrint("Lux", "Lux: Supported authentication method: %s\n", s);
         }
         // Prefer NULL, otherwise SAFECOOKIE. If a password is provided, use HASHEDPASSWORD
         /* Authentication:
-         *   cookie:   hex-encoded ~/.astra/control_auth_cookie
+         *   cookie:   hex-encoded ~/.Lux/control_auth_cookie
          *   password: "password"
          */
-        std::string astrapassword = GetArg("-astrapassword", "");
-        if (!astrapassword.empty()) {
+        std::string Luxpassword = GetArg("-Luxpassword", "");
+        if (!Luxpassword.empty()) {
             if (methods.count("HASHEDPASSWORD")) {
-                LogPrint("astra", "astra: Using HASHEDPASSWORD authentication\n");
-                boost::replace_all(astrapassword, "\"", "\\\"");
-                _conn.Command("AUTHENTICATE \"" + astrapassword + "\"", boost::bind(&AstraController::auth_cb, this, _1, _2));
+                LogPrint("Lux", "Lux: Using HASHEDPASSWORD authentication\n");
+                boost::replace_all(Luxpassword, "\"", "\\\"");
+                _conn.Command("AUTHENTICATE \"" + Luxpassword + "\"", boost::bind(&LuxController::auth_cb, this, _1, _2));
             } else {
-                LogPrintf("astra: Password provided with -astrapassword, but HASHEDPASSWORD authentication is not available\n");
+                LogPrintf("Lux: Password provided with -Luxpassword, but HASHEDPASSWORD authentication is not available\n");
             }
         } else if (methods.count("NULL")) {
-            LogPrint("astra", "astra: Using NULL authentication\n");
-            _conn.Command("AUTHENTICATE", boost::bind(&AstraController::auth_cb, this, _1, _2));
+            LogPrint("Lux", "Lux: Using NULL authentication\n");
+            _conn.Command("AUTHENTICATE", boost::bind(&LuxController::auth_cb, this, _1, _2));
         } else if (methods.count("SAFECOOKIE")) {
-            // Cookie: hexdump -e '32/1 "%02x""\n"'  ~/.astra/control_auth_cookie
-            LogPrint("astra", "astra: Using SAFECOOKIE authentication, reading cookie authentication from %s\n", cookiefile);
-            std::pair<bool,std::string> status_cookie = ReadBinaryFile(cookiefile, ASTRA_COOKIE_SIZE);
-            if (status_cookie.first && status_cookie.second.size() == ASTRA_COOKIE_SIZE) {
-                // _conn.Command("AUTHENTICATE " + HexStr(status_cookie.second), boost::bind(&AstraController::auth_cb, this, _1, _2));
+            // Cookie: hexdump -e '32/1 "%02x""\n"'  ~/.Lux/control_auth_cookie
+            LogPrint("Lux", "Lux: Using SAFECOOKIE authentication, reading cookie authentication from %s\n", cookiefile);
+            std::pair<bool,std::string> status_cookie = ReadBinaryFile(cookiefile, LUX_COOKIE_SIZE);
+            if (status_cookie.first && status_cookie.second.size() == LUX_COOKIE_SIZE) {
+                // _conn.Command("AUTHENTICATE " + HexStr(status_cookie.second), boost::bind(&LuxController::auth_cb, this, _1, _2));
                 cookie = std::vector<uint8_t>(status_cookie.second.begin(), status_cookie.second.end());
-                clientNonce = std::vector<uint8_t>(ASTRA_NONCE_SIZE, 0);
-                GetRandBytes(&clientNonce[0], ASTRA_NONCE_SIZE);
-                _conn.Command("AUTHCHALLENGE SAFECOOKIE " + HexStr(clientNonce), boost::bind(&AstraController::authchallenge_cb, this, _1, _2));
+                clientNonce = std::vector<uint8_t>(LUX_NONCE_SIZE, 0);
+                GetRandBytes(&clientNonce[0], LUX_NONCE_SIZE);
+                _conn.Command("AUTHCHALLENGE SAFECOOKIE " + HexStr(clientNonce), boost::bind(&LuxController::authchallenge_cb, this, _1, _2));
             } else {
                 if (status_cookie.first) {
-                    LogPrintf("astra: Authentication cookie %s is not exactly %i bytes, as is required by the spec\n", cookiefile, ASTRA_COOKIE_SIZE);
+                    LogPrintf("Lux: Authentication cookie %s is not exactly %i bytes, as is required by the spec\n", cookiefile, LUX_COOKIE_SIZE);
                 } else {
-                    LogPrintf("astra: Authentication cookie %s could not be opened (check permissions)\n", cookiefile);
+                    LogPrintf("Lux: Authentication cookie %s could not be opened (check permissions)\n", cookiefile);
                 }
             }
         } else if (methods.count("HASHEDPASSWORD")) {
-            LogPrintf("astra: The only supported authentication mechanism left is password, but no password provided with -astrapassword\n");
+            LogPrintf("Lux: The only supported authentication mechanism left is password, but no password provided with -Luxpassword\n");
         } else {
-            LogPrintf("astra: No supported authentication method\n");
+            LogPrintf("Lux: No supported authentication method\n");
         }
     } else {
-        LogPrintf("astra: Requesting protocol info failed\n");
+        LogPrintf("Lux: Requesting protocol info failed\n");
     }
 }
 
-void AstraController::connected_cb(AstraControlConnection& _conn)
+void LuxController::connected_cb(LuxControlConnection& _conn)
 {
     reconnect_timeout = RECONNECT_TIMEOUT_START;
     // First send a PROTOCOLINFO command to figure out what authentication is expected
-    if (!_conn.Command("PROTOCOLINFO 1", boost::bind(&AstraController::protocolinfo_cb, this, _1, _2)))
-        LogPrintf("astra: Error sending initial protocolinfo command\n");
+    if (!_conn.Command("PROTOCOLINFO 1", boost::bind(&LuxController::protocolinfo_cb, this, _1, _2)))
+        LogPrintf("Lux: Error sending initial protocolinfo command\n");
 }
 
-void AstraController::disconnected_cb(AstraControlConnection& _conn)
+void LuxController::disconnected_cb(LuxControlConnection& _conn)
 {
     // Stop advertising service when disconnected
     if (service.IsValid())
@@ -679,7 +679,7 @@ void AstraController::disconnected_cb(AstraControlConnection& _conn)
     if (!reconnect)
         return;
 
-    LogPrint("astra", "astra: Not connected to Astra control port %s, trying to reconnect\n", target);
+    LogPrint("Lux", "Lux: Not connected to Lux control port %s, trying to reconnect\n", target);
 
     // Single-shot timer for reconnect. Use exponential backoff.
     struct timeval time = MillisToTimeval(int64_t(reconnect_timeout * 1000.0));
@@ -688,40 +688,40 @@ void AstraController::disconnected_cb(AstraControlConnection& _conn)
     reconnect_timeout *= RECONNECT_TIMEOUT_EXP;
 }
 
-void AstraController::Reconnect()
+void LuxController::Reconnect()
 {
-    /* Try to reconnect and reestablish if we get booted - for example, Astra
+    /* Try to reconnect and reestablish if we get booted - for example, Lux
      * may be restarting.
      */
-    if (!conn.Connect(target, boost::bind(&AstraController::connected_cb, this, _1),
-         boost::bind(&AstraController::disconnected_cb, this, _1) )) {
-        LogPrintf("astra: Re-initiating connection to Astra control port %s failed\n", target);
+    if (!conn.Connect(target, boost::bind(&LuxController::connected_cb, this, _1),
+         boost::bind(&LuxController::disconnected_cb, this, _1) )) {
+        LogPrintf("Lux: Re-initiating connection to Lux control port %s failed\n", target);
     }
 }
 
-std::string AstraController::GetPrivateKeyFile()
+std::string LuxController::GetPrivateKeyFile()
 {
     return (GetDataDir() / "onion_private_key").string();
 }
 
-void AstraController::reconnect_cb(evutil_socket_t fd, short what, void *arg)
+void LuxController::reconnect_cb(evutil_socket_t fd, short what, void *arg)
 {
-    AstraController *self = (AstraController*)arg;
+    LuxController *self = (LuxController*)arg;
     self->Reconnect();
 }
 
 /****** Thread ********/
 static struct event_base *gBase;
-static boost::thread astraControlThread;
+static boost::thread LuxControlThread;
 
-static void AstraControlThread()
+static void LuxControlThread()
 {
-    AstraController ctrl(gBase, GetArg("-astracontrol", DEFAULT_ASTRA_CONTROL));
+    LuxController ctrl(gBase, GetArg("-Luxcontrol", DEFAULT_LUX_CONTROL));
 
     event_base_dispatch(gBase);
 }
 
-void StartAstraControl(boost::thread_group& threadGroup/*, CScheduler& scheduler*/)
+void StartLuxControl(boost::thread_group& threadGroup/*, CScheduler& scheduler*/)
 {
     assert(!gBase);
 #ifdef WIN32
@@ -731,30 +731,30 @@ void StartAstraControl(boost::thread_group& threadGroup/*, CScheduler& scheduler
 #endif
     gBase = event_base_new();
     if (!gBase) {
-        LogPrintf("astra: Unable to create event_base\n");
+        LogPrintf("Lux: Unable to create event_base\n");
         return;
     }
 
-    astraControlThread = boost::thread(boost::bind(&TraceThread<void (*)()>, "astracontrol", &AstraControlThread));
+    LuxControlThread = boost::thread(boost::bind(&TraceThread<void (*)()>, "Luxcontrol", &LuxControlThread));
 }
 
-void InterruptAstraControl()
+void InterruptLuxControl()
 {
     if (gBase) {
-        LogPrintf("astra: Thread interrupt\n");
+        LogPrintf("Lux: Thread interrupt\n");
         event_base_loopbreak(gBase);
     }
 }
 
-void StopAstraControl()
+void StopLuxControl()
 {
     // timed_join() avoids the wallet not closing during a repair-restart. For a 'normal' wallet exit
     // it behaves for our cases exactly like the normal join()
     if (gBase) {
 #if BOOST_VERSION >= 105000
-        astraControlThread.try_join_for(boost::chrono::seconds(1));
+        LuxControlThread.try_join_for(boost::chrono::seconds(1));
 #else
-        astraControlThread.timed_join(boost::posix_time::seconds(1));
+        LuxControlThread.timed_join(boost::posix_time::seconds(1));
 #endif
         event_base_free(gBase);
         gBase = 0;

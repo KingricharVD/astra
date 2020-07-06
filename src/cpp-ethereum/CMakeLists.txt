@@ -44,7 +44,7 @@ endif()
 
 set(CMAKE_SKIP_INSTALL_ALL_DEPENDENCY On)
 
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)### astra
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)### Lux
 
 include(EthOptions)
 include(EthCompilerSettings)

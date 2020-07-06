@@ -1,12 +1,12 @@
-#ifndef QTASTRAUPDATER_UPDATEBUTTON_H
-#define QTASTRAUPDATER_UPDATEBUTTON_H
+#ifndef QTLUXUPDATER_UPDATEBUTTON_H
+#define QTLUXUPDATER_UPDATEBUTTON_H
 
 #include "updatecontroller.h"
 
 #include <qscopedpointer.h>
 #include <qwidget.h>
 
-namespace QtAstraUpdater
+namespace QtLuxUpdater
 {
 
 class UpdateButtonPrivate;
@@ -72,4 +72,4 @@ private:
 
 }
 
-#endif // QTASTRAUPDATER_UPDATEBUTTON_H
+#endif // QTLUXUPDATER_UPDATEBUTTON_H

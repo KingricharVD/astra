@@ -1,29 +1,29 @@
 #include <sstream>
 #include <util.h>
 #include <main.h>
-#include "astrastate.h"
+#include "Luxstate.h"
 
 using namespace std;
 using namespace dev;
 using namespace dev::eth;
 
-AstraState::AstraState(u256 const& _accountStartNonce, OverlayDB const& _db, const string& _path, BaseState _bs) :
+LuxState::LuxState(u256 const& _accountStartNonce, OverlayDB const& _db, const string& _path, BaseState _bs) :
         State(_accountStartNonce, _db, _bs) {
-            dbUTXO = AstraState::openDB(_path + "/astraDB", sha3(rlp("")), WithExisting::Trust);
+            dbUTXO = LuxState::openDB(_path + "/LuxDB", sha3(rlp("")), WithExisting::Trust);
 	        stateUTXO = SecureTrieDB<Address, OverlayDB>(&dbUTXO);
 }
 
-AstraState::AstraState() : dev::eth::State(dev::Invalid256, dev::OverlayDB(), dev::eth::BaseState::PreExisting) {
+LuxState::LuxState() : dev::eth::State(dev::Invalid256, dev::OverlayDB(), dev::eth::BaseState::PreExisting) {
     dbUTXO = OverlayDB();
     stateUTXO = SecureTrieDB<Address, OverlayDB>(&dbUTXO);
 }
 
-ResultExecute AstraState::execute(EnvInfo const& _envInfo, SealEngineFace const& _sealEngine, AstraTransaction const& _t, Permanence _p, OnOpFunc const& _onOp){
+ResultExecute LuxState::execute(EnvInfo const& _envInfo, SealEngineFace const& _sealEngine, LuxTransaction const& _t, Permanence _p, OnOpFunc const& _onOp){
 
     assert(_t.getVersion().toRaw() == VersionVM::GetEVMDefault().toRaw());
 
     addBalance(_t.sender(), _t.value() + (_t.gas() * _t.gasPrice()));
-    newAddress = _t.isCreation() ? createAstraAddress(_t.getHashWith(), _t.getNVout()) : dev::Address();
+    newAddress = _t.isCreation() ? createLuxAddress(_t.getHashWith(), _t.getNVout()) : dev::Address();
 
     _sealEngine.deleteAddresses.insert({_t.sender(), _envInfo.author()});
 
@@ -78,7 +78,7 @@ ResultExecute AstraState::execute(EnvInfo const& _envInfo, SealEngineFace const&
                 printfErrorLog(res.excepted);
             }
 
-            astra::commit(cacheUTXO, stateUTXO, m_cache);
+            Lux::commit(cacheUTXO, stateUTXO, m_cache);
             cacheUTXO.clear();
             bool removeEmptyAccounts = _envInfo.number() >= _sealEngine.chainParams().u256Param("EIP158ForkBlock");
             commit(removeEmptyAccounts ? State::CommitBehaviour::RemoveEmptyAccounts : State::CommitBehaviour::KeepEmptyAccounts);
@@ -126,7 +126,7 @@ ResultExecute AstraState::execute(EnvInfo const& _envInfo, SealEngineFace const&
     }
 }
 
-std::unordered_map<dev::Address, Vin> AstraState::vins() const // temp
+std::unordered_map<dev::Address, Vin> LuxState::vins() const // temp
 {
     std::unordered_map<dev::Address, Vin> ret;
     for (auto& i: cacheUTXO)
@@ -140,19 +140,19 @@ std::unordered_map<dev::Address, Vin> AstraState::vins() const // temp
     return ret;
 }
 
-void AstraState::transferBalance(dev::Address const& _from, dev::Address const& _to, dev::u256 const& _value) {
+void LuxState::transferBalance(dev::Address const& _from, dev::Address const& _to, dev::u256 const& _value) {
     subBalance(_from, _value);
     addBalance(_to, _value);
     if (_value > 0)
         transfers.push_back({_from, _to, _value});
 }
 
-Vin const* AstraState::vin(dev::Address const& _a) const
+Vin const* LuxState::vin(dev::Address const& _a) const
 {
-    return const_cast<AstraState*>(this)->vin(_a);
+    return const_cast<LuxState*>(this)->vin(_a);
 }
 
-Vin* AstraState::vin(dev::Address const& _addr)
+Vin* LuxState::vin(dev::Address const& _addr)
 {
     auto it = cacheUTXO.find(_addr);
     if (it == cacheUTXO.end()){
@@ -171,12 +171,12 @@ Vin* AstraState::vin(dev::Address const& _addr)
     return &it->second;
 }
 
-// void AstraState::commit(CommitBehaviour _commitBehaviour)
+// void LuxState::commit(CommitBehaviour _commitBehaviour)
 // {
 //     if (_commitBehaviour == CommitBehaviour::RemoveEmptyAccounts)
 //         removeEmptyAccounts();
 
-//     astra::commit(cacheUTXO, stateUTXO, m_cache);
+//     Lux::commit(cacheUTXO, stateUTXO, m_cache);
 //     cacheUTXO.clear();
 
 //     m_touched += dev::eth::commit(m_cache, m_state);
@@ -185,7 +185,7 @@ Vin* AstraState::vin(dev::Address const& _addr)
 //     m_unchangedCacheEntries.clear();
 // }
 
-void AstraState::kill(dev::Address _addr)
+void LuxState::kill(dev::Address _addr)
 {
     // If the account is not in the db, nothing to kill.
     if (auto a = account(_addr))
@@ -194,7 +194,7 @@ void AstraState::kill(dev::Address _addr)
         v->alive = 0;
 }
 
-void AstraState::addBalance(dev::Address const& _id, dev::u256 const& _amount)
+void LuxState::addBalance(dev::Address const& _id, dev::u256 const& _amount)
 {
     if (dev::eth::Account* a = account(_id))
     {
@@ -225,7 +225,7 @@ void AstraState::addBalance(dev::Address const& _id, dev::u256 const& _amount)
         m_changeLog.emplace_back(dev::eth::detail::Change::Balance, _id, _amount);
 }
 
-const dev::Address AstraState::createAstraAddress(dev::h256 hashTx, uint32_t voutNumber){
+const dev::Address LuxState::createLuxAddress(dev::h256 hashTx, uint32_t voutNumber){
     uint256 hashTXid(h256Touint(hashTx));
 	std::vector<unsigned char> txIdAndVout(hashTXid.begin(), hashTXid.end());
 	std::vector<unsigned char> voutNumberChrs;
@@ -242,7 +242,7 @@ const dev::Address AstraState::createAstraAddress(dev::h256 hashTx, uint32_t vou
 	return dev::Address(hashTxIdAndVout);
 }
 
-void AstraState::deleteAccounts(std::set<dev::Address>& addrs){
+void LuxState::deleteAccounts(std::set<dev::Address>& addrs){
     for(dev::Address addr : addrs){
         dev::eth::Account* acc = const_cast<dev::eth::Account*>(account(addr));
         if(acc)
@@ -253,7 +253,7 @@ void AstraState::deleteAccounts(std::set<dev::Address>& addrs){
     }
 }
 
-void AstraState::updateUTXO(const std::unordered_map<dev::Address, Vin>& vins){
+void LuxState::updateUTXO(const std::unordered_map<dev::Address, Vin>& vins){
     for(auto& v : vins){
         Vin* vi = const_cast<Vin*>(vin(v.first));
 
@@ -268,7 +268,7 @@ void AstraState::updateUTXO(const std::unordered_map<dev::Address, Vin>& vins){
     }
 }
 
-void AstraState::printfErrorLog(const dev::eth::TransactionException er){
+void LuxState::printfErrorLog(const dev::eth::TransactionException er){
     std::stringstream ss;
     ss << er;
     clog(ExecutiveWarnChannel) << "VM exception:" << ss.str();

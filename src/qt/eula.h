@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2018 The ASTRA developers
+// Copyright (c) 2015-2018 The LUX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef ASTRA_QT_EULA_H
-#define ASTRA_QT_EULA_H
+#ifndef LUX_QT_EULA_H
+#define LUX_QT_EULA_H
 
 #include <QDialog>
 
@@ -34,4 +34,4 @@ private:
     bool isRemembered;
 };
 
-#endif // ASTRA_QT_EULA_H
+#endif // LUX_QT_EULA_H

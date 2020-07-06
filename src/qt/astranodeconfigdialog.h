@@ -1,10 +1,10 @@
-#ifndef ASTRANODECONFIGDIALOG_H
-#define ASTRANODECONFIGDIALOG_H
+#ifndef LUXNODECONFIGDIALOG_H
+#define LUXNODECONFIGDIALOG_H
 
 #include <QDialog>
 
 namespace Ui {
-    class AstraNodeConfigDialog;
+    class LuxNodeConfigDialog;
 }
 
 QT_BEGIN_NAMESPACE
@@ -12,16 +12,16 @@ class QModelIndex;
 QT_END_NAMESPACE
 
 /** Dialog showing transaction details. */
-class AstraNodeConfigDialog : public QDialog
+class LuxNodeConfigDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AstraNodeConfigDialog(QWidget *parent = 0, QString nodeAddress = "123.456.789.123:28666", QString privkey="MASTERNODEPRIVKEY");
-    ~AstraNodeConfigDialog();
+    explicit LuxNodeConfigDialog(QWidget *parent = 0, QString nodeAddress = "123.456.789.123:28666", QString privkey="MASTERNODEPRIVKEY");
+    ~LuxNodeConfigDialog();
 
 private:
-    Ui::AstraNodeConfigDialog *ui;
+    Ui::LuxNodeConfigDialog *ui;
 };
 
-#endif // ASTRANodeConfigDialogNODECONFIGDIALOG_H
+#endif // LUXNodeConfigDialogNODECONFIGDIALOG_H

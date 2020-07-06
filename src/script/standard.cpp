@@ -11,10 +11,10 @@
 #include "utilstrencodings.h"
 
 
-/////////////////////////////////////////////////////////// astra
-#include <astra/astrastate.h>
-#include <astra/astratransaction.h>
-#include <astra/astraDGP.h>
+/////////////////////////////////////////////////////////// Lux
+#include <Lux/Luxstate.h>
+#include <Lux/Luxtransaction.h>
+#include <Lux/LuxDGP.h>
 #include <main.h>
 ///////////////////////////////////////////////////////////
 
@@ -209,7 +209,7 @@ bool Solver(const CScript& scriptPubKey, txnouttype& typeRet, vector<vector<unsi
                 else
                     break;
             }
-                /////////////////////////////////////////////////////////// astra
+                /////////////////////////////////////////////////////////// Lux
             else if (opcode2 == OP_VERSION)
             {
                 if(0 <= opcode1 && opcode1 <= OP_PUSHDATA4)
@@ -305,7 +305,7 @@ bool ExtractDestination(const COutPoint out, const CScript& script, CTxDestinati
     if (ExtractDestination(script, addressRet, typeRet))
         return true;
     if (*typeRet == TX_CREATE) {
-        addressRet = CKeyID(uint160(AstraState::createAstraAddress(uintToh256(out.hash), out.n).asBytes()));
+        addressRet = CKeyID(uint160(LuxState::createLuxAddress(uintToh256(out.hash), out.n).asBytes()));
         // std::cout << CBitcoinAddress(addressRet).ToString()<< " " << out.hash.GetHex() << " " << out.n << std::endl;
         return true;
     }

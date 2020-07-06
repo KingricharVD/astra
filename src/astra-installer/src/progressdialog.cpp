@@ -9,7 +9,7 @@
 #include <QtWinExtras/QWinTaskbarProgress>
 #endif
 
-using namespace QtAstraUpdater;
+using namespace QtLuxUpdater;
 
 ProgressDialog::ProgressDialog(QWidget *parent) :
 	QDialog(parent),

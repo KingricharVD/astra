@@ -1,7 +1,7 @@
-#ifndef QTASTRAUPDATER_UPDATEINFODIALOG_H
-#define QTASTRAUPDATER_UPDATEINFODIALOG_H
+#ifndef QTLUXUPDATER_UPDATEINFODIALOG_H
+#define QTLUXUPDATER_UPDATEINFODIALOG_H
 
-#include "astraupdater/astraupdater.h"
+#include "Luxupdater/Luxupdater.h"
 
 #include <QDialog>
 
@@ -9,7 +9,7 @@ namespace Ui {
 class UpdateInfoDialog;
 }
 
-namespace QtAstraUpdater
+namespace QtLuxUpdater
 {
 
 class UpdateInfoDialog : public QDialog
@@ -24,7 +24,7 @@ public:
 	};
 	Q_ENUM(DialogResult)
 
-	static DialogResult showUpdateInfo(QList<AstraUpdater::AstraUpdateInfo> updates,
+	static DialogResult showUpdateInfo(QList<LuxUpdater::LuxUpdateInfo> updates,
 									   bool &runAsAdmin,
 									   bool editable,
 									   bool detailed,
@@ -45,4 +45,4 @@ private:
 
 }
 
-#endif // QTASTRAUPDATER_UPDATEINFODIALOG_H
+#endif // QTLUXUPDATER_UPDATEINFODIALOG_H

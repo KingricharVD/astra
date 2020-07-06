@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -237,10 +237,10 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop ASTRA server.");
+            "\nStop LUX server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "ASTRA server stopping";
+    return "LUX server stopping";
 }
 
 
@@ -357,16 +357,16 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Astra features */
-        {"astra", "masternode", &masternode, true, true, false},
-        //{"astra", "masternodelist", &masternodelist, true, true, false},
-        //{"astra", "mnbudget", &mnbudget, true, true, false},
-        //{"astra", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
-        //{"astra", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        //{"astra", "mnsync", &mnsync, true, true, false},
-        {"astra", "spork", &spork, true, true, false},
+        /* Lux features */
+        {"Lux", "masternode", &masternode, true, true, false},
+        //{"Lux", "masternodelist", &masternodelist, true, true, false},
+        //{"Lux", "mnbudget", &mnbudget, true, true, false},
+        //{"Lux", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
+        //{"Lux", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        //{"Lux", "mnsync", &mnsync, true, true, false},
+        {"Lux", "spork", &spork, true, true, false},
 #ifdef ENABLE_WALLET
-        //{"astra", "darksend", &darksend, false, false, true}, /* not threadSafe because of SendMoney */
+        //{"Lux", "darksend", &darksend, false, false, true}, /* not threadSafe because of SendMoney */
 
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -643,7 +643,7 @@ vector<string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> astra-cli " + methodname + " " + args + "\n";
+    return "> Lux-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

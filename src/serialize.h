@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,7 +24,7 @@
 
 class CScript;
 
-static const unsigned int MAX_SIZE = 0x10000000; // Astra: Increase max serialized size to 256mb for SC support
+static const unsigned int MAX_SIZE = 0x10000000; // Lux: Increase max serialized size to 256mb for SC support
 
 /**
  * Used to bypass the rule against non-const reference to temporary

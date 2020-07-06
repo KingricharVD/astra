@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Lux
+Comment=Lux P2P Cryptocurrency
+Exec=Lux-qt %u
+Terminal=false
+Type=Application
+Icon=Lux128
+MimeType=x-scheme-handler/Lux;
+Categories=Office;Finance;
+Name[en_AU]=Lux

@@ -1,60 +1,60 @@
-Sample init scripts and service configuration for astrad
+Sample init scripts and service configuration for Luxd
 ==========================================================
 
 Sample scripts and configuration files for systemd, Upstart and OpenRC
 can be found in the contrib/init folder.
 
-    contrib/init/astrad.service:    systemd service unit configuration
-    contrib/init/astrad.openrc:     OpenRC compatible SysV style init script
-    contrib/init/astrad.openrcconf: OpenRC conf.d file
-    contrib/init/astrad.conf:       Upstart service configuration file
-    contrib/init/astrad.init:       CentOS compatible SysV style init script
+    contrib/init/Luxd.service:    systemd service unit configuration
+    contrib/init/Luxd.openrc:     OpenRC compatible SysV style init script
+    contrib/init/Luxd.openrcconf: OpenRC conf.d file
+    contrib/init/Luxd.conf:       Upstart service configuration file
+    contrib/init/Luxd.init:       CentOS compatible SysV style init script
 
 1. Service User
 ---------------------------------
 
-All three startup configurations assume the existence of a "astra" user
+All three startup configurations assume the existence of a "Lux" user
 and group.  They must be created before attempting to use these scripts.
 
 2. Configuration
 ---------------------------------
 
-At a bare minimum, astrad requires that the rpcpassword setting be set
+At a bare minimum, Luxd requires that the rpcpassword setting be set
 when running as a daemon.  If the configuration file does not exist or this
-setting is not set, astrad will shutdown promptly after startup.
+setting is not set, Luxd will shutdown promptly after startup.
 
 This password does not have to be remembered or typed as it is mostly used
-as a fixed token that astrad and client programs read from the configuration
+as a fixed token that Luxd and client programs read from the configuration
 file, however it is recommended that a strong and secure password be used
 as this password is security critical to securing the wallet should the
 wallet be enabled.
 
-If astrad is run with "-daemon" flag, and no rpcpassword is set, it will
+If Luxd is run with "-daemon" flag, and no rpcpassword is set, it will
 print a randomly generated suitable password to stderr.  You can also
 generate one from the shell yourself like this:
 
 bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'
 
-Once you have a password in hand, set rpcpassword= in /etc/astra/astra.conf
+Once you have a password in hand, set rpcpassword= in /etc/Lux/Lux.conf
 
 For an example configuration file that describes the configuration settings,
-see contrib/debian/examples/astra.conf.
+see contrib/debian/examples/Lux.conf.
 
 3. Paths
 ---------------------------------
 
 All three configurations assume several paths that might need to be adjusted.
 
-Binary:              /usr/bin/astrad
-Configuration file:  /etc/astra/astra.conf
-Data directory:      /var/lib/astrad
-PID file:            /var/run/astrad/astrad.pid (OpenRC and Upstart)
-                     /var/lib/astrad/astrad.pid (systemd)
+Binary:              /usr/bin/Luxd
+Configuration file:  /etc/Lux/Lux.conf
+Data directory:      /var/lib/Luxd
+PID file:            /var/run/Luxd/Luxd.pid (OpenRC and Upstart)
+                     /var/lib/Luxd/Luxd.pid (systemd)
 
 The configuration file, PID directory (if applicable) and data directory
-should all be owned by the astra user and group.  It is advised for security
+should all be owned by the Lux user and group.  It is advised for security
 reasons to make the configuration file and data directory only readable by the
-astra user and group.  Access to astra-cli and other astrad rpc clients
+Lux user and group.  Access to Lux-cli and other Luxd rpc clients
 can then be controlled by group membership.
 
 4. Installing Service Configuration
@@ -66,19 +66,19 @@ Installing this .service file consists on just copying it to
 /usr/lib/systemd/system directory, followed by the command
 "systemctl daemon-reload" in order to update running systemd configuration.
 
-To test, run "systemctl start astrad" and to enable for system startup run
-"systemctl enable astrad"
+To test, run "systemctl start Luxd" and to enable for system startup run
+"systemctl enable Luxd"
 
 4b) OpenRC
 
-Rename astrad.openrc to astrad and drop it in /etc/init.d.  Double
+Rename Luxd.openrc to Luxd and drop it in /etc/init.d.  Double
 check ownership and permissions and make it executable.  Test it with
-"/etc/init.d/astrad start" and configure it to run on startup with
-"rc-update add astrad"
+"/etc/init.d/Luxd start" and configure it to run on startup with
+"rc-update add Luxd"
 
 4c) Upstart (for Debian/Ubuntu based distributions)
 
-Drop astrad.conf in /etc/init.  Test by running "service astrad start"
+Drop Luxd.conf in /etc/init.  Test by running "service Luxd start"
 it will automatically start on reboot.
 
 NOTE: This script is incompatible with CentOS 5 and Amazon Linux 2014 as they
@@ -86,11 +86,11 @@ use old versions of Upstart and do not supply the start-stop-daemon uitility.
 
 4d) CentOS
 
-Copy astrad.init to /etc/init.d/astrad. Test by running "service astrad start".
+Copy Luxd.init to /etc/init.d/Luxd. Test by running "service Luxd start".
 
-Using this script, you can adjust the path and flags to the astrad program by
-setting the ASTRAD and FLAGS environment variables in the file
-/etc/sysconfig/astrad. You can also use the DAEMONOPTS environment variable here.
+Using this script, you can adjust the path and flags to the Luxd program by
+setting the LUXD and FLAGS environment variables in the file
+/etc/sysconfig/Luxd. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn
 -----------------------------------

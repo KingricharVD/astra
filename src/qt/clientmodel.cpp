@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The ASTRA developers
+// Copyright (c) 2015-2017 The LUX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -217,9 +217,9 @@ void ClientModel::getGasInfo(uint64_t& blockGasLimit, uint64_t& minGasPrice, uin
 {
     LOCK(cs_main);
 
-    AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
-    blockGasLimit = astraDGP.getBlockGasLimit(chainActive.Height());
-    minGasPrice = CAmount(astraDGP.getMinGasPrice(chainActive.Height()));
+    LuxDGP LuxDGP(globalState.get(), fGettingValuesDGP);
+    blockGasLimit = LuxDGP.getBlockGasLimit(chainActive.Height());
+    minGasPrice = CAmount(LuxDGP.getMinGasPrice(chainActive.Height()));
     nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE) ? minGasPrice : DEFAULT_GAS_PRICE;
 }
 

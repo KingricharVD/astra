@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The ASTRA developers
+// Copyright (c) 2015-2017 The LUX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,18 +19,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(ASTRA);
-    unitlist.append(mASTRA);
-    unitlist.append(uASTRA);
+    unitlist.append(LUX);
+    unitlist.append(mLUX);
+    unitlist.append(uLUX);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case ASTRA:
-    case mASTRA:
-    case uASTRA:
+    case LUX:
+    case mLUX:
+    case uLUX:
         return true;
     default:
         return false;
@@ -40,12 +40,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case ASTRA:
-        return QString("astra");
-    case mASTRA:
-        return QString("mastra");
-    case uASTRA:
-        return QString::fromUtf8("uastra");
+    case LUX:
+        return QString("Lux");
+    case mLUX:
+        return QString("mLux");
+    case uLUX:
+        return QString::fromUtf8("uLux");
     default:
         return QString("???");
     }
@@ -55,23 +55,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case ASTRA:
-            return QString("ASTRA");
-        case mASTRA:
-            return QString("mASTRA");
-        case uASTRA:
-            return QString::fromUtf8("μASTRA");
+        case LUX:
+            return QString("LUX");
+        case mLUX:
+            return QString("mLUX");
+        case uLUX:
+            return QString::fromUtf8("μLUX");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case ASTRA:
-            return QString("tASTRA");
-        case mASTRA:
-            return QString("mtASTRA");
-        case uASTRA:
-            return QString::fromUtf8("μtASTRA");
+        case LUX:
+            return QString("tLUX");
+        case mLUX:
+            return QString("mtLUX");
+        case uLUX:
+            return QString::fromUtf8("μtLUX");
         default:
             return QString("???");
         }
@@ -82,23 +82,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case ASTRA:
-            return QString("ASTRA");
-        case mASTRA:
-            return QString("Milli-ASTRA (1 / 1" THIN_SP_UTF8 "000)");
-        case uASTRA:
-            return QString("Micro-ASTRA (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case LUX:
+            return QString("LUX");
+        case mLUX:
+            return QString("Milli-LUX (1 / 1" THIN_SP_UTF8 "000)");
+        case uLUX:
+            return QString("Micro-LUX (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case ASTRA:
-            return QString("TestASTRAs");
-        case mASTRA:
-            return QString("Milli-TestASTRA (1 / 1" THIN_SP_UTF8 "000)");
-        case uASTRA:
-            return QString("Micro-TestASTRA (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case LUX:
+            return QString("TestLUXs");
+        case mLUX:
+            return QString("Milli-TestLUX (1 / 1" THIN_SP_UTF8 "000)");
+        case uLUX:
+            return QString("Micro-TestLUX (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -108,11 +108,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case ASTRA:
+    case LUX:
         return 100000000;
-    case mASTRA:
+    case mLUX:
         return 100000;
-    case uASTRA:
+    case uLUX:
         return 100;
     default:
         return 100000000;
@@ -133,9 +133,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case ASTRA: return 8;
-    case mASTRA: return 5;
-    case uASTRA: return 2;
+    case LUX: return 8;
+    case mLUX: return 5;
+    case uLUX: return 2;
     default: return 0;
     }
 }

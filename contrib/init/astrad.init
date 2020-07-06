@@ -1,31 +1,31 @@
 #!/bin/bash
 #
-#  astrad The Astracore server.
+#  Luxd The Luxcore server.
 #
 #
 # chkconfig: 345 80 20
-# description: astrad
-# processname: astrad
+# description: Luxd
+# processname: Luxd
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/astrad, see below
-if [ -f /etc/sysconfig/astrad ]; then
-        . /etc/sysconfig/astrad
+# you can override defaults in /etc/sysconfig/Luxd, see below
+if [ -f /etc/sysconfig/Luxd ]; then
+        . /etc/sysconfig/Luxd
 fi
 
 RETVAL=0
 
-prog=astrad
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/astrad
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/astrad}
+prog=Luxd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/Luxd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/Luxd}
 
-# astrad defaults to /usr/bin/astrad, override with BITCOIND_BIN
-bitcoind=${BITCOIND_BIN-/usr/bin/astrad}
+# Luxd defaults to /usr/bin/Luxd, override with BITCOIND_BIN
+bitcoind=${BITCOIND_BIN-/usr/bin/Luxd}
 
-# astrad opts default to -disablewallet, override with BITCOIND_OPTS
+# Luxd opts default to -disablewallet, override with BITCOIND_OPTS
 bitcoind_opts=${BITCOIND_OPTS}
 
 start() {

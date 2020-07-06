@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -2176,7 +2176,7 @@ void CWallet::AvailableCoinsMN(vector<COutput>& vCoins, bool fOnlyConfirmed, con
                 continue;
 
             const int nDepth = pcoin->GetDepthInMainChain();
-            if (nDepth <= 0) // AstraNOTE: coincontrol fix / ignore 0 confirm
+            if (nDepth <= 0) // LuxNOTE: coincontrol fix / ignore 0 confirm
                 continue;
 
             // do not use IX for inputs that have less then 6 blockchain confirmations
@@ -2495,12 +2495,12 @@ bool CWallet::SelectCoinsByDenominations(int nDenom, int64_t nValueMin, int64_t 
 
             // Function returns as follows:
             //
-            // bit 0 - 10000 ASTRA+1 ( bit on if present )
-            // bit 1 - 1000 ASTRA+1
-            // bit 2 - 100 ASTRA+1
-            // bit 3 - 10 ASTRA+1
-            // bit 4 - 1 ASTRA+1
-            // bit 5 - .1 ASTRA+1
+            // bit 0 - 10000 LUX+1 ( bit on if present )
+            // bit 1 - 1000 LUX+1
+            // bit 2 - 100 LUX+1
+            // bit 3 - 10 LUX+1
+            // bit 4 - 1 LUX+1
+            // bit 5 - .1 LUX+1
 
             CTxIn vin = CTxIn(out.tx->GetHash(), out.i);
 
@@ -2916,9 +2916,9 @@ bool CWallet::CreateTransaction(const std::vector<CRecipient>& vecSend, CWalletT
                     if (coin_type == ALL_COINS) {
                         strFailReason = _("Insufficient funds.");
                     } else if (coin_type == ONLY_NONDENOMINATED) {
-                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 ASTRA.");
+                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 LUX.");
                     } else if (coin_type == ONLY_NONDENOMINATED_NOTMN) {
-                        strFailReason = _("Unable to locate enough DarkSend non-denominated funds for this transaction that are not equal 10000 ASTRA.");
+                        strFailReason = _("Unable to locate enough DarkSend non-denominated funds for this transaction that are not equal 10000 LUX.");
                     } else {
                         strFailReason = _("Unable to locate enough DarkSend denominated funds for this transaction.");
                         strFailReason += " " + _("DarkSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.");
@@ -2959,7 +2959,7 @@ bool CWallet::CreateTransaction(const std::vector<CRecipient>& vecSend, CWalletT
                 if (nChange > 0) {
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
-                    // change transaction isn't always pay-to-astra-address
+                    // change transaction isn't always pay-to-Lux-address
                     CScript scriptChange;
 
                     bool combineChange = false;
@@ -4616,11 +4616,11 @@ bool CMerkleTx::IsTransactionLockTimedOut() const
     return false;
 }
 
-bool CWallet::AddAstraNodeConfig(CAstraNodeConfig nodeConfig)
+bool CWallet::AddLuxNodeConfig(CLuxNodeConfig nodeConfig)
 {
-    bool rv = CWalletDB(strWalletFile).WriteAstraNodeConfig(nodeConfig.sAlias, nodeConfig);
+    bool rv = CWalletDB(strWalletFile).WriteLuxNodeConfig(nodeConfig.sAlias, nodeConfig);
     if(rv)
-	uiInterface.NotifyAstraNodeChanged(nodeConfig);
+	uiInterface.NotifyLuxNodeChanged(nodeConfig);
 
     return rv;
 }

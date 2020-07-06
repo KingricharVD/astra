@@ -1,4 +1,4 @@
-#include <astra/storageresults.h>
+#include <Lux/storageresults.h>
 
 StorageResults::StorageResults(std::string const& _path){
 	path = _path + "/resultsDB";

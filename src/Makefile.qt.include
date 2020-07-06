@@ -1,6 +1,6 @@
 # -*- makefile-gmake -*-
 
-bin_PROGRAMS += qt/astra-qt
+bin_PROGRAMS += qt/Lux-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
 if ENABLE_UPDATER
@@ -12,22 +12,22 @@ endif
 endif
 
 
-# astra qt core #
+# Lux qt core #
 QT_TS = \
-  qt/locale/astra_ca.ts \
-  qt/locale/astra_da.ts \
-  qt/locale/astra_de.ts \
-  qt/locale/astra_en.ts \
-  qt/locale/astra_en_US.ts \
-  qt/locale/astra_es.ts \
-  qt/locale/astra_fr.ts \
-  qt/locale/astra_it.ts \
-  qt/locale/astra_ja.ts \
-  qt/locale/astra_pt.ts \
-  qt/locale/astra_ro_RO.ts \
-  qt/locale/astra_ru.ts \
-  qt/locale/astra_vn.ts \
-  qt/locale/astra_zh_TW.ts
+  qt/locale/Lux_ca.ts \
+  qt/locale/Lux_da.ts \
+  qt/locale/Lux_de.ts \
+  qt/locale/Lux_en.ts \
+  qt/locale/Lux_en_US.ts \
+  qt/locale/Lux_es.ts \
+  qt/locale/Lux_fr.ts \
+  qt/locale/Lux_it.ts \
+  qt/locale/Lux_ja.ts \
+  qt/locale/Lux_pt.ts \
+  qt/locale/Lux_ro_RO.ts \
+  qt/locale/Lux_ru.ts \
+  qt/locale/Lux_vn.ts \
+  qt/locale/Lux_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -48,9 +48,9 @@ QT_FORMS_UI = \
   qt/forms/modaloverlay.ui \
   qt/forms/eula.ui \
   qt/forms/masternodemanager.ui \
-  qt/forms/addeditastranode.ui \
+  qt/forms/addeditLuxnode.ui \
   qt/forms/lsrtoken.ui \
-  qt/forms/astranodeconfigdialog.ui \
+  qt/forms/Luxnodeconfigdialog.ui \
   qt/forms/multisenddialog.ui \
   qt/forms/openuridialog.ui \
   qt/forms/optionsdialog.ui \
@@ -71,8 +71,8 @@ QT_FORMS_UI = \
   qt/forms/hexaddressconverter.ui
 
 if ENABLE_UPDATER
- QT_FORMS_UI += astra-installer/src/forms/updateinfodialog.ui \
-                astra-installer/src/forms/progressdialog.ui 
+ QT_FORMS_UI += Lux-installer/src/forms/updateinfodialog.ui \
+                Lux-installer/src/forms/progressdialog.ui 
 endif
 
 QT_MOC_CPP = \
@@ -114,8 +114,8 @@ QT_MOC_CPP = \
   qt/moc_macnotificationhandler.cpp \
   qt/moc_modaloverlay.cpp \
   qt/moc_masternodemanager.cpp \
-  qt/moc_addeditastranode.cpp \
-  qt/moc_astranodeconfigdialog.cpp \
+  qt/moc_addeditLuxnode.cpp \
+  qt/moc_Luxnodeconfigdialog.cpp \
   qt/moc_multisenddialog.cpp \
   qt/moc_notificator.cpp \
   qt/moc_openuridialog.cpp \
@@ -165,13 +165,13 @@ QT_MOC_CPP = \
   qt/moc_hexaddressconverter.cpp
 
 if ENABLE_UPDATER
-  QT_MOC_CPP += astra-installer/src/astraupdater/moc_astraupdater.cpp \
-                astra-installer/src/astraupdater/moc_simplescheduler_p.cpp \
-                astra-installer/src/astraupdater/moc_atomfeeder.cpp \
-                astra-installer/src/astraupdater/moc_downloadmanager.cpp \
-                astra-installer/src/moc_progressdialog_p.cpp \
-                astra-installer/src/moc_updatecontroller.cpp \
-                astra-installer/src/moc_updateinfodialog_p.cpp
+  QT_MOC_CPP += Lux-installer/src/Luxupdater/moc_Luxupdater.cpp \
+                Lux-installer/src/Luxupdater/moc_simplescheduler_p.cpp \
+                Lux-installer/src/Luxupdater/moc_atomfeeder.cpp \
+                Lux-installer/src/Luxupdater/moc_downloadmanager.cpp \
+                Lux-installer/src/moc_progressdialog_p.cpp \
+                Lux-installer/src/moc_updatecontroller.cpp \
+                Lux-installer/src/moc_updateinfodialog_p.cpp
 endif
 
 BITCOIN_MM = \
@@ -179,7 +179,7 @@ BITCOIN_MM = \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/astra.moc \
+  qt/Lux.moc \
   qt/bitcoinamountfield.moc \
   qt/intro.moc \
   qt/eula.moc \
@@ -188,10 +188,10 @@ QT_MOC = \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_astra.cpp
-QT_QRC = qt/astra.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_astra_locale.cpp
-QT_QRC_LOCALE = qt/astra_locale.qrc
+QT_QRC_CPP = qt/qrc_Lux.cpp
+QT_QRC = qt/Lux.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_Lux_locale.cpp
+QT_QRC_LOCALE = qt/Lux_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
@@ -241,8 +241,8 @@ BITCOIN_QT_H = \
   qt/macnotificationhandler.h \
   qt/modaloverlay.h \
   qt/masternodemanager.h \
-  qt/addeditastranode.h \
-  qt/astranodeconfigdialog.h \
+  qt/addeditLuxnode.h \
+  qt/Luxnodeconfigdialog.h \
   qt/multisenddialog.h \
   qt/networkstyle.h \
   qt/notificator.h \
@@ -300,13 +300,13 @@ BITCOIN_QT_H = \
   qt/hexaddressconverter.h \
   qt/tokenslistview.h
 if ENABLE_UPDATER
-  BITCOIN_QT_H += astra-installer/src/astraupdater/astraupdater.h \
-                  astra-installer/src/astraupdater/simplescheduler_p.h \
-                  astra-installer/src/astraupdater/atomfeeder.h \
-                  astra-installer/src/astraupdater/downloadmanager.h \
-                  astra-installer/src/progressdialog_p.h \
-                  astra-installer/src/updatecontroller.h \
-                  astra-installer/src/updateinfodialog_p.h
+  BITCOIN_QT_H += Lux-installer/src/Luxupdater/Luxupdater.h \
+                  Lux-installer/src/Luxupdater/simplescheduler_p.h \
+                  Lux-installer/src/Luxupdater/atomfeeder.h \
+                  Lux-installer/src/Luxupdater/downloadmanager.h \
+                  Lux-installer/src/progressdialog_p.h \
+                  Lux-installer/src/updatecontroller.h \
+                  Lux-installer/src/updateinfodialog_p.h
 endif
 
 
@@ -356,10 +356,10 @@ RES_ICONS = \
   qt/res/icons/key.png \
   qt/res/icons/lock_closed.png \
   qt/res/icons/lock_closed_black.png \
-  qt/res/icons/astracoin_black.png \
+  qt/res/icons/Luxcoin_black.png \
   qt/res/icons/lsrtoken.png \
   qt/res/icons/lock_open.png \
-  qt/res/icons/astraupdate-loader.gif \
+  qt/res/icons/Luxupdate-loader.gif \
   qt/res/icons/masternodes.png \
   qt/res/icons/network_monitor.png \
   qt/res/icons/options.png \
@@ -387,12 +387,12 @@ RES_ICONS = \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
   qt/res/icons/twitter.png \
-  qt/res/icons/unit_astra.png \
-  qt/res/icons/unit_mastra.png \
-  qt/res/icons/unit_uastra.png \
-  qt/res/icons/unit_tastra.png \
-  qt/res/icons/unit_tmastra.png \
-  qt/res/icons/unit_tuastra.png \
+  qt/res/icons/unit_Lux.png \
+  qt/res/icons/unit_mLux.png \
+  qt/res/icons/unit_uLux.png \
+  qt/res/icons/unit_tLux.png \
+  qt/res/icons/unit_tmLux.png \
+  qt/res/icons/unit_tuLux.png \
   qt/res/icons/update.ico \
   qt/res/icons/update_black.png \
   qt/res/icons/verified.png \
@@ -414,8 +414,8 @@ BITCOIN_QT_CPP = \
   qt/modaloverlay.cpp \
   qt/eula.cpp \
   qt/masternodemanager.cpp \
-  qt/addeditastranode.cpp \
-  qt/astranodeconfigdialog.cpp \
+  qt/addeditLuxnode.cpp \
+  qt/Luxnodeconfigdialog.cpp \
   qt/networkstyle.cpp \
   qt/token.cpp \
   qt/notificator.cpp \
@@ -469,8 +469,8 @@ BITCOIN_QT_CPP += \
   qt/editcontractinfodialog.cpp \
   qt/eventlog.cpp \
   qt/masternodemanager.cpp \
-  qt/addeditastranode.cpp \
-  qt/astranodeconfigdialog.cpp \
+  qt/addeditLuxnode.cpp \
+  qt/Luxnodeconfigdialog.cpp \
   qt/multisenddialog.cpp \
   qt/openuridialog.cpp \
   qt/overviewpage.cpp \
@@ -507,19 +507,19 @@ BITCOIN_QT_CPP += \
   qt/walletview.cpp
 
 if ENABLE_UPDATER
-  BITCOIN_QT_CPP += astra-installer/src/astraupdater/simplescheduler.cpp \
-                    astra-installer/src/astraupdater/astraupdater_p.cpp \
-                    astra-installer/src/astraupdater/astraupdater.cpp \
-                    astra-installer/src/astraupdater/atomfeeder.cpp \
-                    astra-installer/src/astraupdater/downloadmanager.cpp \
-                    astra-installer/src/dialogmaster.cpp \
-                    astra-installer/src/progressdialog.cpp \
-                    astra-installer/src/updatecontroller.cpp \
-                    astra-installer/src/updateinfodialog.cpp
+  BITCOIN_QT_CPP += Lux-installer/src/Luxupdater/simplescheduler.cpp \
+                    Lux-installer/src/Luxupdater/Luxupdater_p.cpp \
+                    Lux-installer/src/Luxupdater/Luxupdater.cpp \
+                    Lux-installer/src/Luxupdater/atomfeeder.cpp \
+                    Lux-installer/src/Luxupdater/downloadmanager.cpp \
+                    Lux-installer/src/dialogmaster.cpp \
+                    Lux-installer/src/progressdialog.cpp \
+                    Lux-installer/src/updatecontroller.cpp \
+                    Lux-installer/src/updateinfodialog.cpp
 if TARGET_WINDOWS
-  BITCOIN_QT_CPP += astra-installer/src/adminauthorization_win.cpp
+  BITCOIN_QT_CPP += Lux-installer/src/adminauthorization_win.cpp
 else
-  BITCOIN_QT_CPP += astra-installer/src/adminauthorization_x11.cpp
+  BITCOIN_QT_CPP += Lux-installer/src/adminauthorization_x11.cpp
 endif
 
 endif
@@ -530,7 +530,7 @@ RES_IMAGES = \
   qt/res/images/about.png \
   qt/res/images/splash.png \
   qt/res/images/splash_testnet.png \
-  qt/res/images/astra_logo_horizontal.png \
+  qt/res/images/Lux_logo_horizontal.png \
   qt/res/images/downArrow.png \
   qt/res/images/downArrow_small.png \
   qt/res/images/upArrow_small.png \
@@ -546,7 +546,7 @@ RES_CSS = \
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
 if TARGET_WINDOWS
-BITCOIN_RC = qt/res/astra-qt-res.rc
+BITCOIN_RC = qt/res/Lux-qt-res.rc
 endif
 
 BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
@@ -567,70 +567,70 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_astra_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_Lux_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# astra-qt binary #
-qt_astra_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# Lux-qt binary #
+qt_Lux_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_astra_qt_SOURCES = qt/astra.cpp
+qt_Lux_qt_SOURCES = qt/Lux.cpp
 if TARGET_DARWIN
-  qt_astra_qt_SOURCES += $(BITCOIN_MM)
+  qt_Lux_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_astra_qt_SOURCES += $(BITCOIN_RC)
+  qt_Lux_qt_SOURCES += $(BITCOIN_RC)
 endif
-qt_astra_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_Lux_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-qt_astra_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_Lux_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-qt_astra_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+qt_Lux_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_astra_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_Lux_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(LIBCRYPTOPP) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
-qt_astra_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_astra_qt_LIBTOOLFLAGS = --tag CXX
+qt_Lux_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_Lux_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 .SECONDARY: $(QT_QM)
 
-qt/astrastrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
+qt/Luxstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/astrastrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: qt/Luxstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/astra_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/Lux_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name astra_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name Lux_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name astra $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name Lux $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-astra_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_astra_qt_OBJECTS) qt/astra-qt$(EXEEXT) $(LIBBITCOINQT)
+Lux_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_Lux_qt_OBJECTS) qt/Lux-qt$(EXEEXT) $(LIBBITCOINQT)
 
-astra_qt : qt/astra-qt$(EXEEXT)
+Lux_qt : qt/Lux-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

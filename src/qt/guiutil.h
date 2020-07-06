@@ -33,7 +33,7 @@ class QWidget;
 class QToolButton;
 QT_END_NAMESPACE
 
-/** Utility functions used by the ASTRA Qt UI.
+/** Utility functions used by the LUX Qt UI.
  */
 namespace GUIUtil
 {
@@ -44,14 +44,14 @@ QFont fixedPitchFont();
 QString dateTimeStr(const QDateTime& datetime);
 QString dateTimeStr(qint64 nTime);
 
-// Render ASTRA addresses in monospace font
+// Render LUX addresses in monospace font
 QFont bitcoinAddressFont();
 
 // Set up widgets for address and amounts
 void setupAddressWidget(QValidatedLineEdit* widget, QWidget* parent);
 void setupAmountWidget(QLineEdit* widget, QWidget* parent);
 
-// Parse "astra:" URI into recipient object, return true on successful parsing
+// Parse "Lux:" URI into recipient object, return true on successful parsing
 bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out);
 bool parseBitcoinURI(QString uri, SendCoinsRecipient* out);
 QString formatBitcoinURI(const SendCoinsRecipient& info);
@@ -113,7 +113,7 @@ bool isObscured(QWidget* w);
 // Open debug.log
 void openDebugLogfile();
 
-// Open astra.conf
+// Open Lux.conf
 void openConfigfile();
 
 // Open masternode.conf

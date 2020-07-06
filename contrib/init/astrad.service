@@ -1,19 +1,19 @@
 [Unit]
-Description=ASTRA's distributed currency daemon
+Description=LUX's distributed currency daemon
 After=network.target
 
 [Service]
-User=astra
-Group=astra
+User=Lux
+Group=Lux
 
 Type=forking
-PIDFile=/var/lib/astrad/astrad.pid
+PIDFile=/var/lib/Luxd/Luxd.pid
 
-ExecStart=/usr/bin/astrad -daemon -pid=/var/lib/astrad/astrad.pid \
-          -conf=/etc/astra/astra.conf -datadir=/var/lib/astrad
+ExecStart=/usr/bin/Luxd -daemon -pid=/var/lib/Luxd/Luxd.pid \
+          -conf=/etc/Lux/Lux.conf -datadir=/var/lib/Luxd
 
-ExecStop=-/usr/bin/astra-cli -conf=/etc/astra/astra.conf \
-         -datadir=/var/lib/astrad stop
+ExecStop=-/usr/bin/Lux-cli -conf=/etc/Lux/Lux.conf \
+         -datadir=/var/lib/Luxd stop
 
 Restart=always
 PrivateTmp=true

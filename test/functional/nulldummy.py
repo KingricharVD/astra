@@ -13,12 +13,12 @@ Generate 427 more blocks.
 [Policy/Consensus] Check that the new NULLDUMMY rules are enforced on the 432nd block.
 """
 
-from test_framework.test_framework import AstraTestFramework
+from test_framework.test_framework import LuxTestFramework
 from test_framework.util import *
 from test_framework.mininode import CTransaction, NetworkThread
 from test_framework.blocktools import create_coinbase, create_block, add_witness_commitment
 from test_framework.script import CScript
-from test_framework.astraconfig import COINBASE_MATURITY, INITIAL_BLOCK_REWARD
+from test_framework.Luxconfig import COINBASE_MATURITY, INITIAL_BLOCK_REWARD
 from io import BytesIO
 import time
 
@@ -36,7 +36,7 @@ def trueDummy(tx):
     tx.vin[0].scriptSig = CScript(newscript)
     tx.rehash()
 
-class NULLDUMMYTest(AstraTestFramework):
+class NULLDUMMYTest(LuxTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 1

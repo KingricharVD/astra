@@ -1,6 +1,6 @@
 [Protocol]
-exec=astra-qt '%u'
-protocol=astra
+exec=Lux-qt '%u'
+protocol=Lux
 input=none
 output=none
 helper=true

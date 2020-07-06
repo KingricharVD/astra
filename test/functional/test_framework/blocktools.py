@@ -6,7 +6,7 @@
 
 from .mininode import *
 from .script import CScript, OP_TRUE, OP_CHECKSIG, OP_RETURN
-from .astraconfig import INITIAL_BLOCK_REWARD
+from .Luxconfig import INITIAL_BLOCK_REWARD
 
 # Create a block (with regtest difficulty)
 def create_block(hashprev, coinbase, nTime=None):

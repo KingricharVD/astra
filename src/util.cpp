@@ -1,11 +1,11 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/astra-config.h"
+#include "config/Lux-config.h"
 #endif
 
 #include "util.h"
@@ -100,7 +100,7 @@ using namespace std;
 
 regex hexData("^([0-9a-fA-f]{2,}$)");
 
-//ASTRA only features
+//LUX only features
 int nLogFile = 1;
 bool fMasterNode = false;
 std::atomic<bool> hideLogMessage(false);
@@ -110,7 +110,7 @@ bool fEnableInstanTX = true;
 int nInstanTXDepth = 5;
 int nDarksendRounds = 2;
 int nWalletBackups = 10;
-int nAnonymizeAstraAmount = 1000;
+int nAnonymizeLuxAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
@@ -205,22 +205,22 @@ static FILE* fileout = NULL;
 
 static boost::mutex* mutexDebugLog = NULL;
 
-/////////////////////////////////////////////////////////////////////// // astra
+/////////////////////////////////////////////////////////////////////// // Lux
 static FILE* fileoutVM = NULL;
 ///////////////////////////////////////////////////////////////////////
 
 static void DebugPrintInit()
 {
     assert(fileout == NULL);
-    assert(fileoutVM == NULL); // astra
+    assert(fileoutVM == NULL); // Lux
     assert(mutexDebugLog == NULL);
 
     boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
-    boost::filesystem::path pathDebugVM = GetDataDir() / "vm.log"; // astra
+    boost::filesystem::path pathDebugVM = GetDataDir() / "vm.log"; // Lux
     fileout = fopen(pathDebug.string().c_str(), "a");
-    fileoutVM = fopen(pathDebugVM.string().c_str(), "a"); // astra
+    fileoutVM = fopen(pathDebugVM.string().c_str(), "a"); // Lux
     if (fileout) setbuf(fileout, NULL); // unbuffered
-    if (fileoutVM) setbuf(fileoutVM, NULL); // unbuffered // astra
+    if (fileoutVM) setbuf(fileoutVM, NULL); // unbuffered // Lux
 
     mutexDebugLog = new boost::mutex();
 }
@@ -240,8 +240,8 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "astra" is a composite category enabling all ASTRA-related debug output
-            if (ptrCategory->count(string("astra"))) {
+            // "Lux" is a composite category enabling all LUX-related debug output
+            if (ptrCategory->count(string("Lux"))) {
                 ptrCategory->insert(string("darksend"));
                 ptrCategory->insert(string("instantx"));
                 ptrCategory->insert(string("masternode"));
@@ -280,7 +280,7 @@ void pushDebugLog(std::string pathDebugStr, int debugNum)
 
 int LogPrintStr(const std::string& str, bool useVMLog)
 {
-//////////////////////////////// // astra
+//////////////////////////////// // Lux
     if (fileout) {
         int size = ftell(fileout);
         if (size >= MAX_FILE_SIZE && nLogFile > 1) {
@@ -492,7 +492,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "astra";
+    const char* pszModule = "Lux";
 #endif
     if (pex)
         return strprintf(
@@ -513,13 +513,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\ASTRA
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\ASTRA
-// Mac: ~/Library/Application Support/ASTRA
-// Unix: ~/.astra
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\LUX
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\LUX
+// Mac: ~/Library/Application Support/LUX
+// Unix: ~/.Lux
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "ASTRA";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "LUX";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -531,10 +531,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "ASTRA";
+    return pathRet / "LUX";
 #else
     // Unix
-    return pathRet / ".astra";
+    return pathRet / ".Lux";
 #endif
 #endif
 }
@@ -581,7 +581,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "astra.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "Lux.conf"));
     if (!pathConfigFile.is_complete())
         pathConfigFile = GetDataDir(false) / pathConfigFile;
 
@@ -600,7 +600,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
-        // Create empty astra.conf if it does not exist
+        // Create empty Lux.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -611,7 +611,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it) {
-        // Don't overwrite existing settings so command line settings override astra.conf
+        // Don't overwrite existing settings so command line settings override Lux.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0) {
             mapSettingsRet[strKey] = it->value[0];
@@ -644,7 +644,7 @@ void WriteConfigToFile(std::string strKey, std::string strValue)
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "astrad.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "Luxd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-//////////////////////////////////////// astra
+//////////////////////////////////////// Lux
 #include <libdevcore/Common.h>
 #include <libdevcore/CommonData.h>
 #include <libdevcore/FixedHash.h>
@@ -409,7 +409,7 @@ inline uint512 uint512S(const std::string& str)
 }
 
 
-////////////////////////////////////////////////////// astra
+////////////////////////////////////////////////////// Lux
 inline dev::h256 uintToh256(const uint256& in)
 {
     std::vector<unsigned char> vHashBlock;

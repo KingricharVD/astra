@@ -10,7 +10,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/astrastrings.cpp"
+OUT_CPP="qt/Luxstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -74,7 +74,7 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *astra_strings[] = {\n')
+f.write('static const char UNUSED *Lux_strings[] = {\n')
 # force add some qt base common entries (dialogs butttons for cross-builds)
 f.write('QT_TRANSLATE_NOOP("QPlatformTheme", "Cancel"),\n')
 f.write('QT_TRANSLATE_NOOP("QPlatformTheme", "Close"),\n')
@@ -86,6 +86,6 @@ f.write('QT_TRANSLATE_NOOP("QPlatformTheme", "OK"),\n')
 messages.sort(key=operator.itemgetter(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("astra-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("Lux-core", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

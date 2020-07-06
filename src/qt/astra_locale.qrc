@@ -1,18 +1,18 @@
 <!DOCTYPE RCC><RCC version="1.0">
     <qresource prefix="/translations">
-        <file alias="ca">locale/astra_ca.qm</file>
-        <file alias="da">locale/astra_da.qm</file>
-        <file alias="de">locale/astra_de.qm</file>
-        <file alias="en">locale/astra_en.qm</file>
-        <file alias="en_US">locale/astra_en_US.qm</file>
-        <file alias="es">locale/astra_es.qm</file>
-        <file alias="fr">locale/astra_fr.qm</file>
-        <file alias="it">locale/astra_it.qm</file>
-        <file alias="ja">locale/astra_ja.qm</file>
-        <file alias="pt">locale/astra_pt.qm</file>
-        <file alias="ro_RO">locale/astra_ro_RO.qm</file>
-        <file alias="ru">locale/astra_ru.qm</file>
-        <file alias="vn">locale/astra_vn.qm</file>
-        <file alias="zh_TW">locale/astra_zh_TW.qm</file>
+        <file alias="ca">locale/Lux_ca.qm</file>
+        <file alias="da">locale/Lux_da.qm</file>
+        <file alias="de">locale/Lux_de.qm</file>
+        <file alias="en">locale/Lux_en.qm</file>
+        <file alias="en_US">locale/Lux_en_US.qm</file>
+        <file alias="es">locale/Lux_es.qm</file>
+        <file alias="fr">locale/Lux_fr.qm</file>
+        <file alias="it">locale/Lux_it.qm</file>
+        <file alias="ja">locale/Lux_ja.qm</file>
+        <file alias="pt">locale/Lux_pt.qm</file>
+        <file alias="ro_RO">locale/Lux_ro_RO.qm</file>
+        <file alias="ru">locale/Lux_ru.qm</file>
+        <file alias="vn">locale/Lux_vn.qm</file>
+        <file alias="zh_TW">locale/Lux_zh_TW.qm</file>
     </qresource>
 </RCC>

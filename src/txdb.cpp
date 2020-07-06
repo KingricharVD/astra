@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The ASTRA developers
+// Copyright (c) 2015-2018 The LUX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,7 +20,7 @@ static const char DB_BLOCK_FILES = 'f';
 static const char DB_TXINDEX = 't';
 static const char DB_BLOCK_INDEX = 'b';
 
-////////////////////////////////////////// // astra
+////////////////////////////////////////// // Lux
 static const char DB_HEIGHTINDEX = 'h';
 //////////////////////////////////////////
 
@@ -524,8 +524,8 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                 pindexNew->nNonce = diskindex.nNonce;
                 pindexNew->nStatus = diskindex.nStatus;
                 pindexNew->nTx = diskindex.nTx;
-                pindexNew->hashStateRoot  = diskindex.hashStateRoot; // astra
-                pindexNew->hashUTXORoot   = diskindex.hashUTXORoot; // astra
+                pindexNew->hashStateRoot  = diskindex.hashStateRoot; // Lux
+                pindexNew->hashUTXORoot   = diskindex.hashUTXORoot; // Lux
 
                 // Proof Of Stake
                 pindexNew->nMint = diskindex.nMint;
@@ -584,7 +584,7 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
     return true;
 }
 
-/////////////////////////////////////////////////////// // astra
+/////////////////////////////////////////////////////// // Lux
 bool CBlockTreeDB::WriteHeightIndex(const CHeightTxIndexKey &heightIndex, const std::vector<uint256>& hash) {
     CLevelDBBatch batch;
     batch.Write(std::make_pair(DB_HEIGHTINDEX, heightIndex), hash);

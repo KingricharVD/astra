@@ -78,7 +78,7 @@ HEADERS += src/activemasternode.h \
            src/crypter.h \
            src/darksend-relay.h \
            src/darksend.h \
-           src/astra-config.h \
+           src/Lux-config.h \
            src/db.h \
            src/eccryptoverify.h \
            src/ecwrapper.h \
@@ -131,7 +131,7 @@ HEADERS += src/activemasternode.h \
            src/wallet_ismine.h \
            src/walletdb.h \
            src/compat/sanity.h \
-           src/config/astra-config.h \
+           src/config/Lux-config.h \
            src/crypto/common.h \
            src/crypto/hmac_sha256.h \
            src/crypto/hmac_sha512.h \
@@ -333,7 +333,7 @@ HEADERS += src/activemasternode.h \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h \
            src/crypto/aes_helper.c \
            src/qt/bitcoinamountfield.moc \
-           src/qt/astra.moc \
+           src/qt/Lux.moc \
            src/qt/intro.moc \
            src/qt/overviewpage.moc \
            src/qt/rpcconsole.moc \
@@ -374,9 +374,9 @@ SOURCES += src/activemasternode.cpp \
            src/crypter.cpp \
            src/darksend-relay.cpp \
            src/darksend.cpp \
-           src/astra-cli.cpp \
-           src/astra-tx.cpp \
-           src/astra.cpp \
+           src/Lux-cli.cpp \
+           src/Lux-tx.cpp \
+           src/Lux.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \
            src/ecwrapper.cpp \
@@ -471,8 +471,8 @@ SOURCES += src/activemasternode.cpp \
            src/qt/coincontroltreewidget.cpp \
            src/qt/csvmodelwriter.cpp \
            src/qt/darksendconfig.cpp \
-           src/qt/astra.cpp \
-           src/qt/astrastrings.cpp \
+           src/qt/Lux.cpp \
+           src/qt/Luxstrings.cpp \
            src/qt/editaddressdialog.cpp \
            src/qt/guiutil.cpp \
            src/qt/intro.cpp \
@@ -551,7 +551,7 @@ SOURCES += src/activemasternode.cpp \
            src/test/sighash_tests.cpp \
            src/test/sigopcount_tests.cpp \
            src/test/skiplist_tests.cpp \
-           src/test/test_astra.cpp \
+           src/test/test_Lux.cpp \
            src/test/timedata_tests.cpp \
            src/test/transaction_tests.cpp \
            src/test/uint256_tests.cpp \
@@ -642,21 +642,21 @@ SOURCES += src/activemasternode.cpp \
            src/leveldb/helpers/memenv/memenv.cc \
            src/leveldb/helpers/memenv/memenv_test.cc \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c
-RESOURCES += src/qt/astra.qrc src/qt/astra_locale.qrc
+RESOURCES += src/qt/Lux.qrc src/qt/Lux_locale.qrc
 
-TRANSLATIONS += src/qt/locale/astra_bg.ts \
-                src/qt/locale/astra_de.ts \
-                src/qt/locale/astra_en.ts \
-                src/qt/locale/astra_es.ts \
-                src/qt/locale/astra_fi.ts \
-                src/qt/locale/astra_fr.ts \
-                src/qt/locale/astra_it.ts \
-                src/qt/locale/astra_ja.ts \
-                src/qt/locale/astra_pl.ts \
-                src/qt/locale/astra_pt.ts \
-                src/qt/locale/astra_ru.ts \
-                src/qt/locale/astra_sk.ts \
-                src/qt/locale/astra_sv.ts \
-                src/qt/locale/astra_vi.ts \
-                src/qt/locale/astra_zh_CN.ts \
-                src/qt/locale/astra_zh_TW.ts
+TRANSLATIONS += src/qt/locale/Lux_bg.ts \
+                src/qt/locale/Lux_de.ts \
+                src/qt/locale/Lux_en.ts \
+                src/qt/locale/Lux_es.ts \
+                src/qt/locale/Lux_fi.ts \
+                src/qt/locale/Lux_fr.ts \
+                src/qt/locale/Lux_it.ts \
+                src/qt/locale/Lux_ja.ts \
+                src/qt/locale/Lux_pl.ts \
+                src/qt/locale/Lux_pt.ts \
+                src/qt/locale/Lux_ru.ts \
+                src/qt/locale/Lux_sk.ts \
+                src/qt/locale/Lux_sv.ts \
+                src/qt/locale/Lux_vi.ts \
+                src/qt/locale/Lux_zh_CN.ts \
+                src/qt/locale/Lux_zh_TW.ts

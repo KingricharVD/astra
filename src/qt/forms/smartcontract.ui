@@ -39,7 +39,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../astra.qrc"/>
+  <include location="../Lux.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package astrad/astra-qt
-for Debian-based Linux systems. If you compile astrad/astra-qt yourself, there are some useful files here.
+This directory contains files used to package Luxd/Lux-qt
+for Debian-based Linux systems. If you compile Luxd/Lux-qt yourself, there are some useful files here.
 
-## astra: URI support ##
+## Lux: URI support ##
 
 
-astra-qt.desktop  (Gnome / Open Desktop)
+Lux-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install astra-qt.desktop
+	sudo desktop-file-install Lux-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your astraqt binary to `/usr/bin`
-and the `../../share/pixmaps/astra128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your Luxqt binary to `/usr/bin`
+and the `../../share/pixmaps/Lux128.png` to `/usr/share/pixmaps`
 
-astra-qt.protocol (KDE)
+Lux-qt.protocol (KDE)
 

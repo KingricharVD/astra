@@ -39,7 +39,7 @@
 #include <QtCore/QDir>
 #include <QtCore/qt_windows.h>
 
-using namespace QtAstraUpdater;
+using namespace QtLuxUpdater;
 
 static QString qt_create_commandline(const QStringList &arguments);
 

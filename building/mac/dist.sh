@@ -1,9 +1,9 @@
 
-cp src/astrad .
-cp src/qt/astra-qt .
-strip astrad
-strip astra-qt
-zip release_${ASTRA_PLATFORM}.zip astrad astra-qt
+cp src/Luxd .
+cp src/qt/Lux-qt .
+strip Luxd
+strip Lux-qt
+zip release_${LUX_PLATFORM}.zip Luxd Lux-qt
 
 sudo easy_install appscript
 

@@ -10,7 +10,7 @@ forward all unrecognized arguments onto the individual test scripts.
 Functional tests are disabled on Windows by default. Use --force to run them anyway.
 
 For a description of arguments recognized by test scripts, see
-`test/functional/test_framework/test_framework.py:AstraTestFramework.main`.
+`test/functional/test_framework/test_framework.py:LuxTestFramework.main`.
 
 """
 
@@ -79,7 +79,7 @@ BASE_SCRIPTS= [
     # vv Tests less than 30s vv
     'keypool-topup.py',
     'zmq_test.py',
-    'astra_cli.py',
+    'Lux_cli.py',
     'mempool_resurrect_test.py',
     'txn_doublespend.py --mineblock',
     'txn_clone.py',
@@ -119,8 +119,8 @@ BASE_SCRIPTS= [
     'resendwallettransactions.py',
     'minchainwork.py',
 
-    # astra - smartcontract
-    # TODO: Astra smartcontract
+    # Lux - smartcontract
+    # TODO: Lux smartcontract
 
 EXTENDED_SCRIPTS = [
     # These tests are not run by the travis build process.
@@ -136,7 +136,7 @@ EXTENDED_SCRIPTS = [
     'bip68-sequence.py',
     'getblocktemplate_longpoll.py',
     'p2p-timeouts.py',
-    # Version <4 blocks are never allowed in regtest on astra
+    # Version <4 blocks are never allowed in regtest on Lux
     'bipdersig-p2p.py',
     'bip65-cltv-p2p.py',
     'p2p-acceptblock.py',
@@ -199,23 +199,23 @@ def main():
     logging.basicConfig(format='%(message)s', level=logging_level)
 
     # Create base test directory
-    tmpdir = "%s/astra_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
+    tmpdir = "%s/Lux_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
     os.makedirs(tmpdir)
 
     logging.debug("Temporary test directory at %s" % tmpdir)
 
     enable_wallet = config["components"].getboolean("ENABLE_WALLET")
     enable_utils = config["components"].getboolean("ENABLE_UTILS")
-    enable_astrad = config["components"].getboolean("ENABLE_ASTRAD")
+    enable_Luxd = config["components"].getboolean("ENABLE_LUXD")
 
     if config["environment"]["EXEEXT"] == ".exe" and not args.force:
-        # https://github.com/astra/astra/commit/d52802551752140cf41f0d9a225a43e84404d3e9
-        # https://github.com/astra/astra/pull/5677#issuecomment-136646964
+        # https://github.com/Lux/Lux/commit/d52802551752140cf41f0d9a225a43e84404d3e9
+        # https://github.com/Lux/Lux/pull/5677#issuecomment-136646964
         print("Tests currently disabled on Windows by default. Use --force option to enable")
         sys.exit(0)
 
-    if not (enable_wallet and enable_utils and enable_astrad):
-        print("No functional tests to run. Wallet, utils, and astrad must all be enabled")
+    if not (enable_wallet and enable_utils and enable_Luxd):
+        print("No functional tests to run. Wallet, utils, and Luxd must all be enabled")
         print("Rerun `configure` with -enable-wallet, -with-utils and -with-daemon and rerun make")
         sys.exit(0)
 
@@ -267,10 +267,10 @@ def main():
     run_tests(test_list, config["environment"]["SRCDIR"], config["environment"]["BUILDDIR"], config["environment"]["EXEEXT"], tmpdir, args.jobs, args.coverage, passon_args)
 
 def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_coverage=False, args=[]):
-    # Warn if astrad is already running (unix only)
+    # Warn if Luxd is already running (unix only)
     try:
-        if subprocess.check_output(["pidof", "astrad"]) is not None:
-            print("%sWARNING!%s There is already a astrad process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
+        if subprocess.check_output(["pidof", "Luxd"]) is not None:
+            print("%sWARNING!%s There is already a Luxd process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
     except (OSError, subprocess.SubprocessError):
         pass
 
@@ -280,9 +280,9 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_cove
         print("%sWARNING!%s There is a cache directory here: %s. If tests fail unexpectedly, try deleting the cache directory." % (BOLD[1], BOLD[0], cache_dir))
 
     #Set env vars
-    if "ASTRAD" not in os.environ:
-        os.environ["ASTRAD"] = build_dir + '/src/astrad' + exeext
-        os.environ["ASTRACLI"] = build_dir + '/src/astra-cli' + exeext
+    if "LUXD" not in os.environ:
+        os.environ["LUXD"] = build_dir + '/src/Luxd' + exeext
+        os.environ["LUXCLI"] = build_dir + '/src/Lux-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'
 
@@ -367,7 +367,7 @@ class TestHandler:
         self.test_list = test_list
         self.flags = flags
         self.num_running = 0
-        # In case there is a graveyard of zombie astrads, we can apply a
+        # In case there is a graveyard of zombie Luxds, we can apply a
         # pseudorandom offset to hopefully jump over them.
         # (625 is PORT_RANGE/MAX_NODES)
         self.portseed_offset = int(time.time() * 1000) % 625
@@ -465,7 +465,7 @@ class RPCCoverage(object):
     Coverage calculation works by having each test script subprocess write
     coverage files into a particular directory. These files contain the RPC
     commands invoked during testing, as well as a complete listing of RPC
-    commands per `astra-cli help` (`rpc_interface.txt`).
+    commands per `Lux-cli help` (`rpc_interface.txt`).
 
     After all tests complete, the commands run are combined and diff'd against
     the complete list to calculate uncovered RPC commands.

@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/astra-config.h"
+#include "config/Lux-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -172,7 +172,7 @@ void OptionsDialog::setModel(OptionsModel* model)
     connect(ui->addressIndex, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
     connect(ui->threadsScriptVerif, SIGNAL(valueChanged(int)), this, SLOT(showRestartWarning()));
 
-    // if set in astra.conf or in startup command line, sync and gray the checkboxes
+    // if set in Lux.conf or in startup command line, sync and gray the checkboxes
     if (!SoftSetBoolArg("-logevents", fLogEvents)) {
         QSettings settings;
         settings.setValue("fLogEvents", fLogEvents);
@@ -231,7 +231,7 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->showAdvancedUI, OptionsModel::ShowAdvancedUI);
     mapper->addMapping(ui->parallelMasternodes, OptionsModel::ParallelMasternodes);
     mapper->addMapping(ui->darksendRounds, OptionsModel::DarkSendRounds);
-    mapper->addMapping(ui->anonymizeAstra, OptionsModel::AnonymizeAstraAmount);
+    mapper->addMapping(ui->anonymizeLux, OptionsModel::AnonymizeLuxAmount);
     mapper->addMapping(ui->notUseChangeAddress, OptionsModel::NotUseChangeAddress);
     mapper->addMapping(ui->walletBackups, OptionsModel::WalletBackups);
     mapper->addMapping(ui->zeroBalanceAddressToken, OptionsModel::ZeroBalanceAddressToken);
@@ -261,7 +261,7 @@ void OptionsDialog::setMapper()
 
     /* DarkSend Rounds */
     mapper->addMapping(ui->darksendRounds, OptionsModel::DarkSendRounds);
-    mapper->addMapping(ui->anonymizeAstra, OptionsModel::AnonymizeAstraAmount);
+    mapper->addMapping(ui->anonymizeLux, OptionsModel::AnonymizeLuxAmount);
     mapper->addMapping(ui->showMasternodesTab, OptionsModel::ShowMasternodesTab);
 }
 

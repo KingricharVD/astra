@@ -4,7 +4,7 @@
 #include <QtNetwork>
 #include <QtCore>
 
-namespace QtAstraUpdater
+namespace QtLuxUpdater
 {
     
 class DownloadManager: public QObject

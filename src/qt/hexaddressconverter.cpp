@@ -30,12 +30,12 @@ void HexAddressConverter::addressChanged(const QString& address) {
 
     if(!address.isEmpty()) {
         bool hasHexAddress = false;
-        bool hasAstraAddress = false;
+        bool hasLuxAddress = false;
         QRegularExpression regEx(paternAddress);
         hasHexAddress = regEx.match(address).hasMatch();
         if (hasHexAddress) {
             ui->label->setText("Address (hex)");
-            ui->label_2->setText("Result (Astra)");
+            ui->label_2->setText("Result (Lux)");
             uint160 key(ParseHex(address.toStdString()));
             CKeyID keyid(key);
             if(IsValidDestination(CTxDestination(keyid))) {
@@ -44,9 +44,9 @@ void HexAddressConverter::addressChanged(const QString& address) {
         }
 
         CTxDestination addr = DecodeDestination(address.toStdString());
-        hasAstraAddress = IsValidDestination(addr);
-        if (hasAstraAddress) {
-            ui->label->setText("Address (Astra)");
+        hasLuxAddress = IsValidDestination(addr);
+        if (hasLuxAddress) {
+            ui->label->setText("Address (Lux)");
             ui->label_2->setText("Result (hex)");
             CKeyID *keyid = boost::get<CKeyID>(&addr);
             if (keyid) {
@@ -55,7 +55,7 @@ void HexAddressConverter::addressChanged(const QString& address) {
 
         }
 
-        isAddressValid = hasHexAddress || hasAstraAddress;
+        isAddressValid = hasHexAddress || hasLuxAddress;
     }
 
     if(!isAddressValid) ui->resultLabel->setText("");

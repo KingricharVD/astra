@@ -31,8 +31,8 @@ using namespace dev;
 #include "genesis/eip158Test.cpp"
 #include "genesis/metropolisTest.cpp"
 #include "genesis/transitionnetTest.cpp"
-#include "genesis/astraMainNetwork.cpp"
-#include "genesis/astraTestNetwork.cpp"
+#include "genesis/LuxMainNetwork.cpp"
+#include "genesis/LuxTestNetwork.cpp"
 
 std::string const& dev::eth::genesisInfo(Network _n)
 {
@@ -47,8 +47,8 @@ std::string const& dev::eth::genesisInfo(Network _n)
 	case Network::EIP150Test: return c_genesisInfoEIP150Test;
 	case Network::EIP158Test: return c_genesisInfoEIP158Test;
 	case Network::MetropolisTest: return c_genesisInfoMetropolisTest;
-	case Network::astraMainNetwork: return c_genesisInfoAstraMainNetwork;
-	case Network::astraTestNetwork: return c_genesisInfoAstraTestNetwork;
+	case Network::LuxMainNetwork: return c_genesisInfoLuxMainNetwork;
+	case Network::LuxTestNetwork: return c_genesisInfoLuxTestNetwork;
 	default:
 		throw std::invalid_argument("Invalid network value");
 	}
@@ -67,8 +67,8 @@ h256 const& dev::eth::genesisStateRoot(Network _n)
 	case Network::EIP150Test: return c_genesisStateRootEIP150Test;
 	case Network::EIP158Test: return c_genesisStateRootEIP158Test;
 	case Network::MetropolisTest: return c_genesisStateRootMetropolisTest;
-	case Network::astraMainNetwork: return c_genesisStateRootAstraMainNetwork;
-	case Network::astraTestNetwork: return c_genesisStateRootAstraTestNetwork;
+	case Network::LuxMainNetwork: return c_genesisStateRootLuxMainNetwork;
+	case Network::LuxTestNetwork: return c_genesisStateRootLuxTestNetwork;
 	default:
 		throw std::invalid_argument("Invalid network value");
 	}

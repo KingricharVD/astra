@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with 'make check'.
 
-To run the astrad tests manually, launch src/test/test_astra .
+To run the Luxd tests manually, launch src/test/test_Lux .
 
-To add more astrad tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more Luxd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the astra-qt tests manually, launch src/qt/test/astra-qt_test
+To run the Lux-qt tests manually, launch src/qt/test/Lux-qt_test
 
-To add more astra-qt tests, add them to the `src/qt/test/` directory and
+To add more Lux-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

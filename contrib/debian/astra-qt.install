@@ -1,6 +1,6 @@
-usr/local/bin/astra-qt usr/bin
+usr/local/bin/Lux-qt usr/bin
 share/pixmaps/bitcoin32.xpm usr/share/pixmaps
 share/pixmaps/bitcoin16.xpm usr/share/pixmaps
 share/pixmaps/bitcoin128.png usr/share/pixmaps
-debian/astra-qt.desktop usr/share/applications
-debian/astra-qt.protocol usr/share/kde4/services/
+debian/Lux-qt.desktop usr/share/applications
+debian/Lux-qt.protocol usr/share/kde4/services/

@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -203,7 +203,7 @@ UniValue getrawmempool(const UniValue& params, bool fHelp)
             "    \"txid\", \"...\",          (string)  the transaction id\n"
             "    \"hash\", \"...\",          (string)  the transaction hash\n"
             "    \"size\" : n,             (numeric) transaction size in bytes\n"
-            "    \"fee\" : n,              (numeric) transaction fee in astra\n"
+            "    \"fee\" : n,              (numeric) transaction fee in Lux\n"
             "    \"time\" : n,             (numeric) unix timestamp when transaction entered the mempool\n"
             "    \"height\" : n,           (numeric) block height when transaction entered pool\n"
             "    \"startingpriority\" : n, (numeric) priority when transaction entered pool\n"
@@ -1131,8 +1131,8 @@ UniValue gettxout(const UniValue& params, bool fHelp)
             "     \"hex\" : \"hex\",        (string) \n"
             "     \"reqSigs\" : n,          (numeric) Number of required signatures\n"
             "     \"type\" : \"pubkeyhash\", (string) The type, eg pubkeyhash\n"
-            "     \"addresses\" : [          (array of string) array of astra addresses\n"
-            "     \"astraaddress\"   	 	(string) astra address\n"
+            "     \"addresses\" : [          (array of string) array of Lux addresses\n"
+            "     \"Luxaddress\"   	 	(string) Lux address\n"
             "        ,...\n"
             "     ]\n"
             "  },\n"

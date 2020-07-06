@@ -54,7 +54,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../astra.qrc">
+         <iconset resource="../Lux.qrc">
           <normaloff>:/icons/res/icons/home.png</normaloff>:/icons/res/icons/home.png</iconset>
         </property>
         <property name="iconSize">
@@ -191,7 +191,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../astra.qrc"/>
+  <include location="../Lux.qrc"/>
  </resources>
  <connections/>
 </ui>
