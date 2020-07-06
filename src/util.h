@@ -12,7 +12,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/Lux-config.h"
+#include "config/lux-config.h"
 #endif
 
 #include "compat.h"
@@ -289,7 +289,7 @@ inline static bool IsExceptionIgnored (const char* name)
 template <typename Callable>
 void TraceThread(const char* name, Callable func)
 {
-    std::string s = strprintf("Lux-%s", name);
+    std::string s = strprintf("lux-%s", name);
     RenameThread(s.c_str());
     try {
         LogPrintf("%s thread start\n", name);

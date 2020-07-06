@@ -7,11 +7,11 @@
 #ifndef BITCOIN_CLIENTVERSION_H
 #define BITCOIN_CLIENTVERSION_H
 
-#include "config/Lux-config.h"
+#include "config/lux-config.h"
 
 // Check that required client information is defined
 #if !defined(CLIENT_VERSION_MAJOR) || !defined(CLIENT_VERSION_MINOR) || !defined(CLIENT_VERSION_REVISION) || !defined(CLIENT_VERSION_BUILD) || !defined(CLIENT_VERSION_IS_RELEASE) || !defined(COPYRIGHT_YEAR)
-#error Client version information missing: version is not defined by Lux-config.h or in any other way
+#error Client version information missing: version is not defined by lux-config.h or in any other way
 #endif
 
 /**
@@ -25,7 +25,7 @@
 #define COPYRIGHT_STR STRINGIZE(COPYRIGHT_YEAR) " " COPYRIGHT_HOLDERS_FINAL
 
 /**
- * Luxd-res.rc includes this file, but it cannot cope with real c++ code.
+ * luxd-res.rc includes this file, but it cannot cope with real c++ code.
  * WINDRES_PREPROC is defined to indicate that its pre-processor is running.
  * Anything other than a define should be guarded below.
  */

@@ -48,7 +48,7 @@ private:
     Ui::MasternodeManager *ui;
     ClientModel *clientModel;
     WalletModel *walletModel;
-    CCriticalSection cs_Lux;
+    CCriticalSection cs_lux;
     QString strCurrentFilter;
     int64_t nTimeFilterUpdated;
     bool fFilterUpdated;

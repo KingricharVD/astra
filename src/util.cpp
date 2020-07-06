@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/Lux-config.h"
+#include "config/lux-config.h"
 #endif
 
 #include "util.h"
@@ -205,22 +205,22 @@ static FILE* fileout = NULL;
 
 static boost::mutex* mutexDebugLog = NULL;
 
-/////////////////////////////////////////////////////////////////////// // Lux
+/////////////////////////////////////////////////////////////////////// // lux
 static FILE* fileoutVM = NULL;
 ///////////////////////////////////////////////////////////////////////
 
 static void DebugPrintInit()
 {
     assert(fileout == NULL);
-    assert(fileoutVM == NULL); // Lux
+    assert(fileoutVM == NULL); // lux
     assert(mutexDebugLog == NULL);
 
     boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
-    boost::filesystem::path pathDebugVM = GetDataDir() / "vm.log"; // Lux
+    boost::filesystem::path pathDebugVM = GetDataDir() / "vm.log"; // lux
     fileout = fopen(pathDebug.string().c_str(), "a");
-    fileoutVM = fopen(pathDebugVM.string().c_str(), "a"); // Lux
+    fileoutVM = fopen(pathDebugVM.string().c_str(), "a"); // lux
     if (fileout) setbuf(fileout, NULL); // unbuffered
-    if (fileoutVM) setbuf(fileoutVM, NULL); // unbuffered // Lux
+    if (fileoutVM) setbuf(fileoutVM, NULL); // unbuffered // lux
 
     mutexDebugLog = new boost::mutex();
 }
@@ -240,8 +240,8 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "Lux" is a composite category enabling all LUX-related debug output
-            if (ptrCategory->count(string("Lux"))) {
+            // "lux" is a composite category enabling all LUX-related debug output
+            if (ptrCategory->count(string("lux"))) {
                 ptrCategory->insert(string("darksend"));
                 ptrCategory->insert(string("instantx"));
                 ptrCategory->insert(string("masternode"));
@@ -280,7 +280,7 @@ void pushDebugLog(std::string pathDebugStr, int debugNum)
 
 int LogPrintStr(const std::string& str, bool useVMLog)
 {
-//////////////////////////////// // Lux
+//////////////////////////////// // lux
     if (fileout) {
         int size = ftell(fileout);
         if (size >= MAX_FILE_SIZE && nLogFile > 1) {
@@ -492,7 +492,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "Lux";
+    const char* pszModule = "lux";
 #endif
     if (pex)
         return strprintf(
@@ -516,7 +516,7 @@ boost::filesystem::path GetDefaultDataDir()
 // Windows < Vista: C:\Documents and Settings\Username\Application Data\LUX
 // Windows >= Vista: C:\Users\Username\AppData\Roaming\LUX
 // Mac: ~/Library/Application Support/LUX
-// Unix: ~/.Lux
+// Unix: ~/.lux
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "LUX";
@@ -534,7 +534,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "LUX";
 #else
     // Unix
-    return pathRet / ".Lux";
+    return pathRet / ".lux";
 #endif
 #endif
 }
@@ -581,7 +581,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "Lux.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "lux.conf"));
     if (!pathConfigFile.is_complete())
         pathConfigFile = GetDataDir(false) / pathConfigFile;
 
@@ -600,7 +600,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
-        // Create empty Lux.conf if it does not exist
+        // Create empty lux.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -611,7 +611,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it) {
-        // Don't overwrite existing settings so command line settings override Lux.conf
+        // Don't overwrite existing settings so command line settings override lux.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0) {
             mapSettingsRet[strKey] = it->value[0];
@@ -644,7 +644,7 @@ void WriteConfigToFile(std::string strKey, std::string strValue)
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "Luxd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "luxd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

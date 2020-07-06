@@ -39,7 +39,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../Lux.qrc"/>
+  <include location="../lux.qrc"/>
  </resources>
  <connections/>
 </ui>

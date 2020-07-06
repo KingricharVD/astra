@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifdef HAVE_CONFIG_H
-#include "config/Lux-config.h"
+#include "config/lux-config.h"
 #endif
 
 #include "netbase.h"

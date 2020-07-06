@@ -60,11 +60,11 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += Luxd
+  bin_PROGRAMS += luxd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += Lux-cli Lux-tx
+  bin_PROGRAMS += lux-cli lux-tx
 endif
 
 .PHONY: FORCE
@@ -139,7 +139,7 @@ BITCOIN_CORE_H = \
   rpcprotocol.h \
   httprpc.h \
   httpserver.h \
-  Luxcontrol.h \
+  luxcontrol.h \
   rpcserver.h \
   rpcutil.h \
   scheduler.h \
@@ -180,10 +180,10 @@ BITCOIN_CORE_H = \
   zmq/zmqconfig.h \
   zmq/zmqnotificationinterface.h \
   zmq/zmqpublishnotifier.h \
-  Lux/Luxstate.h \
-  Lux/Luxtransaction.h \
-  Lux/LuxDGP.h \
-  Lux/storageresults.h
+  lux/luxstate.h \
+  lux/luxtransaction.h \
+  lux/luxDGP.h \
+  lux/storageresults.h
 
 obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
@@ -191,7 +191,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between Luxd and Lux-qt
+# server: shared between luxd and lux-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -220,7 +220,7 @@ libbitcoin_server_a_SOURCES = \
   rpcrawtransaction.cpp \
   httprpc.cpp \
   httpserver.cpp \
-  Luxcontrol.cpp \
+  luxcontrol.cpp \
   rpcserver.cpp \
   script/sigcache.cpp \
   timedata.cpp \
@@ -228,9 +228,9 @@ libbitcoin_server_a_SOURCES = \
   txmempool.cpp \
   validationinterface.cpp \
   versionbits.cpp \
-  Lux/Luxstate.cpp \
-  Lux/LuxDGP.cpp \
-  Lux/storageresults.cpp \
+  lux/luxstate.cpp \
+  lux/luxDGP.cpp \
+  lux/storageresults.cpp \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
@@ -242,7 +242,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between Luxd and Lux-qt, but only linked
+# wallet: shared between luxd and lux-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = $(PIE_FLAGS)
@@ -386,7 +386,7 @@ libbitcoin_consensus_a_SOURCES = \
   utiltime.cpp \
   version.h
 
-# common: shared between Luxd, and Lux-qt and non-server tools
+# common: shared between luxd, and lux-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -DLUX_BUILD
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_CFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) -std=c99
@@ -568,8 +568,8 @@ libbitcoin_common_a_SOURCES = \
   cpp-ethereum/libethashseal/genesis/homesteadTest.cpp \
   cpp-ethereum/libethashseal/genesis/mainNetworkTest.cpp \
   cpp-ethereum/libethashseal/genesis/metropolisTest.cpp \
-  cpp-ethereum/libethashseal/genesis/LuxMainNetwork.cpp \
-  cpp-ethereum/libethashseal/genesis/LuxTestNetwork.cpp \
+  cpp-ethereum/libethashseal/genesis/luxMainNetwork.cpp \
+  cpp-ethereum/libethashseal/genesis/luxTestNetwork.cpp \
   cpp-ethereum/libethashseal/genesis/ropsten.cpp \
   cpp-ethereum/libethashseal/genesis/transitionnetTest.cpp \
   cpp-ethereum/libethash/ethash.h \
@@ -630,7 +630,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between Lux-cli and Lux-qt
+# cli: shared between lux-cli and lux-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -640,15 +640,15 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-Luxd_SOURCES = Luxd.cpp
-Luxd_CPPFLAGS = $(BITCOIN_INCLUDES)
-Luxd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+luxd_SOURCES = luxd.cpp
+luxd_CPPFLAGS = $(BITCOIN_INCLUDES)
+luxd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-Luxd_SOURCES += Luxd-res.rc config/Lux-config.h
+luxd_SOURCES += luxd-res.rc config/lux-config.h
 endif
 
-Luxd_LDADD = \
+luxd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -662,36 +662,36 @@ Luxd_LDADD = \
   $(LIBCRYPTOPP) \
   $(LIBSECP256K1)
 
-Luxd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(ZMQ_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+luxd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(ZMQ_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
 
-# Lux-cli binary #
-Lux_cli_SOURCES = Lux-cli.cpp
-Lux_cli_CPPFLAGS = $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+# lux-cli binary #
+lux_cli_SOURCES = lux-cli.cpp
+lux_cli_CPPFLAGS = $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
 
 if TARGET_WINDOWS
-Lux_cli_SOURCES += Lux-cli-res.rc config/Lux-config.h
+lux_cli_SOURCES += lux-cli-res.rc config/lux-config.h
 endif
 
-Lux_cli_LDADD = \
+lux_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-Lux_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+lux_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# Lux-tx binary #
-Lux_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
-Lux_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-Lux_tx_SOURCES =  \
-  Lux-tx.cpp \
+# lux-tx binary #
+lux_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+lux_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+lux_tx_SOURCES =  \
+  lux-tx.cpp \
   $(libbitcoin_common_a_SOURCES) \
   $(libbitcoin_server_a_SOURCES)
 
-Lux_tx_LDADD = \
+lux_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_SERVER) \
@@ -705,7 +705,7 @@ Lux_tx_LDADD = \
   $(LIBSECP256K1) \
   $(LIBCRYPTOPP)
 
-Lux_tx_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(MINIUPNPC_LIBS) $(ZMQ_LIBS)
+lux_tx_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(MINIUPNPC_LIBS) $(ZMQ_LIBS)
 #
 
 # bitcoinconsensus library #

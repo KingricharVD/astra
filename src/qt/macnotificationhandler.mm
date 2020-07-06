@@ -14,7 +14,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"io.Lux.Lux-Qt";
+        return @"io.lux.Lux-Qt";
     } else {
         return [self __bundleIdentifier];
     }

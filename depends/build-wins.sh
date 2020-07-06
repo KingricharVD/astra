@@ -80,9 +80,9 @@ RELEASE="$OLD_PATH/Release"
 mkdir -p "$RELEASE"
 
 # Remove the symbols for release
-[ -f "./src/qt/Lux-qt.exe" ] && cp "./src/qt/Lux-qt.exe" "$RELEASE"
-[ -f "./src/Luxd.exe" ] && cp "./src/Luxd.exe" "$RELEASE"
-[ -f "./src/Lux-cli.exe" ] && cp "./src/Lux-cli.exe" "$RELEASE"
+[ -f "./src/qt/lux-qt.exe" ] && cp "./src/qt/lux-qt.exe" "$RELEASE"
+[ -f "./src/luxd.exe" ] && cp "./src/luxd.exe" "$RELEASE"
+[ -f "./src/lux-cli.exe" ] && cp "./src/lux-cli.exe" "$RELEASE"
 
 
 cd "$RELEASE"

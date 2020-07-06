@@ -358,15 +358,15 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
         /* Lux features */
-        {"Lux", "masternode", &masternode, true, true, false},
-        //{"Lux", "masternodelist", &masternodelist, true, true, false},
-        //{"Lux", "mnbudget", &mnbudget, true, true, false},
-        //{"Lux", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
-        //{"Lux", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        //{"Lux", "mnsync", &mnsync, true, true, false},
-        {"Lux", "spork", &spork, true, true, false},
+        {"lux", "masternode", &masternode, true, true, false},
+        //{"lux", "masternodelist", &masternodelist, true, true, false},
+        //{"lux", "mnbudget", &mnbudget, true, true, false},
+        //{"lux", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
+        //{"lux", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        //{"lux", "mnsync", &mnsync, true, true, false},
+        {"lux", "spork", &spork, true, true, false},
 #ifdef ENABLE_WALLET
-        //{"Lux", "darksend", &darksend, false, false, true}, /* not threadSafe because of SendMoney */
+        //{"lux", "darksend", &darksend, false, false, true}, /* not threadSafe because of SendMoney */
 
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -643,7 +643,7 @@ vector<string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> Lux-cli " + methodname + " " + args + "\n";
+    return "> lux-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

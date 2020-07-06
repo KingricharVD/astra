@@ -127,13 +127,13 @@ Eula::Eula(QWidget* parent) : QDialog(parent),
     eulaInfo += tr("<p style=\"line-height:130\"><br><b>2.6	Limitations</b></p>");
     eulaInfo += tr("<p style=\"line-height:30\"></p>");
     eulaInfo += tr("<p style=\"line-height:130\">To the extent that the Software includes Luxcore Luxgate software, (i) you may customize the \
-                   installer for such software in accordance with the restrictions found at <a href=\"https://Luxcore.io\">https://Luxcore.io</a> \
+                   installer for such software in accordance with the restrictions found at <a href=\"https://luxcore.io\">https://luxcore.io</a> \
                    (e.g., installation of additional plug-in and help files); however, you may not otherwise alter or modify the installer program \
                    or create a new installer for any of such software, (ii) such software is licensed and distributed by Luxcore, and (iii) you are \
                    not authorized to use any plug-in or enhancement that permits you to save modifications to a any format file with such software; \
                    however, such use is authorized with Luxcore, Luxcore Luxgate, and other current and future Luxcore products. For information on \
                    how to distribute Luxgate please refer to the sections entitled \"How to Distribute Luxgate\" at \
-                   <a href=\"https://Luxcore.io\">https://Luxcore.io</a>.</p>");
+                   <a href=\"https://luxcore.io\">https://luxcore.io</a>.</p>");
     eulaInfo += tr("<p style=\"line-height:30\"></p>");
     eulaInfo += tr("<p style=\"line-height:130\"><br><b>3.	Intellectual Property Rights</b></p>");
     eulaInfo += tr("<p style=\"line-height:30\"></p>");
@@ -311,16 +311,16 @@ void Eula::showDialog()
     bool isDialogHiding = false;
     QSettings settings;
 
-    QString currentVersion = QString("Lux_") + QString::fromStdString(strprintf("%d%d%d%d",
+    QString currentVersion = QString("lux_") + QString::fromStdString(strprintf("%d%d%d%d",
                              CLIENT_VERSION_MAJOR,
                              CLIENT_VERSION_MINOR,
                              CLIENT_VERSION_REVISION,
                              CLIENT_VERSION_BUILD
                              ));
 
-    if (settings.contains(QString("LuxVersion")))
+    if (settings.contains(QString("luxVersion")))
     {
-        QString storeVersion = settings.value(QString("LuxVersion")).toString();
+        QString storeVersion = settings.value(QString("luxVersion")).toString();
         if (QString::compare(storeVersion, currentVersion, Qt::CaseInsensitive) == 0)
         {
             isDialogHiding = settings.value(storeVersion).toBool();
@@ -328,12 +328,12 @@ void Eula::showDialog()
         else
         {
             settings.remove(storeVersion);
-            settings.setValue(QString("LuxVersion"), currentVersion);
+            settings.setValue(QString("luxVersion"), currentVersion);
         }
     }
     else
     {
-        settings.setValue(QString("LuxVersion"), currentVersion);
+        settings.setValue(QString("luxVersion"), currentVersion);
     }
 	
     if(isDialogHiding)

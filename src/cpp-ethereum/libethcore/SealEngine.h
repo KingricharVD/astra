@@ -84,10 +84,10 @@ public:
 	virtual bigint costOfPrecompiled(Address const& _a, bytesConstRef _in, u256 const&) const { return m_params.precompiled.at(_a).cost(_in); }
 	virtual std::pair<bool, bytes> executePrecompiled(Address const& _a, bytesConstRef _in, u256 const&) const { return m_params.precompiled.at(_a).execute(_in); }
 
-////////////////////////////////////////////////////////////// // Lux
-	void setLuxSchedule(EVMSchedule _LuxSchedule) const { LuxSchedule = _LuxSchedule; }
+////////////////////////////////////////////////////////////// // lux
+	void setLuxSchedule(EVMSchedule _luxSchedule) const { luxSchedule = _luxSchedule; }
 
-	EVMSchedule& getLuxSchedule() const { return LuxSchedule; }
+	EVMSchedule& getLuxSchedule() const { return luxSchedule; }
 
 	mutable std::set<Address> deleteAddresses;
 //////////////////////////////////////////////////////////////
@@ -99,7 +99,7 @@ private:
 	mutable Mutex x_options;
 	std::unordered_map<std::string, bytes> m_options;
 
-	mutable EVMSchedule LuxSchedule; // Lux
+	mutable EVMSchedule luxSchedule; // lux
 
 	ChainOperationParams m_params;
 };

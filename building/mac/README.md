@@ -5,10 +5,10 @@
     ```shell
     brew install git
     ```
-2. Clone Lux repository
+2. Clone lux repository
     
     ```shell
-    git clone https://github.com/LUX-Core/Lux
+    git clone https://github.com/LUX-Core/lux
     ```
 
 3. Ensure mysql and boost installed.

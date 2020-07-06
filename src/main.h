@@ -8,7 +8,7 @@
 #define BITCOIN_MAIN_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/Lux-config.h"
+#include "config/lux-config.h"
 #endif
 
 #include "amount.h"
@@ -45,14 +45,14 @@
  * Global LuxState
  */
 
-/////////////////////////////////////////// Lux
-#include <Lux/Luxstate.h>
-#include <Lux/LuxDGP.h>
+/////////////////////////////////////////// lux
+#include <lux/luxstate.h>
+#include <lux/luxDGP.h>
 #include <libethereum/ChainParams.h>
 #include <libethashseal/Ethash.h>
 #include <libethashseal/GenesisInfo.h>
 #include <script/standard.h>
-#include <Lux/storageresults.h>
+#include <lux/storageresults.h>
 ///////////////////////////////////////////
 
 extern std::unique_ptr<LuxState> globalState;
@@ -166,7 +166,7 @@ static const bool DEFAULT_LOGEVENTS = false;
 
 static const int64_t DEFAULT_MAX_TIP_AGE = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
 
-////////////////////////////////////////////////////// Lux
+////////////////////////////////////////////////////// lux
 static const uint64_t DEFAULT_GAS_LIMIT_OP_CREATE=5000000;
 static const uint64_t DEFAULT_GAS_LIMIT_OP_SEND=5000000;
 static const CAmount DEFAULT_GAS_PRICE=0.00000040*COIN;
@@ -186,7 +186,7 @@ extern unsigned int dgpMaxBlockWeight;
 /** The maximum allowed size for a block excluding witness data, in bytes (network rule) */
 extern unsigned int dgpMaxBlockBaseSize;
 
-extern unsigned int dgpMaxBlockSize; // Lux
+extern unsigned int dgpMaxBlockSize; // lux
 
 /** The maximum allowed number of signature check operations in a block (network rule) */
 extern int64_t dgpMaxBlockSigOps;
@@ -388,7 +388,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
 bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransaction& tx, bool fLimitFree, bool* pfMissingInputs, bool fRejectInsaneFee = false, bool isDSTX = false);
 
 
-//////////////////////////////////////////////////////////// // Lux
+//////////////////////////////////////////////////////////// // lux
 struct CHeightTxIndexIteratorKey {
     unsigned int height;
 
@@ -857,7 +857,7 @@ static const unsigned int REJECT_CONFLICT = 0x102;
 
 int GetSpendHeight(const CCoinsViewCache& inputs);
 
-//////////////////////////////////////////////////////// Lux
+//////////////////////////////////////////////////////// lux
 std::vector<ResultExecute> CallContract(const dev::Address& addrContract, std::vector<unsigned char> opcode, const dev::Address& sender = dev::Address(), uint64_t gasLimit=0);
 
 bool CheckSenderScript(const CCoinsViewCache& view, const CTransaction& tx);
@@ -899,7 +899,7 @@ public:
 
     LuxTxConverter(CTransaction tx, CCoinsViewCache* v = NULL, const std::vector<CTransaction>* blockTxs = NULL) : txBit(tx), view(v), blockTransactions(blockTxs){}
 
-    bool extractionLuxTransactions(ExtractLuxTX& LuxTx);
+    bool extractionLuxTransactions(ExtractLuxTX& luxTx);
 
 private:
 

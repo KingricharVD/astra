@@ -1,7 +1,7 @@
 #include "masternodemanager.h"
 #include "ui_masternodemanager.h"
-#include "addeditLuxnode.h"
-#include "Luxnodeconfigdialog.h"
+#include "addeditluxnode.h"
+#include "luxnodeconfigdialog.h"
 
 #include "sync.h"
 #include "clientmodel.h"
@@ -120,7 +120,7 @@ void MasternodeManager::on_tableWidget_2_itemSelectionChanged()
 
 void MasternodeManager::updateLuxNode(QString alias, QString addr, QString privkey, QString collateral)
 {
-    LOCK(cs_Lux);
+    LOCK(cs_lux);
    
     ui->tableWidget_2->insertRow(0);
 
@@ -227,10 +227,10 @@ void MasternodeManager::updateNodeList()
     
     if(pwalletMain)
     {
-        LOCK(cs_Lux);
-        for (PAIRTYPE(std::string, CLuxNodeConfig) Lux : pwalletMain->mapMyLuxNodes)
+        LOCK(cs_lux);
+        for (PAIRTYPE(std::string, CLuxNodeConfig) lux : pwalletMain->mapMyLuxNodes)
         {
-            updateLuxNode(QString::fromStdString(Lux.second.sAlias), QString::fromStdString(Lux.second.sAddress), QString::fromStdString(Lux.second.sMasternodePrivKey), QString::fromStdString(Lux.second.sCollateralAddress));
+            updateLuxNode(QString::fromStdString(lux.second.sAlias), QString::fromStdString(lux.second.sAddress), QString::fromStdString(lux.second.sMasternodePrivKey), QString::fromStdString(lux.second.sCollateralAddress));
         }
     }
 }
@@ -339,9 +339,9 @@ void MasternodeManager::on_removeButton_clicked()
         walletdb.EraseLuxNodeConfig(c.sAddress);
         ui->tableWidget_2->clearContents();
         ui->tableWidget_2->setRowCount(0);
-        for (PAIRTYPE(std::string, CLuxNodeConfig) Lux : pwalletMain->mapMyLuxNodes)
+        for (PAIRTYPE(std::string, CLuxNodeConfig) lux : pwalletMain->mapMyLuxNodes)
         {
-            updateLuxNode(QString::fromStdString(Lux.second.sAlias), QString::fromStdString(Lux.second.sAddress), QString::fromStdString(Lux.second.sMasternodePrivKey), QString::fromStdString(Lux.second.sCollateralAddress));
+            updateLuxNode(QString::fromStdString(lux.second.sAlias), QString::fromStdString(lux.second.sAddress), QString::fromStdString(lux.second.sMasternodePrivKey), QString::fromStdString(lux.second.sCollateralAddress));
         }
     }
 }
@@ -401,9 +401,9 @@ void MasternodeManager::on_stopButton_clicked()
 void MasternodeManager::on_startAllButton_clicked()
 {
     std::string results;
-    for (PAIRTYPE(std::string, CLuxNodeConfig) Lux : pwalletMain->mapMyLuxNodes)
+    for (PAIRTYPE(std::string, CLuxNodeConfig) lux : pwalletMain->mapMyLuxNodes)
     {
-        CLuxNodeConfig c = Lux.second;
+        CLuxNodeConfig c = lux.second;
 	std::string errorMessage;
         bool result = activeMasternode.RegisterByPubKey(c.sAddress, c.sMasternodePrivKey, c.sCollateralAddress, errorMessage);
 	if(result)
@@ -424,9 +424,9 @@ void MasternodeManager::on_startAllButton_clicked()
 void MasternodeManager::on_stopAllButton_clicked()
 {
     std::string results;
-    for (PAIRTYPE(std::string, CLuxNodeConfig) Lux : pwalletMain->mapMyLuxNodes)
+    for (PAIRTYPE(std::string, CLuxNodeConfig) lux : pwalletMain->mapMyLuxNodes)
     {
-        CLuxNodeConfig c = Lux.second;
+        CLuxNodeConfig c = lux.second;
 	std::string errorMessage;
         bool result = activeMasternode.StopMasterNode(c.sAddress, c.sMasternodePrivKey, errorMessage);
 	if(result)

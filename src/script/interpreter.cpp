@@ -1047,7 +1047,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, un
                 }
                 break;
 
-                //////////////////////////////////////////////////////// Lux
+                //////////////////////////////////////////////////////// lux
                 case OP_SPEND:
                 {
                     return true; // temp

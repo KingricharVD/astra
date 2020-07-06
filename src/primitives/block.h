@@ -33,8 +33,8 @@ public:
     uint32_t nTime;
     uint32_t nBits;
     uint32_t nNonce;
-    uint256 hashStateRoot; // Lux
-    uint256 hashUTXORoot; // Lux
+    uint256 hashStateRoot; // lux
+    uint256 hashUTXORoot; // lux
 
     CBlockHeader()
     {
@@ -56,8 +56,8 @@ public:
         //When it is fixed, this check should look like this
         //if(this->nVersion & VersionBitsMask(Params().GetConsensus(), Consensus::SMART_CONTRACTS_HARDFORK))
         if ((this->nVersion & (1 << 30)) != 0) {
-            READWRITE(hashStateRoot);       // Lux
-            READWRITE(hashUTXORoot);        // Lux
+            READWRITE(hashStateRoot);       // lux
+            READWRITE(hashUTXORoot);        // lux
         }
     }
 
@@ -69,8 +69,8 @@ public:
         nTime = 0;
         nBits = 0;
         nNonce = 0;
-        hashStateRoot = 0; // Lux
-        hashUTXORoot = 0; // Lux
+        hashStateRoot = 0; // lux
+        hashUTXORoot = 0; // lux
     }
 
     bool IsNull() const
@@ -140,8 +140,8 @@ public:
         block.nTime          = nTime;
         block.nBits          = nBits;
         block.nNonce         = nNonce;
-        block.hashStateRoot  = hashStateRoot; // Lux
-        block.hashUTXORoot   = hashUTXORoot; // Lux
+        block.hashStateRoot  = hashStateRoot; // lux
+        block.hashUTXORoot   = hashUTXORoot; // lux
         return block;
     }
 

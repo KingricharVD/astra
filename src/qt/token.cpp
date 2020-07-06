@@ -73,9 +73,9 @@ struct TokenData
 
 bool ToHash160(const std::string& strLuxAddress, std::string& strHash160)
 {   
-    CTxDestination LuxAddress = DecodeDestination(strLuxAddress);
-    if(IsValidDestination(LuxAddress)){     
-        CKeyID *keyid = boost::get<CKeyID>(&LuxAddress);
+    CTxDestination luxAddress = DecodeDestination(strLuxAddress);
+    if(IsValidDestination(luxAddress)){     
+        CKeyID *keyid = boost::get<CKeyID>(&luxAddress);
         strHash160 = HexStr(valtype(keyid->begin(),keyid->end()));
     }else{
         return false;

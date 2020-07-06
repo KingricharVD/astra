@@ -1,4 +1,4 @@
-Quick Docker image for Luxd
+Quick Docker image for luxd
 ---------------------------
 
 Build docker image:
@@ -9,41 +9,41 @@ Push docker image:
 
     docker/push.sh
 
-Pull Luxcore/Lux:latest from docker hub  at [Lux-dockerhub](https://hub.docker.com/r/Luxcore/Lux/)
+Pull luxcore/lux:latest from docker hub  at [lux-dockerhub](https://hub.docker.com/r/luxcore/lux/)
 
-    sudo docker pull Luxcore/Lux
+    sudo docker pull luxcore/lux
     
 Run docker image
 
-    sudo docker run Luxcore/Lux
+    sudo docker run luxcore/lux
 
-Build docker for Luxd
+Build docker for luxd
 ----------
-A Docker configuration with Luxd node by default.
+A Docker configuration with luxd node by default.
 
     sudo apt install apt-transport-https ca-certificates curl software-properties-common; curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -; sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"; sudo apt-get update; sudo apt install docker-ce   
 ---------------------------------------------------        
     
-    mkdir Lux-mounted-data
-    docker run --name Lux -d \
+    mkdir lux-mounted-data
+    docker run --name lux -d \
      --env 'LUX_RPCUSER=rpciser' \
      --env 'LUX_RPCPASSWORD=rpcpassword' \
      --env 'LUX_TXINDEX=1' \
-     --volume ~/Lux-mounted-data:~/.Lux \
+     --volume ~/lux-mounted-data:~/.lux \
      -p 9888:9888 \
      --publish 9888:9888 \
-     Luxcore/Lux
+     luxcore/lux
 ----------------------------------------------------
 Logs
 
-    docker logs -f Lux
+    docker logs -f lux
 
 ----------------------------------------------------
 
 ## Configuration
 
-Set your `Lux.conf` file can be placed in the `Lux-mounted data` dir.
-Otherwise, a default `Lux.conf` file will be automatically generated based
+Set your `lux.conf` file can be placed in the `lux-mounted data` dir.
+Otherwise, a default `lux.conf` file will be automatically generated based
 on environment variables passed to the container:
 
 | name | default |
@@ -70,23 +70,23 @@ If you're daemonizing is to use Docker's
 but if you're insistent on using systemd, you could do something like
 
 ```
-$ cat /etc/systemd/system/Luxd.service
+$ cat /etc/systemd/system/luxd.service
 
-# Luxd.service #######################################################################
+# luxd.service #######################################################################
 [Unit]
 Description=Lux
 After=docker.service
 Requires=docker.service
 
 [Service]
-ExecStartPre=-/usr/bin/docker kill Lux
-ExecStartPre=-/usr/bin/docker rm Lux
-ExecStartPre=/usr/bin/docker pull Luxcore/Lux
+ExecStartPre=-/usr/bin/docker kill lux
+ExecStartPre=-/usr/bin/docker rm lux
+ExecStartPre=/usr/bin/docker pull luxcore/lux
 ExecStart=/usr/bin/docker run \
-    --name Lux \
+    --name lux \
     -p 9888:9888 \
     -p 9888:9888 \
-    -v /data/Luxd:/root/.Lux \
-    Luxcore/Lux
-ExecStop=/usr/bin/docker stop Lux
+    -v /data/luxd:/root/.lux \
+    luxcore/lux
+ExecStop=/usr/bin/docker stop lux
 ```

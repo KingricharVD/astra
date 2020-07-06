@@ -11,7 +11,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between Lux-cli and Luxd)
+ * CBaseChainParams defines the base parameters (shared between lux-cli and luxd)
  * of a given instance of the Lux system.
  */
 class CBaseChainParams

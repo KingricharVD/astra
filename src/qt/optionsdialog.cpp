@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/Lux-config.h"
+#include "config/lux-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -172,7 +172,7 @@ void OptionsDialog::setModel(OptionsModel* model)
     connect(ui->addressIndex, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
     connect(ui->threadsScriptVerif, SIGNAL(valueChanged(int)), this, SLOT(showRestartWarning()));
 
-    // if set in Lux.conf or in startup command line, sync and gray the checkboxes
+    // if set in lux.conf or in startup command line, sync and gray the checkboxes
     if (!SoftSetBoolArg("-logevents", fLogEvents)) {
         QSettings settings;
         settings.setValue("fLogEvents", fLogEvents);

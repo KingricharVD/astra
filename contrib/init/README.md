@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: Luxd.service
-Upstart: Luxd.conf
-OpenRC:  Luxd.openrc
-         Luxd.openrcconf
-CentOS:  Luxd.init
+SystemD: luxd.service
+Upstart: luxd.conf
+OpenRC:  luxd.openrc
+         luxd.openrcconf
+CentOS:  luxd.init
 
 have been made available to assist packagers in creating node packages here.
 

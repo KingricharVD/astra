@@ -95,7 +95,7 @@ Issue the following:
 Make note of the hash (which is your collaterla_output) and index.
 
 ### Enter your MasterNode details into your masternode.conf file
-[From the Lux github repo](https://github.com/LUX-Core/Lux/blob/master/doc/masternode_conf.md)
+[From the lux github repo](https://github.com/LUX-Core/lux/blob/master/doc/masternode_conf.md)
 
 The new masternode.conf format consists of a space seperated text file. Each line consisting of an alias, IP address followed by port, masternode private key, collateral output transaction id and collateral output index, donation address and donation percentage (the latter two are optional and should be in format "address:percentage").
 
@@ -112,20 +112,20 @@ mn01 127.0.0.1:26868 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c8
 mn02 127.0.0.2:26868 93WaAb3htPJEV8E9aQcN23Jt97bPex7YvWfgMDTUdWJvzmrMqey aa9f1034d973377a5e733272c3d0eced1de22555ad45d6b24abadff8087948d4 0 s:25
 ```
 
-## What about the Lux.conf file?
+## What about the lux.conf file?
 
-If you are using a masternode.conf file you no longer need the Lux.conf file. The exception is if you need custom settings (thanks oblox).
+If you are using a masternode.conf file you no longer need the lux.conf file. The exception is if you need custom settings (thanks oblox).
 
-## Update Lux.conf on server
+## Update lux.conf on server
 
-If you generated a new masternode private key, you will need to update the remote Lux.conf files.
+If you generated a new masternode private key, you will need to update the remote lux.conf files.
 
 Shut down the daemon and then edit the file.
 
-```sudo nano .Lux/Lux.conf```
+```sudo nano .lux/lux.conf```
 
 ### Edit the masternodeprivkey
-If you generated a new masternode private key, you will need to update the masternodeprivkey value in your remote Lux.conf file.
+If you generated a new masternode private key, you will need to update the masternodeprivkey value in your remote lux.conf file.
 
 ## Start your MasterNodes
 
@@ -135,9 +135,9 @@ If your remote server is not running, start your remote daemon as you normally w
 
 I usually confirm that remote is on the correct block by issuing:
 
-```Luxd getinfo```
+```luxd getinfo```
 
-And compare with the official explorer at http://explorer.Luxcore.io <or> https://chainz.cryptoid.info/Lux/
+And compare with the official explorer at http://explorer.luxcore.io <or> https://chainz.cryptoid.info/lux/
 
 ### Local
 

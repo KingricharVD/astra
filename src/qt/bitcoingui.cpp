@@ -322,13 +322,13 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
         pushButtonGithub = new QPushButton(frameSocMedia);
         pushButtonGithub->setToolTip(tr("Go to")+" GitHub");
         connect(pushButtonGithub, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://github.com/Lux-core"));});
+                this, [](){QDesktopServices::openUrl(QUrl("https://github.com/lux-core"));});
         pushButtonGithub->setIcon(QIcon(":/icons/res/icons/github.png").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
         pushButtonHelp = new QPushButton(frameSocMedia);
         pushButtonHelp->setToolTip(tr("Go to")+" Documentation Hub");
         connect(pushButtonHelp, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://docs.Luxcore.io/"));});
+                this, [](){QDesktopServices::openUrl(QUrl("https://docs.luxcore.io/"));});
         pushButtonHelp->setIcon(QIcon(":/icons/res/icons/hub.png").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));		
 		
         auto buttons = frameSocMedia->findChildren<QPushButton* >();
@@ -410,9 +410,9 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
 
     if(fCheckUpdates && updateDialog->newUpdateAvailable())
     {
-        QString url = "https://github.com/LUX-Core/Lux/releases";
+        QString url = "https://github.com/LUX-Core/lux/releases";
         QString link = QString("<a href=\\\"\"+ url +\"\\\">\"+ url +\"</a>").arg(NEW_RELEASES, NEW_RELEASES);
-        QString message(tr("New Lux-qt version available: <br /> %1. <br />").arg(link));
+        QString message(tr("New lux-qt version available: <br /> %1. <br />").arg(link));
         QMessageBox::information(this, tr("Check for updates"), message);
     }
 
@@ -464,7 +464,7 @@ void BitcoinGUI::createActions() {
     tabGroup->addAction(sendCoinsAction);
 
     receiveCoinsAction = new QAction(QIcon(":/icons/receiving_addresses"), tr("&Receive"), this);
-    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and Lux: URIs)"));
+    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and lux: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -545,7 +545,7 @@ void BitcoinGUI::createActions() {
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/Luxcoin_black"), tr("&About Luxcore"), this);
+    aboutAction = new QAction(QIcon(":/icons/luxcoin_black"), tr("&About Luxcore"), this);
     aboutAction->setStatusTip(tr("Show information about Luxcore"));
     aboutAction->setMenuRole(QAction::AboutRole);
 
@@ -566,7 +566,7 @@ void BitcoinGUI::createActions() {
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
     optionsAction->setStatusTip(tr("Modify configuration options for LUX"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
-    toggleHideAction = new QAction(QIcon(":/icons/Luxcoin_black"), tr("&Show / Hide"), this);
+    toggleHideAction = new QAction(QIcon(":/icons/luxcoin_black"), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
 
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed_black"), tr("&Encrypt Wallet..."), this);

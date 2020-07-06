@@ -402,18 +402,18 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     if (fProofOfStake)
         originalRewardTx = CMutableTransaction(pblock->vtx[1]);
 
-    //////////////////////////////////////////////////////// Lux
-    LuxDGP LuxDGP(globalState.get(), fGettingValuesDGP);
-    globalSealEngine->setLuxSchedule(LuxDGP.getGasSchedule(nHeight));
-    uint32_t blockSizeDGP = LuxDGP.getBlockSize(nHeight);
-    minGasPrice = LuxDGP.getMinGasPrice(nHeight);
+    //////////////////////////////////////////////////////// lux
+    LuxDGP luxDGP(globalState.get(), fGettingValuesDGP);
+    globalSealEngine->setLuxSchedule(luxDGP.getGasSchedule(nHeight));
+    uint32_t blockSizeDGP = luxDGP.getBlockSize(nHeight);
+    minGasPrice = luxDGP.getMinGasPrice(nHeight);
     if(IsArgSet("-staker-min-tx-gas-price")) {
         CAmount stakerMinGasPrice;
         if(ParseMoney(GetArg("-staker-min-tx-gas-price", ""), stakerMinGasPrice)) {
             minGasPrice = std::max(minGasPrice, (uint64_t)stakerMinGasPrice);
         }
     }
-    hardBlockGasLimit = LuxDGP.getBlockGasLimit(nHeight);
+    hardBlockGasLimit = luxDGP.getBlockGasLimit(nHeight);
     softBlockGasLimit = GetArg("-staker-soft-block-gas-limit", hardBlockGasLimit);
     softBlockGasLimit = std::min(softBlockGasLimit, hardBlockGasLimit);
     txGasLimit = GetArg("-staker-max-tx-gas-limit", softBlockGasLimit);
@@ -619,26 +619,26 @@ bool BlockAssembler::AttemptToAddContractToBlock(CTxMemPool::txiter iter, uint64
         //therefore, this can only be triggered by using raw transactions on the staker itself
         return false;
     }
-    std::vector<LuxTransaction> LuxTransactions = resultConverter.first;
+    std::vector<LuxTransaction> luxTransactions = resultConverter.first;
     dev::u256 txGas = 0;
-    for(LuxTransaction LuxTransaction : LuxTransactions){
-        txGas += LuxTransaction.gas();
+    for(LuxTransaction luxTransaction : luxTransactions){
+        txGas += luxTransaction.gas();
         if(txGas > txGasLimit) {
             // Limit the tx gas limit by the soft limit if such a limit has been specified.
             return false;
         }
 
-        if(bceResult.usedGas + LuxTransaction.gas() > softBlockGasLimit){
+        if(bceResult.usedGas + luxTransaction.gas() > softBlockGasLimit){
             //if this transaction's gasLimit could cause block gas limit to be exceeded, then don't add it
             return false;
         }
-        if(LuxTransaction.gasPrice() < minGasPrice){
+        if(luxTransaction.gasPrice() < minGasPrice){
             //if this transaction's gasPrice is less than the current DGP minGasPrice don't add it
             return false;
         }
     }
     // We need to pass the DGP's block gas limit (not the soft limit) since it is consensus critical.
-    ByteCodeExec exec(*pblock, LuxTransactions, hardBlockGasLimit);
+    ByteCodeExec exec(*pblock, luxTransactions, hardBlockGasLimit);
     if(!exec.performByteCode()){
         //error, don't add contract
         setGlobalStateRoot(oldHashStateRoot);

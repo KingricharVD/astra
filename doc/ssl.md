@@ -9,14 +9,14 @@ It can be configured to allow HTTPS connections.  You must follow the steps belo
 for this to work properly.
 
 1. Setup a certificate and private key.  A self signed certificate will work.
-    * cd ~/.Lux
+    * cd ~/.lux
     * openssl genrsa -out server.pem 4096
     * openssl req -new -x509 -nodes -sha1 -days 3650 -key server.pem > server.cert
     (NOTE: you should NOT enter a passphrase)
 
 2. Configure NeosCoin to use SSL
-    * Stop your current Luxd or Lux-qt
-    * Edit the Lux.conf and add
+    * Stop your current luxd or lux-qt
+    * Edit the lux.conf and add
       rpcssl=1
 
 3. Restart Lux to make these changes take effect.

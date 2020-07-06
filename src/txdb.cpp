@@ -20,7 +20,7 @@ static const char DB_BLOCK_FILES = 'f';
 static const char DB_TXINDEX = 't';
 static const char DB_BLOCK_INDEX = 'b';
 
-////////////////////////////////////////// // Lux
+////////////////////////////////////////// // lux
 static const char DB_HEIGHTINDEX = 'h';
 //////////////////////////////////////////
 
@@ -524,8 +524,8 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                 pindexNew->nNonce = diskindex.nNonce;
                 pindexNew->nStatus = diskindex.nStatus;
                 pindexNew->nTx = diskindex.nTx;
-                pindexNew->hashStateRoot  = diskindex.hashStateRoot; // Lux
-                pindexNew->hashUTXORoot   = diskindex.hashUTXORoot; // Lux
+                pindexNew->hashStateRoot  = diskindex.hashStateRoot; // lux
+                pindexNew->hashUTXORoot   = diskindex.hashUTXORoot; // lux
 
                 // Proof Of Stake
                 pindexNew->nMint = diskindex.nMint;
@@ -584,7 +584,7 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
     return true;
 }
 
-/////////////////////////////////////////////////////// // Lux
+/////////////////////////////////////////////////////// // lux
 bool CBlockTreeDB::WriteHeightIndex(const CHeightTxIndexKey &heightIndex, const std::vector<uint256>& hash) {
     CLevelDBBatch batch;
     batch.Write(std::make_pair(DB_HEIGHTINDEX, heightIndex), hash);

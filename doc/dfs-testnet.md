@@ -1,14 +1,14 @@
-![LUX Logo](../src/qt/res/images/Lux_logo_horizontal.png)
+![LUX Logo](../src/qt/res/images/lux_logo_horizontal.png)
 
 "FIRST OF ITS KIND"
 
 Luxcore is GNU AGPLv3 licensed.
 
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F216k155%2FLux.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2F216k155%2FLux?ref=badge_shield) [![Build Status](https://travis-ci.org/LUX-Core/Lux.svg?branch=master)](https://travis-ci.org/LUX-Core/Lux) [![GitHub version](https://badge.fury.io/gh/LUX-Core%2FLux.png)](https://badge.fury.io/gh/LUX-Core%2FLux.png) [![HitCount](http://hits.dwyl.io/216k155/Lux.svg)](http://hits.dwyl.io/216k155/Lux)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F216k155%2Flux.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2F216k155%2Flux?ref=badge_shield) [![Build Status](https://travis-ci.org/LUX-Core/lux.svg?branch=master)](https://travis-ci.org/LUX-Core/lux) [![GitHub version](https://badge.fury.io/gh/LUX-Core%2Flux.png)](https://badge.fury.io/gh/LUX-Core%2Flux.png) [![HitCount](http://hits.dwyl.io/216k155/lux.svg)](http://hits.dwyl.io/216k155/lux)
 <a href="https://discord.gg/A6YW6uh"><img src="https://discordapp.com/api/guilds/364500397999652866/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=LUX_COIN"><img src="https://img.shields.io/twitter/follow/LUX_COIN.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
                                                                                                                                                      
-[Website](https://Luxcore.io) — [LUXtre + LUXGate](https://github.com/LUX-Core/Luxtre) - [PoS Web Wallet](https://Lux.poswallet.io) — [Block Explorer](https://explorer.Luxcore.io/) — [Blog](https://reddit.com/r/LUXCoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/LUXcoinOfficialChat) — [Twitter](https://twitter.com/LUX_Coin)
+[Website](https://luxcore.io) — [LUXtre + LUXGate](https://github.com/LUX-Core/luxtre) - [PoS Web Wallet](https://lux.poswallet.io) — [Block Explorer](https://explorer.luxcore.io/) — [Blog](https://reddit.com/r/LUXCoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/LUXcoinOfficialChat) — [Twitter](https://twitter.com/LUX_Coin)
 
 Technical description of the Distributed File System (Testnet)
 =================================
@@ -17,7 +17,7 @@ RPC Command parameters can be found in `help`.
 
 Example:
 
-    Lux/src/Lux-cli -testnet=1 -rpcpassword=123456 help dfsannounce
+    lux/src/lux-cli -testnet=1 -rpcpassword=123456 help dfsannounce
 
 List of `RPC commands`:
 
@@ -47,30 +47,30 @@ Both servers are equivalent and can act as "Alice" and "Bob" when requested to s
 
 * Demons are used in general testnet, with the key 
 
-         --datadir =" / root / Luxtestnet / "
+         --datadir =" / root / luxtestnet / "
 
 To execute any rpc command on these servers you should specify the `testnet` and `rpcpassword = 123456` keys.
 
 Example: 
 
-        Lux / src / Lux-cli -testnet = 1 -rpcpassword = 123456 dfsgetinfo
+        lux / src / lux-cli -testnet = 1 -rpcpassword = 123456 dfsgetinfo
 
 As a result, you should see:
 
         {
         "enabled": true,
         "myip": "45.32.245.24:28333",
-         "dfsfolder": "/root/Luxtestnet/testnet4/dfs",
-         "dfstempfolder": "/root/Luxtestnet/testnet4/dfstemp",
+         "dfsfolder": "/root/luxtestnet/testnet4/dfs",
+         "dfstempfolder": "/root/luxtestnet/testnet4/dfstemp",
          "rate": 1,
          "maxblocksgap": 100
         }
 
 To send a file you need to make an rpc call `dfsannounce`:
 
-        Lux/src/Lux-cli -testnet=1 -rpcpassword=123456 dfsannounce "/root/file.test" 100 200
+        lux/src/lux-cli -testnet=1 -rpcpassword=123456 dfsannounce "/root/file.test" 100 200
 
-Where `/root/file.test` is the path to the file you want to save, `100` is the maximum file storage cost, measured in `1Kb * 1sec / 0.00000001 Lux`, and `200` is the maximum number of blocks, the allowable intervals between transactions containing evidence of file storage.
+Where `/root/file.test` is the path to the file you want to save, `100` is the maximum file storage cost, measured in `1Kb * 1sec / 0.00000001 lux`, and `200` is the maximum number of blocks, the allowable intervals between transactions containing evidence of file storage.
 
 The function should return a unique hash order like the example below:
 
@@ -84,7 +84,7 @@ You can view a list of all proposals for this order with the command:
     
 Example:
  
-    Lux/src/Lux-cli -testnet=1 -rpcpassword=123456 dfslistproposals f37996a118cc14e16a300503ef23062f6711721ebcce1ed9df91680cdeee0c40 
+    lux/src/lux-cli -testnet=1 -rpcpassword=123456 dfslistproposals f37996a118cc14e16a300503ef23062f6711721ebcce1ed9df91680cdeee0c40 
 
 There should be such an array of objects:
     
@@ -104,7 +104,7 @@ If everything all good, the other server should appear entry in `dfslocalstorage
 
 Moreover, You can check it with corresponding command below: 
 
-    Lux/src/Lux-cli -testnet=1 -rpcpassword=123456 dfslocalstorage
+    lux/src/lux-cli -testnet=1 -rpcpassword=123456 dfslocalstorage
 
 You should see:
 
@@ -112,11 +112,11 @@ You should see:
      {
        "index": 0,
        "type": "storage chunk",
-       "path": "/root/Luxtestnet/testnet4/dfs",
+       "path": "/root/luxtestnet/testnet4/dfs",
        "totalSpace": "107374182400",
        "freeSpace": "107374114688",
        "files": [{
-       "filename": "/root/Luxtestnet/testnet4/dfs/667cb29cf32f3bb48d875d33e2b61d16996b606d0f42acdd6b254ba1ce3cd8ac_1548331987.Luxfs",
+       "filename": "/root/luxtestnet/testnet4/dfs/667cb29cf32f3bb48d875d33e2b61d16996b606d0f42acdd6b254ba1ce3cd8ac_1548331987.luxfs",
        "uri": "667cb29cf32f3bb48d875d33e2b61d16996b606d0f42acdd6b254ba1ce3cd8ac",
        "size": "67712" }]
      }, 
@@ -124,7 +124,7 @@ You should see:
      {
        "index": 0,
        "type": "temp chunk",
-       "path": "/root/Luxtestnet/testnet4/dfstemp",
+       "path": "/root/luxtestnet/testnet4/dfstemp",
        "totalSpace": "107374182400",
        "freeSpace": "107374182400",
        "files": []
@@ -133,7 +133,7 @@ You should see:
 
 Also, the actual availability of this file and its size can be inspected using the usual bash tools at the address specified in the filename section (in this case `"filename"`):
 
-    "/root/Luxtestnet/testnet4/dfs/667cb29cf32f3bb48d875d33e2b61d16996b606d0f42acdd6b254ba1ce3cd8ac_1548331987.Luxfs")
+    "/root/luxtestnet/testnet4/dfs/667cb29cf32f3bb48d875d33e2b61d16996b606d0f42acdd6b254ba1ce3cd8ac_1548331987.luxfs")
 
 The file will be encrypted and have a size: the original file size is `126` divided, rounded up, multiplied by `128`.
 
@@ -141,7 +141,7 @@ You can decrypt it by running the command `dfsdecrypt`.
 
 Example:
 
-    Lux/src/Lux-cli -testnet=1 -rpcpassword=123456 dfsdecrypt "f37996a118cc14e16a300503ef23062f6711721ebcce1ed9df91680cdeee0c40" "/root/file.test"
+    lux/src/lux-cli -testnet=1 -rpcpassword=123456 dfsdecrypt "f37996a118cc14e16a300503ef23062f6711721ebcce1ed9df91680cdeee0c40" "/root/file.test"
 
 Then you can look at the contents of the file `/root/file.test` and compare it with the one that was on another vps.
 

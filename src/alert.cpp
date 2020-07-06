@@ -309,7 +309,7 @@ void ThreadSendAlert()
     //  Higher numbers mean higher priority
     alert.nPriority     = 5000;
     alert.strComment    = "";
-    alert.strStatusBar  = "UPGRADE REQUIRED: https://github.com/Lux-core/Lux";
+    alert.strStatusBar  = "UPGRADE REQUIRED: https://github.com/lux-core/lux";
 
     // Sign
     if(!alert.Sign()){

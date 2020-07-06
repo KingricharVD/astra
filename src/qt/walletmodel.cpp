@@ -275,7 +275,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
                 return InvalidAmount;
             }
             total += subtotal;
-        } else { // User-entered Lux address / amount:
+        } else { // User-entered lux address / amount:
             if (!validateAddress(rcp.address)) {
                 return InvalidAddress;
             }
@@ -373,7 +373,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(WalletModelTransaction& tran
                 std::string value;
                 rcp.paymentRequest.SerializeToString(&value);
                 newTx->vOrderForm.push_back(make_pair(key, value));
-            } else if (!rcp.message.isEmpty()) // Message from normal Lux:URI (Lux:XyZ...?message=example)
+            } else if (!rcp.message.isEmpty()) // Message from normal lux:URI (lux:XyZ...?message=example)
             {
                 newTx->vOrderForm.push_back(make_pair("Message", rcp.message.toStdString()));
             }
@@ -711,7 +711,7 @@ bool WalletModel::isSpent(const COutPoint& outpoint) const
     return wallet->IsSpent(outpoint.hash, outpoint.n);
 }
 
-bool WalletModel::isUnspentAddress(const std::string &LuxAddress) const
+bool WalletModel::isUnspentAddress(const std::string &luxAddress) const
 {
     LOCK2(cs_main, wallet->cs_wallet);
 
@@ -723,7 +723,7 @@ bool WalletModel::isUnspentAddress(const std::string &LuxAddress) const
         const CScript& scriptPubKey = out.tx->vout[out.i].scriptPubKey;
         bool fValidAddress = ExtractDestination(scriptPubKey, address);
 
-        if(fValidAddress && EncodeDestination(address) == LuxAddress && out.tx->vout[out.i].nValue)
+        if(fValidAddress && EncodeDestination(address) == luxAddress && out.tx->vout[out.i].nValue)
         {
             return true;
         }

@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "main.h"
-#include "test_Lux.cpp"
+#include "test_lux.cpp"
 #include "txmempool.h"
 #include "util.h"
 

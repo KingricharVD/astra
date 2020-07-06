@@ -23,7 +23,7 @@
  *  using BOOST_CHECK_CLOSE to fail.
  *
  */
-FLuxndomContext insecure_rand(true);
+FastRandomContext insecure_rand(true);
 
 BOOST_AUTO_TEST_SUITE(cuckoocache_tests);
 
@@ -59,7 +59,7 @@ public:
  */
 BOOST_AUTO_TEST_CASE(test_cuckoocache_no_fakes)
         {
-                insecure_rand = FLuxndomContext(true);
+                insecure_rand = FastRandomContext(true);
                 CuckooCache::cache<uint256, uint256Hasher> cc{};
                 cc.setup_bytes(32 << 20);
                 uint256 v;
@@ -79,7 +79,7 @@ BOOST_AUTO_TEST_CASE(test_cuckoocache_no_fakes)
 template <typename Cache>
 double test_cache(size_t megabytes, double load)
 {
-    insecure_rand = FLuxndomContext(true);
+    insecure_rand = FastRandomContext(true);
     std::vector<uint256> hashes;
     Cache set{};
     size_t bytes = megabytes * (1 << 20);
@@ -150,7 +150,7 @@ template <typename Cache>
 void test_cache_erase(size_t megabytes)
 {
     double load = 1;
-    insecure_rand = FLuxndomContext(true);
+    insecure_rand = FastRandomContext(true);
     std::vector<uint256> hashes;
     Cache set{};
     size_t bytes = megabytes * (1 << 20);
@@ -213,7 +213,7 @@ template <typename Cache>
 void test_cache_erase_parallel(size_t megabytes)
 {
     double load = 1;
-    insecure_rand = FLuxndomContext(true);
+    insecure_rand = FastRandomContext(true);
     std::vector<uint256> hashes;
     Cache set{};
     size_t bytes = megabytes * (1 << 20);
@@ -313,9 +313,9 @@ void test_cache_generations()
 
     // We use deterministic values, but this test has also passed on many
     // iterations with non-deterministic values, so it isn't "overfit" to the
-    // specific entropy in FLuxndomContext(true) and implementation of the
+    // specific entropy in FastRandomContext(true) and implementation of the
     // cache.
-    insecure_rand = FLuxndomContext(true);
+    insecure_rand = FastRandomContext(true);
 
     // block_activity models a chunk of network activity. n_insert elements are
     // adde to the cache. The first and last n/4 are stored for removal later

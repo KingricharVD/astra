@@ -91,7 +91,7 @@ public:
     bool ReadFlag(const std::string& name, bool& fValue);
     bool LoadBlockIndexGuts();
 
-    ////////////////////////////////////////////////////////////////////////////// // Lux
+    ////////////////////////////////////////////////////////////////////////////// // lux
     bool WriteHeightIndex(const CHeightTxIndexKey &heightIndex, const std::vector<uint256>& hash);
 
     /**

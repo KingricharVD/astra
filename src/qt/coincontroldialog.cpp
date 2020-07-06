@@ -432,7 +432,7 @@ void CoinControlDialog::greater()// select all inputs grater than "amount"
     Qt::CheckState state = Qt::Checked;  
 
     QMessageBox WARN;
-    WARN.setText("Large numbers of inputs can take a long time. Lux can go into a 'not responding' status while running this operation. once done the 'not responding' status will stop");
+    WARN.setText("Large numbers of inputs can take a long time. lux can go into a 'not responding' status while running this operation. once done the 'not responding' status will stop");
     WARN.exec();
 
     ui->treeWidget->setEnabled(false);     
@@ -470,7 +470,7 @@ void CoinControlDialog::greater()// select all inputs grater than "amount"
 void CoinControlDialog::Less()//select all inputs Less than "amount"
 {
     QMessageBox WARN;
-    WARN.setText("Large numbers of inputs can take a long time. Lux can go into a 'not responding' status while running this operation. once done the 'not responding' status will stop");
+    WARN.setText("Large numbers of inputs can take a long time. lux can go into a 'not responding' status while running this operation. once done the 'not responding' status will stop");
     WARN.exec();
 
     int val = ui->num_box->value();   
@@ -510,7 +510,7 @@ void CoinControlDialog::Less()//select all inputs Less than "amount"
 void CoinControlDialog::Equal() // select all inputs equal to "amount"
 {
     QMessageBox WARN;
-    WARN.setText("Large numbers of inputs can take a long time. Lux can go into a 'not responding' status while running this operation. once done the 'not responding' status will stop");
+    WARN.setText("Large numbers of inputs can take a long time. lux can go into a 'not responding' status while running this operation. once done the 'not responding' status will stop");
     WARN.exec();
 
 

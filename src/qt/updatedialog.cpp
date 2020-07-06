@@ -9,7 +9,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatchIterator>
 
-#define paternVersion "Lux-([0-9]+\\.)?([0-9]+\\.)?([0-9]+)-"
+#define paternVersion "lux-([0-9]+\\.)?([0-9]+\\.)?([0-9]+)-"
 
 UpdateDialog::UpdateDialog(QObject *parent) : QObject(parent) {
     currentVersion = Version(CLIENT_VERSION_MAJOR, CLIENT_VERSION_MINOR, CLIENT_VERSION_REVISION);
