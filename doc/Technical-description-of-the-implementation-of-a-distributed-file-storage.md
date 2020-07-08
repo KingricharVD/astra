@@ -1,4 +1,4 @@
-![LUX Logo](../src/qt/res/images/lux_logo_horizontal.png)
+![ASTRA Logo](../src/qt/res/images/lux_logo_horizontal.png)
 
 "FIRST OF ITS KIND"
 

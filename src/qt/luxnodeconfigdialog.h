@@ -1,5 +1,5 @@
-#ifndef LUXNODECONFIGDIALOG_H
-#define LUXNODECONFIGDIALOG_H
+#ifndef ASTRANODECONFIGDIALOG_H
+#define ASTRANODECONFIGDIALOG_H
 
 #include <QDialog>
 
@@ -24,4 +24,4 @@ private:
     Ui::LuxNodeConfigDialog *ui;
 };
 
-#endif // LUXNODECONFIGDIALOG_H
+#endif // ASTRANODECONFIGDIALOG_H

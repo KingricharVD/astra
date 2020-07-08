@@ -534,7 +534,7 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
             "      \"contract\":{\n"
             "         \"contractAddress\":\"address\", (string, required) Valid contract address (valid hash160 hex data)\n"
             "         \"data\":\"hex\",                (string, required) Hex data to add in the call output\n"
-            "         \"amount\":x.xxx,                (numeric, optional) Value in LUX to send with the call, should be a valid amount, default 0\n"
+            "         \"amount\":x.xxx,                (numeric, optional) Value in ASTRA to send with the call, should be a valid amount, default 0\n"
             "         \"gasLimit\":x,                  (numeric, optional) The gas limit for the transaction\n"
             "         \"gasPrice\":x.xxx               (numeric, optional) The gas price for the transaction\n"
             "       } \n"

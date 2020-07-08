@@ -27,9 +27,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef LUX_CONFIG_H])
-AH_TOP([#define LUX_CONFIG_H])
-AH_BOTTOM([#endif //LUX_CONFIG_H])
+AH_TOP([#ifndef ASTRA_CONFIG_H])
+AH_TOP([#define ASTRA_CONFIG_H])
+AH_BOTTOM([#endif //ASTRA_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -453,13 +453,13 @@ case $host in
 esac
 
 if test x$TARGET_OS = xwindows; then
-	CPPFLAGS="-Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-deprecated -Wno-cpp $CPPFLAGS -DLUX_BUILD"
+	CPPFLAGS="-Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-deprecated -Wno-cpp $CPPFLAGS -DASTRA_BUILD"
 	CXXFLAGS="-Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-deprecated -Wno-cpp $CXXFLAGS"
 elif test x$TARGET_OS = xdarwin; then
-	CPPFLAGS="-Wno-inconsistent-missing-override -Wno-deprecated-declarations -Wno-unknown-pragmas -Wno-implicit-fallthrough $CPPFLAGS -DLUX_BUILD"
+	CPPFLAGS="-Wno-inconsistent-missing-override -Wno-deprecated-declarations -Wno-unknown-pragmas -Wno-implicit-fallthrough $CPPFLAGS -DASTRA_BUILD"
 	CXXFLAGS="-Wno-inconsistent-missing-override -Wno-deprecated-declarations -Wno-unknown-pragmas -Wno-implicit-fallthrough $CXXFLAGS"
 else
-	CPPFLAGS="-Wno-unknown-pragmas -Wno-deprecated -Wno-deprecated-declarations -Wno-cpp -Wno-implicit-fallthrough $CPPFLAGS -DLUX_BUILD"
+	CPPFLAGS="-Wno-unknown-pragmas -Wno-deprecated -Wno-deprecated-declarations -Wno-cpp -Wno-implicit-fallthrough $CPPFLAGS -DASTRA_BUILD"
 	CXXFLAGS="-Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-cpp $CXXFLAGS"
 fi
 

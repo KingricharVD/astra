@@ -150,7 +150,7 @@ public Q_SLOTS:
     /** User has requested more information about the out of sync state */
     void requestedSyncWarningInfo();
 
-    /** Update selected LUX amount from transactionview */
+    /** Update selected ASTRA amount from transactionview */
     void trxAmount(QString amount);
 
 signals:

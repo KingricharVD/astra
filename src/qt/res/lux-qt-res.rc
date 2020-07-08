@@ -19,8 +19,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "LUX"
-            VALUE "FileDescription",    "Luxcore (OSS GUI client for LUX)"
+            VALUE "CompanyName",        "ASTRA"
+            VALUE "FileDescription",    "Luxcore (OSS GUI client for ASTRA)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "lux-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR

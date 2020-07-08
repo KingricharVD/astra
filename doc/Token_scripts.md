@@ -81,7 +81,7 @@ contract LSRStandardToken is StandardToken {
     //How many decimals to show.
     uint8 public decimals;
 
-    //An identifier: eg LUX
+    //An identifier: eg ASTRA
     string public symbol;
 
     function LSRStandardToken(uint256 initialSupply, string tokenName, uint8 decimalUnits, string tokenSymbol) {

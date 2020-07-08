@@ -33,7 +33,7 @@ class QWidget;
 class QToolButton;
 QT_END_NAMESPACE
 
-/** Utility functions used by the LUX Qt UI.
+/** Utility functions used by the ASTRA Qt UI.
  */
 namespace GUIUtil
 {
@@ -44,7 +44,7 @@ QFont fixedPitchFont();
 QString dateTimeStr(const QDateTime& datetime);
 QString dateTimeStr(qint64 nTime);
 
-// Render LUX addresses in monospace font
+// Render ASTRA addresses in monospace font
 QFont bitcoinAddressFont();
 
 // Set up widgets for address and amounts

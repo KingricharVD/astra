@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef LUX_HDCHAIN_H
-#define LUX_HDCHAIN_H
+#ifndef ASTRA_HDCHAIN_H
+#define ASTRA_HDCHAIN_H
 
 #include "key.h"
 #include "sync.h"
@@ -153,4 +153,4 @@ public:
     std::string GetKeyPath() const;
 };
 
-#endif // LUX_HDCHAIN_H
+#endif // ASTRA_HDCHAIN_H

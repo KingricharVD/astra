@@ -326,7 +326,7 @@ void MasternodeManager::on_removeButton_clicked()
         return;
 
     QMessageBox::StandardButton confirm;
-    confirm = QMessageBox::question(this, "Delete LUX Node?", "Are you sure you want to delete this LUX node configuration?", QMessageBox::Yes|QMessageBox::No);
+    confirm = QMessageBox::question(this, "Delete ASTRA Node?", "Are you sure you want to delete this ASTRA node configuration?", QMessageBox::Yes|QMessageBox::No);
 
     if(confirm == QMessageBox::Yes)
     {
@@ -364,7 +364,7 @@ void MasternodeManager::on_startButton_clicked()
 
     QMessageBox msg;
     if(result)
-        msg.setText("LUX Node at " + QString::fromStdString(c.sAddress) + " started.");
+        msg.setText("ASTRA Node at " + QString::fromStdString(c.sAddress) + " started.");
     else
         msg.setText("Error: " + QString::fromStdString(errorMessage));
 
@@ -389,7 +389,7 @@ void MasternodeManager::on_stopButton_clicked()
     QMessageBox msg;
     if(result)
     {
-        msg.setText("LUX Node at " + QString::fromStdString(c.sAddress) + " stopped.");
+        msg.setText("ASTRA Node at " + QString::fromStdString(c.sAddress) + " stopped.");
     }
     else
     {

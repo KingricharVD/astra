@@ -235,7 +235,7 @@ public:
     bool reqWallet;
 };
 /**
- * LUX RPC command dispatcher.
+ * ASTRA RPC command dispatcher.
  */
 class CRPCTable
 {

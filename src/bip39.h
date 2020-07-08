@@ -27,8 +27,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef LUX_BIP39_H
-#define LUX_BIP39_H
+#ifndef ASTRA_BIP39_H
+#define ASTRA_BIP39_H
 
 #include "allocators.h"
 

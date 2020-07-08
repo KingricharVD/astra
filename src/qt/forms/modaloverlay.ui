@@ -146,7 +146,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>This means that recent transactions will not be visible, and the balance will not be up-to-date until this process has completed. Attempting to spend LUX during this time will not be accepted by the network!!!</string>
+                <string>This means that recent transactions will not be visible, and the balance will not be up-to-date until this process has completed. Attempting to spend ASTRA during this time will not be accepted by the network!!!</string>
                </property>
                <property name="textFormat">
                 <enum>Qt::RichText</enum>

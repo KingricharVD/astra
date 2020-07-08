@@ -35,14 +35,14 @@ extern std::regex hexData;
 
 // Debugging macros
 
-//#define ENABLE_LUX_DEBUG
-#ifdef ENABLE_LUX_DEBUG
+//#define ENABLE_ASTRA_DEBUG
+#ifdef ENABLE_ASTRA_DEBUG
 #define DEBUG_SECTION( x ) x
 #else
 #define DEBUG_SECTION( x )
 #endif
 
-//LUX only features
+//ASTRA only features
 extern std::atomic<bool> hideLogMessage;
 
 extern int nLogFile;

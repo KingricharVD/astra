@@ -1,5 +1,5 @@
-#ifndef LUXUPDATER_LUXUPDATER_P_H
-#define LUXUPDATER_LUXUPDATER_P_H
+#ifndef ASTRAUPDATER_ASTRAUPDATER_P_H
+#define ASTRAUPDATER_ASTRAUPDATER_P_H
 
 #include "luxupdater.h"
 #include "simplescheduler_p.h"
@@ -60,4 +60,4 @@ private:
 
 Q_DECLARE_LOGGING_CATEGORY(logLuxUpdater)
 
-#endif // LUXUPDATER_LUXUPDATER_P_H
+#endif // ASTRAUPDATER_ASTRAUPDATER_P_H

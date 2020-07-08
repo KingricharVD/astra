@@ -2495,12 +2495,12 @@ bool CWallet::SelectCoinsByDenominations(int nDenom, int64_t nValueMin, int64_t 
 
             // Function returns as follows:
             //
-            // bit 0 - 10000 LUX+1 ( bit on if present )
-            // bit 1 - 1000 LUX+1
-            // bit 2 - 100 LUX+1
-            // bit 3 - 10 LUX+1
-            // bit 4 - 1 LUX+1
-            // bit 5 - .1 LUX+1
+            // bit 0 - 10000 ASTRA+1 ( bit on if present )
+            // bit 1 - 1000 ASTRA+1
+            // bit 2 - 100 ASTRA+1
+            // bit 3 - 10 ASTRA+1
+            // bit 4 - 1 ASTRA+1
+            // bit 5 - .1 ASTRA+1
 
             CTxIn vin = CTxIn(out.tx->GetHash(), out.i);
 
@@ -2916,9 +2916,9 @@ bool CWallet::CreateTransaction(const std::vector<CRecipient>& vecSend, CWalletT
                     if (coin_type == ALL_COINS) {
                         strFailReason = _("Insufficient funds.");
                     } else if (coin_type == ONLY_NONDENOMINATED) {
-                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 LUX.");
+                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 ASTRA.");
                     } else if (coin_type == ONLY_NONDENOMINATED_NOTMN) {
-                        strFailReason = _("Unable to locate enough DarkSend non-denominated funds for this transaction that are not equal 10000 LUX.");
+                        strFailReason = _("Unable to locate enough DarkSend non-denominated funds for this transaction that are not equal 10000 ASTRA.");
                     } else {
                         strFailReason = _("Unable to locate enough DarkSend denominated funds for this transaction.");
                         strFailReason += " " + _("DarkSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.");

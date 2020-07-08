@@ -102,7 +102,7 @@ public:
     bool operator>(const CBase58Data& b58) const { return CompareTo(b58) > 0; }
 };
 
-/** base58-encoded LUX addresses.
+/** base58-encoded ASTRA addresses.
  * Public-key-hash-addresses have version 48.
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 63.

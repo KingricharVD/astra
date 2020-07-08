@@ -100,7 +100,7 @@ using namespace std;
 
 regex hexData("^([0-9a-fA-f]{2,}$)");
 
-//LUX only features
+//ASTRA only features
 int nLogFile = 1;
 bool fMasterNode = false;
 std::atomic<bool> hideLogMessage(false);
@@ -240,7 +240,7 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "lux" is a composite category enabling all LUX-related debug output
+            // "lux" is a composite category enabling all ASTRA-related debug output
             if (ptrCategory->count(string("lux"))) {
                 ptrCategory->insert(string("darksend"));
                 ptrCategory->insert(string("instantx"));
@@ -513,13 +513,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\LUX
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\LUX
-// Mac: ~/Library/Application Support/LUX
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\ASTRA
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\ASTRA
+// Mac: ~/Library/Application Support/ASTRA
 // Unix: ~/.lux
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "LUX";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "ASTRA";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -531,7 +531,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "LUX";
+    return pathRet / "ASTRA";
 #else
     // Unix
     return pathRet / ".lux";

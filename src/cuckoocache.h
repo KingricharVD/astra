@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _LUX_CUCKOOCACHE_H_
-#define _LUX_CUCKOOCACHE_H_
+#ifndef _ASTRA_CUCKOOCACHE_H_
+#define _ASTRA_CUCKOOCACHE_H_
 
 #include <array>
 #include <algorithm>

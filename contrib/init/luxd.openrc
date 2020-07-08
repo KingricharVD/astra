@@ -17,7 +17,7 @@ BITCOIND_GROUP=${BITCOIND_GROUP:-lux}
 BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/luxd}
 
 name="Luxcore Daemon"
-description="LUX crypto-currency p2p network daemon"
+description="ASTRA crypto-currency p2p network daemon"
 
 command="/usr/bin/luxd"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \

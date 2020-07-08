@@ -7,8 +7,8 @@
 /**
  * Functionality for communicating with LuxGate.
  */
-#ifndef BITCOIN_LUXCONTROL_H
-#define BITCOIN_LUXCONTROL_H
+#ifndef BITCOIN_ASTRACONTROL_H
+#define BITCOIN_ASTRACONTROL_H
 
 #include <string>
 
@@ -16,13 +16,13 @@
 #include <boost/chrono/chrono.hpp>
 #include <boost/thread.hpp>
 
-extern const std::string DEFAULT_LUX_CONTROL;
+extern const std::string DEFAULT_ASTRA_CONTROL;
 static const bool DEFAULT_LISTEN_ONION = true;
 
 void StartLuxControl(boost::thread_group& threadGroup);
 void InterruptLuxControl();
 void StopLuxControl();
 
-#endif /* BITCOIN_LUXCONTROL_H */
+#endif /* BITCOIN_ASTRACONTROL_H */
 
 

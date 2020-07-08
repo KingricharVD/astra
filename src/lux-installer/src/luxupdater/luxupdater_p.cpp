@@ -7,7 +7,7 @@
 #include <QtCore/QXmlStreamReader>
 #include <QtCore/QTimer>
 
-#define REPOSITORY_URL "https://github.com/LUX-Core/lux/releases.atom"
+#define REPOSITORY_URL "https://github.com/ASTRA-Core/lux/releases.atom"
 
 std::atomic<bool> isUpdaterRunning(false);
 
@@ -112,7 +112,7 @@ QString LuxUpdaterPrivate::getDownloadUrl(QString version)
 #else
 	QString fileName = 1 ? "lux-qt-linux-16.zip" : "lux-qt-linux-18.zip";
 #endif
-	return "https://github.com/LUX-Core/lux/releases/download/" + version + "/" + fileName;
+	return "https://github.com/ASTRA-Core/lux/releases/download/" + version + "/" + fileName;
 }
 
 void LuxUpdaterPrivate::onDownloadProgress(DownloadManager::DownloadProgress progress)

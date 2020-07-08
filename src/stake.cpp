@@ -396,7 +396,7 @@ bool MultiplyStakeTarget(uint256& bnTarget, int nModifierHeight, int64_t nModifi
     return false;
 }
 
-// LUX Stake modifier used to hash the stake kernel which is chosen as the stake
+// ASTRA Stake modifier used to hash the stake kernel which is chosen as the stake
 // modifier (nStakeMinAge - nSelectionTime). So at least, it selects the period later than the stake produces since from the nStakeMinAge
 static bool GetLuxStakeKernel(unsigned int nTimeTx, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake) {
     unsigned int nStakeMinAge = Params().StakingMinAge();

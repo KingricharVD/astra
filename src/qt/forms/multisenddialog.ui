@@ -42,7 +42,7 @@
       <number>1</number>
      </property>
      <property name="text">
-      <string>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other LUX addresses after it matures.</string>
+      <string>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other ASTRA addresses after it matures.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

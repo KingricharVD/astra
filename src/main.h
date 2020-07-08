@@ -94,7 +94,7 @@ struct CNodeStateStats;
 #define WORKING_VERSION "/Luxcore:5.3.0/"
 #endif
 
-static const int64_t DARKSEND_COLLATERAL = (16120*COIN); //16120 LUX
+static const int64_t DARKSEND_COLLATERAL = (16120*COIN); //16120 ASTRA
 static const int64_t DARKSEND_FEE = (0.002*COIN); // reward masternode
 static const int64_t DARKSEND_POOL_MAX = (1999999.99*COIN);
 

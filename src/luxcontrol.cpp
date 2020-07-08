@@ -31,15 +31,15 @@
 #include <event2/thread.h>
 
 /** Default control port */
-const std::string DEFAULT_LUX_CONTROL = "127.0.0.1:9051";
+const std::string DEFAULT_ASTRA_CONTROL = "127.0.0.1:9051";
 /** Lux cookie size (from control-spec.txt) */
-static const int LUX_COOKIE_SIZE = 32;
+static const int ASTRA_COOKIE_SIZE = 32;
 /** Size of client/server nonce for SAFECOOKIE */
-static const int LUX_NONCE_SIZE = 32;
+static const int ASTRA_NONCE_SIZE = 32;
 /** For computing serverHash in SAFECOOKIE */
-static const std::string LUX_SAFE_SERVERKEY = "Lux safe cookie authentication server-to-controller hash";
+static const std::string ASTRA_SAFE_SERVERKEY = "Lux safe cookie authentication server-to-controller hash";
 /** For computing clientHash in SAFECOOKIE */
-static const std::string LUX_SAFE_CLIENTKEY = "Lux safe cookie authentication controller-to-server hash";
+static const std::string ASTRA_SAFE_CLIENTKEY = "Lux safe cookie authentication controller-to-server hash";
 /** Exponential backoff configuration - initial timeout in seconds */
 static const float RECONNECT_TIMEOUT_START = 1.0;
 /** Exponential backoff configuration - growth factor */
@@ -572,13 +572,13 @@ void LuxController::authchallenge_cb(LuxControlConnection& _conn, const LuxContr
                 return;
             }
 
-            std::vector<uint8_t> computedServerHash = ComputeResponse(LUX_SAFE_SERVERKEY, cookie, clientNonce, serverNonce);
+            std::vector<uint8_t> computedServerHash = ComputeResponse(ASTRA_SAFE_SERVERKEY, cookie, clientNonce, serverNonce);
             if (computedServerHash != serverHash) {
                 LogPrintf("lux: ServerHash %s does not match expected ServerHash %s\n", HexStr(serverHash), HexStr(computedServerHash));
                 return;
             }
 
-            std::vector<uint8_t> computedClientHash = ComputeResponse(LUX_SAFE_CLIENTKEY, cookie, clientNonce, serverNonce);
+            std::vector<uint8_t> computedClientHash = ComputeResponse(ASTRA_SAFE_CLIENTKEY, cookie, clientNonce, serverNonce);
             _conn.Command("AUTHENTICATE " + HexStr(computedClientHash), boost::bind(&LuxController::auth_cb, this, _1, _2));
         } else {
             LogPrintf("lux: Invalid reply to AUTHCHALLENGE\n");
@@ -638,16 +638,16 @@ void LuxController::protocolinfo_cb(LuxControlConnection& _conn, const LuxContro
         } else if (methods.count("SAFECOOKIE")) {
             // Cookie: hexdump -e '32/1 "%02x""\n"'  ~/.lux/control_auth_cookie
             LogPrint("lux", "lux: Using SAFECOOKIE authentication, reading cookie authentication from %s\n", cookiefile);
-            std::pair<bool,std::string> status_cookie = ReadBinaryFile(cookiefile, LUX_COOKIE_SIZE);
-            if (status_cookie.first && status_cookie.second.size() == LUX_COOKIE_SIZE) {
+            std::pair<bool,std::string> status_cookie = ReadBinaryFile(cookiefile, ASTRA_COOKIE_SIZE);
+            if (status_cookie.first && status_cookie.second.size() == ASTRA_COOKIE_SIZE) {
                 // _conn.Command("AUTHENTICATE " + HexStr(status_cookie.second), boost::bind(&LuxController::auth_cb, this, _1, _2));
                 cookie = std::vector<uint8_t>(status_cookie.second.begin(), status_cookie.second.end());
-                clientNonce = std::vector<uint8_t>(LUX_NONCE_SIZE, 0);
-                GetRandBytes(&clientNonce[0], LUX_NONCE_SIZE);
+                clientNonce = std::vector<uint8_t>(ASTRA_NONCE_SIZE, 0);
+                GetRandBytes(&clientNonce[0], ASTRA_NONCE_SIZE);
                 _conn.Command("AUTHCHALLENGE SAFECOOKIE " + HexStr(clientNonce), boost::bind(&LuxController::authchallenge_cb, this, _1, _2));
             } else {
                 if (status_cookie.first) {
-                    LogPrintf("lux: Authentication cookie %s is not exactly %i bytes, as is required by the spec\n", cookiefile, LUX_COOKIE_SIZE);
+                    LogPrintf("lux: Authentication cookie %s is not exactly %i bytes, as is required by the spec\n", cookiefile, ASTRA_COOKIE_SIZE);
                 } else {
                     LogPrintf("lux: Authentication cookie %s could not be opened (check permissions)\n", cookiefile);
                 }
@@ -716,7 +716,7 @@ static boost::thread luxControlThread;
 
 static void LuxControlThread()
 {
-    LuxController ctrl(gBase, GetArg("-luxcontrol", DEFAULT_LUX_CONTROL));
+    LuxController ctrl(gBase, GetArg("-luxcontrol", DEFAULT_ASTRA_CONTROL));
 
     event_base_dispatch(gBase);
 }

@@ -90,10 +90,10 @@ QT_TRANSLATE_NOOP("lux-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("lux-core", ""
-"Fees (in LUX/Kb) smaller than this are considered zero fee for relaying "
+"Fees (in ASTRA/Kb) smaller than this are considered zero fee for relaying "
 "(default: %s)"),
 QT_TRANSLATE_NOOP("lux-core", ""
-"Fees (in LUX/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in ASTRA/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -193,10 +193,10 @@ QT_TRANSLATE_NOOP("lux-core", ""
 "Unable to locate enough DarkSend denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Unable to locate enough DarkSend non-denominated funds for this transaction "
-"that are not equal 10000 LUX."),
+"that are not equal 10000 ASTRA."),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Unable to locate enough funds for this transaction that are not equal 10000 "
-"LUX."),
+"ASTRA."),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Use hierarchical deterministic key generation (HD) after bip32. Only has "
 "effect during wallet creation/first start"),
@@ -283,7 +283,7 @@ QT_TRANSLATE_NOOP("lux-core", "Connect to a node to retrieve peer addresses, and
 QT_TRANSLATE_NOOP("lux-core", "Connection options:"),
 QT_TRANSLATE_NOOP("lux-core", "Copyright (C) 2009-%i The Bitcoin Core Developers"),
 QT_TRANSLATE_NOOP("lux-core", "Copyright (C) 2014-%i The Dash Core Developers"),
-QT_TRANSLATE_NOOP("lux-core", "Copyright (C) 2017-%i The LUX-Core Developers"),
+QT_TRANSLATE_NOOP("lux-core", "Copyright (C) 2017-%i The ASTRA-Core Developers"),
 QT_TRANSLATE_NOOP("lux-core", "Corrupted block database detected"),
 QT_TRANSLATE_NOOP("lux-core", "Darksend is disabled."),
 QT_TRANSLATE_NOOP("lux-core", "Darksend options:"),
@@ -321,7 +321,7 @@ QT_TRANSLATE_NOOP("lux-core", "Error: Wallet locked, unable to create transactio
 QT_TRANSLATE_NOOP("lux-core", "Error: You already have pending entries in the Darksend pool"),
 QT_TRANSLATE_NOOP("lux-core", "Error: can't select current denominated inputs"),
 QT_TRANSLATE_NOOP("lux-core", "Failed to listen on any port. Use -listen=0 if you want this."),
-QT_TRANSLATE_NOOP("lux-core", "Fee (in LUX/kB) to add to transactions you send (default: %s)"),
+QT_TRANSLATE_NOOP("lux-core", "Fee (in ASTRA/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("lux-core", "Force safe mode (default: %u)"),
 QT_TRANSLATE_NOOP("lux-core", "Generate coins (default: %u)"),
 QT_TRANSLATE_NOOP("lux-core", "How many blocks to check at startup (default: %u, 0 = all)"),
@@ -349,7 +349,7 @@ QT_TRANSLATE_NOOP("lux-core", "Invalid masternodeprivkey. Please see documenatio
 QT_TRANSLATE_NOOP("lux-core", "Invalid netmask specified in -whitelist: '%s'"),
 QT_TRANSLATE_NOOP("lux-core", "Invalid private key."),
 QT_TRANSLATE_NOOP("lux-core", "Invalid script detected."),
-QT_TRANSLATE_NOOP("lux-core", "Keep N LUX anonymized (default: %u)"),
+QT_TRANSLATE_NOOP("lux-core", "Keep N ASTRA anonymized (default: %u)"),
 QT_TRANSLATE_NOOP("lux-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
 QT_TRANSLATE_NOOP("lux-core", "Keypool ran out, please call keypoolrefill first"),
 QT_TRANSLATE_NOOP("lux-core", "Last Darksend was too recent."),

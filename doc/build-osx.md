@@ -55,8 +55,8 @@ Instructions: Homebrew
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/LUX-Project/LUX.git
-        cd LUX
+        git clone https://github.com/ASTRA-Project/ASTRA.git
+        cd ASTRA
 
 2.  Build luxd:
 
@@ -105,7 +105,7 @@ All dependencies should be compiled with these flags:
  -arch x86_64
  -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
 
-Once dependencies are compiled, see release-process.md for how the LUX-Qt.app
+Once dependencies are compiled, see release-process.md for how the ASTRA-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
@@ -117,14 +117,14 @@ directory. We have to first create the RPC configuration file, though.
 Run `./luxd` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=luxrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/LUX/lux.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/LUX/lux.conf"
+    echo -e "rpcuser=luxrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/ASTRA/lux.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/ASTRA/lux.conf"
 
 The next time you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours;
 you can monitor its process by looking at the debug.log file, like this:
 
-    tail -f $HOME/Library/Application\ Support/LUX/debug.log
+    tail -f $HOME/Library/Application\ Support/ASTRA/debug.log
 
 Other commands:
 -------

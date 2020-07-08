@@ -118,7 +118,7 @@ to see it.
 
 **testnet mode**
 
-Run with the -testnet option to run with "play LUXs (tLUX)" on the test network, if you
+Run with the -testnet option to run with "play ASTRAs (tASTRA)" on the test network, if you
 are testing multi-machine code that needs to operate across the internet.
 
 **DEBUG_LOCKORDER**
@@ -418,7 +418,7 @@ Git and github tips
 
         [remote "upstream-pull"]
                 fetch = +refs/pull/*:refs/remotes/upstream-pull/*
-                url = git@github.com:LUX-Project/LUX.git
+                url = git@github.com:ASTRA-Project/ASTRA.git
 
   This will add an `upstream-pull` remote to your git repository, which can be fetched using `git fetch --all`
   or `git fetch upstream-pull`. Afterwards, you can use `upstream-pull/NUMBER/head` in arguments to `git show`,

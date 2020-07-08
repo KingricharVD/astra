@@ -8,7 +8,7 @@
 2. Clone lux repository
     
     ```shell
-    git clone https://github.com/LUX-Core/lux
+    git clone https://github.com/ASTRA-Core/lux
     ```
 
 3. Ensure mysql and boost installed.
@@ -26,7 +26,7 @@
 5. Export the required environment variables
 
     ```shell
-    export LUX_PLATFORM='mac'
+    export ASTRA_PLATFORM='mac'
     export CXX=clang++
     export CC=clang
     ```

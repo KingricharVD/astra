@@ -1,5 +1,5 @@
-#ifndef LUXUPDATER_LUXUPDATER_H
-#define LUXUPDATER_LUXUPDATER_H
+#ifndef ASTRAUPDATER_ASTRAUPDATER_H
+#define ASTRAUPDATER_ASTRAUPDATER_H
 
 #include "adminauthoriser.h"
 
@@ -113,4 +113,4 @@ Q_DECLARE_METATYPE(QtLuxUpdater::LuxUpdater::LuxUpdateInfo)
 
 QDebug &operator<<(QDebug &debug, const QtLuxUpdater::LuxUpdater::LuxUpdateInfo &info);
 
-#endif // LUXUPDATER_LUXUPDATER_H
+#endif // ASTRAUPDATER_ASTRAUPDATER_H

@@ -1,6 +1,6 @@
 UNIX BUILD NOTES
 ====================
-Some notes on how to build LUX in Unix.
+Some notes on how to build ASTRA in Unix.
 
 Note
 ---------------------
@@ -96,7 +96,7 @@ ZMQ dependencies (provides ZMQ API 4.x):
 Dependencies for the GUI: Ubuntu & Debian
 -----------------------------------------
 
-If you want to build LUX-Qt, make sure that the required packages for Qt development
+If you want to build ASTRA-Qt, make sure that the required packages for Qt development
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used.
 To build without GUI pass `--without-gui`.
@@ -239,10 +239,10 @@ Berkeley DB
 It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 
 ```bash
-LUX_ROOT=$(pwd)
+ASTRA_ROOT=$(pwd)
 
 # Pick some path to install BDB to, here we create a directory within the lux directory
-BDB_PREFIX="${LUX_ROOT}/db4"
+BDB_PREFIX="${ASTRA_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
@@ -258,7 +258,7 @@ cd db-4.8.30.NC/build_unix/
 make install
 
 # Configure Luxcore to use our own-built instance of BDB
-cd $LUX_ROOT
+cd $ASTRA_ROOT
 ./configure (other args...) LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
 ```
 
@@ -275,7 +275,7 @@ If you need to build Boost yourself:
 
 Security
 --------
-To help make your LUX installation more secure by making certain attacks impossible to
+To help make your ASTRA installation more secure by making certain attacks impossible to
 exploit even if a vulnerability is found, binaries are hardened by default.
 This can be disabled with:
 

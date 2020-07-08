@@ -425,7 +425,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode() {
 
     // Filter
     for (const COutput& out : vCoins) {
-        if (out.tx->vout[out.i].nValue == GetMNCollateral(chainActive.Height()) * COIN) {  //exactly DARKSEND_COLLATERAL LUX
+        if (out.tx->vout[out.i].nValue == GetMNCollateral(chainActive.Height()) * COIN) {  //exactly DARKSEND_COLLATERAL ASTRA
             filteredCoins.push_back(out);
         }
     }
@@ -444,7 +444,7 @@ vector <COutput> CActiveMasternode::SelectCoinsMasternodeForPubKey(std::string c
 
     // Filter
     for (const COutput& out : vCoins) {
-        if (out.tx->vout[out.i].scriptPubKey == scriptPubKey && out.tx->vout[out.i].nValue == DARKSEND_COLLATERAL) { //exactly 161.200 LUX
+        if (out.tx->vout[out.i].scriptPubKey == scriptPubKey && out.tx->vout[out.i].nValue == DARKSEND_COLLATERAL) { //exactly 161.200 ASTRA
             filteredCoins.push_back(out);
         }
     }

@@ -1,5 +1,5 @@
-#ifndef LUXUPDATER_ATOMFEEDER_H
-#define LUXUPDATER_ATOMFEEDER_H
+#ifndef ASTRAUPDATER_ATOMFEEDER_H
+#define ASTRAUPDATER_ATOMFEEDER_H
 
 #include <QtCore/QObject>
 #include <QtNetwork/QNetworkAccessManager>
@@ -49,4 +49,4 @@ private:
 
 }
 
-#endif // LUXUPDATER_ATOMFEEDER_H
+#endif // ASTRAUPDATER_ATOMFEEDER_H

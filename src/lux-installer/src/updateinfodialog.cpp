@@ -35,7 +35,7 @@ UpdateInfoDialog::UpdateInfoDialog(QWidget *parent) :
 	ui->imageLabel->setPixmap(UpdateControllerPrivate::getUpdatesIcon().pixmap(64, 64));
 
 	// Releases url alternative
-	QString url = "https://github.com/LUX-Core/lux/releases";
+	QString url = "https://github.com/ASTRA-Core/lux/releases";
 	ui->urlReleaseLabel->setText("<a href=\""+ url +"\">"+ url +"</a>");
 	ui->urlReleaseLabel->setTextFormat(Qt::RichText);
 	ui->urlReleaseLabel->setOpenExternalLinks(true);

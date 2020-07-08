@@ -1,4 +1,4 @@
-# LUX Issue Template
+# ASTRA Issue Template
 
 Context
 Please provide any relevant information about your setup. This is important in case the issue is not reproducible except for under certain conditions.

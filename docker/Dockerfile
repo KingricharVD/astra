@@ -6,7 +6,7 @@ LABEL description="Dockerised Luxcore, built from Travis"
 RUN apt-get update && apt-get install -y software-properties-common unzip
 RUN apt-get install -y wget
 
-RUN wget https://github.com/LUX-Core/lux/releases/download/v5.2.3/lux-qt-linux-18.zip
+RUN wget https://github.com/ASTRA-Core/lux/releases/download/v5.2.3/lux-qt-linux-18.zip
 RUN unzip lux-qt-linux-18.zip
 RUN cp luxd /usr/local/bin
 

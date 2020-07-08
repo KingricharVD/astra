@@ -22,7 +22,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter an Alias (friendly name) for your LuxNodes Node and its address (either clearnet IP and port or Tor onion address and port).  The address should be in the format 123.456.789.123:9999 or akjdsafxjkhasdf.onion:9999.  A masternode private key and a collateral address will both be automatically generated for you.  You must send exactly 16120 LUX to the collateral address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter an Alias (friendly name) for your LuxNodes Node and its address (either clearnet IP and port or Tor onion address and port).  The address should be in the format 123.456.789.123:9999 or akjdsafxjkhasdf.onion:9999.  A masternode private key and a collateral address will both be automatically generated for you.  You must send exactly 16120 ASTRA to the collateral address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -165,12 +165,12 @@
         <translation>Receiving addresses</translation>
     </message>
     <message>
-        <source>These are your LUX addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>These are your LUX addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
+        <source>These are your ASTRA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>These are your ASTRA addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
     </message>
     <message>
-        <source>These are your LUX addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>These are your LUX addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</translation>
+        <source>These are your ASTRA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>These are your ASTRA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -290,16 +290,16 @@
         <translation>Confirm wallet encryption</translation>
     </message>
     <message>
-        <source>LUX will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your LUXs from being stolen by malware infecting your computer.</source>
-        <translation type="vanished">LUX will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your LUXs from being stolen by malware infecting your computer.</translation>
+        <source>ASTRA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your ASTRAs from being stolen by malware infecting your computer.</source>
+        <translation type="vanished">ASTRA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your ASTRAs from being stolen by malware infecting your computer.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Are you sure you wish to encrypt your wallet?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LUX&lt;/b&gt;!</source>
-        <translation>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LUX&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR ASTRA&lt;/b&gt;!</source>
+        <translation>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR ASTRA&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -342,7 +342,7 @@
         <translation>Warning: The Caps Lock key is on!</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process.Remember that encrypting your wallet cannot fully protect your LUXs from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process.Remember that encrypting your wallet cannot fully protect your ASTRAs from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -384,8 +384,8 @@
         <translation>Address:</translation>
     </message>
     <message>
-        <source>The LUX address to sign the message with</source>
-        <translation>The LUX address to sign the message with</translation>
+        <source>The ASTRA address to sign the message with</source>
+        <translation>The ASTRA address to sign the message with</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -416,8 +416,8 @@
         <translation>Copy the current signature to the system clipboard</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this LUX address</source>
-        <translation>Sign the message to prove you own this LUX address</translation>
+        <source>Sign the message to prove you own this ASTRA address</source>
+        <translation>Sign the message to prove you own this ASTRA address</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -440,12 +440,12 @@
         <translation>Enter the BIP 38 encrypted private key. Enter the passphrase in the middle box. Click Decrypt Key to compute the private key. After the key is decrypted, clicking &apos;Import Address&apos; will add this private key to the wallet.</translation>
     </message>
     <message>
-        <source>The LUX address the message was signed with</source>
-        <translation>The LUX address the message was signed with</translation>
+        <source>The ASTRA address the message was signed with</source>
+        <translation>The ASTRA address the message was signed with</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified LUX address</source>
-        <translation>Verify the message to ensure it was signed with the specified LUX address</translation>
+        <source>Verify the message to ensure it was signed with the specified ASTRA address</source>
+        <translation>Verify the message to ensure it was signed with the specified ASTRA address</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
@@ -746,8 +746,8 @@
         <translation>Luxcore</translation>
     </message>
     <message>
-        <source>Send coins to a LUX address</source>
-        <translation>Send coins to a LUX address</translation>
+        <source>Send coins to a ASTRA address</source>
+        <translation>Send coins to a ASTRA address</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and lux: URIs)</source>
@@ -770,16 +770,16 @@
         <translation>Show information about Luxcore</translation>
     </message>
     <message>
-        <source>Modify configuration options for LUX</source>
-        <translation>Modify configuration options for LUX</translation>
+        <source>Modify configuration options for ASTRA</source>
+        <translation>Modify configuration options for ASTRA</translation>
     </message>
     <message>
-        <source>Sign messages with your LUX addresses to prove you own them</source>
-        <translation>Sign messages with your LUX addresses to prove you own them</translation>
+        <source>Sign messages with your ASTRA addresses to prove you own them</source>
+        <translation>Sign messages with your ASTRA addresses to prove you own them</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified LUX addresses</source>
-        <translation>Verify messages to ensure they were signed with specified LUX addresses</translation>
+        <source>Verify messages to ensure they were signed with specified ASTRA addresses</source>
+        <translation>Verify messages to ensure they were signed with specified ASTRA addresses</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -810,8 +810,8 @@
         <translation>Open Masternode configuration file</translation>
     </message>
     <message>
-        <source>Open a LUX: URI or payment request</source>
-        <translation>Open a LUX: URI or payment request</translation>
+        <source>Open a ASTRA: URI or payment request</source>
+        <translation>Open a ASTRA: URI or payment request</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -822,18 +822,18 @@
         <translation>Block explorer window</translation>
     </message>
     <message>
-        <source>Show the Luxcore help message to get a list with possible LUX command-line options</source>
-        <translation>Show the Luxcore help message to get a list with possible LUX command-line options</translation>
+        <source>Show the Luxcore help message to get a list with possible ASTRA command-line options</source>
+        <translation>Show the Luxcore help message to get a list with possible ASTRA command-line options</translation>
     </message>
     <message>
         <source>Luxcore client</source>
         <translation>Luxcore client</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to LUX network</source>
+        <source>%n active connection(s) to ASTRA network</source>
         <translation type="vanished">
-            <numerusform>%n active connection(s) to LUX network</numerusform>
-            <numerusform>%n active connection(s) to LUX network</numerusform>
+            <numerusform>%n active connection(s) to ASTRA network</numerusform>
+            <numerusform>%n active connection(s) to ASTRA network</numerusform>
         </translation>
     </message>
     <message>
@@ -1029,7 +1029,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Converter for LUX Smart Contract addresses</source>
+        <source>Converter for ASTRA Smart Contract addresses</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
@@ -1089,7 +1089,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A fatal error occurred. LUX can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. ASTRA can no longer continue safely and will quit.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1885,7 +1885,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gas price: LUX price per gas unit. Default = %1, Min = %2</source>
+        <source>Gas price: ASTRA price per gas unit. Default = %1, Min = %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1912,48 +1912,48 @@ Address: %4
         <translation>Please select a privacy level.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 LUX</source>
-        <translation>Use 2 separate masternodes to mix funds up to 10000 LUX</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 ASTRA</source>
+        <translation>Use 2 separate masternodes to mix funds up to 10000 ASTRA</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 LUX</source>
-        <translation>Use 8 separate masternodes to mix funds up to 10000 LUX</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 ASTRA</source>
+        <translation>Use 8 separate masternodes to mix funds up to 10000 ASTRA</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Use 16 separate masternodes</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 LUX to anonymize 10000 LUX</source>
-        <translation>This option is the quickest and will cost about ~0.025 LUX to anonymize 10000 LUX</translation>
+        <source>This option is the quickest and will cost about ~0.025 ASTRA to anonymize 10000 ASTRA</source>
+        <translation>This option is the quickest and will cost about ~0.025 ASTRA to anonymize 10000 ASTRA</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 LUX to anonymize 10000 LUX</source>
-        <translation>This option is moderately fast and will cost about 0.05 LUX to anonymize 10000 LUX</translation>
+        <source>This option is moderately fast and will cost about 0.05 ASTRA to anonymize 10000 ASTRA</source>
+        <translation>This option is moderately fast and will cost about 0.05 ASTRA to anonymize 10000 ASTRA</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>This is the slowest and most secure option. Using maximum anonymity will cost</translation>
     </message>
     <message>
-        <source>0.1 LUX per 10000 LUX you anonymize.</source>
-        <translation>0.1 LUX per 10000 LUX you anonymize.</translation>
+        <source>0.1 ASTRA per 10000 ASTRA you anonymize.</source>
+        <translation>0.1 ASTRA per 10000 ASTRA you anonymize.</translation>
     </message>
     <message>
         <source>Darksend Configuration</source>
         <translation>Darksend Configuration</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</source>
-        <translation>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</translation>
+        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</source>
+        <translation>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</source>
-        <translation>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</translation>
+        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</source>
+        <translation>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</source>
-        <translation>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</translation>
+        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</source>
+        <translation>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</translation>
     </message>
 </context>
 <context>
@@ -2046,8 +2046,8 @@ Address: %4
         <translation>Edit sending address</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid LUX address.</source>
-        <translation>The entered address &quot;%1&quot; is not a valid LUX address.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid ASTRA address.</source>
+        <translation>The entered address &quot;%1&quot; is not a valid ASTRA address.</translation>
     </message>
     <message>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
@@ -2280,7 +2280,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;If the product you have received with this license is pre-commercial release or beta Software (&quot;Pre-release Software&quot;), then                     the following Section applies. To the extent that any provision in this Section is in conflict with any other term or condition in this Agreement, this                     Section shall supercede such other term(s) and condition(s) with respect to the Pre-release Software, but only to the extent necessary to resolve the conflict.                     You acknowledge that the Software is a pre-release version, does not represent final product from Luxcore, and may contain bugs, errors and other problems that                     could cause system or other failures and data loss. Consequently, the Pre-release Software is provided to you &quot;AS-IS&quot;, and Luxcore disclaims any warranty or                     liability obligations to you of any kind. WHERE LEGALLY LIABILITY CANNOT BE EXCLUDED FOR PRE-RELEASE SOFTWARE, BUT IT MAY BE LIMITED, LUXCORE&apos;S LIABILITY AND                     THAT OF ITS SUPPLIERS SHALL BE LIMITED TO THE SUM OF FIFTY DOLLARS (U.S. $50) IN TOTAL. You acknowledge that Luxcore has not promised or guaranteed to you that                     Pre-release Software will be announced or made available to anyone in the future, that Luxcore has no express or implied obligation to you to announce or                     introduce the Pre-release Software and that Luxcore may not introduce a product similar to or compatible with the Pre-release Software. Accordingly, you                     acknowledge that any research or development that you perform regarding the Pre-release Software or any product associated with the Pre-release Software is                     done entirely at your own risk. During the term of this Agreement, if requested by Luxcore, you will provide feedback to Luxcore regarding testing and use of                     the Pre-release Software, including error or bug reports. If you have been provided the Pre-release Software pursuant to a separate written agreement, such as                     the Luxcore Serial Agreement for Unreleased Products, your use of the Software is also governed by such agreement. You agree that you may not and certify that                     you will not sublicense, lease, loan, rent, or transfer the Pre-release Software. Upon receipt of a later unreleased version of the Pre-release Software or                     release by Luxcore of a publicly released commercial version of the Software, whether as a stand-alone product or as part of a larger product, you agree to                     return or destroy all earlier Pre-release Software received from Luxcore and to abide by the terms of the End User License Agreement for any such later versions                     of the Pre-release Software. Notwithstanding anything in this Section to the contrary, if you are located outside the United States of America or Canada, you agree                     that you will return or destroy all unreleased versions of the Pre-release Software within thirty (30) days of the completion of your testing of the Software                     when such date is earlier than the date for Luxcore&apos;s first commercial shipment of the publicly released (commercial) Software.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;If the product you have received with this license is pre-commercial release or beta Software (&quot;Pre-release Software&quot;), then                     the following Section applies. To the extent that any provision in this Section is in conflict with any other term or condition in this Agreement, this                     Section shall supercede such other term(s) and condition(s) with respect to the Pre-release Software, but only to the extent necessary to resolve the conflict.                     You acknowledge that the Software is a pre-release version, does not represent final product from Luxcore, and may contain bugs, errors and other problems that                     could cause system or other failures and data loss. Consequently, the Pre-release Software is provided to you &quot;AS-IS&quot;, and Luxcore disclaims any warranty or                     liability obligations to you of any kind. WHERE LEGALLY LIABILITY CANNOT BE EXCLUDED FOR PRE-RELEASE SOFTWARE, BUT IT MAY BE LIMITED, ASTRACORE&apos;S LIABILITY AND                     THAT OF ITS SUPPLIERS SHALL BE LIMITED TO THE SUM OF FIFTY DOLLARS (U.S. $50) IN TOTAL. You acknowledge that Luxcore has not promised or guaranteed to you that                     Pre-release Software will be announced or made available to anyone in the future, that Luxcore has no express or implied obligation to you to announce or                     introduce the Pre-release Software and that Luxcore may not introduce a product similar to or compatible with the Pre-release Software. Accordingly, you                     acknowledge that any research or development that you perform regarding the Pre-release Software or any product associated with the Pre-release Software is                     done entirely at your own risk. During the term of this Agreement, if requested by Luxcore, you will provide feedback to Luxcore regarding testing and use of                     the Pre-release Software, including error or bug reports. If you have been provided the Pre-release Software pursuant to a separate written agreement, such as                     the Luxcore Serial Agreement for Unreleased Products, your use of the Software is also governed by such agreement. You agree that you may not and certify that                     you will not sublicense, lease, loan, rent, or transfer the Pre-release Software. Upon receipt of a later unreleased version of the Pre-release Software or                     release by Luxcore of a publicly released commercial version of the Software, whether as a stand-alone product or as part of a larger product, you agree to                     return or destroy all earlier Pre-release Software received from Luxcore and to abide by the terms of the End User License Agreement for any such later versions                     of the Pre-release Software. Notwithstanding anything in this Section to the contrary, if you are located outside the United States of America or Canada, you agree                     that you will return or destroy all unreleased versions of the Pre-release Software within thirty (30) days of the completion of your testing of the Software                     when such date is earlier than the date for Luxcore&apos;s first commercial shipment of the publicly released (commercial) Software.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2288,7 +2288,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;IN NO EVENT WILL LUXCORE OR ITS SUPPLIERS BE LIABLE TO YOU FOR ANY DAMAGES, CLAIMS OR COSTS WHATSOEVER OR ANY CONSEQUENTIAL, INDIRECT,                    INCIDENTAL DAMAGES, OR ANY LOST PROFITS OR LOST SAVINGS, EVEN IF AN LUXCORE REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS, DAMAGES, CLAIMS OR                    COSTS OR FOR ANY CLAIM BY ANY THIRD PARTY. THE FOREGOING LIMITATIONS AND EXCLUSIONS APPLY TO THE EXTENT PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION. LUXCORE&apos;S                    AGGREGATE LIABILITY AND THAT OF ITS SUPPLIERS UNDER OR IN CONNECTION WITH THIS AGREEMENT SHALL BE LIMITED TO THE AMOUNT PAID FOR THE SOFTWARE, IF ANY. Nothing                    contained in this Agreement limits Luxcore&apos;s liability to you in the event of death or personal injury resulting from Luxcore&apos;s negligence or for the tort of                    deceit (fraud). Luxcore is acting on behalf of its suppliers for the purpose of disclaiming, excluding and/or limiting obligations, warranties and liability as                    provided in this Agreement, but in no other respects and for no other purpose. For further information, please see the jurisdiction specific information at the                    end of this Agreement, if any, or contact Luxcore&apos;s Customer Support Department.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;IN NO EVENT WILL ASTRACORE OR ITS SUPPLIERS BE LIABLE TO YOU FOR ANY DAMAGES, CLAIMS OR COSTS WHATSOEVER OR ANY CONSEQUENTIAL, INDIRECT,                    INCIDENTAL DAMAGES, OR ANY LOST PROFITS OR LOST SAVINGS, EVEN IF AN ASTRACORE REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS, DAMAGES, CLAIMS OR                    COSTS OR FOR ANY CLAIM BY ANY THIRD PARTY. THE FOREGOING LIMITATIONS AND EXCLUSIONS APPLY TO THE EXTENT PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION. ASTRACORE&apos;S                    AGGREGATE LIABILITY AND THAT OF ITS SUPPLIERS UNDER OR IN CONNECTION WITH THIS AGREEMENT SHALL BE LIMITED TO THE AMOUNT PAID FOR THE SOFTWARE, IF ANY. Nothing                    contained in this Agreement limits Luxcore&apos;s liability to you in the event of death or personal injury resulting from Luxcore&apos;s negligence or for the tort of                    deceit (fraud). Luxcore is acting on behalf of its suppliers for the purpose of disclaiming, excluding and/or limiting obligations, warranties and liability as                    provided in this Agreement, but in no other respects and for no other purpose. For further information, please see the jurisdiction specific information at the                    end of this Agreement, if any, or contact Luxcore&apos;s Customer Support Department.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2505,8 +2505,8 @@ Address: %4
         <translation>As this is the first time the program is launched, you can choose where Luxcore will store its data.</translation>
     </message>
     <message>
-        <source>Luxcore will download and store a copy of the LUX block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Luxcore will download and store a copy of the LUX block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
+        <source>Luxcore will download and store a copy of the ASTRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Luxcore will download and store a copy of the ASTRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -2824,7 +2824,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This means that recent transactions will not be visible, and the balance will not be up-to-date until this process has completed. Attempting to spend LUX during this time will not be accepted by the network!!!</source>
+        <source>This means that recent transactions will not be visible, and the balance will not be up-to-date until this process has completed. Attempting to spend ASTRA during this time will not be accepted by the network!!!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2891,12 +2891,12 @@ Address: %4
         <translation>Enter Address to Send to</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other LUX addresses after it matures.
-To Add: enter percentage to give and LUX address to add to the MultiSend vector.
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other ASTRA addresses after it matures.
+To Add: enter percentage to give and ASTRA address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</source>
-        <translation type="vanished">MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other LUX addresses after it matures.
-To Add: enter percentage to give and LUX address to add to the MultiSend vector.
+        <translation type="vanished">MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other ASTRA addresses after it matures.
+To Add: enter percentage to give and ASTRA address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</translation>
     </message>
@@ -3011,7 +3011,7 @@ Please check the address and try again.</translation>
 </translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other LUX addresses after it matures.</source>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other ASTRA addresses after it matures.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3129,8 +3129,8 @@ Please check the address and try again.</translation>
         <translation>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</translation>
     </message>
     <message>
-        <source>Automatically open the LUX client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatically open the LUX client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
+        <source>Automatically open the ASTRA client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatically open the ASTRA client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -3149,12 +3149,12 @@ Please check the address and try again.</translation>
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically start LUX after logging in to the system.</source>
-        <translation>Automatically start LUX after logging in to the system.</translation>
+        <source>Automatically start ASTRA after logging in to the system.</source>
+        <translation>Automatically start ASTRA after logging in to the system.</translation>
     </message>
     <message>
-        <source>&amp;Start LUX on system login</source>
-        <translation>&amp;Start LUX on system login</translation>
+        <source>&amp;Start ASTRA on system login</source>
+        <translation>&amp;Start ASTRA on system login</translation>
     </message>
     <message>
         <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
@@ -3169,8 +3169,8 @@ Please check the address and try again.</translation>
         <translation>This amount acts as a threshold to turn off Darksend once it&apos;s reached.</translation>
     </message>
     <message>
-        <source>Amount of LUX to keep anonymized</source>
-        <translation>Amount of LUX to keep anonymized</translation>
+        <source>Amount of ASTRA to keep anonymized</source>
+        <translation>Amount of ASTRA to keep anonymized</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -3197,8 +3197,8 @@ Please check the address and try again.</translation>
         <translation>&amp;Network</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting LUX.</source>
-        <translation>The user interface language can be set here. This setting will take effect after restarting LUX.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting ASTRA.</source>
+        <translation>The user interface language can be set here. This setting will take effect after restarting ASTRA.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
@@ -3211,8 +3211,8 @@ https://www.transifex.com/lux-project/lux-project-translations</translation>
         <translation>Map port using &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the LUX network through a SOCKS5 proxy.</source>
-        <translation>Connect to the LUX network through a SOCKS5 proxy.</translation>
+        <source>Connect to the ASTRA network through a SOCKS5 proxy.</source>
+        <translation>Connect to the ASTRA network through a SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -3419,8 +3419,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Balances</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</source>
-        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</translation>
     </message>
     <message>
         <source>Unconfirmed transactions to watch-only addresses</source>
@@ -3463,8 +3463,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="vanished">Darksend Balance:</translation>
     </message>
     <message>
-        <source>0 LUX / 0 Rounds</source>
-        <translation>0 LUX / 0 Rounds</translation>
+        <source>0 ASTRA / 0 Rounds</source>
+        <translation>0 ASTRA / 0 Rounds</translation>
     </message>
     <message>
         <source>Enabled/Disabled</source>
@@ -3698,8 +3698,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Cannot start lux: click-to-pay handler</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid LUX address or malformed URI parameters.</source>
-        <translation type="vanished">URI cannot be parsed! This can be caused by an invalid LUX address or malformed URI parameters.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid ASTRA address or malformed URI parameters.</source>
+        <translation type="vanished">URI cannot be parsed! This can be caused by an invalid ASTRA address or malformed URI parameters.</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -3799,8 +3799,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Amount</translation>
     </message>
     <message>
-        <source>Enter a LUX address (e.g. %1)</source>
-        <translation type="vanished">Enter a LUX address (e.g. %1)</translation>
+        <source>Enter a ASTRA address (e.g. %1)</source>
+        <translation type="vanished">Enter a ASTRA address (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -4182,8 +4182,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Block chain</translation>
     </message>
     <message>
-        <source>Open the LUX debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Open the LUX debug log file from the current data directory. This can take a few seconds for large log files.</translation>
+        <source>Open the ASTRA debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Open the ASTRA debug log file from the current data directory. This can take a few seconds for large log files.</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -4350,8 +4350,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Out:</translation>
     </message>
     <message>
-        <source>Welcome to the LUX RPC console.</source>
-        <translation>Welcome to the LUX RPC console.</translation>
+        <source>Welcome to the ASTRA RPC console.</source>
+        <translation>Welcome to the ASTRA RPC console.</translation>
     </message>
     <message>
         <source>Wallet in use: </source>
@@ -4529,12 +4529,12 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>An optional label to associate with the new receiving address.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the LUX network.</source>
-        <translation type="vanished">An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the LUX network.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ASTRA network.</source>
+        <translation type="vanished">An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ASTRA network.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the LUX network.</source>
-        <translation type="vanished">An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the LUX network.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the ASTRA network.</source>
+        <translation type="vanished">An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the ASTRA network.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -4852,8 +4852,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>UTXO Size:</translation>
     </message>
     <message>
-        <source>0 LUX</source>
-        <translation>0 LUX</translation>
+        <source>0 ASTRA</source>
+        <translation>0 ASTRA</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -4900,16 +4900,16 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="vanished">Confirmation time:</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uLUXs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uLUXs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uLUXs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>If the custom fee is set to 1000 uLUXs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uLUXs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uLUXs. For transactions bigger than a kilobyte both pay by kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uASTRAs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uASTRAs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uASTRAs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>If the custom fee is set to 1000 uASTRAs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uASTRAs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uASTRAs. For transactions bigger than a kilobyte both pay by kilobyte.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uLUXs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uLUXs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uLUXs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>If the custom fee is set to 1000 uLUXs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uLUXs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uLUXs. For transactions bigger than a kilobyte both pay by kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uASTRAs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uASTRAs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uASTRAs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>If the custom fee is set to 1000 uASTRAs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uASTRAs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uASTRAs. For transactions bigger than a kilobyte both pay by kilobyte.</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for LUX transactions than the network can process.</source>
-        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for LUX transactions than the network can process.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for ASTRA transactions than the network can process.</source>
+        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for ASTRA transactions than the network can process.</translation>
     </message>
     <message>
         <source>normal</source>
@@ -5012,8 +5012,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>anonymous funds</translation>
     </message>
     <message>
-        <source>Warning: Invalid LUX address</source>
-        <translation>Warning: Invalid LUX address</translation>
+        <source>Warning: Invalid ASTRA address</source>
+        <translation>Warning: Invalid ASTRA address</translation>
     </message>
     <message>
         <source>any available funds (not recommended)</source>
@@ -5165,8 +5165,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Pay &amp;To:</translation>
     </message>
     <message>
-        <source>The LUX address to send the payment to</source>
-        <translation>The LUX address to send the payment to</translation>
+        <source>The ASTRA address to send the payment to</source>
+        <translation>The ASTRA address to send the payment to</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -5205,8 +5205,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Message:</translation>
     </message>
     <message>
-        <source>A message that was attached to the LUX: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the LUX network.</source>
-        <translation>A message that was attached to the LUX: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the LUX network.</translation>
+        <source>A message that was attached to the ASTRA: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ASTRA network.</source>
+        <translation>A message that was attached to the ASTRA: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ASTRA network.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -5343,7 +5343,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gas price: LUX price per gas unit. Default = %1, Min = %2.</source>
+        <source>Gas price: ASTRA price per gas unit. Default = %1, Min = %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5402,7 +5402,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gas price: LUX/gas unit. Default = %1, Min = %2.</source>
+        <source>Gas price: ASTRA/gas unit. Default = %1, Min = %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5422,7 +5422,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>To send %1 you need LUX in address &lt;br /&gt; %2.</source>
+        <source>To send %1 you need ASTRA in address &lt;br /&gt; %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5456,8 +5456,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</translation>
     </message>
     <message>
-        <source>The LUX address to sign the message with</source>
-        <translation>The LUX address to sign the message with</translation>
+        <source>The ASTRA address to sign the message with</source>
+        <translation>The ASTRA address to sign the message with</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -5488,16 +5488,16 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Copy the current signature to the system clipboard</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this LUX address</source>
-        <translation>Sign the message to prove you own this LUX address</translation>
+        <source>Sign the message to prove you own this ASTRA address</source>
+        <translation>Sign the message to prove you own this ASTRA address</translation>
     </message>
     <message>
-        <source>The LUX address the message was signed with</source>
-        <translation>The LUX address the message was signed with</translation>
+        <source>The ASTRA address the message was signed with</source>
+        <translation>The ASTRA address the message was signed with</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified LUX address</source>
-        <translation>Verify the message to ensure it was signed with the specified LUX address</translation>
+        <source>Verify the message to ensure it was signed with the specified ASTRA address</source>
+        <translation>Verify the message to ensure it was signed with the specified ASTRA address</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -5701,8 +5701,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished">Balances</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</source>
-        <translation type="unfinished">The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</source>
+        <translation type="unfinished">The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</translation>
     </message>
     <message>
         <source>Unconfirmed transactions to watch-only addresses</source>
@@ -5777,8 +5777,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished">Amount and Rounds:</translation>
     </message>
     <message>
-        <source>0 LUX / 0 Rounds</source>
-        <translation type="unfinished">0 LUX / 0 Rounds</translation>
+        <source>0 ASTRA / 0 Rounds</source>
+        <translation type="unfinished">0 ASTRA / 0 Rounds</translation>
     </message>
     <message>
         <source>Submitted Denom:</source>
@@ -6752,7 +6752,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>https://github.com/LUX-Core/lux/releases</source>
+        <source>https://github.com/ASTRA-Core/lux/releases</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6798,8 +6798,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Send Coins</translation>
     </message>
     <message>
-        <source>InstanTX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 LUX.</source>
-        <translation>InstanTX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 LUX.</translation>
+        <source>InstanTX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 ASTRA.</source>
+        <translation>InstanTX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 ASTRA.</translation>
     </message>
 </context>
 <context>
@@ -6892,8 +6892,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</translation>
     </message>
     <message>
-        <source>Disable all LUX specific functionality (Masternodes, Darksend, InstanTX, Budgeting) (0-1, default: %u)</source>
-        <translation type="vanished">Disable all LUX specific functionality (Masternodes, Darksend, InstanTX, Budgeting) (0-1, default: %u)</translation>
+        <source>Disable all ASTRA specific functionality (Masternodes, Darksend, InstanTX, Budgeting) (0-1, default: %u)</source>
+        <translation type="vanished">Disable all ASTRA specific functionality (Masternodes, Darksend, InstanTX, Budgeting) (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
@@ -6932,12 +6932,12 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Execute command when the best block changes (%s in cmd is replaced by block hash)</translation>
     </message>
     <message>
-        <source>Fees (in LUX/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Fees (in LUX/Kb) smaller than this are considered zero fee for relaying (default: %s)</translation>
+        <source>Fees (in ASTRA/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Fees (in ASTRA/Kb) smaller than this are considered zero fee for relaying (default: %s)</translation>
     </message>
     <message>
-        <source>Fees (in LUX/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Fees (in LUX/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</translation>
+        <source>Fees (in ASTRA/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Fees (in ASTRA/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -7045,7 +7045,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;LUX Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;ASTRA Alert&quot; admin@foo.com
 </source>
         <translation type="vanished">To use luxd, or the -server option to lux-qt, you must set an rpcpassword in the configuration file:
 %s
@@ -7056,7 +7056,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;LUX Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;ASTRA Alert&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -7068,12 +7068,12 @@ for example: alertnotify=echo %%s | mail -s &quot;LUX Alert&quot; admin@foo.com
         <translation type="vanished">Unable to locate enough Darksend denominated funds for this transaction.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 10000 LUX.</source>
-        <translation type="vanished">Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 10000 LUX.</translation>
+        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 10000 ASTRA.</source>
+        <translation type="vanished">Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 10000 ASTRA.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 LUX.</source>
-        <translation>Unable to locate enough funds for this transaction that are not equal 10000 LUX.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 ASTRA.</source>
+        <translation>Unable to locate enough funds for this transaction that are not equal 10000 ASTRA.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -7366,8 +7366,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LUX Alert&quot; admin@foo.com
         <translation type="vanished">Failed to read block</translation>
     </message>
     <message>
-        <source>Fee (in LUX/kB) to add to transactions you send (default: %s)</source>
-        <translation>Fee (in LUX/kB) to add to transactions you send (default: %s)</translation>
+        <source>Fee (in ASTRA/kB) to add to transactions you send (default: %s)</source>
+        <translation>Fee (in ASTRA/kB) to add to transactions you send (default: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>
@@ -7490,8 +7490,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LUX Alert&quot; admin@foo.com
         <translation>Invalid script detected.</translation>
     </message>
     <message>
-        <source>Keep N LUX anonymized (default: %u)</source>
-        <translation>Keep N LUX anonymized (default: %u)</translation>
+        <source>Keep N ASTRA anonymized (default: %u)</source>
+        <translation>Keep N ASTRA anonymized (default: %u)</translation>
     </message>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
@@ -8206,7 +8206,7 @@ for example: alertnotify=echo %%s | mail -s &quot;LUX Alert&quot; admin@foo.com
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to locate enough DarkSend non-denominated funds for this transaction that are not equal 10000 LUX.</source>
+        <source>Unable to locate enough DarkSend non-denominated funds for this transaction that are not equal 10000 ASTRA.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8238,7 +8238,7 @@ for example: alertnotify=echo %%s | mail -s &quot;LUX Alert&quot; admin@foo.com
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright (C) 2017-%i The LUX-Core Developers</source>
+        <source>Copyright (C) 2017-%i The ASTRA-Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

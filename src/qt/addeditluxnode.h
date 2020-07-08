@@ -1,5 +1,5 @@
-#ifndef ADDEDITLUXNODE_H
-#define ADDEDITLUXNODE_H
+#ifndef ADDEDITASTRANODE_H
+#define ADDEDITASTRANODE_H
 
 #include <QDialog>
 
@@ -28,4 +28,4 @@ private:
     Ui::AddEditLuxNode *ui;
 };
 
-#endif // ADDEDITLUXNODE_H
+#endif // ADDEDITASTRANODE_H

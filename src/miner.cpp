@@ -1116,11 +1116,11 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("LUXMiner : generated block is stale");
+            return error("ASTRAMiner : generated block is stale");
 
         for(const CTxIn& vin : pblock->vtx[1].vin) {
             if (wallet.IsSpent(vin.prevout.hash, vin.prevout.n)) {
-                return error("LUXMiner : Gen block stake is invalid - UTXO spent");
+                return error("ASTRAMiner : Gen block stake is invalid - UTXO spent");
             }
         }
     }
@@ -1133,7 +1133,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet)
     const CChainParams& chainParams = Params();
     CValidationState state;
     if (!ProcessNewBlock(state, chainParams, NULL, pblock)) {
-        return error("LUXMiner : ProcessNewBlock, block not accepted");
+        return error("ASTRAMiner : ProcessNewBlock, block not accepted");
     }
 
     {
