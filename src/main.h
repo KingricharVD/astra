@@ -46,7 +46,7 @@
  */
 
 /////////////////////////////////////////// lux
-#include <lux/luxstate.h>
+#include <lux/astrastate.h>
 #include <lux/luxDGP.h>
 #include <libethereum/ChainParams.h>
 #include <libethashseal/Ethash.h>

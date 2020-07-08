@@ -12,8 +12,8 @@
 
 
 /////////////////////////////////////////////////////////// lux
-#include <lux/luxstate.h>
-#include <lux/luxtransaction.h>
+#include <lux/astrastate.h>
+#include <lux/astratransaction.h>
 #include <lux/luxDGP.h>
 #include <main.h>
 ///////////////////////////////////////////////////////////

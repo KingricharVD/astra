@@ -180,8 +180,8 @@ BITCOIN_CORE_H = \
   zmq/zmqconfig.h \
   zmq/zmqnotificationinterface.h \
   zmq/zmqpublishnotifier.h \
-  lux/luxstate.h \
-  lux/luxtransaction.h \
+  lux/astrastate.h \
+  lux/astratransaction.h \
   lux/luxDGP.h \
   lux/storageresults.h
 
