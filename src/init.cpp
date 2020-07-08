@@ -1509,17 +1509,17 @@ bool AppInit2()
 
                 dev::eth::Ethash::init();
 
-                boost::filesystem::path luxStateDir = GetDataDir() / "stateAstra";
+                boost::filesystem::path astraStateDir = GetDataDir() / "stateAstra";
 
-                bool fStatus = boost::filesystem::exists(luxStateDir);
-                const std::string dirAstra(luxStateDir.string());
+                bool fStatus = boost::filesystem::exists(astraStateDir);
+                const std::string dirAstra(astraStateDir.string());
                 const dev::h256 hashDB(dev::sha3(dev::rlp("")));
                 dev::eth::BaseState existsAstraState = fStatus ? dev::eth::BaseState::PreExisting : dev::eth::BaseState::Empty;
                 globalState = std::unique_ptr<AstraState>(new AstraState(dev::u256(0), AstraState::openDB(dirAstra, hashDB, dev::WithExisting::Trust), dirAstra, existsAstraState));
                 dev::eth::ChainParams cp((dev::eth::genesisInfo(dev::eth::Network::luxMainNetwork)));
                 globalSealEngine = std::unique_ptr<dev::eth::SealEngineFace>(cp.createSealEngine());
 
-                pstorageresult = new StorageResults(luxStateDir.string());
+                pstorageresult = new StorageResults(astraStateDir.string());
                 if (fReset) {
                     pstorageresult->wipeResults();
                 }

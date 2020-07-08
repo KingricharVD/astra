@@ -228,7 +228,7 @@ libbitcoin_server_a_SOURCES = \
   txmempool.cpp \
   validationinterface.cpp \
   versionbits.cpp \
-  lux/luxstate.cpp \
+  lux/astrastate.cpp \
   lux/luxDGP.cpp \
   lux/storageresults.cpp \
   $(BITCOIN_CORE_H)
