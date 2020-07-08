@@ -12,15 +12,15 @@
 #include <QtCore/QPointer>
 #include <atomic>
 
-extern QtLuxUpdater::ProgressDialog *gUpdatesProgress;
+extern QtAstraUpdater::ProgressDialog *gUpdatesProgress;
 extern std::atomic<bool> running;
 extern std::atomic<bool> wasCanceled;
 extern QPointer<QWidget> win;
-extern QtLuxUpdater::UpdateController::DisplayLevel gDisplayLevel;
+extern QtAstraUpdater::UpdateController::DisplayLevel gDisplayLevel;
 extern std::atomic<bool> isUpdaterRunning;
 
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
 class UpdateControllerPrivate
@@ -34,7 +34,7 @@ public:
 
 	QPointer<QWidget> window;
 
-	LuxUpdater *mainUpdater;
+	AstraUpdater *mainUpdater;
 	bool runAdmin;
 	bool adminUserEdit;
 	QStringList runArgs;

@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Luxcore developers
+// Copyright (c) 2015-2018 The Astracore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <boost/assign/list_of.hpp>
@@ -74,7 +74,7 @@ static const bool ENABLE_ADVANCED_STAKING = true;
 
 static const int ADVANCED_STAKING_HEIGHT = 225000;
 
-static const int nLuxProtocolSwitchHeightTestnet = 95150; // 2018-11-29 02:54:56 (1543460096)
+static const int nAstraProtocolSwitchHeightTestnet = 95150; // 2018-11-29 02:54:56 (1543460096)
 
 static std::atomic<bool> nStakingInterrupped;
 
@@ -398,7 +398,7 @@ bool MultiplyStakeTarget(uint256& bnTarget, int nModifierHeight, int64_t nModifi
 
 // ASTRA Stake modifier used to hash the stake kernel which is chosen as the stake
 // modifier (nStakeMinAge - nSelectionTime). So at least, it selects the period later than the stake produces since from the nStakeMinAge
-static bool GetLuxStakeKernel(unsigned int nTimeTx, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake) {
+static bool GetAstraStakeKernel(unsigned int nTimeTx, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake) {
     unsigned int nStakeMinAge = Params().StakingMinAge();
     const CBlockIndex* pindex = pindexBestHeader;
     nStakeModifierHeight = pindex->nHeight;
@@ -438,9 +438,9 @@ static bool GetLuxStakeKernel(unsigned int nTimeTx, uint64_t& nStakeModifier, in
 }
 
 // Get the StakeModifier specified by our protocol for the checkhash function.
-// Note: Separated GetKernelStakeModifier & GetLuxStakeKernel for convenient in case we need any other fork later on
+// Note: Separated GetKernelStakeModifier & GetAstraStakeKernel for convenient in case we need any other fork later on
 static bool GetKernelStakeModifier(unsigned int nTimeTx, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake) {
-    return GetLuxStakeKernel(nTimeTx, nStakeModifier, nStakeModifierHeight, nStakeModifierTime, fPrintProofOfStake);
+    return GetAstraStakeKernel(nTimeTx, nStakeModifier, nStakeModifierHeight, nStakeModifierTime, fPrintProofOfStake);
 }
 
 //instead of looping outside and reinitializing variables many times, we will give a nTimeTx and also search interval so that we can do all the hashing here
@@ -612,7 +612,7 @@ bool Stake::CheckHashNew(const CBlockIndex* pindexPrev, unsigned int nBits, cons
 bool Stake::CheckHash(const CBlockIndex* pindexPrev, unsigned int nBits, const CBlock& blockFrom, const CTransaction& txPrev, const COutPoint& prevout, unsigned int& nTimeTx, uint256& hashProofOfStake) {
 
     const int nBlockHeight = (pindexPrev ? pindexPrev->nHeight : chainActive.Height()) + 1;
-    const int nNewPoSHeight = IsTestNet() ? nLuxProtocolSwitchHeightTestnet : nLuxProtocolSwitchHeight;
+    const int nNewPoSHeight = IsTestNet() ? nAstraProtocolSwitchHeightTestnet : nAstraProtocolSwitchHeight;
     if (nBlockHeight < nNewPoSHeight) // could be skipped if height < last checkpoint
         return CheckHashOld(pindexPrev, nBits, blockFrom, txPrev, prevout, nTimeTx, hashProofOfStake);
     return CheckHashNew(pindexPrev, nBits, blockFrom, txPrev, prevout, nTimeTx, hashProofOfStake);
@@ -787,7 +787,7 @@ bool Stake::CheckProof(CBlockIndex* const pindexPrev, const CBlock &block, uint2
     unsigned int nTime = block.nTime;
     
 #ifndef POS_DEBUG
-    const int nNewPoSHeight = IsTestNet() ? nLuxProtocolSwitchHeightTestnet : nLuxProtocolSwitchHeight;
+    const int nNewPoSHeight = IsTestNet() ? nAstraProtocolSwitchHeightTestnet : nAstraProtocolSwitchHeight;
     if (nBlockHeight >= nNewPoSHeight)
 #endif
     {

@@ -97,7 +97,7 @@ private:
     WalletFrame* walletFrame;
 
 #ifdef ENABLE_UPDATER
-    QtLuxUpdater::UpdateController *controller;
+    QtAstraUpdater::UpdateController *controller;
 #endif
 
     UnitDisplayStatusBarControl* unitDisplayControl;

@@ -16,7 +16,7 @@ namespace Ui {
 class ProgressDialog;
 }
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
 class ProgressDialog : public QDialog

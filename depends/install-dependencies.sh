@@ -9,7 +9,7 @@ sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt-get update
 
 #################################################################
-# Lux QT wallet are using QT5. So, QT4 must be removed
+# Astra QT wallet are using QT5. So, QT4 must be removed
 #################################################################
 sudo apt purge qt4-qmake libqt4-dev -y
 

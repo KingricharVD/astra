@@ -722,7 +722,7 @@ UniValue listaddressbalances(const UniValue& params, bool fHelp)
             "1. minamount  (numeric, optional, default=0) Minimum balance in " + CURRENCY_UNIT + " an address should have to be shown in the list\n"
             "\nResult:\n"
             "{\n"
-            "  \"address\": amount, (string) Lux address and the amount in " + CURRENCY_UNIT + "\n"
+            "  \"address\": amount, (string) Astra address and the amount in " + CURRENCY_UNIT + "\n"
             "  ,...\n"
             "}\n"
             "\nExamples:\n"
@@ -2908,7 +2908,7 @@ UniValue createcontract(const UniValue& params, bool fHelp){
         return NullUniValue;
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
-    LuxDGP luxDGP(globalState.get(), fGettingValuesDGP);
+    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
     uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
     uint64_t minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
     CAmount nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE)?minGasPrice:DEFAULT_GAS_PRICE;
@@ -2980,7 +2980,7 @@ UniValue createcontract(const UniValue& params, bool fHelp){
     if (params.size() > 3){
         senderAddress = DecodeDestination(params[3].get_str());
         if (!IsValidDestination(senderAddress))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Lux address to send from");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astra address to send from");
         else
             fHasSender=true;
     }
@@ -3116,7 +3116,7 @@ UniValue sendtocontract(const UniValue& params, bool fHelp){
         return NullUniValue;
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
-    LuxDGP luxDGP(globalState.get(), fGettingValuesDGP);
+    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
     uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
     uint64_t minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
     CAmount nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE)?minGasPrice:DEFAULT_GAS_PRICE;
@@ -3131,7 +3131,7 @@ UniValue sendtocontract(const UniValue& params, bool fHelp){
                 "2. \"datahex\"  (string, required) data to send.\n"
                 "3. \"amount\"      (numeric or string, optional) The amount in " + CURRENCY_UNIT + " to send. eg 0.1, default: 0\n"
                 "4. gasLimit  (numeric or string, optional) gasLimit, default: "+i64tostr(DEFAULT_GAS_LIMIT_OP_SEND)+", max: "+i64tostr(blockGasLimit)+"\n"
-                "5. gasPrice  (numeric or string, optional) gasPrice Lux price per gas unit, default: "+FormatMoney(nGasPrice)+", min:"+FormatMoney(minGasPrice)+"\n"
+                "5. gasPrice  (numeric or string, optional) gasPrice Astra price per gas unit, default: "+FormatMoney(nGasPrice)+", min:"+FormatMoney(minGasPrice)+"\n"
                 "6. \"senderaddress\" (string, optional) The quantum address that will be used as sender.\n"
                 "7. \"broadcast\" (bool, optional, default=true) Whether to broadcast the transaction or not.\n"
                 "8. \"changeToSender\" (bool, optional, default=true) Return the change to the sender.\n"
@@ -3203,7 +3203,7 @@ UniValue sendtocontract(const UniValue& params, bool fHelp){
     if (params.size() > 5){
         senderAddress = DecodeDestination(params[5].get_str());
         if (!IsValidDestination(senderAddress))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Lux address to send from");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astra address to send from");
         else
             fHasSender=true;
     }

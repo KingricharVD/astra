@@ -810,10 +810,10 @@ UniValue getwork(const UniValue& params, bool fHelp) {
     // because it is tested locally, without any nodes connected, and with significant amount of time between blocks
     if (Params().NetworkID() != CBaseChainParams::SEGWITTEST) {
          if (vNodes.empty())
-             throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Lux is not connected!");
+             throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Astra is not connected!");
 
          if (IsInitialBlockDownload())
-             throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Lux is downloading blocks...");
+             throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Astra is downloading blocks...");
     }
 
     if (chainActive.Height() >= Params().LAST_POW_BLOCK())

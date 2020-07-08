@@ -74,7 +74,7 @@ $ cat /etc/systemd/system/luxd.service
 
 # luxd.service #######################################################################
 [Unit]
-Description=Lux
+Description=Astra
 After=docker.service
 Requires=docker.service
 

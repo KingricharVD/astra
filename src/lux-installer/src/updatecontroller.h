@@ -7,10 +7,10 @@
 
 #include <qaction.h>
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
-class LuxUpdater;
+class AstraUpdater;
 class UpdateControllerPrivate;
 //! A class to show a controlled update GUI to the user
 class UpdateController : public QObject
@@ -75,7 +75,7 @@ public:
 	bool isDetailedUpdateInfo() const;
 
 	//! Returns the Updater object used by the controller
-	LuxUpdater *updater() const;
+	AstraUpdater *updater() const;
 
 public Q_SLOTS:
 	//! @writeAcFn{UpdateController::parentWindow}

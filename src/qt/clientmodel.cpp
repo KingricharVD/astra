@@ -217,7 +217,7 @@ void ClientModel::getGasInfo(uint64_t& blockGasLimit, uint64_t& minGasPrice, uin
 {
     LOCK(cs_main);
 
-    LuxDGP luxDGP(globalState.get(), fGettingValuesDGP);
+    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
     blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
     minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
     nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE) ? minGasPrice : DEFAULT_GAS_PRICE;

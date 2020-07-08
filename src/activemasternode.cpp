@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Luxcore developers
+// Copyright (c) 2015-2018 The Astracore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,7 +10,7 @@
 #include "clientversion.h"
 
 //
-// Bootup the masternode, look for a 16120 Lux input and register on the network
+// Bootup the masternode, look for a 16120 Astra input and register on the network
 //
 void CActiveMasternode::ManageStatus() {
     std::string errorMessage;

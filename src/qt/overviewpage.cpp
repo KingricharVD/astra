@@ -247,10 +247,10 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget* parent) 
         } else {
             if (!fEnableDarksend) {
                 ui->darksendEnabled->setText(tr("Disabled"));
-                ui->toggleDarksend->setText(tr("Start Luxsend"));
+                ui->toggleDarksend->setText(tr("Start Astrasend"));
             } else {
                 ui->darksendEnabled->setText(tr("Enabled"));
-                ui->toggleDarksend->setText(tr("Stop Luxsend"));
+                ui->toggleDarksend->setText(tr("Stop Astrasend"));
             }
             timer = new QTimer(this);
             connect(timer, SIGNAL(timeout()), this, SLOT(darkSendStatus()));
@@ -458,15 +458,15 @@ void OverviewPage::updateDarkSendProgress()
     }
 
     QString strAmountAndRounds;
-    QString strAnonymizeLuxAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeLuxAmount * COIN, false, BitcoinUnits::separatorAlways);
+    QString strAnonymizeAstraAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeAstraAmount * COIN, false, BitcoinUnits::separatorAlways);
 
     if (!fEnableDarksend) {
         ui->darksendProgress->setValue(0);
         ui->darksendProgress->setToolTip(tr("Darksend disabled"));
 
         // when balance is zero just show info from settings
-        strAnonymizeLuxAmount = strAnonymizeLuxAmount.remove(strAnonymizeLuxAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeLuxAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+        strAnonymizeAstraAmount = strAnonymizeAstraAmount.remove(strAnonymizeAstraAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeAstraAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
 
         ui->labelAmountRounds->setToolTip(tr("Darksend disabled"));
         ui->labelAmountRounds->setText(tr("Disabled"));
@@ -478,8 +478,8 @@ void OverviewPage::updateDarkSendProgress()
         ui->darksendProgress->setToolTip(tr("No inputs detected"));
 
         // when balance is zero just show info from settings
-        strAnonymizeLuxAmount = strAnonymizeLuxAmount.remove(strAnonymizeLuxAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeLuxAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+        strAnonymizeAstraAmount = strAnonymizeAstraAmount.remove(strAnonymizeAstraAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeAstraAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
 
         ui->labelAmountRounds->setToolTip(tr("No inputs detected"));
         ui->labelAmountRounds->setText(strAmountAndRounds);
@@ -506,20 +506,20 @@ void OverviewPage::updateDarkSendProgress()
     CAmount nMaxToAnonymize = nAnonymizableBalance + currentAnonymizedBalance + nDenominatedUnconfirmedBalance;
 
     // If it's more than the anon threshold, limit to that.
-    if (nMaxToAnonymize > nAnonymizeLuxAmount * COIN) nMaxToAnonymize = nAnonymizeLuxAmount * COIN;
+    if (nMaxToAnonymize > nAnonymizeAstraAmount * COIN) nMaxToAnonymize = nAnonymizeAstraAmount * COIN;
 
     if (nMaxToAnonymize == 0) return;
 
-    if (nMaxToAnonymize >= nAnonymizeLuxAmount * COIN) {
+    if (nMaxToAnonymize >= nAnonymizeAstraAmount * COIN) {
         ui->labelAmountRounds->setToolTip(tr("Found enough compatible inputs to anonymize %1")
-                                              .arg(strAnonymizeLuxAmount));
-        strAnonymizeLuxAmount = strAnonymizeLuxAmount.remove(strAnonymizeLuxAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeLuxAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+                                              .arg(strAnonymizeAstraAmount));
+        strAnonymizeAstraAmount = strAnonymizeAstraAmount.remove(strAnonymizeAstraAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeAstraAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
     } else {
         QString strMaxToAnonymize = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nMaxToAnonymize, false, BitcoinUnits::separatorAlways);
         ui->labelAmountRounds->setToolTip(tr("Not enough compatible inputs to anonymize <span style='color:red;'>%1</span>,<br>"
                                              "will anonymize <span style='color:red;'>%2</span> instead")
-                                              .arg(strAnonymizeLuxAmount)
+                                              .arg(strAnonymizeAstraAmount)
                                               .arg(strMaxToAnonymize));
         strMaxToAnonymize = strMaxToAnonymize.remove(strMaxToAnonymize.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
         strAmountAndRounds = "<span style='color:red;'>" +
@@ -608,7 +608,7 @@ void OverviewPage::darkSendStatus()
 
             ui->darksendEnabled->setText(tr("Disabled"));
             ui->darkSendStatus->setText("");
-            ui->toggleDarksend->setText(tr("Start Luxsend"));
+            ui->toggleDarksend->setText(tr("Start Astrasend"));
         }
 
         return;
@@ -665,7 +665,7 @@ void OverviewPage::darkSendStatus()
     }
 
     if (strStatus != ui->darkSendStatus->text() && !strStatus.isEmpty()) {
-        LogPrintf("Last Luxsend message: %s\n", strStatus.toStdString().c_str());
+        LogPrintf("Last Astrasend message: %s\n", strStatus.toStdString().c_str());
         ui->darkSendStatus->setText(strStatus);
     } else {
         ui->darkSendStatus->setText("");
@@ -734,14 +734,14 @@ void OverviewPage::toggleDarksend()
     updateAdvancedUI(this->walletModel->getOptionsModel()->getShowAdvancedUI());
 
     if (!fEnableDarksend) {
-        ui->toggleDarksend->setText(tr("Start Luxsend"));
+        ui->toggleDarksend->setText(tr("Start Astrasend"));
         darkSendPool.UnlockCoins();
     } else {
-        ui->toggleDarksend->setText(tr("Stop Luxsend"));
+        ui->toggleDarksend->setText(tr("Stop Astrasend"));
 
         /* show darksend configuration if client has defaults set */
 
-        if (nAnonymizeLuxAmount == 0) {
+        if (nAnonymizeAstraAmount == 0) {
             DarksendConfig dlg(this);
             dlg.setModel(walletModel);
             dlg.exec();

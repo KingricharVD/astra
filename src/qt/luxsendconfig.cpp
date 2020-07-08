@@ -80,8 +80,8 @@ void DarksendConfig::configure(bool enabled, int coins, int rounds)
     QSettings settings;
 
     settings.setValue("nDarksendRounds", rounds);
-    settings.setValue("nAnonymizeLuxAmount", coins);
+    settings.setValue("nAnonymizeAstraAmount", coins);
 
     nDarksendRounds = rounds;
-    nAnonymizeLuxAmount = coins;
+    nAnonymizeAstraAmount = coins;
 }

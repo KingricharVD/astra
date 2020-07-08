@@ -60,7 +60,7 @@
 #include <QStandardPaths>
 #include <errno.h>
 
-using namespace QtLuxUpdater;
+using namespace QtAstraUpdater;
 
 #define SU_COMMAND "/usr/bin/sudo"
 

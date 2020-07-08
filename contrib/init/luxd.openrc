@@ -16,7 +16,7 @@ BITCOIND_USER=${BITCOIND_USER:-lux}
 BITCOIND_GROUP=${BITCOIND_GROUP:-lux}
 BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/luxd}
 
-name="Luxcore Daemon"
+name="Astracore Daemon"
 description="ASTRA crypto-currency p2p network daemon"
 
 command="/usr/bin/luxd"
@@ -78,7 +78,7 @@ checkconfig()
 		eerror "It is also recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Lux Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Astra Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

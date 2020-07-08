@@ -9,7 +9,7 @@
 #include <QtCore/QString>
 #include <QtCore/QXmlStreamReader>
 
-namespace QtLuxUpdater {
+namespace QtAstraUpdater {
 
 class AtomFeeder : public QObject
 {

@@ -2,7 +2,7 @@
 
 "FIRST OF ITS KIND"
 
-Luxcore is GNU AGPLv3 licensed.
+Astracore is GNU AGPLv3 licensed.
 
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F216k155%2Flux.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2F216k155%2Flux?ref=badge_shield) [![Build Status](https://travis-ci.org/ASTRA-Core/lux.svg?branch=master)](https://travis-ci.org/ASTRA-Core/lux) [![GitHub version](https://badge.fury.io/gh/ASTRA-Core%2Flux.png)](https://badge.fury.io/gh/ASTRA-Core%2Flux.png) [![HitCount](http://hits.dwyl.io/216k155/lux.svg)](http://hits.dwyl.io/216k155/lux)

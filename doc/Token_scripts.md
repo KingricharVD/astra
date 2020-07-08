@@ -75,7 +75,7 @@ contract LSRStandardToken is StandardToken {
     //LSRToken 0.1 standard.
     string public version = 'I0.1';
 
-    //fancy name: eg Luxcore
+    //fancy name: eg Astracore
     string public name;
 
     //How many decimals to show.

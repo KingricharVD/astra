@@ -1,4 +1,4 @@
-### Building Lux OS X Qt Wallet
+### Building Astra OS X Qt Wallet
 
 1. Ensure you have git installed
     

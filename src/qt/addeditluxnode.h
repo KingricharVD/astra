@@ -4,17 +4,17 @@
 #include <QDialog>
 
 namespace Ui {
-class AddEditLuxNode;
+class AddEditAstraNode;
 }
 
 
-class AddEditLuxNode : public QDialog
+class AddEditAstraNode : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AddEditLuxNode(QWidget *parent = 0);
-    ~AddEditLuxNode();
+    explicit AddEditAstraNode(QWidget *parent = 0);
+    ~AddEditAstraNode();
 
 protected:
 
@@ -25,7 +25,7 @@ private Q_SLOTS:
 signals:
 
 private:
-    Ui::AddEditLuxNode *ui;
+    Ui::AddEditAstraNode *ui;
 };
 
 #endif // ADDEDITASTRANODE_H

@@ -222,7 +222,7 @@ static std::string TxToRow(const CTransaction& tx, CBlock * const ptrBlock= null
         }
         if(bHasOpCreate && Out.nValue == 0)
         {
-            uint160 contract = uint160(LuxState::createLuxAddress(uintToh256(tx.GetHash()), j).asBytes());
+            uint160 contract = uint160(AstraState::createAstraAddress(uintToh256(tx.GetHash()), j).asBytes());
             strAddress = _("Create SC") + " " + contract.ToStringReverseEndian();
             bSC_Amount = true;
         }
@@ -668,7 +668,7 @@ void BlockExplorer::showEvent(QShowEvent* ev)
         home();
         if (!GetBoolArg("-txindex", DEFAULT_TXINDEX)) {
             QString Warning = tr("Not all transactions will be shown and block explorer is not available while running in pruned mode. To view all transactions you need to set txindex=1 in the configuration file (lux.conf).");
-            QMessageBox::warning(this, tr("Luxcore Blockchain Explorer"), Warning, QMessageBox::Ok);
+            QMessageBox::warning(this, tr("Astracore Blockchain Explorer"), Warning, QMessageBox::Ok);
         }
     }
     QMainWindow::showEvent(ev);

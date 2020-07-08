@@ -44,7 +44,7 @@ TEST_EXIT_PASSED = 0
 TEST_EXIT_FAILED = 1
 TEST_EXIT_SKIPPED = 77
 
-class LuxTestFramework(object):
+class AstraTestFramework(object):
     """Base class for a lux test script.
 
     Individual lux test scripts should subclass this class and override the set_test_params() and run_test() methods.
@@ -363,7 +363,7 @@ class LuxTestFramework(object):
         self.log.addHandler(ch)
 
         if self.options.trace_rpc:
-            rpc_logger = logging.getLogger("LuxRPC")
+            rpc_logger = logging.getLogger("AstraRPC")
             rpc_logger.setLevel(logging.DEBUG)
             rpc_handler = logging.StreamHandler(sys.stdout)
             rpc_handler.setLevel(logging.DEBUG)
@@ -456,7 +456,7 @@ class LuxTestFramework(object):
         for i in range(self.num_nodes):
             initialize_datadir(self.options.tmpdir, i)
 
-class ComparisonTestFramework(LuxTestFramework):
+class ComparisonTestFramework(AstraTestFramework):
     """Test framework for doing p2p comparison testing
 
     Sets up some luxd binaries:

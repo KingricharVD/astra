@@ -24,7 +24,7 @@ def find_unspent(node, amount):
     assert(False)
 
 
-class LuxBlockHeaderTest(ComparisonTestFramework):
+class AstraBlockHeaderTest(ComparisonTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.tip = None
@@ -167,4 +167,4 @@ class LuxBlockHeaderTest(ComparisonTestFramework):
 
 
 if __name__ == '__main__':
-    LuxBlockHeaderTest().main()
+    AstraBlockHeaderTest().main()

@@ -7,7 +7,7 @@
 #include <QtCore/QPair>
 #include <QtCore/QHash>
 
-namespace QtLuxUpdater {
+namespace QtAstraUpdater {
 
 class SimpleScheduler : public QObject
 {

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  luxd The Luxcore server.
+#  luxd The Astracore server.
 #
 #
 # chkconfig: 345 80 20

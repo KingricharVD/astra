@@ -4,7 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringlist.h>
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
 //! An interface to run programs with elevated rights

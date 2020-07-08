@@ -10,7 +10,7 @@ forward all unrecognized arguments onto the individual test scripts.
 Functional tests are disabled on Windows by default. Use --force to run them anyway.
 
 For a description of arguments recognized by test scripts, see
-`test/functional/test_framework/test_framework.py:LuxTestFramework.main`.
+`test/functional/test_framework/test_framework.py:AstraTestFramework.main`.
 
 """
 
@@ -120,7 +120,7 @@ BASE_SCRIPTS= [
     'minchainwork.py',
 
     # lux - smartcontract
-    # TODO: Lux smartcontract
+    # TODO: Astra smartcontract
 
 EXTENDED_SCRIPTS = [
     # These tests are not run by the travis build process.

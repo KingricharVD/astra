@@ -297,7 +297,7 @@ void Shutdown()
     }
 
 // Shutdown part 2: delete wallet instance
-    StopLuxControl();
+    StopAstraControl();
 #ifdef ENABLE_WALLET
     delete pwalletMain;
     pwalletMain = NULL;
@@ -1100,7 +1100,7 @@ bool AppInit2()
 
     // Sanity check
     if (!InitSanityCheck())
-        return InitError(_("Initialization sanity check failed. Luxcore is shutting down."));
+        return InitError(_("Initialization sanity check failed. Astracore is shutting down."));
 
     std::string strDataDir = GetDataDir().string();
 #ifdef ENABLE_WALLET
@@ -1116,7 +1116,7 @@ bool AppInit2()
 
     // Wait maximum 10 seconds if an old wallet is still running. Avoids lockup during restart
     if (!lock.timed_lock(boost::get_system_time() + boost::posix_time::seconds(10)))
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Luxcore is probably already running."), strDataDir));
+        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Astracore is probably already running."), strDataDir));
 
 #ifndef WIN32
     CreatePidFile(GetPidFile(), getpid());
@@ -1509,13 +1509,13 @@ bool AppInit2()
 
                 dev::eth::Ethash::init();
 
-                boost::filesystem::path luxStateDir = GetDataDir() / "stateLux";
+                boost::filesystem::path luxStateDir = GetDataDir() / "stateAstra";
 
                 bool fStatus = boost::filesystem::exists(luxStateDir);
-                const std::string dirLux(luxStateDir.string());
+                const std::string dirAstra(luxStateDir.string());
                 const dev::h256 hashDB(dev::sha3(dev::rlp("")));
-                dev::eth::BaseState existsLuxState = fStatus ? dev::eth::BaseState::PreExisting : dev::eth::BaseState::Empty;
-                globalState = std::unique_ptr<LuxState>(new LuxState(dev::u256(0), LuxState::openDB(dirLux, hashDB, dev::WithExisting::Trust), dirLux, existsLuxState));
+                dev::eth::BaseState existsAstraState = fStatus ? dev::eth::BaseState::PreExisting : dev::eth::BaseState::Empty;
+                globalState = std::unique_ptr<AstraState>(new AstraState(dev::u256(0), AstraState::openDB(dirAstra, hashDB, dev::WithExisting::Trust), dirAstra, existsAstraState));
                 dev::eth::ChainParams cp((dev::eth::genesisInfo(dev::eth::Network::luxMainNetwork)));
                 globalSealEngine = std::unique_ptr<dev::eth::SealEngineFace>(cp.createSealEngine());
 
@@ -1708,9 +1708,9 @@ bool AppInit2()
                              " or address book entries might be missing or incorrect."));
                 InitWarning(msg);
             } else if (nLoadWalletRet == DB_TOO_NEW)
-                strErrors << _("Error loading wallet.dat: Wallet requires newer version of Luxcore") << "\n";
+                strErrors << _("Error loading wallet.dat: Wallet requires newer version of Astracore") << "\n";
             else if (nLoadWalletRet == DB_NEED_REWRITE) {
-                strErrors << _("Wallet needed to be rewritten: restart Luxcore to complete") << "\n";
+                strErrors << _("Wallet needed to be rewritten: restart Astracore to complete") << "\n";
                 LogPrintf("%s", strErrors.str());
                 return InitError(strErrors.str());
             } else
@@ -1956,19 +1956,19 @@ bool AppInit2()
         nDarksendRounds = 99999;
     }
 
-    nAnonymizeLuxAmount = GetArg("-anonymizeLuxamount", 0);
-    if (nAnonymizeLuxAmount > 999999) nAnonymizeLuxAmount = 999999;
-    if (nAnonymizeLuxAmount < 2) nAnonymizeLuxAmount = 2;
+    nAnonymizeAstraAmount = GetArg("-anonymizeAstraamount", 0);
+    if (nAnonymizeAstraAmount > 999999) nAnonymizeAstraAmount = 999999;
+    if (nAnonymizeAstraAmount < 2) nAnonymizeAstraAmount = 2;
 
     LogPrintf("ASTRA darksend rounds %d\n", nDarksendRounds);
-    LogPrintf("Anonymize Lux Amount %d\n", nAnonymizeLuxAmount);
+    LogPrintf("Anonymize Astra Amount %d\n", nAnonymizeAstraAmount);
 
     /* Denominations
        A note about convertability. Within Darksend pools, each denomination
        is convertable to another.
        For example:
-       1Lux+1000 == (.1Lux+100)*10
-       10Lux+10000 == (1Lux+1000)*10
+       1Astra+1000 == (.1Astra+100)*10
+       10Astra+10000 == (1Astra+1000)*10
     */
     darkSendDenominations.push_back( (100000      * COIN)+100000000 );
     darkSendDenominations.push_back( (10000       * COIN)+10000000 );

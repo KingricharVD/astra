@@ -149,10 +149,10 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
     /* Open CSS when configured */
     this->setStyleSheet(GUIUtil::loadStyleSheet());
     resize(1200, 750);
-    QString windowTitle = tr("Luxcore") + " - ";
+    QString windowTitle = tr("Astracore") + " - ";
 
 #ifdef ENABLE_UPDATER
-    controller = new QtLuxUpdater::UpdateController(QStringLiteral("v5.3.0"), this);
+    controller = new QtAstraUpdater::UpdateController(QStringLiteral("v5.3.0"), this);
     controller->setDetailedUpdateInfo(true);
 #endif
 
@@ -545,14 +545,14 @@ void BitcoinGUI::createActions() {
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/luxcoin_black"), tr("&About Luxcore"), this);
-    aboutAction->setStatusTip(tr("Show information about Luxcore"));
+    aboutAction = new QAction(QIcon(":/icons/luxcoin_black"), tr("&About Astracore"), this);
+    aboutAction->setStatusTip(tr("Show information about Astracore"));
     aboutAction->setMenuRole(QAction::AboutRole);
 
 #ifdef ENABLE_UPDATER
     // Check for update menu item
     checkForUpdateAction = new QAction(QIcon(":/icons/update_black"), tr("Check for &Update"), this);
-    checkForUpdateAction->setStatusTip(tr("Check whether there is an updated wallet from Luxcore"));
+    checkForUpdateAction->setStatusTip(tr("Check whether there is an updated wallet from Astracore"));
     checkForUpdateAction->setMenuRole(QAction::NoRole);
 #endif
 
@@ -626,7 +626,7 @@ void BitcoinGUI::createActions() {
 
     showHelpMessageAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
-    showHelpMessageAction->setStatusTip(tr("Show the Luxcore help message to get a list with possible ASTRA command-line options"));
+    showHelpMessageAction->setStatusTip(tr("Show the Astracore help message to get a list with possible ASTRA command-line options"));
 
     connect(qApp, SIGNAL(aboutToQuit()), qApp, SLOT(quit()));
 
@@ -890,7 +890,7 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled) {
 void BitcoinGUI::createTrayIcon(const NetworkStyle* networkStyle) {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("Luxcore client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("Astracore client") + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->show();
@@ -976,7 +976,7 @@ void BitcoinGUI::updaterClicked() {
     if (!clientModel)
         return;
 #ifdef ENABLE_UPDATER
-    controller->start(QtLuxUpdater::UpdateController::ProgressLevel);
+    controller->start(QtAstraUpdater::UpdateController::ProgressLevel);
 #else
     uiInterface.ThreadSafeMessageBox("This feature is only available on official builds!",
              "Warning", CClientUIInterface::MSG_WARNING);
@@ -1095,7 +1095,7 @@ void BitcoinGUI::updateNetworkState() {
     QIcon connectionItem = QIcon(icon).pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE);
     labelConnectionsIcon->setIcon(connectionItem);
     if (clientModel->getNetworkActive())
-        labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Luxcore network", "", count));
+        labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Astracore network", "", count));
     else
         labelConnectionsIcon->setToolTip(tr("Network activity disabled"));
 }
@@ -1246,7 +1246,7 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
 }
 
 void BitcoinGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret) {
-    QString strTitle = tr("Luxcore"); // default title
+    QString strTitle = tr("Astracore"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;

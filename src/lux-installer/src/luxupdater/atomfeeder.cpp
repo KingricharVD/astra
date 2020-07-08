@@ -2,7 +2,7 @@
 #include "../updatecontroller.h"
 #include "../dialogmaster.h"
 #include "../updatecontroller_p.h"
-using namespace QtLuxUpdater;
+using namespace QtAstraUpdater;
 
 AtomFeeder::AtomFeeder(const QString &url, QObject *parent)
 	:QObject(parent)

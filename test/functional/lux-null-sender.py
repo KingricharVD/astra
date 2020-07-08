@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-from test_framework.test_framework import LuxTestFramework
+from test_framework.test_framework import AstraTestFramework
 from test_framework.util import *
 from test_framework.script import *
 from test_framework.mininode import *
 from test_framework.lux import *
 from test_framework.luxconfig import *
 
-class LuxNullSenderTest(LuxTestFramework):
+class AstraNullSenderTest(AstraTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
@@ -32,4 +32,4 @@ class LuxNullSenderTest(LuxTestFramework):
         assert_equal(self.node.getblockcount(), block_count+1)
 
 if __name__ == '__main__':
-    LuxNullSenderTest().main()
+    AstraNullSenderTest().main()

@@ -30,7 +30,7 @@ git clone https://github.com/ASTRA-Core/lux
 
 See [dependencies.md](dependencies.md) for a complete overview.
 
-### Building Luxcore
+### Building Astracore
 
 **Important**: Use `gmake` (the non-GNU `make` will exit with an error).
 

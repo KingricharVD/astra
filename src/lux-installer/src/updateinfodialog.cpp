@@ -5,7 +5,7 @@
 #include <QApplication>
 #include "dialogmaster.h"
 
-using namespace QtLuxUpdater;
+using namespace QtAstraUpdater;
 
 UpdateInfoDialog::UpdateInfoDialog(QWidget *parent) :
 	QDialog(parent),
@@ -44,7 +44,7 @@ UpdateInfoDialog::UpdateInfoDialog(QWidget *parent) :
 
 UpdateInfoDialog::~UpdateInfoDialog(){}
 
-UpdateInfoDialog::DialogResult UpdateInfoDialog::showUpdateInfo(QList<LuxUpdater::LuxUpdateInfo> updates, bool &runAsAdmin, bool editable, bool detailed, QWidget *parent)
+UpdateInfoDialog::DialogResult UpdateInfoDialog::showUpdateInfo(QList<AstraUpdater::AstraUpdateInfo> updates, bool &runAsAdmin, bool editable, bool detailed, QWidget *parent)
 {
 	if(!detailed) {
 		DialogMaster::MessageBoxInfo boxInfo;
@@ -107,7 +107,7 @@ UpdateInfoDialog::DialogResult UpdateInfoDialog::showUpdateInfo(QList<LuxUpdater
 	}
 }
 
-void QtLuxUpdater::UpdateInfoDialog::on_acceptButton_clicked()
+void QtAstraUpdater::UpdateInfoDialog::on_acceptButton_clicked()
 {
 	if(DialogMaster::questionT(this,
 							   tr("Install Now?"),
@@ -117,7 +117,7 @@ void QtLuxUpdater::UpdateInfoDialog::on_acceptButton_clicked()
 	}
 }
 
-void QtLuxUpdater::UpdateInfoDialog::on_delayButton_clicked()
+void QtAstraUpdater::UpdateInfoDialog::on_delayButton_clicked()
 {
 	DialogMaster::informationT(this,
 							   tr("Install On Exit"),

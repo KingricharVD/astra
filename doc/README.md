@@ -1,9 +1,9 @@
-Luxcore
+Astracore
 =====================
 
 Setup
 ---------------------
-[Luxcore](http://luxcore.io) is the original ASTRA client and it builds the backbone of the network. However, it downloads and stores the entire history of ASTRA transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Astracore](http://luxcore.io) is the original ASTRA client and it builds the backbone of the network. However, it downloads and stores the entire history of ASTRA transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -40,7 +40,7 @@ The following are developer notes on how to build ASTRA on your native platform.
 
 Development
 ---------------------
-The Lux repo's [root README](https://github.com/ASTRA-Project/ASTRA/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Astra repo's [root README](https://github.com/ASTRA-Project/ASTRA/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

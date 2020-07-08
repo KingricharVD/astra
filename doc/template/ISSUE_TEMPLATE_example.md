@@ -13,7 +13,7 @@ Please provide any relevant information about your setup. This is important in c
 
 #### Check list
 
-    Lux Wallet Version:
+    Astra Wallet Version:
 
     Operating System:
     

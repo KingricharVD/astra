@@ -1,7 +1,7 @@
 #FROM debian:stretch
 FROM ubuntu:18.04
-LABEL maintainer="The Luxcore Developers <giaki3003@luxcore.io>"
-LABEL description="Dockerised Luxcore, built from Travis"
+LABEL maintainer="The Astracore Developers <giaki3003@luxcore.io>"
+LABEL description="Dockerised Astracore, built from Travis"
 
 RUN apt-get update && apt-get install -y software-properties-common unzip
 RUN apt-get install -y wget

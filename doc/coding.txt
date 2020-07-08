@@ -74,7 +74,7 @@ ThreadTopUpKeyPool : replenishes the keystore's keypool.
 ThreadCleanWalletPassphrase : re-locks an encrypted wallet after user
 has unlocked it for a period of time. 
 
-SendingDialogStartLux : used by pay-via-ip-address code (obsolete)
+SendingDialogStartAstra : used by pay-via-ip-address code (obsolete)
 
 ThreadDelayedRepaint : repaint the gui 
 

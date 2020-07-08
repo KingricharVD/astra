@@ -6,7 +6,7 @@
 #include <qscopedpointer.h>
 #include <qwidget.h>
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
 class UpdateButtonPrivate;

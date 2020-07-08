@@ -1,4 +1,4 @@
-Lux Smart Contract Instruction
+Astra Smart Contract Instruction
 ================================
 This guide will show you how to creat a contract using lux-qt wallet
 

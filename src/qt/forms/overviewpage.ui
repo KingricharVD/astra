@@ -464,7 +464,7 @@
            <item row="2" column="0">
             <widget class="QLabel" name="labelAnonymizedText">
              <property name="text">
-              <string>Luxsend Balance:</string>
+              <string>Astrasend Balance:</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1033,7 +1033,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Try to manually submit a Luxsend request.</string>
+           <string>Try to manually submit a Astrasend request.</string>
           </property>
           <property name="text">
            <string>Try Mix</string>
@@ -1055,7 +1055,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Reset the current status of Luxsend (can interrupt Luxsend if it's in the process of Mixing, which can cost you money!)</string>
+           <string>Reset the current status of Astrasend (can interrupt Astrasend if it's in the process of Mixing, which can cost you money!)</string>
           </property>
           <property name="autoFillBackground">
            <bool>false</bool>
@@ -1083,7 +1083,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Luxsend</string>
+              <string>Astrasend</string>
              </property>
             </widget>
            </item>

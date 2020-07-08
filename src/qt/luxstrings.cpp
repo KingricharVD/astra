@@ -18,11 +18,11 @@ QT_TRANSLATE_NOOP("QPlatformTheme", "&No"),
 QT_TRANSLATE_NOOP("QPlatformTheme", "OK"),
 QT_TRANSLATE_NOOP("lux-core", " or address book entries might be missing or incorrect"),
 QT_TRANSLATE_NOOP("lux-core", ""
-"'importprivkey' finished successfully. Please restart Luxcore wallet with '-"
+"'importprivkey' finished successfully. Please restart Astracore wallet with '-"
 "rescan' option. Otherwise, transaction data"),
 QT_TRANSLATE_NOOP("lux-core", ""
 "'importprivkey' with 'Rescan' option finished successfully. Please restart "
-"your Luxcore wallet. Otherwise, transaction data"),
+"your Astracore wallet. Otherwise, transaction data"),
 QT_TRANSLATE_NOOP("lux-core", ""
 "(1 = keep tx meta data e.g. account owner and payment request information, 2 "
 "= drop tx meta data)"),
@@ -43,7 +43,7 @@ QT_TRANSLATE_NOOP("lux-core", ""
 QT_TRANSLATE_NOOP("lux-core", ""
 "Cannot obtain a lock on data directory %s. %s is probably already running."),
 QT_TRANSLATE_NOOP("lux-core", ""
-"Cannot obtain a lock on data directory %s. Luxcore is probably already "
+"Cannot obtain a lock on data directory %s. Astracore is probably already "
 "running."),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Change automatic finalized budget voting behavior. mode=auto: Vote for only "
@@ -160,7 +160,7 @@ QT_TRANSLATE_NOOP("lux-core", ""
 QT_TRANSLATE_NOOP("lux-core", ""
 "Require high priority for relaying free or low-fee transactions (default:%u)"),
 QT_TRANSLATE_NOOP("lux-core", ""
-"Rescan aborted by user. Please restart your Luxcore wallet with '-rescan' "
+"Rescan aborted by user. Please restart your Astracore wallet with '-rescan' "
 "option. Otherwise, transaction data"),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Send trace/debug info to console instead of debug.log file (default: %u)"),
@@ -188,7 +188,7 @@ QT_TRANSLATE_NOOP("lux-core", ""
 "the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software "
 "written by Eric Young and UPnP software written by Thomas Bernard."),
 QT_TRANSLATE_NOOP("lux-core", ""
-"Unable to bind to %s on this computer. Luxcore is probably already running."),
+"Unable to bind to %s on this computer. Astracore is probably already running."),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Unable to locate enough DarkSend denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("lux-core", ""
@@ -220,7 +220,7 @@ QT_TRANSLATE_NOOP("lux-core", ""
 "pay if you send a transaction."),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Warning: Please check that your computer's date and time are correct! If "
-"your clock is wrong Luxcore will not work properly."),
+"your clock is wrong Astracore will not work properly."),
 QT_TRANSLATE_NOOP("lux-core", ""
 "Warning: Reverting this setting requires re-downloading the entire "
 "blockchain."),
@@ -308,7 +308,7 @@ QT_TRANSLATE_NOOP("lux-core", "Error loading %s: You can't disable HD on a alrea
 QT_TRANSLATE_NOOP("lux-core", "Error loading block database"),
 QT_TRANSLATE_NOOP("lux-core", "Error loading wallet.dat"),
 QT_TRANSLATE_NOOP("lux-core", "Error loading wallet.dat: Wallet corrupted"),
-QT_TRANSLATE_NOOP("lux-core", "Error loading wallet.dat: Wallet requires newer version of Luxcore"),
+QT_TRANSLATE_NOOP("lux-core", "Error loading wallet.dat: Wallet requires newer version of Astracore"),
 QT_TRANSLATE_NOOP("lux-core", "Error opening block database"),
 QT_TRANSLATE_NOOP("lux-core", "Error reading from database, shutting down."),
 QT_TRANSLATE_NOOP("lux-core", "Error recovering public key."),
@@ -333,7 +333,7 @@ QT_TRANSLATE_NOOP("lux-core", "Incompatible mode."),
 QT_TRANSLATE_NOOP("lux-core", "Incompatible version."),
 QT_TRANSLATE_NOOP("lux-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
 QT_TRANSLATE_NOOP("lux-core", "Information"),
-QT_TRANSLATE_NOOP("lux-core", "Initialization sanity check failed. Luxcore is shutting down."),
+QT_TRANSLATE_NOOP("lux-core", "Initialization sanity check failed. Astracore is shutting down."),
 QT_TRANSLATE_NOOP("lux-core", "Input is not valid."),
 QT_TRANSLATE_NOOP("lux-core", "InstanTX options:"),
 QT_TRANSLATE_NOOP("lux-core", "Insufficient funds."),
@@ -465,7 +465,7 @@ QT_TRANSLATE_NOOP("lux-core", "Verifying blocks..."),
 QT_TRANSLATE_NOOP("lux-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("lux-core", "Wallet %s resides outside data directory %s"),
 QT_TRANSLATE_NOOP("lux-core", "Wallet is locked."),
-QT_TRANSLATE_NOOP("lux-core", "Wallet needed to be rewritten: restart Luxcore to complete"),
+QT_TRANSLATE_NOOP("lux-core", "Wallet needed to be rewritten: restart Astracore to complete"),
 QT_TRANSLATE_NOOP("lux-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("lux-core", "Wallet window title"),
 QT_TRANSLATE_NOOP("lux-core", "Warning"),

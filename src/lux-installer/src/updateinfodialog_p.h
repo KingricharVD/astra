@@ -9,7 +9,7 @@ namespace Ui {
 class UpdateInfoDialog;
 }
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
 class UpdateInfoDialog : public QDialog
@@ -24,7 +24,7 @@ public:
 	};
 	Q_ENUM(DialogResult)
 
-	static DialogResult showUpdateInfo(QList<LuxUpdater::LuxUpdateInfo> updates,
+	static DialogResult showUpdateInfo(QList<AstraUpdater::AstraUpdateInfo> updates,
 									   bool &runAsAdmin,
 									   bool editable,
 									   bool detailed,

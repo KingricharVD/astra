@@ -205,7 +205,7 @@ QString TransactionDesc::toHTML(CWallet* wallet, CWalletTx& wtx, TransactionReco
                         }
                         strHTML += "<br/>";
                     } else if (txout.scriptPubKey.HasOpCreate()) {
-                        uint160 contract = uint160(LuxState::createLuxAddress(uintToh256(wtx.GetHash()), nOut).asBytes());
+                        uint160 contract = uint160(AstraState::createAstraAddress(uintToh256(wtx.GetHash()), nOut).asBytes());
                         strHTML += "<b>" + tr("SC Address (Hash160)") + ":</b> ";
                         strHTML += QString::fromStdString(contract.ToStringReverseEndian()) + "<br/>";
                     }

@@ -894,7 +894,7 @@ void CoinControlDialog::viewItemChanged(QTreeWidgetItem* item, int column)
         int rounds = pwalletMain->GetInputDarkSendRounds(in);
         if (coinControl->useDarksend && rounds < nDarksendRounds)
             QMessageBox::warning(this, windowTitle(),
-                                 tr("Non-anonymized input selected. <b>Luxsend will be disabled.</b><br><br>If you still want to use Luxsend, please deselect all non-nonymized inputs first and then check Luxsend checkbox again."),
+                                 tr("Non-anonymized input selected. <b>Astrasend will be disabled.</b><br><br>If you still want to use Astrasend, please deselect all non-nonymized inputs first and then check Astrasend checkbox again."),
                                  QMessageBox::Ok, QMessageBox::Ok);
         coinControl->useDarksend = false;
 

@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Luxcore developers
+// Copyright (c) 2015-2018 The Astracore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -591,7 +591,7 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
 
             // Get dgp gas limit and gas price
             LOCK(cs_main);
-            LuxDGP luxDGP(globalState.get(), fGettingValuesDGP);
+            AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
             uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
             uint64_t minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
             CAmount nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE)?minGasPrice:DEFAULT_GAS_PRICE;
@@ -656,7 +656,7 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
         } else {
             CTxDestination destination = DecodeDestination(name_);
             if (!IsValidDestination(destination)) {
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Lux address: ")+name_);
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Astra address: ")+name_);
             }
 
             if (!destinations.insert(destination).second) {
@@ -1097,7 +1097,7 @@ UniValue gethexaddress(const UniValue& params, bool fHelp) {
 
     CTxDestination address = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(address))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Luxcore address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astracore address");
 
     CKeyID *keyid = boost::get<CKeyID>(&address);
 
@@ -1131,7 +1131,7 @@ UniValue fromhexaddress(const UniValue& params, bool fHelp) {
     CKeyID keyid(key);
 
     if(!IsValidDestination(CTxDestination(keyid)))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Luxcore address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astracore address");
 
     return EncodeDestination(CTxDestination(keyid));
 }

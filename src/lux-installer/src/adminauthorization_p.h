@@ -3,7 +3,7 @@
 
 #include "luxupdater/adminauthoriser.h"
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
 class AdminAuthorization : public AdminAuthoriser

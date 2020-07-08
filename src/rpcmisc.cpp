@@ -142,7 +142,7 @@ UniValue getstateinfo(const UniValue& params, bool fHelp)
 
     LOCK(cs_main);
 
-    LuxDGP luxDGP(globalState.get());
+    AstraDGP luxDGP(globalState.get());
 
     UniValue obj(UniValue::VOBJ);
     obj.push_back(Pair("maxblocksize", (int)luxDGP.getBlockSize(chainActive.Height())));

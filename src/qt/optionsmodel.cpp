@@ -80,11 +80,11 @@ void OptionsModel::Init()
     if (!settings.contains("nDarksendRounds"))
         settings.setValue("nDarksendRounds", 2);
 
-    if (!settings.contains("nAnonymizeLuxAmount"))
-        settings.setValue("nAnonymizeLuxAmount", 1000);
+    if (!settings.contains("nAnonymizeAstraAmount"))
+        settings.setValue("nAnonymizeAstraAmount", 1000);
 
     nDarksendRounds = settings.value("nDarksendRounds").toLongLong();
-    nAnonymizeLuxAmount = settings.value("nAnonymizeLuxAmount").toLongLong();
+    nAnonymizeAstraAmount = settings.value("nAnonymizeAstraAmount").toLongLong();
 
     if (!settings.contains("fShowAdvancedUI"))
         settings.setValue("fShowAdvancedUI", fEnableDarksend);
@@ -196,8 +196,8 @@ void OptionsModel::Init()
 
     if (settings.contains("nDarksendRounds"))
         SoftSetArg("-darksendrounds", settings.value("nDarksendRounds").toString().toStdString());
-    if (settings.contains("nAnonymizeLuxAmount"))
-        SoftSetArg("-anonymizeluxamount", settings.value("nAnonymizeLuxAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeAstraAmount"))
+        SoftSetArg("-anonymizeluxamount", settings.value("nAnonymizeAstraAmount").toString().toStdString());
 
     // Old/bad keys to clean
     settings.remove("fparallelMasterNode");
@@ -294,8 +294,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nThreadsScriptVerif");
         case DarkSendRounds:
             return QVariant(nDarksendRounds);
-        case AnonymizeLuxAmount:
-            return QVariant(nAnonymizeLuxAmount);
+        case AnonymizeAstraAmount:
+            return QVariant(nAnonymizeAstraAmount);
         case Listen:
             return settings.value("fListen");
         case CheckUpdates:
@@ -425,10 +425,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             settings.setValue("nDarksendRounds", nDarksendRounds);
             Q_EMIT darksendRoundsChanged(nDarksendRounds);
             break;
-        case AnonymizeLuxAmount:
-            nAnonymizeLuxAmount = value.toInt();
-            settings.setValue("nAnonymizeLuxAmount", nAnonymizeLuxAmount);
-            Q_EMIT anonymizeLuxAmountChanged(nAnonymizeLuxAmount);
+        case AnonymizeAstraAmount:
+            nAnonymizeAstraAmount = value.toInt();
+            settings.setValue("nAnonymizeAstraAmount", nAnonymizeAstraAmount);
+            Q_EMIT anonymizeAstraAmountChanged(nAnonymizeAstraAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

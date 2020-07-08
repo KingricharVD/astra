@@ -85,9 +85,9 @@ public:
 	virtual std::pair<bool, bytes> executePrecompiled(Address const& _a, bytesConstRef _in, u256 const&) const { return m_params.precompiled.at(_a).execute(_in); }
 
 ////////////////////////////////////////////////////////////// // lux
-	void setLuxSchedule(EVMSchedule _luxSchedule) const { luxSchedule = _luxSchedule; }
+	void setAstraSchedule(EVMSchedule _luxSchedule) const { luxSchedule = _luxSchedule; }
 
-	EVMSchedule& getLuxSchedule() const { return luxSchedule; }
+	EVMSchedule& getAstraSchedule() const { return luxSchedule; }
 
 	mutable std::set<Address> deleteAddresses;
 //////////////////////////////////////////////////////////////

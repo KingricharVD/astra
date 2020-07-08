@@ -9,11 +9,11 @@
 - Stop the node and restart it with -reindex-chainstate. Verify that the node has reindexed up to block 3.
 """
 
-from test_framework.test_framework import LuxTestFramework
+from test_framework.test_framework import AstraTestFramework
 from test_framework.util import assert_equal
 import time
 
-class ReindexTest(LuxTestFramework):
+class ReindexTest(AstraTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

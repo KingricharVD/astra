@@ -247,7 +247,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="anonymizeLux">
+          <widget class="QSpinBox" name="anonymizeAstra">
            <property name="minimum">
             <number>100</number>
            </property>
@@ -300,10 +300,10 @@
           <item>
            <widget class="QCheckBox" name="showAdvancedUI">
             <property name="toolTip">
-             <string>Show additional information and buttons for Luxsend on overview screen.</string>
+             <string>Show additional information and buttons for Astrasend on overview screen.</string>
             </property>
             <property name="text">
-             <string>Enable advanced Luxsend interface</string>
+             <string>Enable advanced Astrasend interface</string>
             </property>
            </widget>
           </item>
