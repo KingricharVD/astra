@@ -118,7 +118,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
            </property>
            <property name="shortcut">
@@ -135,7 +135,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
            </property>
            <property name="shortcut">
@@ -214,7 +214,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/editcopy</normaloff>:/icons/editcopy</iconset>
            </property>
           </widget>
@@ -277,7 +277,7 @@
             <string>Clear &amp;All</string>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="autoDefault">
@@ -294,7 +294,7 @@
             <string>Encrypt &amp;Key</string>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
            </property>
            <property name="autoDefault">
@@ -466,7 +466,7 @@
             <string>Clear &amp;All</string>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="autoDefault">
@@ -483,7 +483,7 @@
             <string>Decrypt &amp;Key</string>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/key</normaloff>:/icons/key</iconset>
            </property>
            <property name="autoDefault">
@@ -576,7 +576,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../lux.qrc"/>
+  <include location="../astra.qrc"/>
  </resources>
  <connections/>
 </ui>

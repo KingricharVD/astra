@@ -2,10 +2,10 @@
 Encoding=UTF-8
 Name=Astra
 Comment=Astra P2P Cryptocurrency
-Exec=lux-qt %u
+Exec=astra-qt %u
 Terminal=false
 Type=Application
-Icon=lux128
-MimeType=x-scheme-handler/lux;
+Icon=astra128
+MimeType=x-scheme-handler/astra;
 Categories=Office;Finance;
 Name[en_AU]=Astra

@@ -2959,7 +2959,7 @@ bool CWallet::CreateTransaction(const std::vector<CRecipient>& vecSend, CWalletT
                 if (nChange > 0) {
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
-                    // change transaction isn't always pay-to-lux-address
+                    // change transaction isn't always pay-to-astra-address
                     CScript scriptChange;
 
                     bool combineChange = false;

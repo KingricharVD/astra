@@ -8,7 +8,7 @@
 #define BITCOIN_COMPAT_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/lux-config.h"
+#include "config/astra-config.h"
 #endif
 
 #ifdef WIN32

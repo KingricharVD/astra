@@ -78,7 +78,7 @@ static const int POS_REWARD_CHANGED_BLOCK = 300000;
  * Global AstraState
  */
 
-////////////////////////////// lux
+////////////////////////////// astra
 #include <iostream>
 #include <bitset>
 #include "pubkey.h"
@@ -101,7 +101,7 @@ unsigned int dgpMaxBlockWeight = 8000000;
 /** The maximum allowed size for a block excluding witness data, in bytes (network rule) */
 unsigned int dgpMaxBlockBaseSize = 2000000;
 
-unsigned int dgpMaxBlockSize = 2000000; // lux
+unsigned int dgpMaxBlockSize = 2000000; // astra
 
 ///** The maximum allowed number of signature check operations in a block (network rule) */
 int64_t dgpMaxBlockSigOps = 80000;
@@ -891,7 +891,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState& state)
         if (!MoneyRange(nValueOut))
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-txouttotal-toolarge");
 
-        /////////////////////////////////////////////////////////// // lux
+        /////////////////////////////////////////////////////////// // astra
         if (txout.scriptPubKey.HasOpCall() || txout.scriptPubKey.HasOpCreate()) {
             std::vector<valtype> vSolutions;
             txnouttype whichType;
@@ -1151,16 +1151,16 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
 
         dev::u256 txMinGasPrice = 0;
 
-        //////////////////////////////////////////////////////////// // lux
+        //////////////////////////////////////////////////////////// // astra
         if(chainActive.Height() >= chainParams.FirstSCBlock() && tx.HasCreateOrCall()) {
 
             if(!CheckSenderScript(view, tx)){
                 return state.DoS(1, false, REJECT_INVALID, "bad-txns-invalid-sender-script");
             }
 
-            AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
-            uint64_t minGasPrice = luxDGP.getMinGasPrice(chainActive.Height() + 1);
-            uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height() + 1);
+            AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
+            uint64_t minGasPrice = astraDGP.getMinGasPrice(chainActive.Height() + 1);
+            uint64_t blockGasLimit = astraDGP.getBlockGasLimit(chainActive.Height() + 1);
             size_t count = 0;
             for(const CTxOut& o : tx.vout)
                 count += o.scriptPubKey.HasOpCreate() || o.scriptPubKey.HasOpCall() ? 1 : 0;
@@ -1169,13 +1169,13 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
             if(!converter.extractionAstraTransactions(resultConverter)){
                 return state.DoS(100, error("AcceptToMempool(): Contract transaction of the wrong format"), REJECT_INVALID, "bad-tx-bad-contract-format");
             }
-            std::vector<AstraTransaction> luxTransactions = resultConverter.first;
-            std::vector<EthTransactionParams> luxETP = resultConverter.second;
+            std::vector<AstraTransaction> astraTransactions = resultConverter.first;
+            std::vector<EthTransactionParams> astraETP = resultConverter.second;
 
             dev::u256 sumGas = dev::u256(0);
             dev::u256 gasAllTxs = dev::u256(0);
-            for(AstraTransaction luxTransaction : luxTransactions){
-                sumGas += luxTransaction.gas() * luxTransaction.gasPrice();
+            for(AstraTransaction astraTransaction : astraTransactions){
+                sumGas += astraTransaction.gas() * astraTransaction.gasPrice();
 
                 if(sumGas > dev::u256(INT64_MAX)) {
                     return state.DoS(100, error("AcceptToMempool(): Transaction's gas stipend overflows"), REJECT_INVALID, "bad-tx-gas-stipend-overflow");
@@ -1186,11 +1186,11 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                 }
 
                 if(txMinGasPrice != 0) {
-                    txMinGasPrice = std::min(txMinGasPrice, luxTransaction.gasPrice());
+                    txMinGasPrice = std::min(txMinGasPrice, astraTransaction.gasPrice());
                 } else {
-                    txMinGasPrice = luxTransaction.gasPrice();
+                    txMinGasPrice = astraTransaction.gasPrice();
                 }
-                VersionVM v = luxTransaction.getVersion();
+                VersionVM v = astraTransaction.getVersion();
                 if(v.format!=0)
                     return state.DoS(100, error("AcceptToMempool(): Contract execution uses unknown version format"), REJECT_INVALID, "bad-tx-version-format");
                 if(v.rootVM != 1)
@@ -1201,29 +1201,29 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                     return state.DoS(100, error("AcceptToMempool(): Contract execution uses unknown flag options"), REJECT_INVALID, "bad-tx-version-flags");
 
                 //check gas limit is not less than minimum mempool gas limit
-                if(luxTransaction.gas() < GetArg("-minmempoolgaslimit", MEMPOOL_MIN_GAS_LIMIT))
+                if(astraTransaction.gas() < GetArg("-minmempoolgaslimit", MEMPOOL_MIN_GAS_LIMIT))
                     return state.DoS(100, error("AcceptToMempool(): Contract execution has lower gas limit than allowed to accept into mempool"), REJECT_INVALID, "bad-tx-too-little-mempool-gas");
 
                 //check gas limit is not less than minimum gas limit (unless it is a no-exec tx)
-                if(luxTransaction.gas() < MINIMUM_GAS_LIMIT && v.rootVM != 0)
+                if(astraTransaction.gas() < MINIMUM_GAS_LIMIT && v.rootVM != 0)
                     return state.DoS(100, error("AcceptToMempool(): Contract execution has lower gas limit than allowed"), REJECT_INVALID, "bad-tx-too-little-gas");
 
-                if(luxTransaction.gas() > UINT32_MAX)
+                if(astraTransaction.gas() > UINT32_MAX)
                     return state.DoS(100, error("AcceptToMempool(): Contract execution can not specify greater gas limit than can fit in 32-bits"), REJECT_INVALID, "bad-tx-too-much-gas");
 
-                gasAllTxs += luxTransaction.gas();
+                gasAllTxs += astraTransaction.gas();
                 if(gasAllTxs > dev::u256(blockGasLimit))
                     return state.DoS(1, false, REJECT_INVALID, "bad-txns-gas-exceeds-blockgaslimit");
 
                 //don't allow less than DGP set minimum gas price to prevent MPoS greedy mining/spammers
-                if(v.rootVM!=0 && (uint64_t)luxTransaction.gasPrice() < minGasPrice)
+                if(v.rootVM!=0 && (uint64_t)astraTransaction.gasPrice() < minGasPrice)
                 return state.DoS(100, error("AcceptToMempool(): Contract execution has lower gas price than allowed"), REJECT_INVALID, "bad-tx-low-gas-price");
             }
 
-            if(!CheckMinGasPrice(luxETP, minGasPrice))
+            if(!CheckMinGasPrice(astraETP, minGasPrice))
                 return state.DoS(100, false, REJECT_INVALID, "bad-txns-small-gasprice");
 
-            if(count > luxTransactions.size())
+            if(count > astraTransactions.size())
                 return state.DoS(100, false, REJECT_INVALID, "bad-txns-incorrect-format");
         }
         ////////////////////////////////////////////////////////////
@@ -1588,16 +1588,16 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
 
         dev::u256 txMinGasPrice = 0;
 
-        //////////////////////////////////////////////////////////// // lux
+        //////////////////////////////////////////////////////////// // astra
         if(chainActive.Height() >= Params().FirstSCBlock() && tx.HasCreateOrCall()) {
 
             if(!CheckSenderScript(view, tx)){
                 return state.DoS(1, false, REJECT_INVALID, "bad-txns-invalid-sender-script");
             }
 
-            AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
-            uint64_t minGasPrice = luxDGP.getMinGasPrice(chainActive.Height() + 1);
-            uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height() + 1);
+            AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
+            uint64_t minGasPrice = astraDGP.getMinGasPrice(chainActive.Height() + 1);
+            uint64_t blockGasLimit = astraDGP.getBlockGasLimit(chainActive.Height() + 1);
             size_t count = 0;
             for(const CTxOut& o : tx.vout)
                 count += o.scriptPubKey.HasOpCreate() || o.scriptPubKey.HasOpCall() ? 1 : 0;
@@ -1606,13 +1606,13 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
             if(!converter.extractionAstraTransactions(resultConverter)){
                 return state.DoS(100, error("AcceptToMempool(): Contract transaction of the wrong format"), REJECT_INVALID, "bad-tx-bad-contract-format");
             }
-            std::vector<AstraTransaction> luxTransactions = resultConverter.first;
-            std::vector<EthTransactionParams> luxETP = resultConverter.second;
+            std::vector<AstraTransaction> astraTransactions = resultConverter.first;
+            std::vector<EthTransactionParams> astraETP = resultConverter.second;
 
             dev::u256 sumGas = dev::u256(0);
             dev::u256 gasAllTxs = dev::u256(0);
-            for(AstraTransaction luxTransaction : luxTransactions){
-                sumGas += luxTransaction.gas() * luxTransaction.gasPrice();
+            for(AstraTransaction astraTransaction : astraTransactions){
+                sumGas += astraTransaction.gas() * astraTransaction.gasPrice();
 
                 if(sumGas > dev::u256(INT64_MAX)) {
                     return state.DoS(100, error("AcceptToMempool(): Transaction's gas stipend overflows"), REJECT_INVALID, "bad-tx-gas-stipend-overflow");
@@ -1623,11 +1623,11 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
                 }
 
                 if(txMinGasPrice != 0) {
-                    txMinGasPrice = std::min(txMinGasPrice, luxTransaction.gasPrice());
+                    txMinGasPrice = std::min(txMinGasPrice, astraTransaction.gasPrice());
                 } else {
-                    txMinGasPrice = luxTransaction.gasPrice();
+                    txMinGasPrice = astraTransaction.gasPrice();
                 }
-                VersionVM v = luxTransaction.getVersion();
+                VersionVM v = astraTransaction.getVersion();
                 if(v.format!=0)
                     return state.DoS(100, error("AcceptToMempool(): Contract execution uses unknown version format"), REJECT_INVALID, "bad-tx-version-format");
                 if(v.rootVM != 1)
@@ -1638,29 +1638,29 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
                     return state.DoS(100, error("AcceptToMempool(): Contract execution uses unknown flag options"), REJECT_INVALID, "bad-tx-version-flags");
 
                 //check gas limit is not less than minimum mempool gas limit
-                if(luxTransaction.gas() < GetArg("-minmempoolgaslimit", MEMPOOL_MIN_GAS_LIMIT))
+                if(astraTransaction.gas() < GetArg("-minmempoolgaslimit", MEMPOOL_MIN_GAS_LIMIT))
                     return state.DoS(100, error("AcceptToMempool(): Contract execution has lower gas limit than allowed to accept into mempool"), REJECT_INVALID, "bad-tx-too-little-mempool-gas");
 
                 //check gas limit is not less than minimum gas limit (unless it is a no-exec tx)
-                if(luxTransaction.gas() < MINIMUM_GAS_LIMIT && v.rootVM != 0)
+                if(astraTransaction.gas() < MINIMUM_GAS_LIMIT && v.rootVM != 0)
                     return state.DoS(100, error("AcceptToMempool(): Contract execution has lower gas limit than allowed"), REJECT_INVALID, "bad-tx-too-little-gas");
 
-                if(luxTransaction.gas() > UINT32_MAX)
+                if(astraTransaction.gas() > UINT32_MAX)
                     return state.DoS(100, error("AcceptToMempool(): Contract execution can not specify greater gas limit than can fit in 32-bits"), REJECT_INVALID, "bad-tx-too-much-gas");
 
-                gasAllTxs += luxTransaction.gas();
+                gasAllTxs += astraTransaction.gas();
                 if(gasAllTxs > dev::u256(blockGasLimit))
                     return state.DoS(1, false, REJECT_INVALID, "bad-txns-gas-exceeds-blockgaslimit");
 
                 //don't allow less than DGP set minimum gas price to prevent MPoS greedy mining/spammers
-                if(v.rootVM!=0 && (uint64_t)luxTransaction.gasPrice() < minGasPrice)
+                if(v.rootVM!=0 && (uint64_t)astraTransaction.gasPrice() < minGasPrice)
                     return state.DoS(100, error("AcceptToMempool(): Contract execution has lower gas price than allowed"), REJECT_INVALID, "bad-tx-low-gas-price");
             }
 
-            if(!CheckMinGasPrice(luxETP, minGasPrice))
+            if(!CheckMinGasPrice(astraETP, minGasPrice))
                 return state.DoS(100, false, REJECT_INVALID, "bad-txns-small-gasprice");
 
-            if(count > luxTransactions.size())
+            if(count > astraTransactions.size())
                 return state.DoS(100, false, REJECT_INVALID, "bad-txns-incorrect-format");
         }
         ////////////////////////////////////////////////////////////
@@ -1955,7 +1955,7 @@ CAmount GetProofOfWorkReward(int64_t nFees, int nHeight)
     if (nHeight < 1) {
         nSubsidy = 1 * COIN;
     } else if (nHeight == 1) {
-        nSubsidy = 3000000 * COIN;
+        nSubsidy = 15000000 * COIN;
     } else if (nHeight < 500) {
         nSubsidy = 1 * COIN;
     } else if (nHeight == 501) {
@@ -2583,7 +2583,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck()
 {
-    RenameThread("lux-scriptch");
+    RenameThread("astra-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2684,16 +2684,16 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 {
     AssertLockHeld(cs_main);
 
-    ///////////////////////////////////////////////// // lux
+    ///////////////////////////////////////////////// // astra
 #if 0
-    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
-    globalSealEngine->setAstraSchedule(luxDGP.getGasSchedule(pindex->nHeight + 1));
+    AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
+    globalSealEngine->setAstraSchedule(astraDGP.getGasSchedule(pindex->nHeight + 1));
 #endif
-    uint64_t minGasPrice = 0;//luxDGP.getMinGasPrice(pindex->nHeight + 1);
-    uint64_t blockGasLimit = DEFAULT_BLOCK_GAS_LIMIT_DGP;//luxDGP.getBlockGasLimit(pindex->nHeight + 1);
+    uint64_t minGasPrice = 0;//astraDGP.getMinGasPrice(pindex->nHeight + 1);
+    uint64_t blockGasLimit = DEFAULT_BLOCK_GAS_LIMIT_DGP;//astraDGP.getBlockGasLimit(pindex->nHeight + 1);
 
 #if 0
-    uint32_t sizeBlockDGP = 0;//luxDGP.getBlockSize(pindex->nHeight + 1);
+    uint32_t sizeBlockDGP = 0;//astraDGP.getBlockSize(pindex->nHeight + 1);
     dgpMaxBlockSize = sizeBlockDGP ? sizeBlockDGP : dgpMaxBlockSize;
     updateBlockSizeParams(dgpMaxBlockSize);
 #endif
@@ -2792,7 +2792,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     CCheckQueueControl<CScriptCheck> control(fScriptChecks && nScriptCheckThreads ? &scriptcheckqueue : NULL);
 
-    ///////////////////////////////////////////////////////// // lux
+    ///////////////////////////////////////////////////////// // astra
     std::map<dev::Address, std::pair<CHeightTxIndexKey, std::vector<uint256>>> heightIndexes;
     /////////////////////////////////////////////////////////
 
@@ -2967,7 +2967,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             }
         }
 
-///////////////////////////////////////////////////////////////////////////////////////// lux
+///////////////////////////////////////////////////////////////////////////////////////// astra
 
         if (pindex->nHeight >= Params().FirstSCBlock()) {
             bool hasOpSpend = tx.HasOpSpend();
@@ -3167,7 +3167,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     nTimeVerify += nTime2 - nTimeStart;
     LogPrint("bench", "    - Verify %u txins: %.2fms (%.3fms/txin) [%.2fs]\n", nInputs - 1, 0.001 * (nTime2 - nTimeStart), nInputs <= 1 ? 0 : 0.001 * (nTime2 - nTimeStart) / (nInputs - 1), nTimeVerify * 0.000001);
 
-    ////////////////////////////////////////////////////////////////// // lux
+    ////////////////////////////////////////////////////////////////// // astra
     if (pindex->nHeight >= Params().FirstSCBlock()) {
 
         dev::h256 oldHashStateRoot = getGlobalStateRoot(pindex);
@@ -7621,7 +7621,7 @@ public:
 } instance_of_cmaincleanup;
 
 
-/////////////////////////////////////////////////////////////////////// lux
+/////////////////////////////////////////////////////////////////////// astra
 bool CheckSenderScript(const CCoinsViewCache& view, const CTransaction& tx) {
     CScript script = view.AccessCoins(tx.vin[0].prevout.hash)->vout[tx.vin[0].prevout.n].scriptPubKey;
     if(!script.IsPayToPubkeyHash() && !script.IsPayToPubkey()){
@@ -7644,8 +7644,8 @@ std::vector<ResultExecute> CallContract(const dev::Address& addrContract, std::v
         block.vtx.erase(block.vtx.begin()+1,block.vtx.end());
 
 
-    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
-    uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height() + 1);
+    AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
+    uint64_t blockGasLimit = astraDGP.getBlockGasLimit(chainActive.Height() + 1);
 
     if(gasLimit == 0){
         gasLimit = blockGasLimit - 1;
@@ -7786,12 +7786,12 @@ UniValue vmLogToJSON(const ResultExecute& execRes, const CTransaction& tx, const
 }
 
 void writeVMlog(const std::vector<ResultExecute>& res, const CTransaction& tx, const CBlock& block){
-    boost::filesystem::path luxDir = GetDataDir() / "vmExecLogs.json";
+    boost::filesystem::path astraDir = GetDataDir() / "vmExecLogs.json";
     std::stringstream ss;
     if(fIsVMlogFile){
         ss << ",";
     } else {
-        std::ofstream file(luxDir.string(), std::ios::out | std::ios::app);
+        std::ofstream file(astraDir.string(), std::ios::out | std::ios::app);
         file << "{\"logs\":[]}";
         file.close();
     }
@@ -7805,7 +7805,7 @@ void writeVMlog(const std::vector<ResultExecute>& res, const CTransaction& tx, c
         }
     }
 
-    std::ofstream file(luxDir.string(), std::ios::in | std::ios::out);
+    std::ofstream file(astraDir.string(), std::ios::in | std::ios::out);
     file.seekp(-2, std::ios::end);
     file << ss.str();
     file.close();
@@ -7912,7 +7912,7 @@ dev::Address ByteCodeExec::EthAddrFromScript(const CScript& script){
     return dev::Address();
 }
 
-bool AstraTxConverter::extractionAstraTransactions(ExtractAstraTX& luxtx){
+bool AstraTxConverter::extractionAstraTransactions(ExtractAstraTX& astratx){
     std::vector<AstraTransaction> resultTX;
     std::vector<EthTransactionParams> resultETP;
     for(size_t i = 0; i < txBit.vout.size(); i++){
@@ -7930,7 +7930,7 @@ bool AstraTxConverter::extractionAstraTransactions(ExtractAstraTX& luxtx){
             }
         }
     }
-    luxtx = std::make_pair(resultTX, resultETP);
+    astratx = std::make_pair(resultTX, resultETP);
     return true;
 }
 

@@ -402,18 +402,18 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     if (fProofOfStake)
         originalRewardTx = CMutableTransaction(pblock->vtx[1]);
 
-    //////////////////////////////////////////////////////// lux
-    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
-    globalSealEngine->setAstraSchedule(luxDGP.getGasSchedule(nHeight));
-    uint32_t blockSizeDGP = luxDGP.getBlockSize(nHeight);
-    minGasPrice = luxDGP.getMinGasPrice(nHeight);
+    //////////////////////////////////////////////////////// astra
+    AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
+    globalSealEngine->setAstraSchedule(astraDGP.getGasSchedule(nHeight));
+    uint32_t blockSizeDGP = astraDGP.getBlockSize(nHeight);
+    minGasPrice = astraDGP.getMinGasPrice(nHeight);
     if(IsArgSet("-staker-min-tx-gas-price")) {
         CAmount stakerMinGasPrice;
         if(ParseMoney(GetArg("-staker-min-tx-gas-price", ""), stakerMinGasPrice)) {
             minGasPrice = std::max(minGasPrice, (uint64_t)stakerMinGasPrice);
         }
     }
-    hardBlockGasLimit = luxDGP.getBlockGasLimit(nHeight);
+    hardBlockGasLimit = astraDGP.getBlockGasLimit(nHeight);
     softBlockGasLimit = GetArg("-staker-soft-block-gas-limit", hardBlockGasLimit);
     softBlockGasLimit = std::min(softBlockGasLimit, hardBlockGasLimit);
     txGasLimit = GetArg("-staker-max-tx-gas-limit", softBlockGasLimit);
@@ -619,26 +619,26 @@ bool BlockAssembler::AttemptToAddContractToBlock(CTxMemPool::txiter iter, uint64
         //therefore, this can only be triggered by using raw transactions on the staker itself
         return false;
     }
-    std::vector<AstraTransaction> luxTransactions = resultConverter.first;
+    std::vector<AstraTransaction> astraTransactions = resultConverter.first;
     dev::u256 txGas = 0;
-    for(AstraTransaction luxTransaction : luxTransactions){
-        txGas += luxTransaction.gas();
+    for(AstraTransaction astraTransaction : astraTransactions){
+        txGas += astraTransaction.gas();
         if(txGas > txGasLimit) {
             // Limit the tx gas limit by the soft limit if such a limit has been specified.
             return false;
         }
 
-        if(bceResult.usedGas + luxTransaction.gas() > softBlockGasLimit){
+        if(bceResult.usedGas + astraTransaction.gas() > softBlockGasLimit){
             //if this transaction's gasLimit could cause block gas limit to be exceeded, then don't add it
             return false;
         }
-        if(luxTransaction.gasPrice() < minGasPrice){
+        if(astraTransaction.gasPrice() < minGasPrice){
             //if this transaction's gasPrice is less than the current DGP minGasPrice don't add it
             return false;
         }
     }
     // We need to pass the DGP's block gas limit (not the soft limit) since it is consensus critical.
-    ByteCodeExec exec(*pblock, luxTransactions, hardBlockGasLimit);
+    ByteCodeExec exec(*pblock, astraTransactions, hardBlockGasLimit);
     if(!exec.performByteCode()){
         //error, don't add contract
         setGlobalStateRoot(oldHashStateRoot);

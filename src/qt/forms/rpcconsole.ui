@@ -502,7 +502,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/fontsmaller</normaloff>:/icons/fontsmaller</iconset>
            </property>
            <property name="autoDefault">
@@ -538,7 +538,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/fontbigger</normaloff>:/icons/fontbigger</iconset>
            </property>
            <property name="autoDefault">
@@ -577,7 +577,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../lux.qrc">
+            <iconset resource="../astra.qrc">
              <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="shortcut">
@@ -1762,7 +1762,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../lux.qrc"/>
+  <include location="../astra.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -41,11 +41,11 @@ QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
     case ASTRA:
-        return QString("lux");
+        return QString("astra");
     case mASTRA:
-        return QString("mlux");
+        return QString("mastra");
     case uASTRA:
-        return QString::fromUtf8("ulux");
+        return QString::fromUtf8("uastra");
     default:
         return QString("???");
     }

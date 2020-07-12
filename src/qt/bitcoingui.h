@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/lux-config.h"
+#include "config/astra-config.h"
 #endif
 
 #include "amount.h"
@@ -20,7 +20,7 @@
 #include <QSystemTrayIcon>
 
 #ifdef ENABLE_UPDATER
-#include "lux-installer/src/updatecontroller.h"
+#include "astra-installer/src/updatecontroller.h"
 #endif
 
 class ClientModel;

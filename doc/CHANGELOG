@@ -46,7 +46,7 @@
 +Added IsInitialBlockDownload
 +Added GetMNCollateral
 +Improved MN functions
-+Prepared to initilised luxgate
++Prepared to initilised astragate
 +Fixed QT wallet CPU threads exhausted
 
 # Version 2.2.4

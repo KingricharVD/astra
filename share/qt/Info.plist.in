@@ -38,7 +38,7 @@
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>io.luxcore.Astra-Qt</string>
+  <string>io.astracore.Astra-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.luxcore.AstraPayment</string>
+      <string>io.astracore.AstraPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>lux</string>
+        <string>astra</string>
       </array>
     </dict>
   </array>
@@ -58,7 +58,7 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>io.lux.paymentrequest</string>
+      <string>io.astra.paymentrequest</string>
       <key>UTTypeDescription</key>
       <string>Astra payment request</string>
       <key>UTTypeConformsTo</key>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-lux-payment-request</string>
+        <string>application/x-astra-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>luxpaymentrequest</string>
+          <string>astrapaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>io.luxcore.paymentrequest</string>
+        <string>io.astracore.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

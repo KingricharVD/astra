@@ -1,20 +1,20 @@
 #FROM debian:stretch
 FROM ubuntu:18.04
-LABEL maintainer="The Astracore Developers <giaki3003@luxcore.io>"
+LABEL maintainer="The Astracore Developers <giaki3003@astracore.io>"
 LABEL description="Dockerised Astracore, built from Travis"
 
 RUN apt-get update && apt-get install -y software-properties-common unzip
 RUN apt-get install -y wget
 
-RUN wget https://github.com/ASTRA-Core/lux/releases/download/v5.2.3/lux-qt-linux-18.zip
-RUN unzip lux-qt-linux-18.zip
-RUN cp luxd /usr/local/bin
+RUN wget https://github.com/ASTRA-Core/astra/releases/download/v5.2.3/astra-qt-linux-18.zip
+RUN unzip astra-qt-linux-18.zip
+RUN cp astrad /usr/local/bin
 
-VOLUME ["/opt/lux"]
+VOLUME ["/opt/astra"]
 
 EXPOSE 9888
 EXPOSE 9888
 EXPOSE 9777
 EXPOSE 9777
 
-CMD ["luxd", "--conf=/opt/lux/lux.conf", "--printtoconsole"]
+CMD ["astrad", "--conf=/opt/astra/astra.conf", "--printtoconsole"]

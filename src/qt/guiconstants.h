@@ -49,7 +49,7 @@ static const int MAX_URI_LENGTH = 255;
 #define SPINNER_FRAMES 35
 
 #define QAPP_ORG_NAME "ASTRA"
-#define QAPP_ORG_DOMAIN "luxcore.io"
+#define QAPP_ORG_DOMAIN "astracore.io"
 #define QAPP_APP_NAME_DEFAULT "ASTRA-Qt"
 #define QAPP_APP_NAME_TESTNET "ASTRA-Qt-testnet"
 

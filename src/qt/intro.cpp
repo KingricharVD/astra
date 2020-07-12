@@ -183,8 +183,8 @@ bool Intro::pickDataDirectory()
         settings.setValue("strDataDir", dataDir);
     }
     /* Only override -datadir if different from the default, to make it possible to
-     * override -datadir in the lux.conf file in the default data directory
-     * (to be consistent with luxd behavior)
+     * override -datadir in the astra.conf file in the default data directory
+     * (to be consistent with astrad behavior)
      */
     if (dataDir != getDefaultDataDirectory())
         SoftSetArg("-datadir", GUIUtil::qstringToBoostPath(dataDir).string()); // use OS locale for path setting

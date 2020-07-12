@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/lux-config.h"
+#include "config/astra-config.h"
 #endif
 
 #include "tinyformat.h"

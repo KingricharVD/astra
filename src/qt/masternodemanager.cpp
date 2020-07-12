@@ -1,7 +1,7 @@
 #include "masternodemanager.h"
 #include "ui_masternodemanager.h"
-#include "addeditluxnode.h"
-#include "luxnodeconfigdialog.h"
+#include "addeditastranode.h"
+#include "astranodeconfigdialog.h"
 
 #include "sync.h"
 #include "clientmodel.h"
@@ -120,7 +120,7 @@ void MasternodeManager::on_tableWidget_2_itemSelectionChanged()
 
 void MasternodeManager::updateAstraNode(QString alias, QString addr, QString privkey, QString collateral)
 {
-    LOCK(cs_lux);
+    LOCK(cs_astra);
    
     ui->tableWidget_2->insertRow(0);
 
@@ -227,10 +227,10 @@ void MasternodeManager::updateNodeList()
     
     if(pwalletMain)
     {
-        LOCK(cs_lux);
-        for (PAIRTYPE(std::string, CAstraNodeConfig) lux : pwalletMain->mapMyAstraNodes)
+        LOCK(cs_astra);
+        for (PAIRTYPE(std::string, CAstraNodeConfig) astra : pwalletMain->mapMyAstraNodes)
         {
-            updateAstraNode(QString::fromStdString(lux.second.sAlias), QString::fromStdString(lux.second.sAddress), QString::fromStdString(lux.second.sMasternodePrivKey), QString::fromStdString(lux.second.sCollateralAddress));
+            updateAstraNode(QString::fromStdString(astra.second.sAlias), QString::fromStdString(astra.second.sAddress), QString::fromStdString(astra.second.sMasternodePrivKey), QString::fromStdString(astra.second.sCollateralAddress));
         }
     }
 }
@@ -339,9 +339,9 @@ void MasternodeManager::on_removeButton_clicked()
         walletdb.EraseAstraNodeConfig(c.sAddress);
         ui->tableWidget_2->clearContents();
         ui->tableWidget_2->setRowCount(0);
-        for (PAIRTYPE(std::string, CAstraNodeConfig) lux : pwalletMain->mapMyAstraNodes)
+        for (PAIRTYPE(std::string, CAstraNodeConfig) astra : pwalletMain->mapMyAstraNodes)
         {
-            updateAstraNode(QString::fromStdString(lux.second.sAlias), QString::fromStdString(lux.second.sAddress), QString::fromStdString(lux.second.sMasternodePrivKey), QString::fromStdString(lux.second.sCollateralAddress));
+            updateAstraNode(QString::fromStdString(astra.second.sAlias), QString::fromStdString(astra.second.sAddress), QString::fromStdString(astra.second.sMasternodePrivKey), QString::fromStdString(astra.second.sCollateralAddress));
         }
     }
 }
@@ -401,9 +401,9 @@ void MasternodeManager::on_stopButton_clicked()
 void MasternodeManager::on_startAllButton_clicked()
 {
     std::string results;
-    for (PAIRTYPE(std::string, CAstraNodeConfig) lux : pwalletMain->mapMyAstraNodes)
+    for (PAIRTYPE(std::string, CAstraNodeConfig) astra : pwalletMain->mapMyAstraNodes)
     {
-        CAstraNodeConfig c = lux.second;
+        CAstraNodeConfig c = astra.second;
 	std::string errorMessage;
         bool result = activeMasternode.RegisterByPubKey(c.sAddress, c.sMasternodePrivKey, c.sCollateralAddress, errorMessage);
 	if(result)
@@ -424,9 +424,9 @@ void MasternodeManager::on_startAllButton_clicked()
 void MasternodeManager::on_stopAllButton_clicked()
 {
     std::string results;
-    for (PAIRTYPE(std::string, CAstraNodeConfig) lux : pwalletMain->mapMyAstraNodes)
+    for (PAIRTYPE(std::string, CAstraNodeConfig) astra : pwalletMain->mapMyAstraNodes)
     {
-        CAstraNodeConfig c = lux.second;
+        CAstraNodeConfig c = astra.second;
 	std::string errorMessage;
         bool result = activeMasternode.StopMasterNode(c.sAddress, c.sMasternodePrivKey, errorMessage);
 	if(result)

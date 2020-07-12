@@ -28,7 +28,7 @@
       </sizepolicy>
      </property>
      <property name="pixmap">
-      <pixmap resource="../lux.qrc">:/images/about</pixmap>
+      <pixmap resource="../astra.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -116,7 +116,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../lux.qrc"/>
+  <include location="../astra.qrc"/>
  </resources>
  <connections>
   <connection>

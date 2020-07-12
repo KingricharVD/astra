@@ -11,7 +11,7 @@ the same, tested dependencies are used and statically built into the executable.
 Multiple developers build the source code by following a specific descriptor
 ("recipe"), cryptographically sign the result, and upload the resulting signature.
 These results are compared and only if they match, the build is accepted and uploaded
-to lux repo.
+to astra repo.
 
 More independent gitian builders are needed, which is why I wrote this
 guide. It is preferred to follow these steps yourself instead of using someone else's
@@ -26,7 +26,7 @@ Table of Contents
 - [Installing gitian](#installing-gitian)
 - [Setting up gitian images](#setting-up-gitian-images)
 - [Getting and building the inputs](#getting-and-building-the-inputs)
-- [Building ASTRA](#building-lux)
+- [Building ASTRA](#building-astra)
 - [Building an alternative repository](#building-an-alternative-repository)
 - [Signing externally](#signing-externally)
 - [Uploading signatures](#uploading-signatures)
@@ -277,12 +277,12 @@ cd ..
 
 **Note**: When sudo asks for a password, enter the password for the user *debian* not for *root*.
 
-Clone the git repositories for lux and gitian and then checkout the lux version that you want to build.
+Clone the git repositories for astra and gitian and then checkout the astra version that you want to build.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/ASTRA-Core/lux.git
-cd lux
+git clone https://github.com/ASTRA-Core/astra.git
+cd astra
 git checkout v${VERSION}
 cd ..
 ```
@@ -321,7 +321,7 @@ There will be a lot of warnings printed during build of the images. These can be
 Getting and building the inputs
 --------------------------------
 
-Follow the instructions in [doc/release-process.md](release-process.md) in the lux repository
+Follow the instructions in [doc/release-process.md](release-process.md) in the astra repository
 under 'Fetch and build inputs' to install sources which require manual intervention. Also follow
 the next step: 'Seed the Gitian sources cache', which will fetch all necessary source files allowing
 for gitian to work offline.
@@ -330,7 +330,7 @@ Building ASTRA
 ----------------
 
 To build ASTRA (for Linux, OSX and Windows) just follow the steps under 'perform
-gitian builds' in [doc/release-process.md](release-process.md) in the lux repository.
+gitian builds' in [doc/release-process.md](release-process.md) in the astra repository.
 
 This may take a long time as it also builds the dependencies needed for each descriptor.
 These dependencies will be cached after a successful build to avoid rebuilding them when possible.
@@ -345,12 +345,12 @@ tail -f var/build.log
 Output from `gbuild` will look something like
 
 ```bash
-    Initialized empty Git repository in /home/debian/gitian-builder/inputs/lux/.git/
+    Initialized empty Git repository in /home/debian/gitian-builder/inputs/astra/.git/
     remote: Reusing existing pack: 35606, done.
     remote: Total 35606 (delta 0), reused 0 (delta 0)
     Receiving objects: 100% (35606/35606), 26.52 MiB | 4.28 MiB/s, done.
     Resolving deltas: 100% (25724/25724), done.
-    From https://github.com/ASTRA-Core/lux
+    From https://github.com/ASTRA-Core/astra
     ... (new tags, new branch etc)
     --- Building for precise x86_64 ---
     Stopping target if it is up
@@ -377,11 +377,11 @@ and inputs.
 
 For example:
 ```bash
-URL=https://github.com/crowning-/lux.git
+URL=https://github.com/crowning-/astra.git
 COMMIT=b616fb8ef0d49a919b72b0388b091aaec5849b96
-./bin/gbuild --commit lux=${COMMIT} --url lux=${URL} ../lux/contrib/gitian-descriptors/gitian-linux.yml
-./bin/gbuild --commit lux=${COMMIT} --url lux=${URL} ../lux/contrib/gitian-descriptors/gitian-win.yml
-./bin/gbuild --commit lux=${COMMIT} --url lux=${URL} ../lux/contrib/gitian-descriptors/gitian-osx.yml
+./bin/gbuild --commit astra=${COMMIT} --url astra=${URL} ../astra/contrib/gitian-descriptors/gitian-linux.yml
+./bin/gbuild --commit astra=${COMMIT} --url astra=${URL} ../astra/contrib/gitian-descriptors/gitian-win.yml
+./bin/gbuild --commit astra=${COMMIT} --url astra=${URL} ../astra/contrib/gitian-descriptors/gitian-osx.yml
 ```
 
 Signing externally
@@ -396,9 +396,9 @@ When you execute `gsign` you will get an error from GPG, which can be ignored. C
 in `gitian.sigs` to your signing machine and do
 
 ```bash
-    gpg --detach-sign ${VERSION}-linux/${SIGNER}/lux-build.assert
-    gpg --detach-sign ${VERSION}-win/${SIGNER}/lux-build.assert
-    gpg --detach-sign ${VERSION}-osx/${SIGNER}/lux-build.assert
+    gpg --detach-sign ${VERSION}-linux/${SIGNER}/astra-build.assert
+    gpg --detach-sign ${VERSION}-win/${SIGNER}/astra-build.assert
+    gpg --detach-sign ${VERSION}-osx/${SIGNER}/astra-build.assert
 ```
 
 This will create the `.sig` files that can be committed together with the `.assert` files to assert your
@@ -408,6 +408,6 @@ Uploading signatures (not yet implemented)
 ---------------------
 
 In the future it will be possible to push your signatures (both the `.assert` and `.assert.sig` files) to the
-[lux/gitian.sigs](https://github.com/ASTRA-Core/gitian.sigs/) repository, or if that's not possible to create a pull
+[astra/gitian.sigs](https://github.com/ASTRA-Core/gitian.sigs/) repository, or if that's not possible to create a pull
 request.
 There will be an official announcement when this repository is online.

@@ -11,10 +11,10 @@
 #include "utilstrencodings.h"
 
 
-/////////////////////////////////////////////////////////// lux
-#include <lux/astrastate.h>
-#include <lux/astratransaction.h>
-#include <lux/luxDGP.h>
+/////////////////////////////////////////////////////////// astra
+#include <astra/astrastate.h>
+#include <astra/astratransaction.h>
+#include <astra/astraDGP.h>
 #include <main.h>
 ///////////////////////////////////////////////////////////
 
@@ -209,7 +209,7 @@ bool Solver(const CScript& scriptPubKey, txnouttype& typeRet, vector<vector<unsi
                 else
                     break;
             }
-                /////////////////////////////////////////////////////////// lux
+                /////////////////////////////////////////////////////////// astra
             else if (opcode2 == OP_VERSION)
             {
                 if(0 <= opcode1 && opcode1 <= OP_PUSHDATA4)

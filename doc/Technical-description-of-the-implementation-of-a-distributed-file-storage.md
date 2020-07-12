@@ -1,4 +1,4 @@
-![ASTRA Logo](../src/qt/res/images/lux_logo_horizontal.png)
+![ASTRA Logo](../src/qt/res/images/astra_logo_horizontal.png)
 
 "FIRST OF ITS KIND"
 
@@ -61,7 +61,7 @@ Let's introduce several abbreviations used in the text below:
       on his account (as was done for ordinary master notes). It is enough to have s GB of free disk space
       (s in the current implementation is a constant network parameter that is the same for all PMNs).
    
-    - A user of any lux network node may request to add multiple copies of his file(s) to the PMN network for a 
+    - A user of any astra network node may request to add multiple copies of his file(s) to the PMN network for a 
       time-based fee. For this, a user needs to create a transaction of a certain type that stores the address 
       of the node that created the request, which will not be added to the blockchain but will be transmitted 
       over the network in the same way as normal transactions.
@@ -84,10 +84,10 @@ Let's introduce several abbreviations used in the text below:
       mining time) to make a transaction, with [Proof of File Storage] and receive a reward equal to [p * t * s], 
       where p is the rate for storage (network parameter), s - size of stored data.
     
-    - The user of any node of the lux network node can download the file saved in dfs, specifying the Merkle root 
+    - The user of any node of the astra network node can download the file saved in dfs, specifying the Merkle root 
       of the desired file.
     
-    - The user of any node of the lux network node can check a file saved in dfs, indicating Merkle root the 
+    - The user of any node of the astra network node can check a file saved in dfs, indicating Merkle root the 
       desired file.
     
 ### Description of user functions

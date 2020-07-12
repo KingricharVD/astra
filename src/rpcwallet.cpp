@@ -104,7 +104,7 @@ string AccountFromValue(const UniValue& value)
     return strAccount;
 }
 
-//////////////////////////////////////////////////////////////////////////// // lux
+//////////////////////////////////////////////////////////////////////////// // astra
 UniValue executionResultToJSON(const dev::eth::ExecutionResult& exRes)
 {
     UniValue result(UniValue::VOBJ);
@@ -320,7 +320,7 @@ UniValue getnewaddress(const UniValue& params, bool fHelp)
             "1. \"account\"        (string, optional) The account name for the address to be linked to. If not provided, the default account \"\" is used. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created if there is no account by the given name.\n"
             "2. \"address_type\"   (string, optional) The address type to use. Options are \"legacy\", \"p2sh-segwit\", and \"bech32\". Default is set by -addresstype.\n"
             "\nResult:\n"
-            "\"luxaddress\"    (string) The new lux address\n"
+            "\"astraaddress\"    (string) The new astra address\n"
             "\nExamples:\n" +
             HelpExampleCli("getnewaddress", "") + HelpExampleCli("getnewaddress", "\"\"") + HelpExampleCli("getnewaddress", "\"myaccount\"") + HelpExampleRpc("getnewaddress", "\"myaccount\""));
 
@@ -378,7 +378,7 @@ UniValue getaccountaddress(const UniValue& params, bool fHelp)
             "\nArguments:\n"
             "1. \"account\"       (string, required) The account name for the address. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.\n"
             "\nResult:\n"
-            "\"luxaddress\"   (string) The account lux address\n"
+            "\"astraaddress\"   (string) The account astra address\n"
             "\nExamples:\n" +
             HelpExampleCli("getaccountaddress", "") + HelpExampleCli("getaccountaddress", "\"\"") + HelpExampleCli("getaccountaddress", "\"myaccount\"") + HelpExampleRpc("getaccountaddress", "\"myaccount\""));
 
@@ -440,10 +440,10 @@ UniValue setaccount(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount \"luxaddress\" \"account\"\n"
+            "setaccount \"astraaddress\" \"account\"\n"
             "\nSets the account associated with the given address.\n"
             "\nArguments:\n"
-            "1. \"luxaddress\"  (string, required) The lux address to be associated with an account.\n"
+            "1. \"astraaddress\"  (string, required) The astra address to be associated with an account.\n"
             "2. \"account\"         (string, required) The account to assign the address to.\n"
             "\nExamples:\n" +
             HelpExampleCli("setaccount", "\"LgAskSorXfCYUweZcCTpGNtpcFotS2rqDF\" \"tabby\"") + HelpExampleRpc("setaccount", "\"LgAskSorXfCYUweZcCTpGNtpcFotS2rqDF\", \"tabby\""));
@@ -479,10 +479,10 @@ UniValue getaccount(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount \"luxaddress\"\n"
+            "getaccount \"astraaddress\"\n"
             "\nReturns the account associated with the given address.\n"
             "\nArguments:\n"
-            "1. \"luxaddress\"  (string, required) The lux address for account lookup.\n"
+            "1. \"astraaddress\"  (string, required) The astra address for account lookup.\n"
             "\nResult:\n"
             "\"accountname\"        (string) the account address\n"
             "\nExamples:\n" +
@@ -512,7 +512,7 @@ UniValue getaddressesbyaccount(const UniValue& params, bool fHelp)
             "1. \"account\"  (string, required) The account name.\n"
             "\nResult:\n"
             "[                     (json array of string)\n"
-            "  \"luxaddress\"  (string) a lux address associated with the given account\n"
+            "  \"astraaddress\"  (string) a astra address associated with the given account\n"
             "  ,...\n"
             "]\n"
             "\nExamples:\n" +
@@ -578,11 +578,11 @@ UniValue sendtoaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 5)
         throw runtime_error(
-            "sendtoaddress \"luxaddress\" amount ( \"comment\" \"comment-to\" subtractfee )\n"
+            "sendtoaddress \"astraaddress\" amount ( \"comment\" \"comment-to\" subtractfee )\n"
             "\nSend an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001\n" +
             HelpRequiringPassphrase() +
             "\nArguments:\n"
-            "1. \"luxaddress\"  (string, required) The lux address to send to.\n"
+            "1. \"astraaddress\"  (string, required) The astra address to send to.\n"
             "2. \"amount\"      (numeric, required) The amount in btc to send. eg 0.1\n"
             "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
             "                             This is not part of the transaction, just kept in your wallet.\n"
@@ -627,11 +627,11 @@ UniValue sendtoaddressix(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendtoaddressix \"luxaddress\" amount ( \"comment\" \"comment-to\" )\n"
+            "sendtoaddressix \"astraaddress\" amount ( \"comment\" \"comment-to\" )\n"
             "\nSend an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001\n" +
             HelpRequiringPassphrase() +
             "\nArguments:\n"
-            "1. \"luxaddress\"  (string, required) The lux address to send to.\n"
+            "1. \"astraaddress\"  (string, required) The astra address to send to.\n"
             "2. \"amount\"      (numeric, required) The amount in btc to send. eg 0.1\n"
             "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
             "                             This is not part of the transaction, just kept in your wallet.\n"
@@ -676,7 +676,7 @@ UniValue listaddressgroupings(const UniValue& params, bool fHelp)
             "[\n"
             "  [\n"
             "    [\n"
-            "      \"luxaddress\",     (string) The lux address\n"
+            "      \"astraaddress\",     (string) The astra address\n"
             "      amount,                 (numeric) The amount in btc\n"
             "      \"account\"             (string, optional) The account\n"
             "    ]\n"
@@ -751,11 +751,11 @@ UniValue signmessage(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage \"luxaddress\" \"message\"\n"
+            "signmessage \"astraaddress\" \"message\"\n"
             "\nSign a message with the private key of an address" +
             HelpRequiringPassphrase() + "\n"
             "\nArguments:\n"
-            "1. \"luxaddress\"  (string, required) The lux address to use for the private key.\n"
+            "1. \"astraaddress\"  (string, required) The astra address to use for the private key.\n"
             "2. \"message\"         (string, required) The message to create a signature of.\n"
             "\nResult:\n"
             "\"signature\"          (string) The signature of the message encoded in base 64\n"
@@ -800,10 +800,10 @@ UniValue getreceivedbyaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress \"luxaddress\" ( minconf )\n"
-            "\nReturns the total amount received by the given luxaddress in transactions with at least minconf confirmations.\n"
+            "getreceivedbyaddress \"astraaddress\" ( minconf )\n"
+            "\nReturns the total amount received by the given astraaddress in transactions with at least minconf confirmations.\n"
             "\nArguments:\n"
-            "1. \"luxaddress\"  (string, required) The lux address for transactions.\n"
+            "1. \"astraaddress\"  (string, required) The astra address for transactions.\n"
             "2. minconf             (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
             "\nResult:\n"
             "amount   (numeric) The total amount in btc received at this address.\n"
@@ -816,7 +816,7 @@ UniValue getreceivedbyaddress(const UniValue& params, bool fHelp)
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
-    // lux address
+    // astra address
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest))
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
@@ -1076,13 +1076,13 @@ UniValue sendfrom(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom \"fromaccount\" \"toluxaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
-            "\nSent an amount from an account to a lux address.\n"
+            "sendfrom \"fromaccount\" \"toastraaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
+            "\nSent an amount from an account to a astra address.\n"
             "The amount is a real and is rounded to the nearest 0.00000001." +
             HelpRequiringPassphrase() + "\n"
             "\nArguments:\n"
             "1. \"fromaccount\"       (string, required) The name of the account to send funds from. May be the default account using \"\".\n"
-            "2. \"toluxaddress\"  (string, required) The lux address to send funds to.\n"
+            "2. \"toastraaddress\"  (string, required) The astra address to send funds to.\n"
             "3. amount                (numeric, required) The amount in btc. (transaction fee is added on top).\n"
             "4. minconf               (numeric, optional, default=1) Only use funds with at least this many confirmations.\n"
             "5. \"comment\"           (string, optional) A comment used to store what the transaction is for. \n"
@@ -1142,7 +1142,7 @@ UniValue sendmany(const UniValue& params, bool fHelp)
             "1. \"fromaccount\"         (string, required) The account to send the funds from, can be \"\" for the default account\n"
             "2. \"amounts\"             (string, required) A json object with addresses and amounts\n"
             "    {\n"
-            "      \"address\":amount   (numeric) The lux address is the key, the numeric amount in lux is the value\n"
+            "      \"address\":amount   (numeric) The astra address is the key, the numeric amount in astra is the value\n"
             "      ,...\n"
             "    }\n"
             "3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.\n"
@@ -1246,9 +1246,9 @@ UniValue addmultisigaddress(const UniValue& params, bool fHelp)
 
             "\nArguments:\n"
             "1. nrequired        (numeric, required) The number of required signatures out of the n keys or addresses.\n"
-            "2. \"keysobject\"   (string, required) A json array of lux addresses or hex-encoded public keys\n"
+            "2. \"keysobject\"   (string, required) A json array of astra addresses or hex-encoded public keys\n"
             "     [\n"
-            "       \"address\"  (string) lux address or hex-encoded public key\n"
+            "       \"address\"  (string) astra address or hex-encoded public key\n"
             "       ...,\n"
             "     ]\n"
             "3. \"account\"      (string, optional) An account to assign the addresses to.\n"
@@ -1615,7 +1615,7 @@ UniValue listtransactions(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"account\":\"accountname\",       (string) The account name associated with the transaction. \n"
             "                                                It will be \"\" for the default account.\n"
-            "    \"address\":\"luxaddress\",    (string) The lux address of the transaction. Not present for \n"
+            "    \"address\":\"astraaddress\",    (string) The astra address of the transaction. Not present for \n"
             "                                                move transactions (category = move).\n"
             "    \"category\":\"send|receive|move\", (string) The transaction category. 'move' is a local (off blockchain)\n"
             "                                                transaction between accounts, and not associated with an address,\n"
@@ -1812,7 +1812,7 @@ UniValue listsinceblock(const UniValue& params, bool fHelp)
             "{\n"
             "  \"transactions\": [\n"
             "    \"account\":\"accountname\",       (string) The account name associated with the transaction. Will be \"\" for the default account.\n"
-            "    \"address\":\"luxaddress\",    (string) The lux address of the transaction. Not present for move transactions (category = move).\n"
+            "    \"address\":\"astraaddress\",    (string) The astra address of the transaction. Not present for move transactions (category = move).\n"
             "    \"category\":\"send|receive\",     (string) The transaction category. 'send' has negative amounts, 'receive' has positive amounts.\n"
             "    \"amount\": x.xxx,          (numeric) The amount in btc. This is negative for the 'send' category, and for the 'move' category for moves \n"
             "                                          outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.\n"
@@ -1911,7 +1911,7 @@ UniValue gettransaction(const UniValue& params, bool fHelp)
             "  \"details\" : [\n"
             "    {\n"
             "      \"account\" : \"accountname\",  (string) The account name involved in the transaction, can be \"\" for the default account.\n"
-            "      \"address\" : \"luxaddress\",   (string) The lux address involved in the transaction\n"
+            "      \"address\" : \"astraaddress\",   (string) The astra address involved in the transaction\n"
             "      \"category\" : \"send|receive\",    (string) The category, either 'send' or 'receive'\n"
             "      \"amount\" : x.xxx                  (numeric) The amount in btc\n"
             "      \"label\" : \"label\",              (string) A comment for the address/transaction, if any\n"
@@ -2241,7 +2241,7 @@ UniValue encryptwallet(const UniValue& params, bool fHelp)
             "\nEncrypt you wallet\n" +
             HelpExampleCli("encryptwallet", "\"my pass phrase\"") +
             "\nNow set the passphrase to use the wallet, such as for signing or sending ASTRAs\n" + HelpExampleCli("walletpassphrase", "\"my pass phrase\"") +
-            "\nNow we can so something like sign\n" + HelpExampleCli("signmessage", "\"luxaddress\" \"test message\"") +
+            "\nNow we can so something like sign\n" + HelpExampleCli("signmessage", "\"astraaddress\" \"test message\"") +
             "\nNow lock the wallet again by removing the passphrase\n" + HelpExampleCli("walletlock", "") +
             "\nAs a json rpc call\n" + HelpExampleRpc("encryptwallet", "\"my pass phrase\""));
 
@@ -2270,7 +2270,7 @@ UniValue encryptwallet(const UniValue& params, bool fHelp)
     // slack space in .dat files; that is bad if the old data is
     // unencrypted private keys. So:
     StartShutdown();
-    return "wallet encrypted; lux server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
+    return "wallet encrypted; astra server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
 }
 
 UniValue lockunspent(const UniValue& params, bool fHelp)
@@ -2838,7 +2838,7 @@ UniValue multisend(const UniValue& params, bool fHelp)
     return printMultiSend();
 }
 
-////////////////////////////////////////////////////////////////////// // lux
+////////////////////////////////////////////////////////////////////// // astra
 UniValue callcontract(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2)
@@ -2872,9 +2872,9 @@ UniValue callcontract(const UniValue& params, bool fHelp)
 
     dev::Address senderAddress;
     if(params.size() == 3){
-        CTxDestination luxSenderAddress = DecodeDestination(params[2].get_str());
-        if(IsValidDestination(luxSenderAddress)) {
-            CKeyID *keyid = boost::get<CKeyID>(&luxSenderAddress);
+        CTxDestination astraSenderAddress = DecodeDestination(params[2].get_str());
+        if(IsValidDestination(astraSenderAddress)) {
+            CKeyID *keyid = boost::get<CKeyID>(&astraSenderAddress);
 
             senderAddress = dev::Address(HexStr(valtype(keyid->begin(),keyid->end())));
         }else{
@@ -2908,9 +2908,9 @@ UniValue createcontract(const UniValue& params, bool fHelp){
         return NullUniValue;
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
-    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
-    uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
-    uint64_t minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
+    AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
+    uint64_t blockGasLimit = astraDGP.getBlockGasLimit(chainActive.Height());
+    uint64_t minGasPrice = CAmount(astraDGP.getMinGasPrice(chainActive.Height()));
     CAmount nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE)?minGasPrice:DEFAULT_GAS_PRICE;
 
     if (fHelp || params.size() < 1 || params.size() > 6)
@@ -3116,9 +3116,9 @@ UniValue sendtocontract(const UniValue& params, bool fHelp){
         return NullUniValue;
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
-    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
-    uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
-    uint64_t minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
+    AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
+    uint64_t blockGasLimit = astraDGP.getBlockGasLimit(chainActive.Height());
+    uint64_t minGasPrice = CAmount(astraDGP.getMinGasPrice(chainActive.Height()));
     CAmount nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE)?minGasPrice:DEFAULT_GAS_PRICE;
 
     if (fHelp || params.size() < 2 || params.size() > 8)

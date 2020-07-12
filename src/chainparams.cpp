@@ -17,7 +17,7 @@
 
 #include <boost/assign/list_of.hpp>
 
-///////////////////////////////////////////// // lux
+///////////////////////////////////////////// // astra
 #include <libdevcore/SHA3.h>
 #include <libdevcore/RLP.h>
 //#include "arith_uint256.h"
@@ -187,8 +187,8 @@ public:
         genesis.nTime = 1507656633; //10/10/2017
         genesis.nBits = 0x1e0fffff;
         genesis.nNonce = 986946;
-        genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // lux
-        genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // lux
+        genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // astra
+        genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // astra
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
@@ -196,9 +196,9 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0xe08ae0cfc35a1d70e6764f347fdc54355206adeb382446dd54c32cd0201000d3"));
 
         ////////////////////////////////////////////////////////////////////////////////////////////////
-        vSeeds.push_back(CDNSSeedData("Seed1", "seed.luxcore.tech"));       // ASTRA seeder
-        vSeeds.push_back(CDNSSeedData("Seed2", "seed.luxseeds.nl"));        // ASTRA seeder
-        vSeeds.push_back(CDNSSeedData("Seed3", "lux.yiimp.eu"));            // ASTRA seeder with IPv6
+        vSeeds.push_back(CDNSSeedData("Seed1", "seed.astracore.tech"));       // ASTRA seeder
+        vSeeds.push_back(CDNSSeedData("Seed2", "seed.astraseeds.nl"));        // ASTRA seeder
+        vSeeds.push_back(CDNSSeedData("Seed3", "astra.yiimp.eu"));            // ASTRA seeder with IPv6
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // ASTRA address start with 'L'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63); // ASTRA script addresses start with 'S'
@@ -309,8 +309,8 @@ public:
         genesis.nTime = 1528954643; // 14 June 2018 @ 5:37am (UTC)
         genesis.nBits = 0x1e0fffff;
         genesis.nNonce = 7170961;
-        genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // lux
-        genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // lux
+        genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // astra
+        genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // astra
 
 //        while (!CheckProof(genesis.GetHash(), genesis.nBits)) {
 //            genesis.nNonce ++;
@@ -336,14 +336,14 @@ public:
         vSeeds.push_back(CDNSSeedData("51.15.76.137", "51.15.76.137"));
         vSeeds.push_back(CDNSSeedData("89.3.178.185", "89.3.178.185"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48); // Testnet lux addresses start with 'l'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 63);  // Testnet lux script addresses start with 'S'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48); // Testnet astra addresses start with 'l'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 63);  // Testnet astra script addresses start with 'S'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 155);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        // Testnet lux BIP32 pubkeys start with 'DRKV'
+        // Testnet astra BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
-        // Testnet lux BIP32 prvkeys start with 'DRKP'
+        // Testnet astra BIP32 prvkeys start with 'DRKP'
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x3a)(0x80)(0x58)(0x37).convert_to_container<std::vector<unsigned char> >();
-        // Testnet lux BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet astra BIP44 coin type is '1' (All coin's testnet default)
         // ASTRA BIP44 coin type is '1'
         nExtCoinType = 1;
         bech32_hrp = "tb";

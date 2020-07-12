@@ -14,7 +14,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"io.lux.Astra-Qt";
+        return @"io.astra.Astra-Qt";
     } else {
         return [self __bundleIdentifier];
     }

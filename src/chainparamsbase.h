@@ -11,7 +11,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between lux-cli and luxd)
+ * CBaseChainParams defines the base parameters (shared between astra-cli and astrad)
  * of a given instance of the Astra system.
  */
 class CBaseChainParams

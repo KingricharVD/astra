@@ -76,18 +76,18 @@ bool CWalletDB::EraseTx(uint256 hash)
 bool CWalletDB::WriteAstraNodeConfig(std::string sAlias, const CAstraNodeConfig& nodeConfig)
 {
     nWalletDBUpdateCounter++;
-    return Write(std::make_pair(std::string("lux"), sAlias), nodeConfig, true);
+    return Write(std::make_pair(std::string("astra"), sAlias), nodeConfig, true);
 }
 
 bool CWalletDB::ReadAstraNodeConfig(std::string sAlias, CAstraNodeConfig& nodeConfig)
 {
-    return Read(std::make_pair(std::string("lux"), sAlias), nodeConfig);
+    return Read(std::make_pair(std::string("astra"), sAlias), nodeConfig);
 }
 
 bool CWalletDB::EraseAstraNodeConfig(std::string sAlias)
 {
     nWalletDBUpdateCounter++;
-    return Erase(std::make_pair(std::string("lux"), sAlias));
+    return Erase(std::make_pair(std::string("astra"), sAlias));
 }
 
 bool CWalletDB::WriteKey(const CPubKey& vchPubKey, const CPrivKey& vchPrivKey, const CKeyMetadata& keyMeta)
@@ -976,7 +976,7 @@ DBErrors CWalletDB::ZapWalletTx(CWallet* pwallet, vector<CWalletTx>& vWtx)
 void ThreadFlushWalletDB(const string& strFile)
 {
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("lux-wallet");
+    RenameThread("astra-wallet");
 
     static bool fOneThread;
     if (fOneThread)

@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-//////////////////////////////////////// lux
+//////////////////////////////////////// astra
 #include <libdevcore/Common.h>
 #include <libdevcore/CommonData.h>
 #include <libdevcore/FixedHash.h>
@@ -409,7 +409,7 @@ inline uint512 uint512S(const std::string& str)
 }
 
 
-////////////////////////////////////////////////////// lux
+////////////////////////////////////////////////////// astra
 inline dev::h256 uintToh256(const uint256& in)
 {
     std::vector<unsigned char> vHashBlock;

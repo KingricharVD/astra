@@ -1,15 +1,15 @@
-![ASTRA Logo](src/qt/res/images/lux_logo_horizontal.png)
+![ASTRA Logo](src/qt/res/images/astra_logo_horizontal.png)
 
 "FIRST OF ITS KIND"
 
 Astracore is GNU AGPLv3 licensed.
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FASTRA-Core%2Flux.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FASTRA-Core%2Flux?ref=badge_shield) [![Build Status](https://travis-ci.org/ASTRA-Core/lux.svg?branch=master)](https://travis-ci.org/ASTRA-Core/lux) [![GitHub version](https://badge.fury.io/gh/ASTRA-Core%2Flux.png)](https://badge.fury.io/gh/ASTRA-Core%2Flux.png) [![HitCount](http://hits.dwyl.io/ASTRA-Core/lux.svg)](http://hits.dwyl.io/ASTRA-Core/lux)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FASTRA-Core%2Fastra.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FASTRA-Core%2Fastra?ref=badge_shield) [![Build Status](https://travis-ci.org/ASTRA-Core/astra.svg?branch=master)](https://travis-ci.org/ASTRA-Core/astra) [![GitHub version](https://badge.fury.io/gh/ASTRA-Core%2Fastra.png)](https://badge.fury.io/gh/ASTRA-Core%2Fastra.png) [![HitCount](http://hits.dwyl.io/ASTRA-Core/astra.svg)](http://hits.dwyl.io/ASTRA-Core/astra)
 <a href="https://discord.gg/ndUg9va"><img src="https://discordapp.com/api/guilds/364500397999652866/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=ASTRA_COIN"><img src="https://img.shields.io/twitter/follow/ASTRA_COIN.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
                                                                                                                                                      
-[![Build history](https://buildstats.info/travisci/chart/ASTRA-Core/lux?branch=master)](https://travis-ci.org/ASTRA-Core/lux?branch=master)
+[![Build history](https://buildstats.info/travisci/chart/ASTRA-Core/astra?branch=master)](https://travis-ci.org/ASTRA-Core/astra?branch=master)
 
-[Website](https://luxcore.io) — [ASTRAtre + ASTRAGate](https://github.com/ASTRA-Core/luxtre) - [PoS Web Wallet](https://lux.poswallet.io) — [Block Explorer](https://explorer.luxcore.io/) — [Blog](https://reddit.com/r/ASTRACoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/ASTRAcoinOfficialChat) — [Twitter](https://twitter.com/ASTRA_Coin)
+[Website](https://astracore.io) — [ASTRAtre + ASTRAGate](https://github.com/ASTRA-Core/astratre) - [PoS Web Wallet](https://astra.poswallet.io) — [Block Explorer](https://explorer.astracore.io/) — [Blog](https://reddit.com/r/ASTRACoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/ASTRAcoinOfficialChat) — [Twitter](https://twitter.com/ASTRA_Coin)
 
 Features
 =============
@@ -81,9 +81,9 @@ The next three steps are an example of how to acquire the source and build in an
         
 Acquire the source and install dependencies.
 
-    git clone https://github.com/ASTRA-Core/lux
-    sudo chmod -R a+rw lux
-    cd lux/depends
+    git clone https://github.com/ASTRA-Core/astra
+    sudo chmod -R a+rw astra
+    cd astra/depends
     ./install-dependencies.sh
     
 Set the default mingw-w32 g++ compiler option to auto (option 0) by default.
@@ -100,9 +100,9 @@ The next three steps are an example of how to acquire the source and build in an
         
 Acquire the source and install dependencies.
 
-    git clone https://github.com/ASTRA-Core/lux
-    sudo chmod -R a+rw lux
-    cd lux/depends
+    git clone https://github.com/ASTRA-Core/astra
+    sudo chmod -R a+rw astra
+    cd astra/depends
     ./install-dependencies.sh
     
 Set the default mingw-w64 g++ compiler option to posix (option 1).
@@ -117,20 +117,20 @@ Build in the usual way.
 
 Use
 
-    sudo add-apt-repository ppa:bitcoin/bitcoin; git clone https://github.com/ASTRA-Core/lux; cd lux; depends/install-dependencies.sh; ./autogen.sh; ./configure --disable-tests --with-boost-libdir=/usr/local/lib; make clean; make -j$(nproc)
+    sudo add-apt-repository ppa:bitcoin/bitcoin; git clone https://github.com/ASTRA-Core/astra; cd astra; depends/install-dependencies.sh; ./autogen.sh; ./configure --disable-tests --with-boost-libdir=/usr/local/lib; make clean; make -j$(nproc)
 
 
 Add bitcoin repository for Berkeley DB 4.8
 
     sudo add-apt-repository ppa:bitcoin/bitcoin
 
-Clone lux repository
+Clone astra repository
 
-    git clone https://github.com/ASTRA-Core/lux
+    git clone https://github.com/ASTRA-Core/astra
 
-Build lux 
+Build astra 
 
-    cd lux
+    cd astra
     ./depends/install-dependencies.sh
     ./autogen.sh
     ./configure --disable-tests
@@ -167,10 +167,10 @@ Link boost 1.64
 
 #### Build Astracore
 
-Clone the Astra source code and cd into lux
+Clone the Astra source code and cd into astra
 
-        git clone https://github.com/ASTRA-Core/lux
-        cd lux
+        git clone https://github.com/ASTRA-Core/astra
+        cd astra
         ./building/mac/requirements.sh
         ./building/mac/build.sh
 
@@ -179,8 +179,8 @@ Setup and Build: Arch Linux
 This example lists the steps necessary to setup and build a command line only, non-wallet distribution of the latest changes on Arch Linux:
 
     pacman -S git base-devel boost libevent python
-    git clone https://github.com/ASTRA-Core/lux
-    cd lux/
+    git clone https://github.com/ASTRA-Core/astra
+    cd astra/
     ./autogen.sh
     ./configure --without-miniupnpc --disable-tests
     make -j$(nproc)
@@ -242,7 +242,7 @@ Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/ASTRA-Core/lux/tags) are created
+completely stable. [Tags](https://github.com/ASTRA-Core/astra/tags) are created
 regularly to indicate new official, stable release versions of Astra.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -283,4 +283,4 @@ not straightforward.
  [ISSUE_TEMPLATE](doc/template/ISSUE_TEMPLATE_example.md)
 
 ## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FASTRA-Core%2Flux.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FASTRA-Core%2Flux?ref=badge_large)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FASTRA-Core%2Fastra.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FASTRA-Core%2Fastra?ref=badge_large)

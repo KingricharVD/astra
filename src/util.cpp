@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/lux-config.h"
+#include "config/astra-config.h"
 #endif
 
 #include "util.h"
@@ -205,22 +205,22 @@ static FILE* fileout = NULL;
 
 static boost::mutex* mutexDebugLog = NULL;
 
-/////////////////////////////////////////////////////////////////////// // lux
+/////////////////////////////////////////////////////////////////////// // astra
 static FILE* fileoutVM = NULL;
 ///////////////////////////////////////////////////////////////////////
 
 static void DebugPrintInit()
 {
     assert(fileout == NULL);
-    assert(fileoutVM == NULL); // lux
+    assert(fileoutVM == NULL); // astra
     assert(mutexDebugLog == NULL);
 
     boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
-    boost::filesystem::path pathDebugVM = GetDataDir() / "vm.log"; // lux
+    boost::filesystem::path pathDebugVM = GetDataDir() / "vm.log"; // astra
     fileout = fopen(pathDebug.string().c_str(), "a");
-    fileoutVM = fopen(pathDebugVM.string().c_str(), "a"); // lux
+    fileoutVM = fopen(pathDebugVM.string().c_str(), "a"); // astra
     if (fileout) setbuf(fileout, NULL); // unbuffered
-    if (fileoutVM) setbuf(fileoutVM, NULL); // unbuffered // lux
+    if (fileoutVM) setbuf(fileoutVM, NULL); // unbuffered // astra
 
     mutexDebugLog = new boost::mutex();
 }
@@ -240,8 +240,8 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "lux" is a composite category enabling all ASTRA-related debug output
-            if (ptrCategory->count(string("lux"))) {
+            // "astra" is a composite category enabling all ASTRA-related debug output
+            if (ptrCategory->count(string("astra"))) {
                 ptrCategory->insert(string("darksend"));
                 ptrCategory->insert(string("instantx"));
                 ptrCategory->insert(string("masternode"));
@@ -280,7 +280,7 @@ void pushDebugLog(std::string pathDebugStr, int debugNum)
 
 int LogPrintStr(const std::string& str, bool useVMLog)
 {
-//////////////////////////////// // lux
+//////////////////////////////// // astra
     if (fileout) {
         int size = ftell(fileout);
         if (size >= MAX_FILE_SIZE && nLogFile > 1) {
@@ -492,7 +492,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "lux";
+    const char* pszModule = "astra";
 #endif
     if (pex)
         return strprintf(
@@ -516,7 +516,7 @@ boost::filesystem::path GetDefaultDataDir()
 // Windows < Vista: C:\Documents and Settings\Username\Application Data\ASTRA
 // Windows >= Vista: C:\Users\Username\AppData\Roaming\ASTRA
 // Mac: ~/Library/Application Support/ASTRA
-// Unix: ~/.lux
+// Unix: ~/.astra
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "ASTRA";
@@ -534,7 +534,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "ASTRA";
 #else
     // Unix
-    return pathRet / ".lux";
+    return pathRet / ".astra";
 #endif
 #endif
 }
@@ -581,7 +581,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "lux.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "astra.conf"));
     if (!pathConfigFile.is_complete())
         pathConfigFile = GetDataDir(false) / pathConfigFile;
 
@@ -600,7 +600,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
-        // Create empty lux.conf if it does not exist
+        // Create empty astra.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -611,7 +611,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it) {
-        // Don't overwrite existing settings so command line settings override lux.conf
+        // Don't overwrite existing settings so command line settings override astra.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0) {
             mapSettingsRet[strKey] = it->value[0];
@@ -644,7 +644,7 @@ void WriteConfigToFile(std::string strKey, std::string strValue)
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "luxd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "astrad.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

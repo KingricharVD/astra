@@ -1,5 +1,5 @@
 ---
-name: "lux-dmg-signer"
+name: "astra-dmg-signer"
 suites:
 - "bionic"
 architectures:
@@ -10,7 +10,7 @@ remotes:
 - "url": "https://github.com/ASTRA-Core/detached-sigs.git"
   "dir": "signature"
 files:
-- "lux-osx-unsigned.tar.gz"
+- "astra-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -27,8 +27,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=lux-osx-unsigned.tar.gz
-  SIGNED=lux-osx-signed.dmg
+  UNSIGNED=astra-osx-unsigned.tar.gz
+  SIGNED=astra-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

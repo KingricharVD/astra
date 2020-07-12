@@ -5,10 +5,10 @@
     ```shell
     brew install git
     ```
-2. Clone lux repository
+2. Clone astra repository
     
     ```shell
-    git clone https://github.com/ASTRA-Core/lux
+    git clone https://github.com/ASTRA-Core/astra
     ```
 
 3. Ensure mysql and boost installed.
