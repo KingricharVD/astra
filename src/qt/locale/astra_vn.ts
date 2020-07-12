@@ -22,8 +22,8 @@
         <translation>Thêm/Chỉnh sửa_AstraNodes</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter an Alias (friendly name) for your AstraNodes Node and its address (either clearnet IP and port or Tor onion address and port).  The address should be in the format 123.456.789.123:9999 or akjdsafxjkhasdf.onion:9999.  A masternode private key and a collateral address will both be automatically generated for you.  You must send exactly 16120 ASTRA to the collateral address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;thêm vào Bí danh (tên) cho AstraNodes Node và địa chỉ của nó (hoặc địa chỉ IP và cổng hoặc địa chỉ hành và địa chỉ của Tor). Địa chỉ phải ở định dạng 123.456.789.123:9999 hoặc akjdsafxjkhasdf.onion:9999. Một khóa riêng của masternode và một địa chỉ thế chấp sẽ được tự động tạo ra cho bạn. Bạn phải có chính xác 16120 ASTRA (trong một mục) trên địa chỉ ký quỹ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter an Alias (friendly name) for your AstraNodes Node and its address (either clearnet IP and port or Tor onion address and port).  The address should be in the format 123.456.789.123:9999 or akjdsafxjkhasdf.onion:9999.  A masternode private key and a collateral address will both be automatically generated for you.  You must send exactly 20000 ASTRA to the collateral address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;thêm vào Bí danh (tên) cho AstraNodes Node và địa chỉ của nó (hoặc địa chỉ IP và cổng hoặc địa chỉ hành và địa chỉ của Tor). Địa chỉ phải ở định dạng 123.456.789.123:9999 hoặc akjdsafxjkhasdf.onion:9999. Một khóa riêng của masternode và một địa chỉ thế chấp sẽ được tự động tạo ra cho bạn. Bạn phải có chính xác 20000 ASTRA (trong một mục) trên địa chỉ ký quỹ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Alias</source>
@@ -103,7 +103,7 @@
         <translation>Bật sự kiện nhật ký từ trình đơn tùy chọn để nhận giao dịch mã thông báo.</translation>
     </message>
     <message>
-        <source>The %1 address &quot;%2&quot; 
+        <source>The %1 address &quot;%2&quot;
 </source>
         <translation type="unfinished"></translation>
     </message>

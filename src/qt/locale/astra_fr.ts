@@ -15,8 +15,8 @@
         <translation>Ajouter/modifier un noeud</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter an Alias (friendly name) for your AstraNodes Node and its address (either clearnet IP and port or Tor onion address and port).  The address should be in the format 123.456.789.123:9999 or akjdsafxjkhasdf.onion:9999.  A masternode private key and a collateral address will both be automatically generated for you.  You must send exactly 16120 ASTRA to the collateral address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Entrer un Alias (un nom) à votre noeud et son adresse (soit une IP classique + port ou une adresse Tor/Onion + port). L&apos;adresse doit être au format 123.456.789.123:9999 ou akjdsafxjkhasdf.onion:9999. Une clé privée de masternode et une adresse collatérale seront automatiquement generés pour vous. Vous devez posséder exactement 16120 ASTRA (en une seule entrée) sur l&apos;adresse collatérale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter an Alias (friendly name) for your AstraNodes Node and its address (either clearnet IP and port or Tor onion address and port).  The address should be in the format 123.456.789.123:9999 or akjdsafxjkhasdf.onion:9999.  A masternode private key and a collateral address will both be automatically generated for you.  You must send exactly 20000 ASTRA to the collateral address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Entrer un Alias (un nom) à votre noeud et son adresse (soit une IP classique + port ou une adresse Tor/Onion + port). L&apos;adresse doit être au format 123.456.789.123:9999 ou akjdsafxjkhasdf.onion:9999. Une clé privée de masternode et une adresse collatérale seront automatiquement generés pour vous. Vous devez posséder exactement 20000 ASTRA (en une seule entrée) sur l&apos;adresse collatérale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Alias</source>
@@ -70,9 +70,9 @@
         <translation>Effacer</translation>
     </message>
     <message>
-        <source>The %1 address &quot;%2&quot; 
+        <source>The %1 address &quot;%2&quot;
 </source>
-        <translation>L&apos;adresse %1 &quot;%2&quot; 
+        <translation>L&apos;adresse %1 &quot;%2&quot;
 </translation>
     </message>
     <message>
