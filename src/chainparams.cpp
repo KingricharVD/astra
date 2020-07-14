@@ -88,11 +88,11 @@ static const Checkpoints::CCheckpointData dataRegtest = {
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsSegWittest =
-        boost::assign::map_list_of(0, uint256("0x001"));
+        boost::assign::map_list_of(0, uint256("0x0000041515df9f68cf04df48f1e00544133fe30918f4f4599448638ece0c2385"));
 static const Checkpoints::CCheckpointData dataSegwittest = {
         &mapCheckpointsSegWittest,
         1594699196,
-        0,
+        793370,
         0
 };
 
@@ -535,7 +535,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1594699196;
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 729147;
+        genesis.nNonce = 793370;
 
         /*while (!CheckProof(genesis.GetHash(), genesis.nBits)) {
             genesis.nNonce ++;
@@ -546,36 +546,11 @@ public:
         std::cout << genesis.hashMerkleRoot.GetHex() << std::endl;*/
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        if(genesis.GetHash() != uint256("0x"))
-        {
-              printf("MSearching for genesis block...\n");
-              uint256 hashTarget;
-              hashTarget.SetCompact(genesis.nBits);
-              while(uint256(genesis.GetHash()) > uint256(hashTarget))
-              {
-                  ++genesis.nNonce;
-                  if (genesis.nNonce == 0)
-                  {
-                      printf("Mainnet NONCE WRAPPED, incrementing time");
-                      std::cout << std::string("Mainnet NONCE WRAPPED, incrementing time:\n");
-                      ++genesis.nTime;
-                  }
-                  if (genesis.nNonce % 10000 == 0)
-                  {
-                      printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
-                  }
-              }
-              printf("Mainnet block.nTime = %u \n", genesis.nTime);
-              printf("Mainnet block.nNonce = %u \n", genesis.nNonce);
-              printf("Mainnet block.hashMerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
-              printf("Mainnet block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-        }
-
-        vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
+            vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
 
-      //  assert(consensus.hashGenesisBlock == uint256("0x00000a1a2a728145f14f873037b5f4188c1b36d20f8187d329e412b97cdbaabf"));
-      //  assert(genesis.hashMerkleRoot == uint256("0xb35719fbe3e4d52f06d791e938de406d48defadb83beeb1fdd10c7ef52a481c2"));
+      assert(consensus.hashGenesisBlock == uint256("0x0000041515df9f68cf04df48f1e00544133fe30918f4f4599448638ece0c2385"));
+      assert(genesis.hashMerkleRoot == uint256("0x4b40891137e176182253f7ad386b83c24721f02c0e6df1ec2eae7e38c62112c4"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // ASTRA Start letter L
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,64);
