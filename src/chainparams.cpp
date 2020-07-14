@@ -163,14 +163,14 @@ public:
         pchMessageStart[2] = 0xc8;
         pchMessageStart[3] = 0xa9;
         vAlertPubKey = ParseHex("042d13c016ed91528241bcff222989769417eb10cdb679228c91e26e26900eb9fd053cd9f16a9a2894ad5ebbd551be1a4bd23bd55023679be17f0bd3a16e6fbeba");
-        nDefaultPort = 26969;
+        nDefaultPort = 1337;
         nMaxReorganizationDepth = 100;
         nMinerThreads = 0;
         nMaturity = 79;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
 
-        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybird - Parallel Masternode - ThankYou - 216k155"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybird - Parallel Masternode - ThankYou"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
         txNew.nTime = 1507656633;
@@ -196,11 +196,10 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0xe08ae0cfc35a1d70e6764f347fdc54355206adeb382446dd54c32cd0201000d3"));
 
         ////////////////////////////////////////////////////////////////////////////////////////////////
-        vSeeds.push_back(CDNSSeedData("Seed1", "seed.astracore.tech"));       // ASTRA seeder
-        vSeeds.push_back(CDNSSeedData("Seed2", "seed.astraseeds.nl"));        // ASTRA seeder
-        vSeeds.push_back(CDNSSeedData("Seed3", "astra.yiimp.eu"));            // ASTRA seeder with IPv6
+        vSeeds.push_back(CDNSSeedData("Seed1", "192.119.80.171:1337"));       // ASTRA seednode
+        vSeeds.push_back(CDNSSeedData("Seed2", "seednode.cryptoloverbots.com"));        // ASTRA seednode
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // ASTRA address start with 'L'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,787786); // ASTRA address start with 'astc'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63); // ASTRA script addresses start with 'S'
         base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1,155);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x07)(0x28)(0xA2)(0x4E).convert_to_container<std::vector<unsigned char> >();
@@ -209,7 +208,7 @@ public:
         // ASTRA BIP44 coin type is '3003'
         nExtCoinType = 3003;
 
-        bech32_hrp = "bc";
+        bech32_hrp = "astc";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
         vDevfeeAddress = "Laqt6GdG615kHonGcp3mkH2KMP4WZwsZhQ";
@@ -285,7 +284,7 @@ public:
         pchMessageStart[2] = 0x51;
         pchMessageStart[3] = 0xab;
         vAlertPubKey = ParseHex("000010e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9");
-        nDefaultPort = 28333;
+        nDefaultPort = 13367;
         nMinerThreads = 0;
         nMaturity = 10;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
@@ -333,10 +332,10 @@ public:
 
         //vFixedSeeds.clear();
         //vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("51.15.76.137", "51.15.76.137"));
-        vSeeds.push_back(CDNSSeedData("89.3.178.185", "89.3.178.185"));
+        vSeeds.push_back(CDNSSeedData("Seed1", "192.119.80.171:13367"));       // ASTRA seednode
+        vSeeds.push_back(CDNSSeedData("Seed2", "TN-seednode.cryptoloverbots.com"));        // ASTRA seednode
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48); // Testnet astra addresses start with 'l'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 755018); // Testnet astra addresses start with 'astb'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 63);  // Testnet astra script addresses start with 'S'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 155);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         // Testnet astra BIP32 pubkeys start with 'DRKV'
@@ -346,7 +345,7 @@ public:
         // Testnet astra BIP44 coin type is '1' (All coin's testnet default)
         // ASTRA BIP44 coin type is '1'
         nExtCoinType = 1;
-        bech32_hrp = "tb";
+        bech32_hrp = "astb";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
         fMiningRequiresPeers = true;
@@ -526,7 +525,7 @@ public:
         nModifierUpdateBlock = 615800;
         bech32_hrp = "bcst";
 
-        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybrid - Parallel Masternode - ThankYou - 216k155"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybrid - Parallel Masternode - ThankYou"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
         txNew.nTime = 1524645689;
