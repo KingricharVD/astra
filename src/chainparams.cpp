@@ -70,11 +70,11 @@ static const Checkpoints::CCheckpointData data = {
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x001"));
+    boost::assign::map_list_of(0, uint256("0x00000a8aad6f63a67578d5b8b1f521dd730867f4ce6b089c9e324016fa993b6b"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     1594699059,
-    0,
+    7852759,
     0
 };
 
@@ -298,7 +298,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1594699059; //
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 7170961;
+        genesis.nNonce = 7852759;
         genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // astra
         genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // astra
 
@@ -318,33 +318,8 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        if(genesis.GetHash() != uint256("0x"))
-        {
-              printf("MSearching for genesis block...\n");
-              uint256 hashTarget;
-              hashTarget.SetCompact(genesis.nBits);
-              while(uint256(genesis.GetHash()) > uint256(hashTarget))
-              {
-                  ++genesis.nNonce;
-                  if (genesis.nNonce == 0)
-                  {
-                      printf("Mainnet NONCE WRAPPED, incrementing time");
-                      std::cout << std::string("Mainnet NONCE WRAPPED, incrementing time:\n");
-                      ++genesis.nTime;
-                  }
-                  if (genesis.nNonce % 10000 == 0)
-                  {
-                      printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
-                  }
-              }
-              printf("Mainnet block.nTime = %u \n", genesis.nTime);
-              printf("Mainnet block.nNonce = %u \n", genesis.nNonce);
-              printf("Mainnet block.hashMerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
-              printf("Mainnet block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-        }
-
-      //  assert(consensus.hashGenesisBlock == uint256("0x00000b773a72afd051c6fe34c6d9c8e1ba78b1556263c807a1ca7d7a200cda82"));
-      //  assert(genesis.hashMerkleRoot == uint256("0xd158bc48409667ffc5c66829d53aa6d1f241ce4984f54d8685b16d234ef78b3f"));
+       assert(consensus.hashGenesisBlock == uint256("0x00000a8aad6f63a67578d5b8b1f521dd730867f4ce6b089c9e324016fa993b6b"));
+       assert(genesis.hashMerkleRoot == uint256("0xf9dc5252f031d2cd928d449e7211cf87c3554ff06e50175e6eca7a871ec6121e"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -438,6 +413,32 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 51376;
+
+        if(genesis.GetHash() != uint256("0x"))
+        {
+              printf("MSearching for genesis block...\n");
+              uint256 hashTarget;
+              hashTarget.SetCompact(genesis.nBits);
+              while(uint256(genesis.GetHash()) > uint256(hashTarget))
+              {
+                  ++genesis.nNonce;
+                  if (genesis.nNonce == 0)
+                  {
+                      printf("Mainnet NONCE WRAPPED, incrementing time");
+                      std::cout << std::string("Mainnet NONCE WRAPPED, incrementing time:\n");
+                      ++genesis.nTime;
+                  }
+                  if (genesis.nNonce % 10000 == 0)
+                  {
+                      printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
+                  }
+              }
+              printf("Mainnet block.nTime = %u \n", genesis.nTime);
+              printf("Mainnet block.nNonce = %u \n", genesis.nNonce);
+              printf("Mainnet block.hashMerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
+              printf("Mainnet block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        }
+
 //        assert(hashGenesisBlock == uint256("0"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
