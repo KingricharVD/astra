@@ -1,9 +1,9 @@
 Gitian building
 ================
 
-*Setup instructions for a gitian build of ASTRA using a Debian VM or physical system.*
+*Setup instructions for a gitian build of LUX using a Debian VM or physical system.*
 
-Gitian is the deterministic build process that is used to build the ASTRA
+Gitian is the deterministic build process that is used to build the LUX
 Core executables. It provides a way to be reasonably sure that the
 executables are really built from source on GitHub. It also makes sure that
 the same, tested dependencies are used and statically built into the executable.
@@ -26,7 +26,7 @@ Table of Contents
 - [Installing gitian](#installing-gitian)
 - [Setting up gitian images](#setting-up-gitian-images)
 - [Getting and building the inputs](#getting-and-building-the-inputs)
-- [Building ASTRA](#building-lux)
+- [Building LUX](#building-lux)
 - [Building an alternative repository](#building-an-alternative-repository)
 - [Signing externally](#signing-externally)
 - [Uploading signatures](#uploading-signatures)
@@ -281,7 +281,7 @@ Clone the git repositories for lux and gitian and then checkout the lux version 
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/ASTRA-Core/lux.git
+git clone https://github.com/LUX-Core/lux.git
 cd lux
 git checkout v${VERSION}
 cd ..
@@ -326,10 +326,10 @@ under 'Fetch and build inputs' to install sources which require manual intervent
 the next step: 'Seed the Gitian sources cache', which will fetch all necessary source files allowing
 for gitian to work offline.
 
-Building ASTRA
+Building LUX
 ----------------
 
-To build ASTRA (for Linux, OSX and Windows) just follow the steps under 'perform
+To build LUX (for Linux, OSX and Windows) just follow the steps under 'perform
 gitian builds' in [doc/release-process.md](release-process.md) in the lux repository.
 
 This may take a long time as it also builds the dependencies needed for each descriptor.
@@ -350,7 +350,7 @@ Output from `gbuild` will look something like
     remote: Total 35606 (delta 0), reused 0 (delta 0)
     Receiving objects: 100% (35606/35606), 26.52 MiB | 4.28 MiB/s, done.
     Resolving deltas: 100% (25724/25724), done.
-    From https://github.com/ASTRA-Core/lux
+    From https://github.com/LUX-Core/lux
     ... (new tags, new branch etc)
     --- Building for precise x86_64 ---
     Stopping target if it is up
@@ -408,6 +408,6 @@ Uploading signatures (not yet implemented)
 ---------------------
 
 In the future it will be possible to push your signatures (both the `.assert` and `.assert.sig` files) to the
-[lux/gitian.sigs](https://github.com/ASTRA-Core/gitian.sigs/) repository, or if that's not possible to create a pull
+[lux/gitian.sigs](https://github.com/LUX-Core/gitian.sigs/) repository, or if that's not possible to create a pull
 request.
 There will be an official announcement when this repository is online.

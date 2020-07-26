@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The ASTRA developers
+// Copyright (c) 2015-2017 The LUX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -149,10 +149,10 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
     /* Open CSS when configured */
     this->setStyleSheet(GUIUtil::loadStyleSheet());
     resize(1200, 750);
-    QString windowTitle = tr("Astracore") + " - ";
+    QString windowTitle = tr("Luxcore") + " - ";
 
 #ifdef ENABLE_UPDATER
-    controller = new QtAstraUpdater::UpdateController(QStringLiteral("v5.3.0"), this);
+    controller = new QtLuxUpdater::UpdateController(QStringLiteral("v5.3.0"), this);
     controller->setDetailedUpdateInfo(true);
 #endif
 
@@ -304,7 +304,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
         pushButtonTelegram = new QPushButton(frameSocMedia);
         pushButtonTelegram->setToolTip(tr("Go to")+" Telegram");
         connect(pushButtonTelegram, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://t.me/ASTRAcoreOfficial"));});
+                this, [](){QDesktopServices::openUrl(QUrl("https://t.me/LUXcoreOfficial"));});
         pushButtonTelegram->setIcon(QIcon(QPixmap(":/icons/res/icons/telegram.png").scaledToHeight(STATUSBAR_ICONSIZE,Qt::SmoothTransformation)));
 
         pushButtonDiscord = new QPushButton(frameSocMedia);
@@ -316,7 +316,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
         pushButtonTwitter = new QPushButton(frameSocMedia);
         pushButtonTwitter->setToolTip(tr("Go to")+" Twitter");
         connect(pushButtonTwitter, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://twitter.com/ASTRA_Coin"));});
+                this, [](){QDesktopServices::openUrl(QUrl("https://twitter.com/LUX_Coin"));});
         pushButtonTwitter->setIcon(QIcon(":/icons/res/icons/twitter.png").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
         pushButtonGithub = new QPushButton(frameSocMedia);
@@ -410,7 +410,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
 
     if(fCheckUpdates && updateDialog->newUpdateAvailable())
     {
-        QString url = "https://github.com/ASTRA-Core/lux/releases";
+        QString url = "https://github.com/LUX-Core/lux/releases";
         QString link = QString("<a href=\\\"\"+ url +\"\\\">\"+ url +\"</a>").arg(NEW_RELEASES, NEW_RELEASES);
         QString message(tr("New lux-qt version available: <br /> %1. <br />").arg(link));
         QMessageBox::information(this, tr("Check for updates"), message);
@@ -453,7 +453,7 @@ void BitcoinGUI::createActions() {
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send coins to a ASTRA address"));
+    sendCoinsAction->setStatusTip(tr("Send coins to a LUX address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -545,14 +545,14 @@ void BitcoinGUI::createActions() {
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/luxcoin_black"), tr("&About Astracore"), this);
-    aboutAction->setStatusTip(tr("Show information about Astracore"));
+    aboutAction = new QAction(QIcon(":/icons/luxcoin_black"), tr("&About Luxcore"), this);
+    aboutAction->setStatusTip(tr("Show information about Luxcore"));
     aboutAction->setMenuRole(QAction::AboutRole);
 
 #ifdef ENABLE_UPDATER
     // Check for update menu item
     checkForUpdateAction = new QAction(QIcon(":/icons/update_black"), tr("Check for &Update"), this);
-    checkForUpdateAction->setStatusTip(tr("Check whether there is an updated wallet from Astracore"));
+    checkForUpdateAction->setStatusTip(tr("Check whether there is an updated wallet from Luxcore"));
     checkForUpdateAction->setMenuRole(QAction::NoRole);
 #endif
 
@@ -564,7 +564,7 @@ void BitcoinGUI::createActions() {
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setStatusTip(tr("Modify configuration options for ASTRA"));
+    optionsAction->setStatusTip(tr("Modify configuration options for LUX"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     toggleHideAction = new QAction(QIcon(":/icons/luxcoin_black"), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
@@ -582,9 +582,9 @@ void BitcoinGUI::createActions() {
     unlockWalletAction->setToolTip(tr("Unlock wallet"));
     lockWalletAction = new QAction(tr("&Lock Wallet"), this);
     signMessageAction = new QAction(QIcon(":/icons/sign"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your ASTRA addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your LUX addresses to prove you own them"));
     verifyMessageAction = new QAction(QIcon(":/icons/verified"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified ASTRA addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified LUX addresses"));
     bip38ToolAction = new QAction(QIcon(":/icons/key"), tr("&BIP38 tool"), this);
     bip38ToolAction->setToolTip(tr("Encrypt and decrypt private keys using a passphrase"));
     multiSendAction = new QAction(QIcon(":/icons/edit"), tr("&MultiSend"), this);
@@ -617,16 +617,16 @@ void BitcoinGUI::createActions() {
     usedReceivingAddressesAction->setStatusTip(tr("Show the list of used receiving addresses and labels"));
 
     openAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_FileIcon), tr("Open payment request | &URI..."), this);
-    openAction->setStatusTip(tr("Open a ASTRA: URI or payment request"));
+    openAction->setStatusTip(tr("Open a LUX: URI or payment request"));
     openBlockExplorerAction = new QAction(QIcon(":/icons/explorer"), tr("&Blockchain explorer"), this);
     openBlockExplorerAction->setStatusTip(tr("Block explorer window"));
 
     openHexAddressAction = new QAction(QIcon(":/icons/editcopy"), tr("&Hex Address Converter"), this);
-    openHexAddressAction->setStatusTip(tr("Converter for ASTRA Smart Contract addresses"));
+    openHexAddressAction->setStatusTip(tr("Converter for LUX Smart Contract addresses"));
 
     showHelpMessageAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
-    showHelpMessageAction->setStatusTip(tr("Show the Astracore help message to get a list with possible ASTRA command-line options"));
+    showHelpMessageAction->setStatusTip(tr("Show the Luxcore help message to get a list with possible LUX command-line options"));
 
     connect(qApp, SIGNAL(aboutToQuit()), qApp, SLOT(quit()));
 
@@ -890,7 +890,7 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled) {
 void BitcoinGUI::createTrayIcon(const NetworkStyle* networkStyle) {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("Astracore client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("Luxcore client") + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->show();
@@ -976,7 +976,7 @@ void BitcoinGUI::updaterClicked() {
     if (!clientModel)
         return;
 #ifdef ENABLE_UPDATER
-    controller->start(QtAstraUpdater::UpdateController::ProgressLevel);
+    controller->start(QtLuxUpdater::UpdateController::ProgressLevel);
 #else
     uiInterface.ThreadSafeMessageBox("This feature is only available on official builds!",
              "Warning", CClientUIInterface::MSG_WARNING);
@@ -1095,7 +1095,7 @@ void BitcoinGUI::updateNetworkState() {
     QIcon connectionItem = QIcon(icon).pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE);
     labelConnectionsIcon->setIcon(connectionItem);
     if (clientModel->getNetworkActive())
-        labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Astracore network", "", count));
+        labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Luxcore network", "", count));
     else
         labelConnectionsIcon->setToolTip(tr("Network activity disabled"));
 }
@@ -1246,7 +1246,7 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
 }
 
 void BitcoinGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret) {
-    QString strTitle = tr("Astracore"); // default title
+    QString strTitle = tr("Luxcore"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
@@ -1271,7 +1271,7 @@ void BitcoinGUI::message(const QString& title, const QString& message, unsigned 
             break;
         }
     }
-    // Append title to "ASTRA - "
+    // Append title to "LUX - "
     if (!msgType.isEmpty())
         strTitle += " - " + msgType;
 

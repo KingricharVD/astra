@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The ASTRA developers
+// Copyright (c) 2015-2017 The LUX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -46,7 +46,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     TxViewDelegate(const PlatformStyle *platformStyle):
-            QAbstractItemDelegate(), unit(BitcoinUnits::ASTRA),
+            QAbstractItemDelegate(), unit(BitcoinUnits::LUX),
             platformStyle(platformStyle)    {
     }
 
@@ -247,10 +247,10 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget* parent) 
         } else {
             if (!fEnableDarksend) {
                 ui->darksendEnabled->setText(tr("Disabled"));
-                ui->toggleDarksend->setText(tr("Start Astrasend"));
+                ui->toggleDarksend->setText(tr("Start Luxsend"));
             } else {
                 ui->darksendEnabled->setText(tr("Enabled"));
-                ui->toggleDarksend->setText(tr("Stop Astrasend"));
+                ui->toggleDarksend->setText(tr("Stop Luxsend"));
             }
             timer = new QTimer(this);
             connect(timer, SIGNAL(timeout()), this, SLOT(darkSendStatus()));
@@ -409,7 +409,7 @@ void OverviewPage::setWalletModel(WalletModel* model)
         ui->buttonAddToken->setVisible(tokenProxyModel->rowCount() == 0);
     }
 
-    // update the display unit, to not use the default ("ASTRA")
+    // update the display unit, to not use the default ("LUX")
     updateDisplayUnit();
 }
 
@@ -458,15 +458,15 @@ void OverviewPage::updateDarkSendProgress()
     }
 
     QString strAmountAndRounds;
-    QString strAnonymizeAstraAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeAstraAmount * COIN, false, BitcoinUnits::separatorAlways);
+    QString strAnonymizeLuxAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeLuxAmount * COIN, false, BitcoinUnits::separatorAlways);
 
     if (!fEnableDarksend) {
         ui->darksendProgress->setValue(0);
         ui->darksendProgress->setToolTip(tr("Darksend disabled"));
 
         // when balance is zero just show info from settings
-        strAnonymizeAstraAmount = strAnonymizeAstraAmount.remove(strAnonymizeAstraAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeAstraAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+        strAnonymizeLuxAmount = strAnonymizeLuxAmount.remove(strAnonymizeLuxAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeLuxAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
 
         ui->labelAmountRounds->setToolTip(tr("Darksend disabled"));
         ui->labelAmountRounds->setText(tr("Disabled"));
@@ -478,8 +478,8 @@ void OverviewPage::updateDarkSendProgress()
         ui->darksendProgress->setToolTip(tr("No inputs detected"));
 
         // when balance is zero just show info from settings
-        strAnonymizeAstraAmount = strAnonymizeAstraAmount.remove(strAnonymizeAstraAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeAstraAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+        strAnonymizeLuxAmount = strAnonymizeLuxAmount.remove(strAnonymizeLuxAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeLuxAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
 
         ui->labelAmountRounds->setToolTip(tr("No inputs detected"));
         ui->labelAmountRounds->setText(strAmountAndRounds);
@@ -506,20 +506,20 @@ void OverviewPage::updateDarkSendProgress()
     CAmount nMaxToAnonymize = nAnonymizableBalance + currentAnonymizedBalance + nDenominatedUnconfirmedBalance;
 
     // If it's more than the anon threshold, limit to that.
-    if (nMaxToAnonymize > nAnonymizeAstraAmount * COIN) nMaxToAnonymize = nAnonymizeAstraAmount * COIN;
+    if (nMaxToAnonymize > nAnonymizeLuxAmount * COIN) nMaxToAnonymize = nAnonymizeLuxAmount * COIN;
 
     if (nMaxToAnonymize == 0) return;
 
-    if (nMaxToAnonymize >= nAnonymizeAstraAmount * COIN) {
+    if (nMaxToAnonymize >= nAnonymizeLuxAmount * COIN) {
         ui->labelAmountRounds->setToolTip(tr("Found enough compatible inputs to anonymize %1")
-                                              .arg(strAnonymizeAstraAmount));
-        strAnonymizeAstraAmount = strAnonymizeAstraAmount.remove(strAnonymizeAstraAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeAstraAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+                                              .arg(strAnonymizeLuxAmount));
+        strAnonymizeLuxAmount = strAnonymizeLuxAmount.remove(strAnonymizeLuxAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeLuxAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
     } else {
         QString strMaxToAnonymize = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nMaxToAnonymize, false, BitcoinUnits::separatorAlways);
         ui->labelAmountRounds->setToolTip(tr("Not enough compatible inputs to anonymize <span style='color:red;'>%1</span>,<br>"
                                              "will anonymize <span style='color:red;'>%2</span> instead")
-                                              .arg(strAnonymizeAstraAmount)
+                                              .arg(strAnonymizeLuxAmount)
                                               .arg(strMaxToAnonymize));
         strMaxToAnonymize = strMaxToAnonymize.remove(strMaxToAnonymize.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
         strAmountAndRounds = "<span style='color:red;'>" +
@@ -608,7 +608,7 @@ void OverviewPage::darkSendStatus()
 
             ui->darksendEnabled->setText(tr("Disabled"));
             ui->darkSendStatus->setText("");
-            ui->toggleDarksend->setText(tr("Start Astrasend"));
+            ui->toggleDarksend->setText(tr("Start Luxsend"));
         }
 
         return;
@@ -665,7 +665,7 @@ void OverviewPage::darkSendStatus()
     }
 
     if (strStatus != ui->darkSendStatus->text() && !strStatus.isEmpty()) {
-        LogPrintf("Last Astrasend message: %s\n", strStatus.toStdString().c_str());
+        LogPrintf("Last Luxsend message: %s\n", strStatus.toStdString().c_str());
         ui->darkSendStatus->setText(strStatus);
     } else {
         ui->darkSendStatus->setText("");
@@ -734,14 +734,14 @@ void OverviewPage::toggleDarksend()
     updateAdvancedUI(this->walletModel->getOptionsModel()->getShowAdvancedUI());
 
     if (!fEnableDarksend) {
-        ui->toggleDarksend->setText(tr("Start Astrasend"));
+        ui->toggleDarksend->setText(tr("Start Luxsend"));
         darkSendPool.UnlockCoins();
     } else {
-        ui->toggleDarksend->setText(tr("Stop Astrasend"));
+        ui->toggleDarksend->setText(tr("Stop Luxsend"));
 
         /* show darksend configuration if client has defaults set */
 
-        if (nAnonymizeAstraAmount == 0) {
+        if (nAnonymizeLuxAmount == 0) {
             DarksendConfig dlg(this);
             dlg.setModel(walletModel);
             dlg.exec();

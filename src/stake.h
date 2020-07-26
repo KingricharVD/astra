@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -31,7 +31,7 @@ static const int STAKE_TIMESTAMP_MASK = 15;
 
 namespace boost { class thread_group; }
 
-// Reject all splited stake blocks under 200 ASTRA
+// Reject all splited stake blocks under 200 LUX
 static const int REJECT_INVALID_SPLIT_BLOCK_HEIGHT = 465000;
 // Reject stake of small inputs
 static const CAmount STAKE_INVALID_SPLIT_MIN_COINS = 90 * COIN;
@@ -58,7 +58,7 @@ struct StakeStatus {
     StakeStatus();
 };
 
-//!<DuzyDoc>: Stake - singleton class encapsulating PoS feature for Astra.
+//!<DuzyDoc>: Stake - singleton class encapsulating PoS feature for Lux.
 class Stake : StakeKernel
 {
 

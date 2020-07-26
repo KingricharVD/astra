@@ -1,20 +1,20 @@
-#ifndef ADDEDITASTRANODE_H
-#define ADDEDITASTRANODE_H
+#ifndef ADDEDITLUXNODE_H
+#define ADDEDITLUXNODE_H
 
 #include <QDialog>
 
 namespace Ui {
-class AddEditAstraNode;
+class AddEditLuxNode;
 }
 
 
-class AddEditAstraNode : public QDialog
+class AddEditLuxNode : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AddEditAstraNode(QWidget *parent = 0);
-    ~AddEditAstraNode();
+    explicit AddEditLuxNode(QWidget *parent = 0);
+    ~AddEditLuxNode();
 
 protected:
 
@@ -25,7 +25,7 @@ private Q_SLOTS:
 signals:
 
 private:
-    Ui::AddEditAstraNode *ui;
+    Ui::AddEditLuxNode *ui;
 };
 
-#endif // ADDEDITASTRANODE_H
+#endif // ADDEDITLUXNODE_H

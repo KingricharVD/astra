@@ -25,12 +25,12 @@ python27
 
 Download the source code:
 ```
-git clone https://github.com/ASTRA-Core/lux
+git clone https://github.com/LUX-Core/lux
 ```
 
 See [dependencies.md](dependencies.md) for a complete overview.
 
-### Building Astracore
+### Building Luxcore
 
 **Important**: Use `gmake` (the non-GNU `make` will exit with an error).
 

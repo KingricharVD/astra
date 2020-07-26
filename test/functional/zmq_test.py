@@ -7,7 +7,7 @@ import configparser
 import os
 import struct
 
-from test_framework.test_framework import AstraTestFramework, SkipTest
+from test_framework.test_framework import LuxTestFramework, SkipTest
 from test_framework.util import (assert_equal,
                                  bytes_to_hex_str,
                                  hash256,
@@ -15,7 +15,7 @@ from test_framework.util import (assert_equal,
 from test_framework.mininode import CTransaction, CBlockHeader
 import io
 
-class ZMQTest (AstraTestFramework):
+class ZMQTest (LuxTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

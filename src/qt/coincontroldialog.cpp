@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The ASTRA developers
+// Copyright (c) 2015-2017 The LUX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -894,7 +894,7 @@ void CoinControlDialog::viewItemChanged(QTreeWidgetItem* item, int column)
         int rounds = pwalletMain->GetInputDarkSendRounds(in);
         if (coinControl->useDarksend && rounds < nDarksendRounds)
             QMessageBox::warning(this, windowTitle(),
-                                 tr("Non-anonymized input selected. <b>Astrasend will be disabled.</b><br><br>If you still want to use Astrasend, please deselect all non-nonymized inputs first and then check Astrasend checkbox again."),
+                                 tr("Non-anonymized input selected. <b>Luxsend will be disabled.</b><br><br>If you still want to use Luxsend, please deselect all non-nonymized inputs first and then check Luxsend checkbox again."),
                                  QMessageBox::Ok, QMessageBox::Ok);
         coinControl->useDarksend = false;
 
@@ -1182,7 +1182,7 @@ void CoinControlDialog::updateLabels(WalletModel* model, QDialog* dialog)
     }
 
     // actually update labels
-    int nDisplayUnit = BitcoinUnits::ASTRA;
+    int nDisplayUnit = BitcoinUnits::LUX;
     if (model && model->getOptionsModel())
         nDisplayUnit = model->getOptionsModel()->getDisplayUnit();
 
@@ -1326,7 +1326,7 @@ void CoinControlDialog::updateView()
             if (ExtractDestination(out.tx->vout[out.i].scriptPubKey, outputAddress)) {
                 sAddress = QString::fromStdString(EncodeDestination(outputAddress));
 
-                // if listMode or change => show ASTRA address. In tree mode, address is not shown again for direct wallet address outputs
+                // if listMode or change => show LUX address. In tree mode, address is not shown again for direct wallet address outputs
                 if (!treeMode || (!(sAddress == sWalletAddress)))
                     itemOutput->setText(COLUMN_ADDRESS, sAddress);
 

@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,7 +42,7 @@
 #include <boost/unordered_map.hpp>
 
 /**
- * Global AstraState
+ * Global LuxState
  */
 
 /////////////////////////////////////////// lux
@@ -55,7 +55,7 @@
 #include <lux/storageresults.h>
 ///////////////////////////////////////////
 
-extern std::unique_ptr<AstraState> globalState;
+extern std::unique_ptr<LuxState> globalState;
 extern std::shared_ptr<dev::eth::SealEngineFace> globalSealEngine;
 extern bool fRecordLogOpcodes;
 extern bool fIsVMlogFile;
@@ -63,7 +63,7 @@ extern bool fGettingValuesDGP;
 
 struct EthTransactionParams;
 using valtype = std::vector<unsigned char>;
-using ExtractAstraTX = std::pair<std::vector<AstraTransaction>, std::vector<EthTransactionParams>>;
+using ExtractLuxTX = std::pair<std::vector<LuxTransaction>, std::vector<EthTransactionParams>>;
 ///////////////////////////////////////////
 
 class CBlockIndex;
@@ -91,14 +91,14 @@ struct CNodeStateStats;
 #endif
 
 #ifndef WORKING_VERSION
-#define WORKING_VERSION "/Astracore:5.3.0/"
+#define WORKING_VERSION "/Luxcore:5.3.0/"
 #endif
 
-static const int64_t DARKSEND_COLLATERAL = (16120*COIN); //16120 ASTRA
+static const int64_t DARKSEND_COLLATERAL = (16120*COIN); //16120 LUX
 static const int64_t DARKSEND_FEE = (0.002*COIN); // reward masternode
 static const int64_t DARKSEND_POOL_MAX = (1999999.99*COIN);
 
-static const int nAstraProtocolSwitchHeight = 580000;
+static const int nLuxProtocolSwitchHeight = 580000;
 
 /** The maximum size for mined blocks */
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_BASE_SIZE/2;
@@ -893,13 +893,13 @@ struct ByteCodeExecResult{
     std::vector<CTransaction> valueTransfers;
 };
 
-class AstraTxConverter{
+class LuxTxConverter{
 
 public:
 
-    AstraTxConverter(CTransaction tx, CCoinsViewCache* v = NULL, const std::vector<CTransaction>* blockTxs = NULL) : txBit(tx), view(v), blockTransactions(blockTxs){}
+    LuxTxConverter(CTransaction tx, CCoinsViewCache* v = NULL, const std::vector<CTransaction>* blockTxs = NULL) : txBit(tx), view(v), blockTransactions(blockTxs){}
 
-    bool extractionAstraTransactions(ExtractAstraTX& luxTx);
+    bool extractionLuxTransactions(ExtractLuxTX& luxTx);
 
 private:
 
@@ -907,7 +907,7 @@ private:
 
     bool parseEthTXParams(EthTransactionParams& params);
 
-    AstraTransaction createEthTX(const EthTransactionParams& etp, const uint32_t nOut);
+    LuxTransaction createEthTX(const EthTransactionParams& etp, const uint32_t nOut);
 
     const CTransaction txBit;
     const CCoinsViewCache* view;
@@ -921,7 +921,7 @@ class ByteCodeExec {
 
 public:
 
-    ByteCodeExec(const CBlock& _block, std::vector<AstraTransaction> _txs, const uint64_t _blockGasLimit) : txs(_txs), block(_block), blockGasLimit(_blockGasLimit) {}
+    ByteCodeExec(const CBlock& _block, std::vector<LuxTransaction> _txs, const uint64_t _blockGasLimit) : txs(_txs), block(_block), blockGasLimit(_blockGasLimit) {}
 
     bool performByteCode(dev::eth::Permanence type = dev::eth::Permanence::Committed);
 
@@ -935,7 +935,7 @@ private:
 
     dev::Address EthAddrFromScript(const CScript& scriptIn);
 
-    std::vector<AstraTransaction> txs;
+    std::vector<LuxTransaction> txs;
 
     std::vector<ResultExecute> result;
 

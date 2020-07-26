@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-from test_framework.test_framework import AstraTestFramework
+from test_framework.test_framework import LuxTestFramework
 from test_framework.util import *
 from test_framework.script import *
 from test_framework.mininode import *
 from test_framework.lux import *
 from test_framework.luxconfig import *
 
-class AstraNullSenderTest(AstraTestFramework):
+class LuxNullSenderTest(LuxTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
@@ -24,7 +24,7 @@ class AstraNullSenderTest(AstraTestFramework):
 
         tx = CTransaction()
         tx.vin = [CTxIn(COutPoint(int(parent_tx_id, 16), 0), scriptSig=CScript([]), nSequence=0)]
-        tx.vout = [CTxOut(0, CScript([b"\x04", CScriptNum(1000000), CScriptNum(ASTRA_MIN_GAS_PRICE), b"\x00", OP_CREATE]))]
+        tx.vout = [CTxOut(0, CScript([b"\x04", CScriptNum(1000000), CScriptNum(LUX_MIN_GAS_PRICE), b"\x00", OP_CREATE]))]
         tx_hex = bytes_to_hex_str(tx.serialize())
         assert_raises_rpc_error(-26, 'bad-txns-invalid-sender-script', self.node.sendrawtransaction, tx_hex)
         block_count = self.node.getblockcount()
@@ -32,4 +32,4 @@ class AstraNullSenderTest(AstraTestFramework):
         assert_equal(self.node.getblockcount(), block_count+1)
 
 if __name__ == '__main__':
-    AstraNullSenderTest().main()
+    LuxNullSenderTest().main()

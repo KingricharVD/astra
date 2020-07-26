@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The ASTRA developers
+// Copyright (c) 2015-2017 The LUX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -313,7 +313,7 @@ UniValue getnewaddress(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 2)
         throw runtime_error(
             "getnewaddress ( \"account\" )\n"
-            "\nReturns a new ASTRA address for receiving payments.\n"
+            "\nReturns a new LUX address for receiving payments.\n"
             "If 'account' is specified (recommended), it is added to the address book \n"
             "so payments received with the address will be credited to 'account'.\n"
             "\nArguments:\n"
@@ -374,7 +374,7 @@ UniValue getaccountaddress(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getaccountaddress \"account\"\n"
-            "\nReturns the current ASTRA address for receiving payments to this account.\n"
+            "\nReturns the current LUX address for receiving payments to this account.\n"
             "\nArguments:\n"
             "1. \"account\"       (string, required) The account name for the address. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.\n"
             "\nResult:\n"
@@ -400,7 +400,7 @@ UniValue getrawchangeaddress(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getrawchangeaddress ( \"address_type\" )\n"
-            "\nReturns a new ASTRA address, for receiving change.\n"
+            "\nReturns a new LUX address, for receiving change.\n"
             "This is for use with raw transactions, NOT normal use.\n"
             "\nArguments:\n"
             "1. \"address_type\"           (string, optional) The address type to use. Options are \"legacy\" and \"p2sh-segwit\". Default is set by -changetype.\n"
@@ -452,7 +452,7 @@ UniValue setaccount(const UniValue& params, bool fHelp)
 
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
 
 
     string strAccount;
@@ -492,7 +492,7 @@ UniValue getaccount(const UniValue& params, bool fHelp)
 
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
 
     string strAccount;
     map<CTxDestination, CAddressBookData>::iterator mi = pwalletMain->mapAddressBook.find(dest);
@@ -554,7 +554,7 @@ void SendMoney(const CTxDestination& address, CAmount nValue, CWalletTx& wtxNew,
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
     }
 
-    // Parse ASTRA address
+    // Parse LUX address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -600,7 +600,7 @@ UniValue sendtoaddress(const UniValue& params, bool fHelp)
 
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);
@@ -645,7 +645,7 @@ UniValue sendtoaddressix(const UniValue& params, bool fHelp)
 
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);
@@ -722,7 +722,7 @@ UniValue listaddressbalances(const UniValue& params, bool fHelp)
             "1. minamount  (numeric, optional, default=0) Minimum balance in " + CURRENCY_UNIT + " an address should have to be shown in the list\n"
             "\nResult:\n"
             "{\n"
-            "  \"address\": amount, (string) Astra address and the amount in " + CURRENCY_UNIT + "\n"
+            "  \"address\": amount, (string) Lux address and the amount in " + CURRENCY_UNIT + "\n"
             "  ,...\n"
             "}\n"
             "\nExamples:\n"
@@ -819,7 +819,7 @@ UniValue getreceivedbyaddress(const UniValue& params, bool fHelp)
     // lux address
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
     CScript scriptPubKey = GetScriptForDestination(dest);
     if (!IsMine(*pwalletMain, scriptPubKey))
         return ValueFromAmount(0);
@@ -1103,7 +1103,7 @@ UniValue sendfrom(const UniValue& params, bool fHelp)
     string strAccount = AccountFromValue(params[0]);
     CTxDestination dest = DecodeDestination(params[1].get_str());
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
     CAmount nAmount = AmountFromValue(params[2]);
     if (nAmount <= 0)
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
@@ -1188,7 +1188,7 @@ UniValue sendmany(const UniValue& params, bool fHelp)
     for (const string& name_ : keys) {
         CTxDestination dest = DecodeDestination(name_);
         if (!IsValidDestination(dest))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid ASTRA address: ")+name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid LUX address: ")+name_);
 
         if (destinations.count(dest))
             throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+name_);
@@ -1241,7 +1241,7 @@ UniValue addmultisigaddress(const UniValue& params, bool fHelp)
     if (fHelp || params.size() < 2 || params.size() > 3) {
         string msg = "addmultisigaddress nrequired [\"key\",...] ( \"account\" )\n"
             "\nAdd a nrequired-to-sign multisignature address to the wallet.\n"
-            "Each key is a ASTRA address or hex-encoded public key.\n"
+            "Each key is a LUX address or hex-encoded public key.\n"
             "If 'account' is specified, assign address to that account.\n"
 
             "\nArguments:\n"
@@ -2098,7 +2098,7 @@ UniValue walletpassphrase(const UniValue& params, bool fHelp)
         throw runtime_error(
             "walletpassphrase \"passphrase\" timeout ( stakingOnly )\n"
             "\nStores the wallet decryption key in memory for 'timeout' seconds.\n"
-            "This is needed prior to performing transactions related to private keys such as sending ASTRAs\n"
+            "This is needed prior to performing transactions related to private keys such as sending LUXs\n"
             "\nArguments:\n"
             "1. \"passphrase\"     (string, required) The wallet passphrase\n"
             "2. timeout            (numeric, required) The time to keep the decryption key in seconds.\n"
@@ -2240,7 +2240,7 @@ UniValue encryptwallet(const UniValue& params, bool fHelp)
             "\nExamples:\n"
             "\nEncrypt you wallet\n" +
             HelpExampleCli("encryptwallet", "\"my pass phrase\"") +
-            "\nNow set the passphrase to use the wallet, such as for signing or sending ASTRAs\n" + HelpExampleCli("walletpassphrase", "\"my pass phrase\"") +
+            "\nNow set the passphrase to use the wallet, such as for signing or sending LUXs\n" + HelpExampleCli("walletpassphrase", "\"my pass phrase\"") +
             "\nNow we can so something like sign\n" + HelpExampleCli("signmessage", "\"luxaddress\" \"test message\"") +
             "\nNow lock the wallet again by removing the passphrase\n" + HelpExampleCli("walletlock", "") +
             "\nAs a json rpc call\n" + HelpExampleRpc("encryptwallet", "\"my pass phrase\""));
@@ -2280,7 +2280,7 @@ UniValue lockunspent(const UniValue& params, bool fHelp)
             "lockunspent unlock [{\"txid\":\"txid\",\"vout\":n},...]\n"
             "\nUpdates list of temporarily unspendable outputs.\n"
             "Temporarily lock (unlock=false) or unlock (unlock=true) specified transaction outputs.\n"
-            "A locked transaction output will not be chosen by automatic coin selection, when spending ASTRAs.\n"
+            "A locked transaction output will not be chosen by automatic coin selection, when spending LUXs.\n"
             "Locks are stored in memory only. Nodes start with zero locked outputs, and the locked output list\n"
             "is always cleared (by virtue of process exit) when a node stops or fails.\n"
             "Also see the listunspent call\n"
@@ -2396,7 +2396,7 @@ UniValue settxfee(const UniValue& params, bool fHelp)
             "settxfee amount\n"
             "\nSet the transaction fee per kB.\n"
             "\nArguments:\n"
-            "1. amount         (numeric, required) The transaction fee in ASTRA/kB rounded to the nearest 0.00000001\n"
+            "1. amount         (numeric, required) The transaction fee in LUX/kB rounded to the nearest 0.00000001\n"
             "\nResult\n"
             "true|false        (boolean) Returns true if successful\n"
             "\nExamples:\n" +
@@ -2571,7 +2571,7 @@ UniValue autocombinerewards(const UniValue& params, bool fHelp)
     if (fHelp || params.size() < 1)
         throw runtime_error(
             "autocombinerewards <true/false> threshold\n"
-            "Wallet will automatically monitor for any coins with value below the threshold amount, and combine them if they reside with the same ASTRA address\n"
+            "Wallet will automatically monitor for any coins with value below the threshold amount, and combine them if they reside with the same LUX address\n"
             "When autocombinerewards runs it will create a transaction, and therefore will be subject to transaction fees.\n");
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
@@ -2780,7 +2780,7 @@ UniValue multisend(const UniValue& params, bool fHelp)
             "The MultiSend transaction is sent when the staked coins mature (100 confirmations)\n"
             "****************************************************************\n"
             "TO CREATE OR ADD TO THE MULTISEND VECTOR:\n"
-            "multisend <ASTRA Address> <percent>\n"
+            "multisend <LUX Address> <percent>\n"
             "This will add a new address to the MultiSend vector\n"
             "Percent is a whole number 1 to 100.\n"
             "****************************************************************\n"
@@ -2799,7 +2799,7 @@ UniValue multisend(const UniValue& params, bool fHelp)
     string strAddress = params[0].get_str();
     CTxDestination dest = DecodeDestination(strAddress);
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
     if (boost::lexical_cast<int>(params[1].get_str()) < 0)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected valid percentage");
     if (pwalletMain->IsLocked())
@@ -2908,7 +2908,7 @@ UniValue createcontract(const UniValue& params, bool fHelp){
         return NullUniValue;
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
-    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
+    LuxDGP luxDGP(globalState.get(), fGettingValuesDGP);
     uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
     uint64_t minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
     CAmount nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE)?minGasPrice:DEFAULT_GAS_PRICE;
@@ -2921,7 +2921,7 @@ UniValue createcontract(const UniValue& params, bool fHelp){
                 "\nArguments:\n"
                 "1. \"bytecode\"  (string, required) contract bytcode.\n"
                 "2. gasLimit  (numeric or string, optional) gasLimit, default: "+i64tostr(DEFAULT_GAS_LIMIT_OP_CREATE)+", max: "+i64tostr(blockGasLimit)+"\n"
-                "3. gasPrice  (numeric or string, optional) gasPrice ASTRA price per gas unit, default: "+FormatMoney(nGasPrice)+", min:"+FormatMoney(minGasPrice)+"\n"
+                "3. gasPrice  (numeric or string, optional) gasPrice LUX price per gas unit, default: "+FormatMoney(nGasPrice)+", min:"+FormatMoney(minGasPrice)+"\n"
                 "4. \"senderaddress\" (string, optional) The quantum address that will be used to create the contract.\n"
                 "5. \"broadcast\" (bool, optional, default=true) Whether to broadcast the transaction or not.\n"
                 "6. \"changeToSender\" (bool, optional, default=true) Return the change to the sender.\n"
@@ -2980,7 +2980,7 @@ UniValue createcontract(const UniValue& params, bool fHelp){
     if (params.size() > 3){
         senderAddress = DecodeDestination(params[3].get_str());
         if (!IsValidDestination(senderAddress))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astra address to send from");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Lux address to send from");
         else
             fHasSender=true;
     }
@@ -3116,7 +3116,7 @@ UniValue sendtocontract(const UniValue& params, bool fHelp){
         return NullUniValue;
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
-    AstraDGP luxDGP(globalState.get(), fGettingValuesDGP);
+    LuxDGP luxDGP(globalState.get(), fGettingValuesDGP);
     uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
     uint64_t minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
     CAmount nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE)?minGasPrice:DEFAULT_GAS_PRICE;
@@ -3131,7 +3131,7 @@ UniValue sendtocontract(const UniValue& params, bool fHelp){
                 "2. \"datahex\"  (string, required) data to send.\n"
                 "3. \"amount\"      (numeric or string, optional) The amount in " + CURRENCY_UNIT + " to send. eg 0.1, default: 0\n"
                 "4. gasLimit  (numeric or string, optional) gasLimit, default: "+i64tostr(DEFAULT_GAS_LIMIT_OP_SEND)+", max: "+i64tostr(blockGasLimit)+"\n"
-                "5. gasPrice  (numeric or string, optional) gasPrice Astra price per gas unit, default: "+FormatMoney(nGasPrice)+", min:"+FormatMoney(minGasPrice)+"\n"
+                "5. gasPrice  (numeric or string, optional) gasPrice Lux price per gas unit, default: "+FormatMoney(nGasPrice)+", min:"+FormatMoney(minGasPrice)+"\n"
                 "6. \"senderaddress\" (string, optional) The quantum address that will be used as sender.\n"
                 "7. \"broadcast\" (bool, optional, default=true) Whether to broadcast the transaction or not.\n"
                 "8. \"changeToSender\" (bool, optional, default=true) Return the change to the sender.\n"
@@ -3203,7 +3203,7 @@ UniValue sendtocontract(const UniValue& params, bool fHelp){
     if (params.size() > 5){
         senderAddress = DecodeDestination(params[5].get_str());
         if (!IsValidDestination(senderAddress))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astra address to send from");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Lux address to send from");
         else
             fHasSender=true;
     }

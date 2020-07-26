@@ -1,15 +1,15 @@
-![ASTRA Logo](src/qt/res/images/lux_logo_horizontal.png)
+![LUX Logo](src/qt/res/images/lux_logo_horizontal.png)
 
 "FIRST OF ITS KIND"
 
-Astracore is GNU AGPLv3 licensed.
+Luxcore is GNU AGPLv3 licensed.
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FASTRA-Core%2Flux.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FASTRA-Core%2Flux?ref=badge_shield) [![Build Status](https://travis-ci.org/ASTRA-Core/lux.svg?branch=master)](https://travis-ci.org/ASTRA-Core/lux) [![GitHub version](https://badge.fury.io/gh/ASTRA-Core%2Flux.png)](https://badge.fury.io/gh/ASTRA-Core%2Flux.png) [![HitCount](http://hits.dwyl.io/ASTRA-Core/lux.svg)](http://hits.dwyl.io/ASTRA-Core/lux)
-<a href="https://discord.gg/ndUg9va"><img src="https://discordapp.com/api/guilds/364500397999652866/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=ASTRA_COIN"><img src="https://img.shields.io/twitter/follow/ASTRA_COIN.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLUX-Core%2Flux.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FLUX-Core%2Flux?ref=badge_shield) [![Build Status](https://travis-ci.org/LUX-Core/lux.svg?branch=master)](https://travis-ci.org/LUX-Core/lux) [![GitHub version](https://badge.fury.io/gh/LUX-Core%2Flux.png)](https://badge.fury.io/gh/LUX-Core%2Flux.png) [![HitCount](http://hits.dwyl.io/LUX-Core/lux.svg)](http://hits.dwyl.io/LUX-Core/lux)
+<a href="https://discord.gg/ndUg9va"><img src="https://discordapp.com/api/guilds/364500397999652866/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=LUX_COIN"><img src="https://img.shields.io/twitter/follow/LUX_COIN.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
                                                                                                                                                      
-[![Build history](https://buildstats.info/travisci/chart/ASTRA-Core/lux?branch=master)](https://travis-ci.org/ASTRA-Core/lux?branch=master)
+[![Build history](https://buildstats.info/travisci/chart/LUX-Core/lux?branch=master)](https://travis-ci.org/LUX-Core/lux?branch=master)
 
-[Website](https://luxcore.io) — [ASTRAtre + ASTRAGate](https://github.com/ASTRA-Core/luxtre) - [PoS Web Wallet](https://lux.poswallet.io) — [Block Explorer](https://explorer.luxcore.io/) — [Blog](https://reddit.com/r/ASTRACoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/ASTRAcoinOfficialChat) — [Twitter](https://twitter.com/ASTRA_Coin)
+[Website](https://luxcore.io) — [LUXtre + LUXGate](https://github.com/LUX-Core/luxtre) - [PoS Web Wallet](https://lux.poswallet.io) — [Block Explorer](https://explorer.luxcore.io/) — [Blog](https://reddit.com/r/LUXCoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/LUXcoinOfficialChat) — [Twitter](https://twitter.com/LUX_Coin)
 
 Features
 =============
@@ -20,7 +20,7 @@ Features
 * Segwit
 * Smart contract
 * New PHI2 PoW/PoS hybrid algorithm
-* Astragate
+* Luxgate
 * Parallel masternode (PMN)
 
   * [Banking layer](#)
@@ -32,13 +32,13 @@ Features
 * ~~PHI1612 PoW/PoS hybrid algorithm~~
 
 
-The Astracore Project is a decentralized peer-to-peer banking financial platform, created under an open source license, featuring a built-in cryptocurrency, end-to-end encrypted messaging and decentralized marketplace. The decentralized network aims to provide anonymity and privacy for everyone through a simple user-friendly interface by taking care of all the advanced cryptography in the background.
+The Luxcore Project is a decentralized peer-to-peer banking financial platform, created under an open source license, featuring a built-in cryptocurrency, end-to-end encrypted messaging and decentralized marketplace. The decentralized network aims to provide anonymity and privacy for everyone through a simple user-friendly interface by taking care of all the advanced cryptography in the background.
 
-The Astragate allow for communications among validated blockchain with the ability to perform tasks and advanced functions. Through the use of PMN, Astra is able to interact with many other popular blockchains and create a unifying bond among those ecosystems.
+The Luxgate allow for communications among validated blockchain with the ability to perform tasks and advanced functions. Through the use of PMN, Lux is able to interact with many other popular blockchains and create a unifying bond among those ecosystems.
 
-Astra doesn't provide direct support for dapp database. Instead, a mechanism to interact with another Blockchain via Astragate function where the other Blockchain can send and receive trigger function notices and international data through the Astra network via PMN and Astragate. PMN & Astragate can also be used to interact with the centralized services such as bankers. Those centralism services can connect to the Astra network for specific trigger of the Astragate via PMN. It will allow for their developed autonomous system to act based on their behalf. The PMN will then be developed by the connecting Blockchain developer. Astracore will have to supply a deployment guide to assist their development. In order to assist the Centralized services, Astra will need to provide a centralized trustworthy environments. So the user has their trusted oversight to verify that the transactions are legitimate.
+Lux doesn't provide direct support for dapp database. Instead, a mechanism to interact with another Blockchain via Luxgate function where the other Blockchain can send and receive trigger function notices and international data through the Lux network via PMN and Luxgate. PMN & Luxgate can also be used to interact with the centralized services such as bankers. Those centralism services can connect to the Lux network for specific trigger of the Luxgate via PMN. It will allow for their developed autonomous system to act based on their behalf. The PMN will then be developed by the connecting Blockchain developer. Luxcore will have to supply a deployment guide to assist their development. In order to assist the Centralized services, Lux will need to provide a centralized trustworthy environments. So the user has their trusted oversight to verify that the transactions are legitimate.
 
-In addition, without Astragate and PMN, Bitcoin and Ethereum cannot interact with each other on the same Blockchain because the technology is incompatible. It is almost impossible before our PMN and Astragate functions are implemented. Therefore, we have to introduce a Smartcontract & Segwit features in the next release to verify that we succeed to combine those different technologies together to create a brand new unique feature of ASTRA.
+In addition, without Luxgate and PMN, Bitcoin and Ethereum cannot interact with each other on the same Blockchain because the technology is incompatible. It is almost impossible before our PMN and Luxgate functions are implemented. Therefore, we have to introduce a Smartcontract & Segwit features in the next release to verify that we succeed to combine those different technologies together to create a brand new unique feature of LUX.
 
 ## Coin Specifications
 
@@ -48,15 +48,15 @@ In addition, without Astragate and PMN, Bitcoin and Ethereum cannot interact wit
 | Block Size | `4MB` |
 | Block Time | `60s` |
 | PoW Block Time | `120s`   |
-| PoW Reward | `10 ASTRA` |
-| PoS Reward | `1 ASTRA` |
+| PoW Reward | `10 LUX` |
+| PoS Reward | `1 LUX` |
 | Stake Time | `36 hours` | 
-| Masternode Requirement | `16,120 ASTRA` |
+| Masternode Requirement | `16,120 LUX` |
 | Masternode Reward | `20% PoW/PoS` |
 | Port | `26969` |
 | RPC Port | `9888` |
 | Masternode Port | `26969` |
-| Astra legacy address start with | `L` |
+| Lux legacy address start with | `L` |
 | p2sh-segwit address start with | `S` |
 | Bech32 address start with | `bc` |
 
@@ -64,7 +64,7 @@ In addition, without Astragate and PMN, Bitcoin and Ethereum cannot interact wit
 
 Instructions
 -----------
-* [Astra-qt](doc/ASTRA_QT_v5_Win_Mac_User_Guide.pdf)
+* [Lux-qt](doc/LUX_QT_v5_Win_Mac_User_Guide.pdf)
 
 * [Smart contract](doc/smartcontract.md)
 
@@ -72,7 +72,7 @@ Instructions
 
 * [DFS Testnet](doc/dfs-testnet.md)
 
-Build Astra wallet
+Build Lux wallet
 ----------
 
 ### Building for 32-bit Windows
@@ -81,7 +81,7 @@ The next three steps are an example of how to acquire the source and build in an
         
 Acquire the source and install dependencies.
 
-    git clone https://github.com/ASTRA-Core/lux
+    git clone https://github.com/LUX-Core/lux
     sudo chmod -R a+rw lux
     cd lux/depends
     ./install-dependencies.sh
@@ -100,7 +100,7 @@ The next three steps are an example of how to acquire the source and build in an
         
 Acquire the source and install dependencies.
 
-    git clone https://github.com/ASTRA-Core/lux
+    git clone https://github.com/LUX-Core/lux
     sudo chmod -R a+rw lux
     cd lux/depends
     ./install-dependencies.sh
@@ -117,7 +117,7 @@ Build in the usual way.
 
 Use
 
-    sudo add-apt-repository ppa:bitcoin/bitcoin; git clone https://github.com/ASTRA-Core/lux; cd lux; depends/install-dependencies.sh; ./autogen.sh; ./configure --disable-tests --with-boost-libdir=/usr/local/lib; make clean; make -j$(nproc)
+    sudo add-apt-repository ppa:bitcoin/bitcoin; git clone https://github.com/LUX-Core/lux; cd lux; depends/install-dependencies.sh; ./autogen.sh; ./configure --disable-tests --with-boost-libdir=/usr/local/lib; make clean; make -j$(nproc)
 
 
 Add bitcoin repository for Berkeley DB 4.8
@@ -126,7 +126,7 @@ Add bitcoin repository for Berkeley DB 4.8
 
 Clone lux repository
 
-    git clone https://github.com/ASTRA-Core/lux
+    git clone https://github.com/LUX-Core/lux
 
 Build lux 
 
@@ -165,11 +165,11 @@ Link boost 1.64
 
     brew link boost@1.64 --force
 
-#### Build Astracore
+#### Build Luxcore
 
-Clone the Astra source code and cd into lux
+Clone the Lux source code and cd into lux
 
-        git clone https://github.com/ASTRA-Core/lux
+        git clone https://github.com/LUX-Core/lux
         cd lux
         ./building/mac/requirements.sh
         ./building/mac/build.sh
@@ -179,7 +179,7 @@ Setup and Build: Arch Linux
 This example lists the steps necessary to setup and build a command line only, non-wallet distribution of the latest changes on Arch Linux:
 
     pacman -S git base-devel boost libevent python
-    git clone https://github.com/ASTRA-Core/lux
+    git clone https://github.com/LUX-Core/lux
     cd lux/
     ./autogen.sh
     ./configure --without-miniupnpc --disable-tests
@@ -242,8 +242,8 @@ Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/ASTRA-Core/lux/tags) are created
-regularly to indicate new official, stable release versions of Astra.
+completely stable. [Tags](https://github.com/LUX-Core/lux/tags) are created
+regularly to indicate new official, stable release versions of Lux.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -283,4 +283,4 @@ not straightforward.
  [ISSUE_TEMPLATE](doc/template/ISSUE_TEMPLATE_example.md)
 
 ## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FASTRA-Core%2Flux.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FASTRA-Core%2Flux?ref=badge_large)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLUX-Core%2Flux.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FLUX-Core%2Flux?ref=badge_large)

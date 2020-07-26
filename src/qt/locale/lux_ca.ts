@@ -16,13 +16,13 @@
     </message>
 </context>
 <context>
-    <name>AddEditAstraNode</name>
+    <name>AddEditLuxNode</name>
     <message>
-        <source>Add/Edit AstraNodes Node</source>
+        <source>Add/Edit LuxNodes Node</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter an Alias (friendly name) for your AstraNodes Node and its address (either clearnet IP and port or Tor onion address and port).  The address should be in the format 123.456.789.123:9999 or akjdsafxjkhasdf.onion:9999.  A masternode private key and a collateral address will both be automatically generated for you.  You must send exactly 16120 ASTRA to the collateral address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter an Alias (friendly name) for your LuxNodes Node and its address (either clearnet IP and port or Tor onion address and port).  The address should be in the format 123.456.789.123:9999 or akjdsafxjkhasdf.onion:9999.  A masternode private key and a collateral address will both be automatically generated for you.  You must send exactly 16120 LUX to the collateral address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -181,11 +181,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>These are your ASTRA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your LUX addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>These are your ASTRA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your LUX addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -302,11 +302,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR ASTRA&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LUX&lt;/b&gt;!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process.Remember that encrypting your wallet cannot fully protect your ASTRAs from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process.Remember that encrypting your wallet cannot fully protect your LUXs from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -400,11 +400,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enter a Astra Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Lux Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The ASTRA address to sign the message with</source>
+        <source>The LUX address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -436,7 +436,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this ASTRA address</source>
+        <source>Sign the message to prove you own this LUX address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -452,7 +452,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The ASTRA address the message was signed with</source>
+        <source>The LUX address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -460,7 +460,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified ASTRA address</source>
+        <source>Verify the message to ensure it was signed with the specified LUX address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -610,18 +610,18 @@
         <translation>&amp;Eines</translation>
     </message>
     <message>
-        <source>Astracore</source>
-        <translation>Astracore</translation>
+        <source>Luxcore</source>
+        <translation>Luxcore</translation>
     </message>
     <message>
-        <source>&amp;About Astracore</source>
-        <translation>&amp;Sobre Astracore</translation>
+        <source>&amp;About Luxcore</source>
+        <translation>&amp;Sobre Luxcore</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to ASTRA network</source>
+        <source>%n active connection(s) to LUX network</source>
         <translation type="vanished">
-            <numerusform>%n connexió activa a la xarxa ASTRA</numerusform>
-            <numerusform>%n connexions actives a la xarxa ASTRA</numerusform>
+            <numerusform>%n connexió activa a la xarxa LUX</numerusform>
+            <numerusform>%n connexions actives a la xarxa LUX</numerusform>
         </translation>
     </message>
     <message>
@@ -701,7 +701,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Send coins to a ASTRA address</source>
+        <source>Send coins to a LUX address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -737,7 +737,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show information about Astracore</source>
+        <source>Show information about Luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -745,11 +745,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Check whether there is an updated wallet from Astracore</source>
+        <source>Check whether there is an updated wallet from Luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Modify configuration options for ASTRA</source>
+        <source>Modify configuration options for LUX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -793,11 +793,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign messages with your ASTRA addresses to prove you own them</source>
+        <source>Sign messages with your LUX addresses to prove you own them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified ASTRA addresses</source>
+        <source>Verify messages to ensure they were signed with specified LUX addresses</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -897,7 +897,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open a ASTRA: URI or payment request</source>
+        <source>Open a LUX: URI or payment request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -913,7 +913,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Converter for ASTRA Smart Contract addresses</source>
+        <source>Converter for LUX Smart Contract addresses</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -921,7 +921,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show the Astracore help message to get a list with possible ASTRA command-line options</source>
+        <source>Show the Luxcore help message to get a list with possible LUX command-line options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -937,11 +937,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astracore client</source>
+        <source>Luxcore client</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Astracore network</source>
+        <source>%n active connection(s) to Luxcore network</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
@@ -1055,7 +1055,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A fatal error occurred. ASTRA can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. LUX can no longer continue safely and will quit.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1238,7 +1238,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astracore Blockchain Explorer</source>
+        <source>Luxcore Blockchain Explorer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1455,7 +1455,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astrasend Rounds</source>
+        <source>Luxsend Rounds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1487,7 +1487,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;Astrasend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use Astrasend, please deselect all non-nonymized inputs first and then check Astrasend checkbox again.</source>
+        <source>Non-anonymized input selected. &lt;b&gt;Luxsend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use Luxsend, please deselect all non-nonymized inputs first and then check Luxsend checkbox again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1839,7 +1839,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gas price: ASTRA price per gas unit. Default = %1, Min = %2</source>
+        <source>Gas price: LUX price per gas unit. Default = %1, Min = %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1866,11 +1866,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 ASTRA</source>
+        <source>Use 2 separate masternodes to mix funds up to 10000 LUX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 ASTRA</source>
+        <source>Use 8 separate masternodes to mix funds up to 10000 LUX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1878,11 +1878,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 ASTRA to anonymize 10000 ASTRA</source>
+        <source>This option is the quickest and will cost about ~0.025 LUX to anonymize 10000 LUX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 ASTRA to anonymize 10000 ASTRA</source>
+        <source>This option is moderately fast and will cost about 0.05 LUX to anonymize 10000 LUX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1890,7 +1890,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>0.1 ASTRA per 10000 ASTRA you anonymize.</source>
+        <source>0.1 LUX per 10000 LUX you anonymize.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1898,15 +1898,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</source>
+        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</source>
+        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening ASTRA&apos;s configuration screen.</source>
+        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening LUX&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2000,7 +2000,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid ASTRA address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid LUX address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2110,11 +2110,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;&lt;b&gt;&quot;Licensor&quot;&lt;/b&gt; means Astracore, with its main address                    located at Suite 3 Level 27, Governor Macquarie Tower, 1 Farrer Place, Sydney, NSW, 2000.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;&lt;b&gt;&quot;Licensor&quot;&lt;/b&gt; means Luxcore, with its main address                    located at Suite 3 Level 27, Governor Macquarie Tower, 1 Farrer Place, Sydney, NSW, 2000.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;&lt;b&gt;&quot;Software&quot;&lt;/b&gt; means (a) all of the contents of the files,                    disk(s), CD-ROM(s) or other media with which this Agreement is provided, including but not                    limited to (i) Astracore or third party computer information or software; (ii) digital images,                    stock photographs, clip art, sounds or other artistic works (&quot;Stock Files&quot;); (iii) related                    explanatory written materials or files (&quot;Documentation&quot;); and (iv) fonts; and (b) upgrades,                    modified versions, updates, additions, and copies of the Software, if any, licensed to you by                    Astracore (collectively, &quot;Updates&quot;). &lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;&lt;b&gt;&quot;Software&quot;&lt;/b&gt; means (a) all of the contents of the files,                    disk(s), CD-ROM(s) or other media with which this Agreement is provided, including but not                    limited to (i) Luxcore or third party computer information or software; (ii) digital images,                    stock photographs, clip art, sounds or other artistic works (&quot;Stock Files&quot;); (iii) related                    explanatory written materials or files (&quot;Documentation&quot;); and (iv) fonts; and (b) upgrades,                    modified versions, updates, additions, and copies of the Software, if any, licensed to you by                    Luxcore (collectively, &quot;Updates&quot;). &lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2126,7 +2126,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;&lt;b&gt;&quot;Permitted Number&quot;&lt;/b&gt; means one (1) unless otherwise indicated under                    a valid license (e.g. volume license) granted by Astracore.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;&lt;b&gt;&quot;Permitted Number&quot;&lt;/b&gt; means one (1) unless otherwise indicated under                    a valid license (e.g. volume license) granted by Luxcore.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2138,7 +2138,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;As long as you comply with the terms of this End User License Agreement (the                    &quot;Agreement&quot;), Astracore grants to you a non-exclusive license to Use the Software for the purposes described                     in the Documentation. Some third party materials included in the Software may be subject to other terms and                     conditions, which are typically found in a &quot;Read Me&quot; file located near such materials.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;As long as you comply with the terms of this End User License Agreement (the                    &quot;Agreement&quot;), Luxcore grants to you a non-exclusive license to Use the Software for the purposes described                     in the Documentation. Some third party materials included in the Software may be subject to other terms and                     conditions, which are typically found in a &quot;Read Me&quot; file located near such materials.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2154,7 +2154,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;You may install one copy of the Software on your computer file server for the                    purpose of downloading and installing the Software onto other computers within your internal network up to                    the Permitted Number or you may install one copy of the Software on a computer file server within your internal                    network for the sole and exclusive purpose of using the Software through commands, data or instructions (e.g.                    scripts) from an unlimited number of computers on your internal network. No other network use is permitted,                    including but not limited to, using the Software either directly or through commands, data or instructions from                    or to a computer not part of your internal network, for internet or web hosting services or by any user not licensed                    to use this copy of the Software through a valid license from Astracore; and&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;You may install one copy of the Software on your computer file server for the                    purpose of downloading and installing the Software onto other computers within your internal network up to                    the Permitted Number or you may install one copy of the Software on a computer file server within your internal                    network for the sole and exclusive purpose of using the Software through commands, data or instructions (e.g.                    scripts) from an unlimited number of computers on your internal network. No other network use is permitted,                    including but not limited to, using the Software either directly or through commands, data or instructions from                    or to a computer not part of your internal network, for internet or web hosting services or by any user not licensed                    to use this copy of the Software through a valid license from Luxcore; and&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2186,7 +2186,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;To the extent that the Software includes Astracore Astragate software, (i) you may customize the                    installer for such software in accordance with the restrictions found at &lt;a href=&quot;https://luxcore.io&quot;&gt;https://luxcore.io&lt;/a&gt;                    (e.g., installation of additional plug-in and help files); however, you may not otherwise alter or modify the installer program                    or create a new installer for any of such software, (ii) such software is licensed and distributed by Astracore, and (iii) you are                    not authorized to use any plug-in or enhancement that permits you to save modifications to a any format file with such software;                    however, such use is authorized with Astracore, Astracore Astragate, and other current and future Astracore products. For information on                    how to distribute Astragate please refer to the sections entitled &quot;How to Distribute Astragate&quot; at                    &lt;a href=&quot;https://luxcore.io&quot;&gt;https://luxcore.io&lt;/a&gt;.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;To the extent that the Software includes Luxcore Luxgate software, (i) you may customize the                    installer for such software in accordance with the restrictions found at &lt;a href=&quot;https://luxcore.io&quot;&gt;https://luxcore.io&lt;/a&gt;                    (e.g., installation of additional plug-in and help files); however, you may not otherwise alter or modify the installer program                    or create a new installer for any of such software, (ii) such software is licensed and distributed by Luxcore, and (iii) you are                    not authorized to use any plug-in or enhancement that permits you to save modifications to a any format file with such software;                    however, such use is authorized with Luxcore, Luxcore Luxgate, and other current and future Luxcore products. For information on                    how to distribute Luxgate please refer to the sections entitled &quot;How to Distribute Luxgate&quot; at                    &lt;a href=&quot;https://luxcore.io&quot;&gt;https://luxcore.io&lt;/a&gt;.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2194,15 +2194,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;The Software and any copies that you are authorized by Astracore to make are the intellectual property                     of and are owned by Astracore and its suppliers. The structure, organization and code of the Software are the valuable trade secrets                     and confidential information of Astracore and its suppliers. The Software is protected by copyright, including without limitation by                     Australia Copyright Law, international treaty provisions and applicable laws in the country in which it is being used. You may not                     copy the Software, except as set forth in Section 2 (&quot;Software License&quot;).&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;The Software and any copies that you are authorized by Luxcore to make are the intellectual property                     of and are owned by Luxcore and its suppliers. The structure, organization and code of the Software are the valuable trade secrets                     and confidential information of Luxcore and its suppliers. The Software is protected by copyright, including without limitation by                     Australia Copyright Law, international treaty provisions and applicable laws in the country in which it is being used. You may not                     copy the Software, except as set forth in Section 2 (&quot;Software License&quot;).&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;Any copies that you are permitted to make pursuant to this Agreement must contain the same copyright                    and other proprietary notices that appear on or in the Software. You also agree not to reverse engineer, decompile, disassemble or                    otherwise attempt to discover the source code of the Software except to the extent you may be expressly permitted to decompile under                    applicable law, it is essential to do so in order to achieve operability of the Software with another software program, and you have                    first requested Astracore to provide the information necessary to achieve such operability and Astracore has not made such information                    available.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;Any copies that you are permitted to make pursuant to this Agreement must contain the same copyright                    and other proprietary notices that appear on or in the Software. You also agree not to reverse engineer, decompile, disassemble or                    otherwise attempt to discover the source code of the Software except to the extent you may be expressly permitted to decompile under                    applicable law, it is essential to do so in order to achieve operability of the Software with another software program, and you have                    first requested Luxcore to provide the information necessary to achieve such operability and Luxcore has not made such information                    available.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;Astracore has the right to impose reasonable conditions and to request a reasonable fee before providing                     such information. Any information supplied by Astracore or obtained by you, as permitted hereunder, may only be used by you for the                     purpose described herein and may not be disclosed to any third party or used to create any software which is substantially similar                     to the expression of the Software. Requests for information should be directed to the Astracore Customer Support Department. Trademarks                     shall be used in accordance with accepted trademark practice, including identification of trademarks owners&apos; names. Trademarks can only                     be used to identify printed output produced by the Software and such use of any trademark does not give you any rights of ownership in                     that trademark. Except as expressly stated above, this Agreement does not grant you any intellectual property rights in the Software.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;Luxcore has the right to impose reasonable conditions and to request a reasonable fee before providing                     such information. Any information supplied by Luxcore or obtained by you, as permitted hereunder, may only be used by you for the                     purpose described herein and may not be disclosed to any third party or used to create any software which is substantially similar                     to the expression of the Software. Requests for information should be directed to the Luxcore Customer Support Department. Trademarks                     shall be used in accordance with accepted trademark practice, including identification of trademarks owners&apos; names. Trademarks can only                     be used to identify printed output produced by the Software and such use of any trademark does not give you any rights of ownership in                     that trademark. Except as expressly stated above, this Agreement does not grant you any intellectual property rights in the Software.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2218,7 +2218,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;If the Software supports multiple platforms or languages, if you receive the Software on multiple media, if                     you otherwise receive multiple copies of the Software, or if you received the Software bundled with other software, the total number of                     your computers on which all versions of the Software are installed may not exceed the Permitted Number. You may not, rent, lease, sublicense,                     lend or transfer any versions or copies of such Software you do not Use. If the Software is an Update to a previous version of the Software,                     you must possess a valid license to such previous version in order to Use the Update. You may continue to Use the previous version of the Software                     on your computer after you receive the Update to assist you in the transition to the Update, provided that: the Update and the previous version                     are installed on the same computer; the previous version or copies thereof are not transferred to another party or computer unless all copies of                     the Update are also transferred to such party or computer; and you acknowledge that any obligation Astracore may have to support the previous version                     of the Software may be ended upon availability of the Update.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;If the Software supports multiple platforms or languages, if you receive the Software on multiple media, if                     you otherwise receive multiple copies of the Software, or if you received the Software bundled with other software, the total number of                     your computers on which all versions of the Software are installed may not exceed the Permitted Number. You may not, rent, lease, sublicense,                     lend or transfer any versions or copies of such Software you do not Use. If the Software is an Update to a previous version of the Software,                     you must possess a valid license to such previous version in order to Use the Update. You may continue to Use the previous version of the Software                     on your computer after you receive the Update to assist you in the transition to the Update, provided that: the Update and the previous version                     are installed on the same computer; the previous version or copies thereof are not transferred to another party or computer unless all copies of                     the Update are also transferred to such party or computer; and you acknowledge that any obligation Luxcore may have to support the previous version                     of the Software may be ended upon availability of the Update.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2226,7 +2226,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;The Software is being delivered to you &quot;AS IS&quot; and Astracore makes no warranty as to its use or performance. Astracore AND                     ITS SUPPLIERS DO NOT AND CANNOT WARRANT THE PERFORMANCE OR RESULTS YOU MAY OBTAIN BY USING THE SOFTWARE. EXCEPT FOR ANY WARRANTY, CONDITION,                     REPRESENTATION OR TERM TO THE EXTENT TO WHICH THE SAME CANNOT OR MAY NOT BE EXCLUDED OR LIMITED BY LAW APPLICABLE TO YOU IN YOUR JURISDICTION, Astracore                     AND ITS SUPPLIERS MAKE NO WARRANTIES CONDITIONS, REPRESENTATIONS, OR TERMS (EXPRESS OR IMPLIED WHETHER BY STATUTE, COMMON LAW, CUSTOM, USAGE OR OTHERWISE)                     AS TO ANY MATTER INCLUDING WITHOUT LIMITATION NONINFRINGEMENT OF THIRD PARTY RIGHTS, MERCHANTABILITY, INTEGRATION, SATISFACTORY QUALITY, OR FITNESS FOR ANY                     PARTICULAR PURPOSE.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;The Software is being delivered to you &quot;AS IS&quot; and Luxcore makes no warranty as to its use or performance. Luxcore AND                     ITS SUPPLIERS DO NOT AND CANNOT WARRANT THE PERFORMANCE OR RESULTS YOU MAY OBTAIN BY USING THE SOFTWARE. EXCEPT FOR ANY WARRANTY, CONDITION,                     REPRESENTATION OR TERM TO THE EXTENT TO WHICH THE SAME CANNOT OR MAY NOT BE EXCLUDED OR LIMITED BY LAW APPLICABLE TO YOU IN YOUR JURISDICTION, Luxcore                     AND ITS SUPPLIERS MAKE NO WARRANTIES CONDITIONS, REPRESENTATIONS, OR TERMS (EXPRESS OR IMPLIED WHETHER BY STATUTE, COMMON LAW, CUSTOM, USAGE OR OTHERWISE)                     AS TO ANY MATTER INCLUDING WITHOUT LIMITATION NONINFRINGEMENT OF THIRD PARTY RIGHTS, MERCHANTABILITY, INTEGRATION, SATISFACTORY QUALITY, OR FITNESS FOR ANY                     PARTICULAR PURPOSE.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2234,7 +2234,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;If the product you have received with this license is pre-commercial release or beta Software (&quot;Pre-release Software&quot;), then                     the following Section applies. To the extent that any provision in this Section is in conflict with any other term or condition in this Agreement, this                     Section shall supercede such other term(s) and condition(s) with respect to the Pre-release Software, but only to the extent necessary to resolve the conflict.                     You acknowledge that the Software is a pre-release version, does not represent final product from Astracore, and may contain bugs, errors and other problems that                     could cause system or other failures and data loss. Consequently, the Pre-release Software is provided to you &quot;AS-IS&quot;, and Astracore disclaims any warranty or                     liability obligations to you of any kind. WHERE LEGALLY LIABILITY CANNOT BE EXCLUDED FOR PRE-RELEASE SOFTWARE, BUT IT MAY BE LIMITED, ASTRACORE&apos;S LIABILITY AND                     THAT OF ITS SUPPLIERS SHALL BE LIMITED TO THE SUM OF FIFTY DOLLARS (U.S. $50) IN TOTAL. You acknowledge that Astracore has not promised or guaranteed to you that                     Pre-release Software will be announced or made available to anyone in the future, that Astracore has no express or implied obligation to you to announce or                     introduce the Pre-release Software and that Astracore may not introduce a product similar to or compatible with the Pre-release Software. Accordingly, you                     acknowledge that any research or development that you perform regarding the Pre-release Software or any product associated with the Pre-release Software is                     done entirely at your own risk. During the term of this Agreement, if requested by Astracore, you will provide feedback to Astracore regarding testing and use of                     the Pre-release Software, including error or bug reports. If you have been provided the Pre-release Software pursuant to a separate written agreement, such as                     the Astracore Serial Agreement for Unreleased Products, your use of the Software is also governed by such agreement. You agree that you may not and certify that                     you will not sublicense, lease, loan, rent, or transfer the Pre-release Software. Upon receipt of a later unreleased version of the Pre-release Software or                     release by Astracore of a publicly released commercial version of the Software, whether as a stand-alone product or as part of a larger product, you agree to                     return or destroy all earlier Pre-release Software received from Astracore and to abide by the terms of the End User License Agreement for any such later versions                     of the Pre-release Software. Notwithstanding anything in this Section to the contrary, if you are located outside the United States of America or Canada, you agree                     that you will return or destroy all unreleased versions of the Pre-release Software within thirty (30) days of the completion of your testing of the Software                     when such date is earlier than the date for Astracore&apos;s first commercial shipment of the publicly released (commercial) Software.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;If the product you have received with this license is pre-commercial release or beta Software (&quot;Pre-release Software&quot;), then                     the following Section applies. To the extent that any provision in this Section is in conflict with any other term or condition in this Agreement, this                     Section shall supercede such other term(s) and condition(s) with respect to the Pre-release Software, but only to the extent necessary to resolve the conflict.                     You acknowledge that the Software is a pre-release version, does not represent final product from Luxcore, and may contain bugs, errors and other problems that                     could cause system or other failures and data loss. Consequently, the Pre-release Software is provided to you &quot;AS-IS&quot;, and Luxcore disclaims any warranty or                     liability obligations to you of any kind. WHERE LEGALLY LIABILITY CANNOT BE EXCLUDED FOR PRE-RELEASE SOFTWARE, BUT IT MAY BE LIMITED, LUXCORE&apos;S LIABILITY AND                     THAT OF ITS SUPPLIERS SHALL BE LIMITED TO THE SUM OF FIFTY DOLLARS (U.S. $50) IN TOTAL. You acknowledge that Luxcore has not promised or guaranteed to you that                     Pre-release Software will be announced or made available to anyone in the future, that Luxcore has no express or implied obligation to you to announce or                     introduce the Pre-release Software and that Luxcore may not introduce a product similar to or compatible with the Pre-release Software. Accordingly, you                     acknowledge that any research or development that you perform regarding the Pre-release Software or any product associated with the Pre-release Software is                     done entirely at your own risk. During the term of this Agreement, if requested by Luxcore, you will provide feedback to Luxcore regarding testing and use of                     the Pre-release Software, including error or bug reports. If you have been provided the Pre-release Software pursuant to a separate written agreement, such as                     the Luxcore Serial Agreement for Unreleased Products, your use of the Software is also governed by such agreement. You agree that you may not and certify that                     you will not sublicense, lease, loan, rent, or transfer the Pre-release Software. Upon receipt of a later unreleased version of the Pre-release Software or                     release by Luxcore of a publicly released commercial version of the Software, whether as a stand-alone product or as part of a larger product, you agree to                     return or destroy all earlier Pre-release Software received from Luxcore and to abide by the terms of the End User License Agreement for any such later versions                     of the Pre-release Software. Notwithstanding anything in this Section to the contrary, if you are located outside the United States of America or Canada, you agree                     that you will return or destroy all unreleased versions of the Pre-release Software within thirty (30) days of the completion of your testing of the Software                     when such date is earlier than the date for Luxcore&apos;s first commercial shipment of the publicly released (commercial) Software.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2242,7 +2242,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;IN NO EVENT WILL ASTRACORE OR ITS SUPPLIERS BE LIABLE TO YOU FOR ANY DAMAGES, CLAIMS OR COSTS WHATSOEVER OR ANY CONSEQUENTIAL, INDIRECT,                    INCIDENTAL DAMAGES, OR ANY LOST PROFITS OR LOST SAVINGS, EVEN IF AN ASTRACORE REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS, DAMAGES, CLAIMS OR                    COSTS OR FOR ANY CLAIM BY ANY THIRD PARTY. THE FOREGOING LIMITATIONS AND EXCLUSIONS APPLY TO THE EXTENT PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION. ASTRACORE&apos;S                    AGGREGATE LIABILITY AND THAT OF ITS SUPPLIERS UNDER OR IN CONNECTION WITH THIS AGREEMENT SHALL BE LIMITED TO THE AMOUNT PAID FOR THE SOFTWARE, IF ANY. Nothing                    contained in this Agreement limits Astracore&apos;s liability to you in the event of death or personal injury resulting from Astracore&apos;s negligence or for the tort of                    deceit (fraud). Astracore is acting on behalf of its suppliers for the purpose of disclaiming, excluding and/or limiting obligations, warranties and liability as                    provided in this Agreement, but in no other respects and for no other purpose. For further information, please see the jurisdiction specific information at the                    end of this Agreement, if any, or contact Astracore&apos;s Customer Support Department.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;IN NO EVENT WILL LUXCORE OR ITS SUPPLIERS BE LIABLE TO YOU FOR ANY DAMAGES, CLAIMS OR COSTS WHATSOEVER OR ANY CONSEQUENTIAL, INDIRECT,                    INCIDENTAL DAMAGES, OR ANY LOST PROFITS OR LOST SAVINGS, EVEN IF AN LUXCORE REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS, DAMAGES, CLAIMS OR                    COSTS OR FOR ANY CLAIM BY ANY THIRD PARTY. THE FOREGOING LIMITATIONS AND EXCLUSIONS APPLY TO THE EXTENT PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION. LUXCORE&apos;S                    AGGREGATE LIABILITY AND THAT OF ITS SUPPLIERS UNDER OR IN CONNECTION WITH THIS AGREEMENT SHALL BE LIMITED TO THE AMOUNT PAID FOR THE SOFTWARE, IF ANY. Nothing                    contained in this Agreement limits Luxcore&apos;s liability to you in the event of death or personal injury resulting from Luxcore&apos;s negligence or for the tort of                    deceit (fraud). Luxcore is acting on behalf of its suppliers for the purpose of disclaiming, excluding and/or limiting obligations, warranties and liability as                    provided in this Agreement, but in no other respects and for no other purpose. For further information, please see the jurisdiction specific information at the                    end of this Agreement, if any, or contact Luxcore&apos;s Customer Support Department.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2266,7 +2266,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;If any part of this Agreement is found void and unenforceable, it will not affect the validity of the balance of the Agreement,                    which shall remain valid and enforceable according to its terms. This Agreement shall not prejudice the statutory rights of any party dealing as a consumer.                    This Agreement may only be modified by a writing signed by an authorized officer of Astracore. Updates may be licensed to you by Astracore with additional or                    different terms. This is the entire agreement between Astracore and you relating to the Software and it supersedes any prior representations, discussions,                    undertakings, communications or advertising relating to the Software.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;If any part of this Agreement is found void and unenforceable, it will not affect the validity of the balance of the Agreement,                    which shall remain valid and enforceable according to its terms. This Agreement shall not prejudice the statutory rights of any party dealing as a consumer.                    This Agreement may only be modified by a writing signed by an authorized officer of Luxcore. Updates may be licensed to you by Luxcore with additional or                    different terms. This is the entire agreement between Luxcore and you relating to the Software and it supersedes any prior representations, discussions,                    undertakings, communications or advertising relating to the Software.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2290,7 +2290,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>227.7202-1 through 227.7202-4, as applicable, the                 Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and                 (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright                 laws of the United States. For U.S. Government End Users, Astracore agrees to comply with all applicable equal opportunity laws including, if appropriate, the                 provisions of Executive Order 11246, as amended, Section 402 of the Vietnam Era Veterans Readjustment Assistance Act of 1974 (38 USC 4212), and Section 503                 of the Rehabilitation Act of 1973, as amended, and the regulations at 41 CFR Parts 60-1 through 60-60, 60-250, and 60-741. The affirmative action clause and                 regulations contained in the preceding sentence shall be incorporated by reference in this Agreement.&lt;/p&gt;</source>
+        <source>227.7202-1 through 227.7202-4, as applicable, the                 Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and                 (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright                 laws of the United States. For U.S. Government End Users, Luxcore agrees to comply with all applicable equal opportunity laws including, if appropriate, the                 provisions of Executive Order 11246, as amended, Section 402 of the Vietnam Era Veterans Readjustment Assistance Act of 1974 (38 USC 4212), and Section 503                 of the Rehabilitation Act of 1973, as amended, and the regulations at 41 CFR Parts 60-1 through 60-60, 60-250, and 60-741. The affirmative action clause and                 regulations contained in the preceding sentence shall be incorporated by reference in this Agreement.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2298,15 +2298,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;If you are a business or organization, you agree that upon request from Astracore or Astracore &apos;s authorized representative, you will                    within thirty (30) days fully document and certify that use of any and all Astracore Software at the time of the request is in conformity with your valid licenses                    from Astracore.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;If you are a business or organization, you agree that upon request from Luxcore or Luxcore &apos;s authorized representative, you will                    within thirty (30) days fully document and certify that use of any and all Luxcore Software at the time of the request is in conformity with your valid licenses                    from Luxcore.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;If you have any questions regarding this Agreement or if you wish to request any information from Astracore please use the address                     and contact information included with this product to contact the Astracore office serving your jurisdiction.&lt;/p&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;If you have any questions regarding this Agreement or if you wish to request any information from Luxcore please use the address                     and contact information included with this product to contact the Luxcore office serving your jurisdiction.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p style=&quot;line-height:130&quot;&gt;Astracore, Astragate, and all other Astracore&apos;s products are either registered trademarks or trademarks of Astracore in the United States,                     Europe and/or other countries.&lt;/p&gt;&lt;br&gt;&lt;br&gt;</source>
+        <source>&lt;p style=&quot;line-height:130&quot;&gt;Luxcore, Luxgate, and all other Luxcore&apos;s products are either registered trademarks or trademarks of Luxcore in the United States,                     Europe and/or other countries.&lt;/p&gt;&lt;br&gt;&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2365,12 +2365,12 @@
         <translation>versió</translation>
     </message>
     <message>
-        <source>Astracore</source>
-        <translation>Astracore</translation>
+        <source>Luxcore</source>
+        <translation>Luxcore</translation>
     </message>
     <message>
-        <source>About Astracore</source>
-        <translation>Sobre Astracore</translation>
+        <source>About Luxcore</source>
+        <translation>Sobre Luxcore</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -2439,23 +2439,23 @@
         <translation>Benvingut</translation>
     </message>
     <message>
-        <source>Welcome to Astracore.</source>
-        <translation>Benvingut a Astracore.</translation>
+        <source>Welcome to Luxcore.</source>
+        <translation>Benvingut a Luxcore.</translation>
     </message>
     <message>
-        <source>Astracore</source>
-        <translation>Astracore</translation>
+        <source>Luxcore</source>
+        <translation>Luxcore</translation>
     </message>
     <message>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Astracore will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Luxcore will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astracore will download and store a copy of the ASTRA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Luxcore will download and store a copy of the LUX block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2527,9 +2527,9 @@
     </message>
 </context>
 <context>
-    <name>AstraNodeConfigDialog</name>
+    <name>LuxNodeConfigDialog</name>
     <message>
-        <source>AstraNodes Node Configuration Template</source>
+        <source>LuxNodes Node Configuration Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2666,11 +2666,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Astracore network after a connection is established. Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Astracore network, as detailed below.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Luxcore network after a connection is established. Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Luxcore network, as detailed below.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This means that recent transactions will not be visible, and the balance will not be up-to-date until this process has completed. Attempting to spend ASTRA during this time will not be accepted by the network!!!</source>
+        <source>This means that recent transactions will not be visible, and the balance will not be up-to-date until this process has completed. Attempting to spend LUX during this time will not be accepted by the network!!!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2761,7 +2761,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other ASTRA addresses after it matures.</source>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other LUX addresses after it matures.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2944,11 +2944,11 @@ Please check the address and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Automatically start ASTRA after logging in to the system.</source>
+        <source>Automatically start LUX after logging in to the system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Start ASTRA on system login</source>
+        <source>&amp;Start LUX on system login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2984,7 +2984,7 @@ Please check the address and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Amount of ASTRA to keep anonymized</source>
+        <source>Amount of LUX to keep anonymized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3012,11 +3012,11 @@ Please check the address and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show additional information and buttons for Astrasend on overview screen.</source>
+        <source>Show additional information and buttons for Luxsend on overview screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enable advanced Astrasend interface</source>
+        <source>Enable advanced Luxsend interface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3056,7 +3056,7 @@ Please check the address and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Automatically open the ASTRA client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the LUX client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3068,7 +3068,7 @@ Please check the address and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Connect to the ASTRA network through a SOCKS5 proxy.</source>
+        <source>Connect to the LUX network through a SOCKS5 proxy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3128,7 +3128,7 @@ Please check the address and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting ASTRA.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting LUX.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3244,11 +3244,11 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation>Desactivat</translation>
     </message>
     <message>
-        <source>Start Astrasend</source>
+        <source>Start Luxsend</source>
         <translation>Iniciar Ofuscació</translation>
     </message>
     <message>
-        <source>Stop Astrasend</source>
+        <source>Stop Luxsend</source>
         <translation>Aturar Ofuscació</translation>
     </message>
     <message>
@@ -3264,7 +3264,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3316,7 +3316,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astrasend Balance:</source>
+        <source>Luxsend Balance:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3324,7 +3324,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>0 ASTRA / 0 Rounds</source>
+        <source>0 LUX / 0 Rounds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3348,7 +3348,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Try to manually submit a Astrasend request.</source>
+        <source>Try to manually submit a Luxsend request.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3356,7 +3356,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reset the current status of Astrasend (can interrupt Astrasend if it&apos;s in the process of Mixing, which can cost you money!)</source>
+        <source>Reset the current status of Luxsend (can interrupt Luxsend if it&apos;s in the process of Mixing, which can cost you money!)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3364,7 +3364,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astrasend</source>
+        <source>Luxsend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3642,7 +3642,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enter a Astra address (e.g. %1)</source>
+        <source>Enter a Lux address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3708,8 +3708,8 @@ https://www.transifex.com/luxcore/luxcore</source>
         </translation>
     </message>
     <message>
-        <source>Astracore</source>
-        <translation type="unfinished">Astracore</translation>
+        <source>Luxcore</source>
+        <translation type="unfinished">Luxcore</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
@@ -3728,7 +3728,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astracore didn&apos;t yet exit safely...</source>
+        <source>Luxcore didn&apos;t yet exit safely...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3787,7 +3787,7 @@ https://www.transifex.com/luxcore/luxcore</source>
     </message>
 </context>
 <context>
-    <name>QtAstraUpdater::AtomFeeder</name>
+    <name>QtLuxUpdater::AtomFeeder</name>
     <message>
         <source>Check for Updates</source>
         <translation type="unfinished"></translation>
@@ -3798,14 +3798,14 @@ https://www.transifex.com/luxcore/luxcore</source>
     </message>
 </context>
 <context>
-    <name>QtAstraUpdater::ProgressDialog</name>
+    <name>QtLuxUpdater::ProgressDialog</name>
     <message>
         <source>Canceling update check…</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>QtAstraUpdater::UpdateController</name>
+    <name>QtLuxUpdater::UpdateController</name>
     <message>
         <source>Check for Updates</source>
         <translation type="unfinished"></translation>
@@ -3844,7 +3844,7 @@ https://www.transifex.com/luxcore/luxcore</source>
     </message>
 </context>
 <context>
-    <name>QtAstraUpdater::UpdateInfoDialog</name>
+    <name>QtLuxUpdater::UpdateInfoDialog</name>
     <message>
         <source>Updates for %1 are available!</source>
         <translation type="unfinished"></translation>
@@ -4041,7 +4041,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open the ASTRA debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the LUX debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4229,7 +4229,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Welcome to the ASTRA RPC console.</source>
+        <source>Welcome to the LUX RPC console.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4667,7 +4667,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>0 ASTRA</source>
+        <source>0 LUX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4687,7 +4687,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uASTRAs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uASTRAs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uASTRAs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <source>If the custom fee is set to 1000 uLUXs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uLUXs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uLUXs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4695,7 +4695,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uASTRAs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uASTRAs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uASTRAs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <source>If the custom fee is set to 1000 uLUXs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uLUXs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uLUXs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4703,7 +4703,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for ASTRA transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for LUX transactions than the network can process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4905,7 +4905,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         </translation>
     </message>
     <message>
-        <source>Warning: Invalid ASTRA address</source>
+        <source>Warning: Invalid LUX address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4944,7 +4944,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The ASTRA address to send the payment to</source>
+        <source>The LUX address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4980,7 +4980,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A message that was attached to the ASTRA: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ASTRA network.</source>
+        <source>A message that was attached to the LUX: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the LUX network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5074,7 +5074,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The amount in Astra to send. Default = 0.</source>
+        <source>The amount in Lux to send. Default = 0.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5110,7 +5110,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gas price: ASTRA price per gas unit. Default = %1, Min = %2.</source>
+        <source>Gas price: LUX price per gas unit. Default = %1, Min = %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5169,7 +5169,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gas price: ASTRA/gas unit. Default = %1, Min = %2.</source>
+        <source>Gas price: LUX/gas unit. Default = %1, Min = %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5189,7 +5189,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>To send %1 you need ASTRA in address &lt;br /&gt; %2.</source>
+        <source>To send %1 you need LUX in address &lt;br /&gt; %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5200,7 +5200,7 @@ https://www.transifex.com/luxcore/luxcore</source>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Astracore is shutting down...</source>
+        <source>Luxcore is shutting down...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5263,7 +5263,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The ASTRA address to sign the message with</source>
+        <source>The LUX address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5283,7 +5283,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this ASTRA address</source>
+        <source>Sign the message to prove you own this LUX address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5299,11 +5299,11 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The ASTRA address the message was signed with</source>
+        <source>The LUX address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified ASTRA address</source>
+        <source>Verify the message to ensure it was signed with the specified LUX address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5365,11 +5365,11 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished">Desactivat</translation>
     </message>
     <message>
-        <source>Start Astrasend</source>
+        <source>Start Luxsend</source>
         <translation type="unfinished">Iniciar Ofuscació</translation>
     </message>
     <message>
-        <source>Stop Astrasend</source>
+        <source>Stop Luxsend</source>
         <translation type="unfinished">Aturar Ofuscació</translation>
     </message>
     <message>
@@ -5467,7 +5467,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5535,7 +5535,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astrasend Balance:</source>
+        <source>Luxsend Balance:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5543,7 +5543,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>0 ASTRA / 0 Rounds</source>
+        <source>0 LUX / 0 Rounds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5571,7 +5571,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Try to manually submit a Astrasend request.</source>
+        <source>Try to manually submit a Luxsend request.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5579,7 +5579,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reset the current status of Astrasend (can interrupt Astrasend if it&apos;s in the process of Mixing, which can cost you money!)</source>
+        <source>Reset the current status of Luxsend (can interrupt Luxsend if it&apos;s in the process of Mixing, which can cost you money!)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5587,7 +5587,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Astrasend</source>
+        <source>Luxsend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5598,8 +5598,8 @@ https://www.transifex.com/luxcore/luxcore</source>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Astracore</source>
-        <translation>Astracore</translation>
+        <source>Luxcore</source>
+        <translation>Luxcore</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -5618,7 +5618,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The Astracore developers</source>
+        <source>The Luxcore developers</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6447,7 +6447,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>https://github.com/ASTRA-Core/lux/releases</source>
+        <source>https://github.com/LUX-Core/lux/releases</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6493,7 +6493,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>InstanTX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 ASTRA.</source>
+        <source>InstanTX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 LUX.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7231,15 +7231,15 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&apos;importprivkey&apos; finished successfully. Please restart Astracore wallet with &apos;-rescan&apos; option. Otherwise, transaction data</source>
+        <source>&apos;importprivkey&apos; finished successfully. Please restart Luxcore wallet with &apos;-rescan&apos; option. Otherwise, transaction data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&apos;importprivkey&apos; with &apos;Rescan&apos; option finished successfully. Please restart your Astracore wallet. Otherwise, transaction data</source>
+        <source>&apos;importprivkey&apos; with &apos;Rescan&apos; option finished successfully. Please restart your Luxcore wallet. Otherwise, transaction data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Astracore is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Luxcore is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7275,11 +7275,11 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fees (in ASTRA/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <source>Fees (in LUX/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fees (in ASTRA/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <source>Fees (in LUX/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7319,7 +7319,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Rescan aborted by user. Please restart your Astracore wallet with &apos;-rescan&apos; option. Otherwise, transaction data</source>
+        <source>Rescan aborted by user. Please restart your Luxcore wallet with &apos;-rescan&apos; option. Otherwise, transaction data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7343,15 +7343,15 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. Astracore is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Luxcore is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to locate enough DarkSend non-denominated funds for this transaction that are not equal 10000 ASTRA.</source>
+        <source>Unable to locate enough DarkSend non-denominated funds for this transaction that are not equal 10000 LUX.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 ASTRA.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 LUX.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7371,7 +7371,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Astracore will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Luxcore will not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7451,7 +7451,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright (C) 2017-%i The ASTRA-Core Developers</source>
+        <source>Copyright (C) 2017-%i The LUX-Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7487,7 +7487,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Astracore</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7515,7 +7515,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fee (in ASTRA/kB) to add to transactions you send (default: %s)</source>
+        <source>Fee (in LUX/kB) to add to transactions you send (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7535,7 +7535,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. Astracore is shutting down.</source>
+        <source>Initialization sanity check failed. Luxcore is shutting down.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7567,7 +7567,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Keep N ASTRA anonymized (default: %u)</source>
+        <source>Keep N LUX anonymized (default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7747,7 +7747,7 @@ https://www.transifex.com/luxcore/luxcore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Astracore to complete</source>
+        <source>Wallet needed to be rewritten: restart Luxcore to complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

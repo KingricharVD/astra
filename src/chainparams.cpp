@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -120,9 +120,9 @@ public:
         consensus.nMajorityWindow = 1000;
         //consensus.BIP34Height = 227931;
         //consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8");
-        consensus.powLimit = ~uint256(0) >> 20; // ASTRA starting difficulty is 1 / 2^12
-        consensus.nPowTargetTimespan = 30 * 60; //36 * 60 * 60; // ASTRA: 1 36hrs
-        consensus.nPowTargetSpacing = 2 * 60;  // ASTRA: 2 minute
+        consensus.powLimit = ~uint256(0) >> 20; // LUX starting difficulty is 1 / 2^12
+        consensus.nPowTargetTimespan = 30 * 60; //36 * 60 * 60; // LUX: 1 36hrs
+        consensus.nPowTargetSpacing = 2 * 60;  // LUX: 2 minute
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1026; // 95% of 1080 is 1026
@@ -170,7 +170,7 @@ public:
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
 
-        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybird - Parallel Masternode - ThankYou - 216k155"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Lux - Implemented New PHI Algo PoW/PoS Hybird - Parallel Masternode - ThankYou - 216k155"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
         txNew.nTime = 1507656633;
@@ -196,17 +196,17 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0xe08ae0cfc35a1d70e6764f347fdc54355206adeb382446dd54c32cd0201000d3"));
 
         ////////////////////////////////////////////////////////////////////////////////////////////////
-        vSeeds.push_back(CDNSSeedData("Seed1", "seed.luxcore.tech"));       // ASTRA seeder
-        vSeeds.push_back(CDNSSeedData("Seed2", "seed.luxseeds.nl"));        // ASTRA seeder
-        vSeeds.push_back(CDNSSeedData("Seed3", "lux.yiimp.eu"));            // ASTRA seeder with IPv6
+        vSeeds.push_back(CDNSSeedData("Seed1", "seed.luxcore.tech"));       // LUX seeder
+        vSeeds.push_back(CDNSSeedData("Seed2", "seed.luxseeds.nl"));        // LUX seeder
+        vSeeds.push_back(CDNSSeedData("Seed3", "lux.yiimp.eu"));            // LUX seeder with IPv6
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // ASTRA address start with 'L'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63); // ASTRA script addresses start with 'S'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // LUX address start with 'L'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63); // LUX script addresses start with 'S'
         base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1,155);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x07)(0x28)(0xA2)(0x4E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x03)(0xD8)(0xA1)(0xE5).convert_to_container<std::vector<unsigned char> >();
 
-        // ASTRA BIP44 coin type is '3003'
+        // LUX BIP44 coin type is '3003'
         nExtCoinType = 3003;
 
         bech32_hrp = "bc";
@@ -262,9 +262,9 @@ public:
         consensus.nMajorityWindow = 100;
         //consensus.BIP34Height = 227931;
         //consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8");
-        consensus.powLimit = ~uint256(0) >> 10; // ASTRA starting difficulty is 1 / 2^12
-        consensus.nPowTargetTimespan = 30 * 60; //36 * 60 * 60; // ASTRA: 1 36hrs
-        consensus.nPowTargetSpacing = 2 * 60;  // ASTRA: 2 minute
+        consensus.powLimit = ~uint256(0) >> 10; // LUX starting difficulty is 1 / 2^12
+        consensus.nPowTargetTimespan = 30 * 60; //36 * 60 * 60; // LUX: 1 36hrs
+        consensus.nPowTargetSpacing = 2 * 60;  // LUX: 2 minute
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1368; // 95% of 1440 is
@@ -291,7 +291,7 @@ public:
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        const char* pszTimestamp = "Astra - Testnet 1"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Lux - Testnet 1"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
         txNew.nTime = 1528954643;
@@ -344,7 +344,7 @@ public:
         // Testnet lux BIP32 prvkeys start with 'DRKP'
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x3a)(0x80)(0x58)(0x37).convert_to_container<std::vector<unsigned char> >();
         // Testnet lux BIP44 coin type is '1' (All coin's testnet default)
-        // ASTRA BIP44 coin type is '1'
+        // LUX BIP44 coin type is '1'
         nExtCoinType = 1;
         bech32_hrp = "tb";
 
@@ -390,8 +390,8 @@ public:
         //consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         //consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // Astra: 1 day
-        consensus.nPowTargetSpacing = 1 * 60; // Astra: 1 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // Lux: 1 day
+        consensus.nPowTargetSpacing = 1 * 60; // Lux: 1 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
@@ -487,9 +487,9 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
-        consensus.powLimit = ~uint256(0) >> 20; // ASTRA starting difficulty is 1 / 2^12
+        consensus.powLimit = ~uint256(0) >> 20; // LUX starting difficulty is 1 / 2^12
         consensus.nPowTargetTimespan = 10 * 60; //10 minute
-        consensus.nPowTargetSpacing = 60;  // ASTRA: 1 minute
+        consensus.nPowTargetSpacing = 60;  // LUX: 1 minute
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 9; // 95% of 10
@@ -526,7 +526,7 @@ public:
         nModifierUpdateBlock = 615800;
         bech32_hrp = "bcst";
 
-        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybrid - Parallel Masternode - ThankYou - 216k155"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Lux - Implemented New PHI Algo PoW/PoS Hybrid - Parallel Masternode - ThankYou - 216k155"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
         txNew.nTime = 1524645689;
@@ -559,12 +559,12 @@ public:
         assert(consensus.hashGenesisBlock == uint256("0x00000a1a2a728145f14f873037b5f4188c1b36d20f8187d329e412b97cdbaabf"));
         assert(genesis.hashMerkleRoot == uint256("0xb35719fbe3e4d52f06d791e938de406d48defadb83beeb1fdd10c7ef52a481c2"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // ASTRA Start letter L
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // LUX Start letter L
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,64);
         base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1,155);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x07)(0x28)(0xA2)(0x4E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x03)(0xD8)(0xA1)(0xE5).convert_to_container<std::vector<unsigned char> >();
-        // ASTRA BIP44 coin type is '1'
+        // LUX BIP44 coin type is '1'
         nExtCoinType = 1;
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;

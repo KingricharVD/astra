@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -157,20 +157,20 @@ UniValue importprivkey(const UniValue& params, bool fHelp)
         pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
 
         if (pwalletMain->IsAbortingRescan()) {
-            msg =  _("Rescan aborted by user. Please restart your Astracore wallet with '-rescan' option. Otherwise, transaction data");
+            msg =  _("Rescan aborted by user. Please restart your Luxcore wallet with '-rescan' option. Otherwise, transaction data");
             msg += _(" or address book entries might be missing or incorrect");
             LogPrintf("%s: %s\n", __func__, msg);
             throw JSONRPCError(RPC_MISC_ERROR, msg);
         }
         else
         {
-            msg =  _("'importprivkey' with 'Rescan' option finished successfully. Please restart your Astracore wallet. Otherwise, transaction data");
+            msg =  _("'importprivkey' with 'Rescan' option finished successfully. Please restart your Luxcore wallet. Otherwise, transaction data");
             msg += _(" or address book entries might be missing or incorrect");
         }
     }
     else
     {
-        msg =  _("'importprivkey' finished successfully. Please restart Astracore wallet with '-rescan' option. Otherwise, transaction data");
+        msg =  _("'importprivkey' finished successfully. Please restart Luxcore wallet with '-rescan' option. Otherwise, transaction data");
         msg += _(" or address book entries might be missing or incorrect");
     }
 
@@ -259,7 +259,7 @@ UniValue importaddress(const UniValue& params, bool fHelp)
         std::vector<unsigned char> data(ParseHex(params[0].get_str()));
         ImportScript(CScript(data.begin(), data.end()), strLabel, fP2SH);
     } else {
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address or script");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address or script");
     }
 
     if (fRescan)
@@ -549,7 +549,7 @@ UniValue dumpprivkey(const UniValue& params, bool fHelp)
     string strAddress = params[0].get_str();
     CTxDestination dest = DecodeDestination(strAddress);
     if (!IsValidDestination(dest)) {
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
         if (fWalletUnlockStakingOnly)
             throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Wallet is unlocked for staking only.");
     }
@@ -653,7 +653,7 @@ UniValue dumpwallet(const UniValue& params, bool fHelp)
     std::sort(vKeyBirth.begin(), vKeyBirth.end());
 
     // produce output
-    file << strprintf("# Wallet dump created by ASTRA %s (%s)\n", CLIENT_BUILD, CLIENT_DATE);
+    file << strprintf("# Wallet dump created by LUX %s (%s)\n", CLIENT_BUILD, CLIENT_DATE);
     file << strprintf("# * Created on %s\n", EncodeDumpTime(GetTime()));
     file << strprintf("# * Best block at time of backup was %i (%s),\n", chainActive.Height(), chainActive.Tip()->GetBlockHash().ToString());
     file << strprintf("#   mined on %s\n", EncodeDumpTime(chainActive.Tip()->GetBlockTime()));
@@ -746,7 +746,7 @@ UniValue bip38encrypt(const UniValue& params, bool fHelp)
 
     CTxDestination dest = DecodeDestination(strAddress);
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ASTRA address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LUX address");
     const CKeyID *keyID = boost::get<CKeyID>(&dest);
     if (!keyID)
         throw JSONRPCError(RPC_TYPE_ERROR, "Address does not refer to a key");

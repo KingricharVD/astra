@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2017-@COPYRIGHT_YEAR@ The Astracore developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2017-@COPYRIGHT_YEAR@ The Luxcore developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Astra-Qt</string>
+  <string>Lux-Qt</string>
 
   <key>CFBundleName</key>
-  <string>Astra-Qt</string>
+  <string>Lux-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>io.luxcore.Astra-Qt</string>
+  <string>io.luxcore.Lux-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.luxcore.AstraPayment</string>
+      <string>io.luxcore.LuxPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>lux</string>
@@ -60,7 +60,7 @@
       <key>UTTypeIdentifier</key>
       <string>io.lux.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Astra payment request</string>
+      <string>Lux payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>

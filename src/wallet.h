@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -121,7 +121,7 @@ enum AvailableCoinsType {
     ALL_COINS = 1,
     ONLY_DENOMINATED = 2,
     ONLY_NONDENOMINATED = 3, // ONLY_NOT10000IFMN = 3,
-    ONLY_NONDENOMINATED_NOTMN = 4, // ONLY_NONDENOMINATED_NOT10000IFMN = 4, ONLY_NONDENOMINATED and not 10000 ASTRA at the same time
+    ONLY_NONDENOMINATED_NOTMN = 4, // ONLY_NONDENOMINATED_NOT10000IFMN = 4, ONLY_NONDENOMINATED and not 10000 LUX at the same time
 };
 
 struct CompactTallyItem {
@@ -391,8 +391,8 @@ public:
     bool fCombineDust;
     CAmount nAutoCombineThreshold;
 
-    std::map<std::string, CAstraNodeConfig> mapMyAstraNodes;
-    bool AddAstraNodeConfig(CAstraNodeConfig nodeConfig);
+    std::map<std::string, CLuxNodeConfig> mapMyLuxNodes;
+    bool AddLuxNodeConfig(CLuxNodeConfig nodeConfig);
 
     CWallet()
     {

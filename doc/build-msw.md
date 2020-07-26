@@ -7,7 +7,7 @@ cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP
 software written by Thomas Bernard.
 
 
-See readme-qt.rst for instructions on building Astra QT, the
+See readme-qt.rst for instructions on building Lux QT, the
 graphical user interface.
 
 WINDOWS BUILD NOTES

@@ -231,7 +231,7 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->showAdvancedUI, OptionsModel::ShowAdvancedUI);
     mapper->addMapping(ui->parallelMasternodes, OptionsModel::ParallelMasternodes);
     mapper->addMapping(ui->darksendRounds, OptionsModel::DarkSendRounds);
-    mapper->addMapping(ui->anonymizeAstra, OptionsModel::AnonymizeAstraAmount);
+    mapper->addMapping(ui->anonymizeLux, OptionsModel::AnonymizeLuxAmount);
     mapper->addMapping(ui->notUseChangeAddress, OptionsModel::NotUseChangeAddress);
     mapper->addMapping(ui->walletBackups, OptionsModel::WalletBackups);
     mapper->addMapping(ui->zeroBalanceAddressToken, OptionsModel::ZeroBalanceAddressToken);
@@ -261,7 +261,7 @@ void OptionsDialog::setMapper()
 
     /* DarkSend Rounds */
     mapper->addMapping(ui->darksendRounds, OptionsModel::DarkSendRounds);
-    mapper->addMapping(ui->anonymizeAstra, OptionsModel::AnonymizeAstraAmount);
+    mapper->addMapping(ui->anonymizeLux, OptionsModel::AnonymizeLuxAmount);
     mapper->addMapping(ui->showMasternodesTab, OptionsModel::ShowMasternodesTab);
 }
 

@@ -1,6 +1,6 @@
 Enabling SSL on original client daemon
 ======================================
-By default, Astra allows JSON-RPC commands to be sent to http://localhost:61511
+By default, Lux allows JSON-RPC commands to be sent to http://localhost:61511
 and accepts connections only from the localhost.
 
 JSON-RPC Over SSL Setup
@@ -19,7 +19,7 @@ for this to work properly.
     * Edit the lux.conf and add
       rpcssl=1
 
-3. Restart Astra to make these changes take effect.
+3. Restart Lux to make these changes take effect.
 
 4. Optionally you can test SSL functionality using the openssl s_client command
     * openssl s_client -connect localhost:15004

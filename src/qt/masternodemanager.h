@@ -39,7 +39,7 @@ public:
 
 public slots:
     void updateNodeList();
-    void updateAstraNode(QString alias, QString addr, QString privkey, QString collateral);
+    void updateLuxNode(QString alias, QString addr, QString privkey, QString collateral);
     
 Q_SIGNALS:
 

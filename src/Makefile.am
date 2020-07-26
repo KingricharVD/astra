@@ -1,7 +1,7 @@
 DIST_SUBDIRS = secp256k1
 AM_LDFLAGS = $(PTHREAD_CFLAGS) $(LIBTOOL_LDFLAGS)
 AM_CXXFLAGS = $(HARDENED_CXXFLAGS) $(ERROR_CXXFLAGS) -DETH_FATDB=1
-AM_CPPFLAGS = $(HARDENED_CPPFLAGS) -DASTRA_BUILD
+AM_CPPFLAGS = $(HARDENED_CPPFLAGS) -DLUX_BUILD
 EXTRA_LIBRARIES =
 
 if !TARGET_WINDOWS
@@ -68,7 +68,7 @@ if BUILD_BITCOIN_UTILS
 endif
 
 .PHONY: FORCE
-# Astracore #
+# Luxcore #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -270,7 +270,7 @@ libbitcoin_wallet_a_SOURCES = \
 
 # crypto primitives library
 crypto_libbitcoin_crypto_a_CFLAGS = $(PIE_FLAGS)
-crypto_libbitcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES) $(BITCOIN_INCLUDES) -DASTRA_BUILD
+crypto_libbitcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES) $(BITCOIN_INCLUDES) -DLUX_BUILD
 crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha1.cpp \
   crypto/sha256.cpp \
@@ -387,7 +387,7 @@ libbitcoin_consensus_a_SOURCES = \
   version.h
 
 # common: shared between luxd, and lux-qt and non-server tools
-libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -DASTRA_BUILD
+libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -DLUX_BUILD
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_CFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) -std=c99
 libbitcoin_common_a_SOURCES = \

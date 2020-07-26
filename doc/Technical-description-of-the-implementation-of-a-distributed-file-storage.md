@@ -1,10 +1,10 @@
-![ASTRA Logo](../src/qt/res/images/lux_logo_horizontal.png)
+![LUX Logo](../src/qt/res/images/lux_logo_horizontal.png)
 
 "FIRST OF ITS KIND"
 
-Astracore is GNU AGPLv3 licensed.
+Luxcore is GNU AGPLv3 licensed.
 
-Technical description of the implementation of a distributed file storage based on the Astracore blockchain
+Technical description of the implementation of a distributed file storage based on the Luxcore blockchain
 ==========================================================================================================
 
 ## Table of Contents
@@ -53,11 +53,11 @@ Let's introduce several abbreviations used in the text below:
 
     DFS - decentralized file storage. 
     
-    - PMN - parallel masternode. A new layer of masternodes of the Astracoin network that implements dfs functionality 
-      using its own protocol. PMNs are completely independent of the usual Astracoin masternodes networks and 
+    - PMN - parallel masternode. A new layer of masternodes of the Luxcoin network that implements dfs functionality 
+      using its own protocol. PMNs are completely independent of the usual Luxcoin masternodes networks and 
       not support their protocol. PMN organize a network among themselves, by analogy with the usual masternodes.
    
-    - To install a PMN, a Astracoin network user should not undergo additional checks or block any amounts of coins 
+    - To install a PMN, a Luxcoin network user should not undergo additional checks or block any amounts of coins 
       on his account (as was done for ordinary master notes). It is enough to have s GB of free disk space
       (s in the current implementation is a constant network parameter that is the same for all PMNs).
    

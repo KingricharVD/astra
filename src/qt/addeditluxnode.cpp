@@ -11,21 +11,21 @@
 #include "base58.h"
 #include <QMessageBox>
 
-AddEditAstraNode::AddEditAstraNode(QWidget *parent) :
+AddEditLuxNode::AddEditLuxNode(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddEditAstraNode)
+    ui(new Ui::AddEditLuxNode)
 {
     ui->setupUi(this);
 
 }
 
-AddEditAstraNode::~AddEditAstraNode()
+AddEditLuxNode::~AddEditLuxNode()
 {
     delete ui;
 }
 
 
-void AddEditAstraNode::on_okButton_clicked()
+void AddEditLuxNode::on_okButton_clicked()
 {
     if(ui->aliasLineEdit->text() == "")
     {
@@ -43,7 +43,7 @@ void AddEditAstraNode::on_okButton_clicked()
     }
     else
     {
-	CAstraNodeConfig c;
+	CLuxNodeConfig c;
         c.sAlias = ui->aliasLineEdit->text().toStdString();
 	c.sAddress = ui->addressLineEdit->text().toStdString();
         CKey secret;
@@ -87,15 +87,15 @@ void AddEditAstraNode::on_okButton_clicked()
 
         c.sCollateralAddress = EncodeDestination(account.vchPubKey.GetID());
 
-        pwalletMain->mapMyAstraNodes.insert(make_pair(c.sAddress, c));
-	walletdb.WriteAstraNodeConfig(c.sAddress, c);
-        uiInterface.NotifyAstraNodeChanged(c);
+        pwalletMain->mapMyLuxNodes.insert(make_pair(c.sAddress, c));
+	walletdb.WriteLuxNodeConfig(c.sAddress, c);
+        uiInterface.NotifyLuxNodeChanged(c);
 
         accept();
     }
 }
 
-void AddEditAstraNode::on_cancelButton_clicked()
+void AddEditLuxNode::on_cancelButton_clicked()
 {
     reject();
 }

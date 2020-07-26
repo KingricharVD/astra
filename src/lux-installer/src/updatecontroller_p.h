@@ -1,5 +1,5 @@
-#ifndef QTASTRAUPDATER_UPDATECONTROLLER_P_H
-#define QTASTRAUPDATER_UPDATECONTROLLER_P_H
+#ifndef QTLUXUPDATER_UPDATECONTROLLER_P_H
+#define QTLUXUPDATER_UPDATECONTROLLER_P_H
 
 #include "updatecontroller.h"
 #include "updateinfodialog_p.h"
@@ -12,15 +12,15 @@
 #include <QtCore/QPointer>
 #include <atomic>
 
-extern QtAstraUpdater::ProgressDialog *gUpdatesProgress;
+extern QtLuxUpdater::ProgressDialog *gUpdatesProgress;
 extern std::atomic<bool> running;
 extern std::atomic<bool> wasCanceled;
 extern QPointer<QWidget> win;
-extern QtAstraUpdater::UpdateController::DisplayLevel gDisplayLevel;
+extern QtLuxUpdater::UpdateController::DisplayLevel gDisplayLevel;
 extern std::atomic<bool> isUpdaterRunning;
 
 
-namespace QtAstraUpdater
+namespace QtLuxUpdater
 {
 
 class UpdateControllerPrivate
@@ -34,7 +34,7 @@ public:
 
 	QPointer<QWidget> window;
 
-	AstraUpdater *mainUpdater;
+	LuxUpdater *mainUpdater;
 	bool runAdmin;
 	bool adminUserEdit;
 	QStringList runArgs;
@@ -51,4 +51,4 @@ public:
 
 }
 
-#endif // QTASTRAUPDATER_UPDATECONTROLLER_P_H
+#endif // QTLUXUPDATER_UPDATECONTROLLER_P_H

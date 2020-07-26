@@ -1,5 +1,5 @@
-#ifndef ASTRAUPDATER_ASTRAUPDATER_H
-#define ASTRAUPDATER_ASTRAUPDATER_H
+#ifndef LUXUPDATER_LUXUPDATER_H
+#define LUXUPDATER_LUXUPDATER_H
 
 #include "adminauthoriser.h"
 
@@ -11,12 +11,12 @@
 #include <QtCore/qversionnumber.h>
 #include <QtCore/qscopedpointer.h>
 
-namespace QtAstraUpdater
+namespace QtLuxUpdater
 {
 
-class AstraUpdaterPrivate;
+class LuxUpdaterPrivate;
 //! The main updater. Can check for updates and run the current app as updater
-class AstraUpdater : public QObject
+class LuxUpdater : public QObject
 {
 	Q_OBJECT
 
@@ -25,11 +25,11 @@ class AstraUpdater : public QObject
 	//! Specifies whether the updater is currently checking for updates or not
 	Q_PROPERTY(bool running READ isRunning NOTIFY runningChanged)
 	//! Holds extended information about the last update check
-	Q_PROPERTY(QList<AstraUpdateInfo> updateInfo READ updateInfo NOTIFY updateInfoChanged)
+	Q_PROPERTY(QList<LuxUpdateInfo> updateInfo READ updateInfo NOTIFY updateInfoChanged)
 
 public:
 	//! Provides information about updates for components
-	struct AstraUpdateInfo
+	struct LuxUpdateInfo
 	{
 		//! The name of the component that has an update
 		QString name;
@@ -39,11 +39,11 @@ public:
 		quint64 size;
 
 		//! Default Constructor
-		AstraUpdateInfo();
+		LuxUpdateInfo();
 		//! Copy Constructor
-		AstraUpdateInfo(const AstraUpdateInfo &other);
+		LuxUpdateInfo(const LuxUpdateInfo &other);
 		//! Constructor that takes name, version and size
-		AstraUpdateInfo(QString name, QString version, quint64 size);
+		LuxUpdateInfo(QString name, QString version, quint64 size);
 	};
 
 	static const QStringList NormalUpdateArguments;
@@ -51,11 +51,11 @@ public:
 	static const QStringList HiddenUpdateArguments;
 
 	//! Default constructor
-	explicit AstraUpdater(QObject *parent = nullptr);
+	explicit LuxUpdater(QObject *parent = nullptr);
 	//! Constructer with an explicitly set currentVersion
-	explicit AstraUpdater(const QString &currentVersion, QObject *parent = nullptr);
+	explicit LuxUpdater(const QString &currentVersion, QObject *parent = nullptr);
 	//! Destroyes the updater and kills the update check (if running)
-	~AstraUpdater();
+	~LuxUpdater();
 
 	//! Returns `true`, if the updater exited normally
 	bool exitedNormally() const;
@@ -67,12 +67,12 @@ public:
 	//! Returns `true` if will be started on exit
 	bool willRunOnExit() const;
 
-	//! readAcFn{AstraUpdater::currentVersion}
+	//! readAcFn{LuxUpdater::currentVersion}
 	QString currentVersion() const;
-	//! readAcFn{AstraUpdater::running}
+	//! readAcFn{LuxUpdater::running}
 	bool isRunning() const;
-	//! readAcFn{AstraUpdater::updateInfo}
-	QList<AstraUpdateInfo> updateInfo() const;
+	//! readAcFn{LuxUpdater::updateInfo}
+	QList<LuxUpdateInfo> updateInfo() const;
 
 public Q_SLOTS:
 	//! Starts checking for updates
@@ -98,19 +98,19 @@ Q_SIGNALS:
 	//! Will be emitted as soon as the updater finished checking for updates
 	void checkUpdatesDone(bool hasUpdates, bool hasError);
 
-	//! notifyAcFn{AstraUpdater::running}
+	//! notifyAcFn{LuxUpdater::running}
 	void runningChanged(bool running);
-	//! notifyAcFn{AstraUpdater::updateInfo}
-	void updateInfoChanged(QList<AstraUpdater::AstraUpdateInfo> updateInfo);
+	//! notifyAcFn{LuxUpdater::updateInfo}
+	void updateInfoChanged(QList<LuxUpdater::LuxUpdateInfo> updateInfo);
 
 private:
-	QScopedPointer<AstraUpdaterPrivate> d;
+	QScopedPointer<LuxUpdaterPrivate> d;
 };
 
 }
 
-Q_DECLARE_METATYPE(QtAstraUpdater::AstraUpdater::AstraUpdateInfo)
+Q_DECLARE_METATYPE(QtLuxUpdater::LuxUpdater::LuxUpdateInfo)
 
-QDebug &operator<<(QDebug &debug, const QtAstraUpdater::AstraUpdater::AstraUpdateInfo &info);
+QDebug &operator<<(QDebug &debug, const QtLuxUpdater::LuxUpdater::LuxUpdateInfo &info);
 
-#endif // ASTRAUPDATER_ASTRAUPDATER_H
+#endif // LUXUPDATER_LUXUPDATER_H

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AstraNodeConfigDialog</class>
- <widget class="QDialog" name="AstraNodeConfigDialog">
+ <class>LuxNodeConfigDialog</class>
+ <widget class="QDialog" name="LuxNodeConfigDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AstraNodes Node Configuration Template</string>
+   <string>LuxNodes Node Configuration Template</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -41,7 +41,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>AstraNodeConfigDialog</receiver>
+   <receiver>LuxNodeConfigDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -57,7 +57,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>AstraNodeConfigDialog</receiver>
+   <receiver>LuxNodeConfigDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

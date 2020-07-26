@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -51,7 +51,7 @@ static bool AppInitRawTx(int argc, char* argv[])
 
     if (argc<2 || mapArgs.count("-?") || mapArgs.count("-h") || mapArgs.count("-help")) {
         // First part of help message is specific to this utility
-        std::string strUsage = _("Astracore lux-tx utility version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = _("Luxcore lux-tx utility version") + " " + FormatFullVersion() + "\n\n" +
                                _("Usage:") + "\n" +
                                "  lux-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded lux transaction") + "\n" +
                                "  lux-tx [options] -create [commands]   " + _("Create hex-encoded lux transaction") + "\n" +

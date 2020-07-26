@@ -13,10 +13,10 @@
 std::atomic<bool> running(false);
 std::atomic<bool> wasCanceled(false);
 QPointer<QWidget> win;
-QtAstraUpdater::UpdateController::DisplayLevel gDisplayLevel;
-QtAstraUpdater::ProgressDialog *gUpdatesProgress;
+QtLuxUpdater::UpdateController::DisplayLevel gDisplayLevel;
+QtLuxUpdater::ProgressDialog *gUpdatesProgress;
 
-using namespace QtAstraUpdater;
+using namespace QtLuxUpdater;
 
 UpdateController::UpdateController(QObject *parent) :
 	QObject(parent),
@@ -126,7 +126,7 @@ void UpdateController::setDetailedUpdateInfo(bool detailedUpdateInfo)
 	d->detailedInfo = detailedUpdateInfo;
 }
 
-AstraUpdater *UpdateController::updater() const
+LuxUpdater *UpdateController::updater() const
 {
 	return d->mainUpdater;
 }
@@ -174,7 +174,7 @@ bool UpdateController::start(DisplayLevel displayLevel)
 				connect(d->checkUpdatesProgress.data(), &ProgressDialog::canceled, this, [this](){
 					wasCanceled = true;
 				});
-				d->checkUpdatesProgress->open(d->mainUpdater, &QtAstraUpdater::AstraUpdater::abortUpdateCheck);
+				d->checkUpdatesProgress->open(d->mainUpdater, &QtLuxUpdater::LuxUpdater::abortUpdateCheck);
 			}
 		}
 		return true;
@@ -197,7 +197,7 @@ bool UpdateController::cancelUpdate(int maxDelay)
 int UpdateController::scheduleUpdate(int delaySeconds, bool repeated, UpdateController::DisplayLevel displayLevel)
 {
 	if((((qint64)delaySeconds) * 1000) > (qint64)INT_MAX) {
-		qCWarning(logAstraUpdater) << "delaySeconds to big to be converted to msecs";
+		qCWarning(logLuxUpdater) << "delaySeconds to big to be converted to msecs";
 		return 0;
 	}
 	return d->scheduler->startSchedule(delaySeconds * 1000, repeated, QVariant::fromValue(displayLevel));
@@ -280,7 +280,7 @@ void UpdateController::checkUpdatesDone(bool hasUpdates, bool hasError)
 			}
 		} else {
 			if(hasError) {
-				qCWarning(logAstraUpdater) << "maintenancetool process finished with exit code"
+				qCWarning(logLuxUpdater) << "maintenancetool process finished with exit code"
 											<< d->mainUpdater->errorCode()
 											<< "and error string:"
 											<< d->mainUpdater->errorLog();
@@ -324,7 +324,7 @@ UpdateControllerPrivate::UpdateControllerPrivate(UpdateController *q_ptr, QWidge
 UpdateControllerPrivate::UpdateControllerPrivate(UpdateController *q_ptr, const QString &version, QWidget *window) :
 	q(q_ptr),
 	window(window),
-	mainUpdater(version.isEmpty() ? new AstraUpdater(q_ptr) : new AstraUpdater(version, q_ptr)),
+	mainUpdater(version.isEmpty() ? new LuxUpdater(q_ptr) : new LuxUpdater(version, q_ptr)),
 	runAdmin(true),
 	adminUserEdit(true),
 	runArgs(QStringLiteral("--updater")),
@@ -337,7 +337,7 @@ UpdateControllerPrivate::UpdateControllerPrivate(UpdateController *q_ptr, const 
 	wasCanceled = false;
     gDisplayLevel = UpdateController::InfoLevel;
 	
-	QObject::connect(mainUpdater, &AstraUpdater::checkUpdatesDone,
+	QObject::connect(mainUpdater, &LuxUpdater::checkUpdatesDone,
 					 q, &UpdateController::checkUpdatesDone,
 					 Qt::QueuedConnection);
 	QObject::connect(scheduler, &SimpleScheduler::scheduleTriggered,
@@ -352,7 +352,7 @@ UpdateControllerPrivate::UpdateControllerPrivate(UpdateController *q_ptr, const 
 UpdateControllerPrivate::~UpdateControllerPrivate()
 {
 	if(running)
-		qCWarning(logAstraUpdater) << "UpdaterController destroyed while still running! This can crash your application!";
+		qCWarning(logLuxUpdater) << "UpdaterController destroyed while still running! This can crash your application!";
 
 	if(checkUpdatesProgress)
 		checkUpdatesProgress->deleteLater();

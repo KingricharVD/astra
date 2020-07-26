@@ -71,9 +71,9 @@ struct TokenData
     {}
 };
 
-bool ToHash160(const std::string& strAstraAddress, std::string& strHash160)
+bool ToHash160(const std::string& strLuxAddress, std::string& strHash160)
 {   
-    CTxDestination luxAddress = DecodeDestination(strAstraAddress);
+    CTxDestination luxAddress = DecodeDestination(strLuxAddress);
     if(IsValidDestination(luxAddress)){     
         CKeyID *keyid = boost::get<CKeyID>(&luxAddress);
         strHash160 = HexStr(valtype(keyid->begin(),keyid->end()));
@@ -83,13 +83,13 @@ bool ToHash160(const std::string& strAstraAddress, std::string& strHash160)
     return true;
 }
 
-bool ToAstraAddress(const std::string& strHash160, std::string& strAstraAddress)
+bool ToLuxAddress(const std::string& strHash160, std::string& strLuxAddress)
 {
     uint160 key(ParseHex(strHash160.c_str()));
     CKeyID keyid(key);
     
     if(IsValidDestination(CTxDestination(keyid))){
-        strAstraAddress = EncodeDestination(CTxDestination(keyid));
+        strLuxAddress = EncodeDestination(CTxDestination(keyid));
         return true;
     }
     return false;
@@ -628,9 +628,9 @@ bool Token::execEvents(int64_t fromBlock, int64_t toBlock, int func, std::vector
             TokenEvent tokenEvent;
             tokenEvent.address = variantMap.value("contractAddress").toString().toStdString();
             tokenEvent.sender = topicsList[1].toString().toStdString().substr(24);
-            ToAstraAddress(tokenEvent.sender, tokenEvent.sender);
+            ToLuxAddress(tokenEvent.sender, tokenEvent.sender);
             tokenEvent.receiver = topicsList[2].toString().toStdString().substr(24);
-            ToAstraAddress(tokenEvent.receiver, tokenEvent.receiver);
+            ToLuxAddress(tokenEvent.receiver, tokenEvent.receiver);
             tokenEvent.blockHash = uint256S(variantMap.value("blockHash").toString().toStdString());
             tokenEvent.blockNumber = variantMap.value("blockNumber").toLongLong();
             tokenEvent.transactionHash = uint256S(variantMap.value("transactionHash").toString().toStdString());

@@ -305,7 +305,7 @@ bool ExtractDestination(const COutPoint out, const CScript& script, CTxDestinati
     if (ExtractDestination(script, addressRet, typeRet))
         return true;
     if (*typeRet == TX_CREATE) {
-        addressRet = CKeyID(uint160(AstraState::createAstraAddress(uintToh256(out.hash), out.n).asBytes()));
+        addressRet = CKeyID(uint160(LuxState::createLuxAddress(uintToh256(out.hash), out.n).asBytes()));
         // std::cout << CBitcoinAddress(addressRet).ToString()<< " " << out.hash.GetHex() << " " << out.n << std::endl;
         return true;
     }

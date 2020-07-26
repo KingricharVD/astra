@@ -3,7 +3,7 @@ cp src/luxd .
 cp src/qt/lux-qt .
 strip luxd
 strip lux-qt
-zip release_${ASTRA_PLATFORM}.zip luxd lux-qt
+zip release_${LUX_PLATFORM}.zip luxd lux-qt
 
 sudo easy_install appscript
 

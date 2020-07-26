@@ -16,8 +16,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "ASTRA"
-            VALUE "FileDescription",    "luxd (OSS daemon/client for Astra)"
+            VALUE "CompanyName",        "LUX"
+            VALUE "FileDescription",    "luxd (OSS daemon/client for Lux)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "luxd"
             VALUE "LegalCopyright",     COPYRIGHT_STR
