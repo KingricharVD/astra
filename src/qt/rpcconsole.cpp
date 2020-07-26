@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The LUX developers
+// Copyright (c) 2015-2017 The ASTRA developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -811,7 +811,7 @@ void RPCConsole::clear(bool clearHistory)
         );
 
 
-    message(CMD_REPLY, (tr("Welcome to the LUX RPC console.") + "<br>" +
+    message(CMD_REPLY, (tr("Welcome to the ASTRA RPC console.") + "<br>" +
                            tr("Use up and down arrows to navigate history, and <b>Ctrl-L</b> to clear screen.") + "<br>" +
                            tr("Type <b>help</b> for an overview of available commands.") + "<br>" + "<br>" +
                            tr("<b>WARNING: Scammers have been active, telling users to type commands here, stealing their ") +

@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Luxcore developers
+// Copyright (c) 2015-2018 The Astracore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -237,10 +237,10 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop LUX server.");
+            "\nStop ASTRA server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "LUX server stopping";
+    return "ASTRA server stopping";
 }
 
 
@@ -357,7 +357,7 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Lux features */
+        /* Astra features */
         {"lux", "masternode", &masternode, true, true, false},
         //{"lux", "masternodelist", &masternodelist, true, true, false},
         //{"lux", "mnbudget", &mnbudget, true, true, false},

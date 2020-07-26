@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The LUX developers
+// Copyright (c) 2015-2017 The ASTRA developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -205,7 +205,7 @@ QString TransactionDesc::toHTML(CWallet* wallet, CWalletTx& wtx, TransactionReco
                         }
                         strHTML += "<br/>";
                     } else if (txout.scriptPubKey.HasOpCreate()) {
-                        uint160 contract = uint160(LuxState::createLuxAddress(uintToh256(wtx.GetHash()), nOut).asBytes());
+                        uint160 contract = uint160(AstraState::createAstraAddress(uintToh256(wtx.GetHash()), nOut).asBytes());
                         strHTML += "<b>" + tr("SC Address (Hash160)") + ":</b> ";
                         strHTML += QString::fromStdString(contract.ToStringReverseEndian()) + "<br/>";
                     }

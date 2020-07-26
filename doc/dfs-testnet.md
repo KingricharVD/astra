@@ -1,14 +1,14 @@
-![LUX Logo](../src/qt/res/images/lux_logo_horizontal.png)
+![ASTRA Logo](../src/qt/res/images/lux_logo_horizontal.png)
 
 "FIRST OF ITS KIND"
 
-Luxcore is GNU AGPLv3 licensed.
+Astracore is GNU AGPLv3 licensed.
 
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F216k155%2Flux.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2F216k155%2Flux?ref=badge_shield) [![Build Status](https://travis-ci.org/LUX-Core/lux.svg?branch=master)](https://travis-ci.org/LUX-Core/lux) [![GitHub version](https://badge.fury.io/gh/LUX-Core%2Flux.png)](https://badge.fury.io/gh/LUX-Core%2Flux.png) [![HitCount](http://hits.dwyl.io/216k155/lux.svg)](http://hits.dwyl.io/216k155/lux)
-<a href="https://discord.gg/A6YW6uh"><img src="https://discordapp.com/api/guilds/364500397999652866/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=LUX_COIN"><img src="https://img.shields.io/twitter/follow/LUX_COIN.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F216k155%2Flux.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2F216k155%2Flux?ref=badge_shield) [![Build Status](https://travis-ci.org/ASTRA-Core/lux.svg?branch=master)](https://travis-ci.org/ASTRA-Core/lux) [![GitHub version](https://badge.fury.io/gh/ASTRA-Core%2Flux.png)](https://badge.fury.io/gh/ASTRA-Core%2Flux.png) [![HitCount](http://hits.dwyl.io/216k155/lux.svg)](http://hits.dwyl.io/216k155/lux)
+<a href="https://discord.gg/A6YW6uh"><img src="https://discordapp.com/api/guilds/364500397999652866/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=ASTRA_COIN"><img src="https://img.shields.io/twitter/follow/ASTRA_COIN.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
                                                                                                                                                      
-[Website](https://luxcore.io) — [LUXtre + LUXGate](https://github.com/LUX-Core/luxtre) - [PoS Web Wallet](https://lux.poswallet.io) — [Block Explorer](https://explorer.luxcore.io/) — [Blog](https://reddit.com/r/LUXCoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/LUXcoinOfficialChat) — [Twitter](https://twitter.com/LUX_Coin)
+[Website](https://luxcore.io) — [ASTRAtre + ASTRAGate](https://github.com/ASTRA-Core/luxtre) - [PoS Web Wallet](https://lux.poswallet.io) — [Block Explorer](https://explorer.luxcore.io/) — [Blog](https://reddit.com/r/ASTRACoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/ASTRAcoinOfficialChat) — [Twitter](https://twitter.com/ASTRA_Coin)
 
 Technical description of the Distributed File System (Testnet)
 =================================

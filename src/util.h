@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Luxcore developers
+// Copyright (c) 2015-2018 The Astracore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -35,14 +35,14 @@ extern std::regex hexData;
 
 // Debugging macros
 
-//#define ENABLE_LUX_DEBUG
-#ifdef ENABLE_LUX_DEBUG
+//#define ENABLE_ASTRA_DEBUG
+#ifdef ENABLE_ASTRA_DEBUG
 #define DEBUG_SECTION( x ) x
 #else
 #define DEBUG_SECTION( x )
 #endif
 
-//LUX only features
+//ASTRA only features
 extern std::atomic<bool> hideLogMessage;
 
 extern int nLogFile;
@@ -51,7 +51,7 @@ extern bool fEnableInstanTX;
 extern int nInstanTXDepth;
 extern int nDarksendRounds;
 extern int nWalletBackups;
-extern int nAnonymizeLuxAmount;
+extern int nAnonymizeAstraAmount;
 extern int nLiquidityProvider;
 extern bool fEnableDarksend;
 extern int64_t enforceMasternodePaymentsTime;

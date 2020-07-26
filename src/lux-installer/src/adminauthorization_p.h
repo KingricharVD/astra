@@ -1,9 +1,9 @@
-#ifndef QTLUXUPDATER_ADMINAUTHORIZATION_P_H
-#define QTLUXUPDATER_ADMINAUTHORIZATION_P_H
+#ifndef QTASTRAUPDATER_ADMINAUTHORIZATION_P_H
+#define QTASTRAUPDATER_ADMINAUTHORIZATION_P_H
 
 #include "luxupdater/adminauthoriser.h"
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
 class AdminAuthorization : public AdminAuthoriser
@@ -15,4 +15,4 @@ public:
 
 }
 
-#endif // QTLUXUPDATER_ADMINAUTHORIZATION_P_H
+#endif // QTASTRAUPDATER_ADMINAUTHORIZATION_P_H

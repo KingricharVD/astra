@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The LUX developers
+// Copyright (c) 2015-2018 The ASTRA developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -142,7 +142,7 @@ UniValue getstateinfo(const UniValue& params, bool fHelp)
 
     LOCK(cs_main);
 
-    LuxDGP luxDGP(globalState.get());
+    AstraDGP luxDGP(globalState.get());
 
     UniValue obj(UniValue::VOBJ);
     obj.push_back(Pair("maxblocksize", (int)luxDGP.getBlockSize(chainActive.Height())));
@@ -435,7 +435,7 @@ UniValue validateaddress(const UniValue& params, bool fHelp)
     for (unsigned int i = 0; i < keys.size(); i++) {
         const std::string& ks = keys[i].get_str();
 #ifdef ENABLE_WALLET
-        // Case 1: LUX address and we have full public key:
+        // Case 1: ASTRA address and we have full public key:
         CBitcoinAddress address(ks);
         if (pwalletMain && address.IsValid()) {
             CKeyID keyID;
@@ -925,7 +925,7 @@ UniValue getaddressbalance(const UniValue& params, bool fHelp)
             "  ]\n"
             "}\n"
             "\nResult: {\n"
-            "  \"balance\",  (number) The current balance (in LUX satoshis)\n"
+            "  \"balance\",  (number) The current balance (in ASTRA satoshis)\n"
             "  \"received\", (number) The total amount received (all outputs, including stake)\n"
             "  \"spent\",    (number) The total amount spent (excluding stakes)\n"
             "  \"sent\",     (number) The total amount sent (excl. stakes and amounts sent to same addr.)\n"

@@ -66,7 +66,7 @@ SendToContract::SendToContract(QWidget *parent) :
     ui->scrollAreaFunction->setWidget(m_ABIFunctionField);
     ui->lineEditAmount->setEnabled(true);
     ui->labelContractAddress->setToolTip(tr("The contract address that will receive the funds and data."));
-    ui->labelAmount->setToolTip(tr("The amount in Lux to send. Default = 0."));
+    ui->labelAmount->setToolTip(tr("The amount in Astra to send. Default = 0."));
     ui->labelSenderAddress->setToolTip(tr("The quantum address that will be used as sender."));
 
     m_tabInfo = new TabBarInfo(ui->stackedWidget);
@@ -257,7 +257,7 @@ void SendToContract::on_numBlocksChanged(int newHeight)
 
             ui->labelGasLimit->setToolTip(
                     tr("Gas limit: Default = %1, Max = %2.").arg(DEFAULT_GAS_LIMIT_OP_SEND).arg(blockGasLimit));
-            ui->labelGasPrice->setToolTip(tr("Gas price: LUX price per gas unit. Default = %1, Min = %2.").arg(
+            ui->labelGasPrice->setToolTip(tr("Gas price: ASTRA price per gas unit. Default = %1, Min = %2.").arg(
                     QString::fromStdString(FormatMoney(DEFAULT_GAS_PRICE))).arg(
                     QString::fromStdString(FormatMoney(minGasPrice))));
             ui->lineEditGasPrice->setMinimum(minGasPrice);

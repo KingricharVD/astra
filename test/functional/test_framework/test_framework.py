@@ -44,7 +44,7 @@ TEST_EXIT_PASSED = 0
 TEST_EXIT_FAILED = 1
 TEST_EXIT_SKIPPED = 77
 
-class LuxTestFramework(object):
+class AstraTestFramework(object):
     """Base class for a lux test script.
 
     Individual lux test scripts should subclass this class and override the set_test_params() and run_test() methods.
@@ -363,7 +363,7 @@ class LuxTestFramework(object):
         self.log.addHandler(ch)
 
         if self.options.trace_rpc:
-            rpc_logger = logging.getLogger("LuxRPC")
+            rpc_logger = logging.getLogger("AstraRPC")
             rpc_logger.setLevel(logging.DEBUG)
             rpc_handler = logging.StreamHandler(sys.stdout)
             rpc_handler.setLevel(logging.DEBUG)
@@ -393,7 +393,7 @@ class LuxTestFramework(object):
             # Create cache directories, run luxds:
             for i in range(MAX_NODES):
                 datadir = initialize_datadir(self.options.cachedir, i)
-                args = [os.getenv("LUXD", "luxd"), "-server", "-keypool=1", "-datadir=" + datadir, "-discover=0"]
+                args = [os.getenv("ASTRAD", "luxd"), "-server", "-keypool=1", "-datadir=" + datadir, "-discover=0"]
                 if i > 0:
                     args.append("-connect=127.0.0.1:" + str(p2p_port(0)))
                 self.nodes.append(TestNode(i, self.options.cachedir, extra_args=[], rpchost=None, timewait=None, binary=None, stderr=None, mocktime=self.mocktime, coverage_dir=None))
@@ -456,7 +456,7 @@ class LuxTestFramework(object):
         for i in range(self.num_nodes):
             initialize_datadir(self.options.tmpdir, i)
 
-class ComparisonTestFramework(LuxTestFramework):
+class ComparisonTestFramework(AstraTestFramework):
     """Test framework for doing p2p comparison testing
 
     Sets up some luxd binaries:
@@ -470,10 +470,10 @@ class ComparisonTestFramework(LuxTestFramework):
 
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("LUXD", "luxd"),
+                          default=os.getenv("ASTRAD", "luxd"),
                           help="luxd binary to test")
         parser.add_option("--refbinary", dest="refbinary",
-                          default=os.getenv("LUXD", "luxd"),
+                          default=os.getenv("ASTRAD", "luxd"),
                           help="luxd binary to use for reference nodes (if any)")
 
     def setup_network(self):

@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Luxcore developers
+// Copyright (c) 2015-2018 The Astracore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between lux-cli and luxd)
- * of a given instance of the Lux system.
+ * of a given instance of the Astra system.
  */
 class CBaseChainParams
 {

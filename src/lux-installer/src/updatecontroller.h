@@ -1,5 +1,5 @@
-#ifndef QTLUXUPDATER_UPDATECONTROLLER_H
-#define QTLUXUPDATER_UPDATECONTROLLER_H
+#ifndef QTASTRAUPDATER_UPDATECONTROLLER_H
+#define QTASTRAUPDATER_UPDATECONTROLLER_H
 
 #include <qobject.h>
 #include <qstringlist.h>
@@ -7,10 +7,10 @@
 
 #include <qaction.h>
 
-namespace QtLuxUpdater
+namespace QtAstraUpdater
 {
 
-class LuxUpdater;
+class AstraUpdater;
 class UpdateControllerPrivate;
 //! A class to show a controlled update GUI to the user
 class UpdateController : public QObject
@@ -75,7 +75,7 @@ public:
 	bool isDetailedUpdateInfo() const;
 
 	//! Returns the Updater object used by the controller
-	LuxUpdater *updater() const;
+	AstraUpdater *updater() const;
 
 public Q_SLOTS:
 	//! @writeAcFn{UpdateController::parentWindow}
@@ -117,4 +117,4 @@ private:
 
 }
 
-#endif // QTLUXUPDATER_UPDATECONTROLLER_H
+#endif // QTASTRAUPDATER_UPDATECONTROLLER_H

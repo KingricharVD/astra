@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The LUX developers
+// Copyright (c) 2015-2017 The ASTRA developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -148,7 +148,7 @@ void setupAddressWidget(QValidatedLineEdit* widget, QWidget* parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-     widget->setPlaceholderText(QObject::tr("Enter a Lux address (e.g. %1)").arg("LhfHsuK9Ekjj2dYoEy4wvEiQHvRtzZQnYa"));
+     widget->setPlaceholderText(QObject::tr("Enter a Astra address (e.g. %1)").arg("LhfHsuK9Ekjj2dYoEy4wvEiQHvRtzZQnYa"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -165,7 +165,7 @@ void setupAmountWidget(QLineEdit* widget, QWidget* parent)
 
 bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out)
 {
-    // return if URI is not valid or is no LUX: URI
+    // return if URI is not valid or is no ASTRA: URI
     if (!uri.isValid() || uri.scheme() != QString(URI_SCHEME))
         return false;
 
@@ -199,7 +199,7 @@ bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out)
             fShouldReturnFalse = false;
         } else if (i->first == "amount") {
             if (!i->second.isEmpty()) {
-                if (!BitcoinUnits::parse(BitcoinUnits::LUX, i->second, &rv.amount)) {
+                if (!BitcoinUnits::parse(BitcoinUnits::ASTRA, i->second, &rv.amount)) {
                     return false;
                 }
             }
@@ -234,7 +234,7 @@ QString formatBitcoinURI(const SendCoinsRecipient& info)
     int paramCount = 0;
 
     if (info.amount) {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::LUX, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::ASTRA, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -652,12 +652,12 @@ bool DHMSTableWidgetItem::operator<(QTableWidgetItem const& item) const
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "LUX.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "ASTRA.lnk";
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for LUX.lnk
+    // check for ASTRA.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -770,7 +770,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Write a lux.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=LUX\n";
+        optionFile << "Name=ASTRA\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";

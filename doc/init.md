@@ -89,7 +89,7 @@ use old versions of Upstart and do not supply the start-stop-daemon uitility.
 Copy luxd.init to /etc/init.d/luxd. Test by running "service luxd start".
 
 Using this script, you can adjust the path and flags to the luxd program by
-setting the LUXD and FLAGS environment variables in the file
+setting the ASTRAD and FLAGS environment variables in the file
 /etc/sysconfig/luxd. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn

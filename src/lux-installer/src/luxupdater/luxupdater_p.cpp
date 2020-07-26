@@ -7,15 +7,15 @@
 #include <QtCore/QXmlStreamReader>
 #include <QtCore/QTimer>
 
-#define REPOSITORY_URL "https://github.com/LUX-Core/lux/releases.atom"
+#define REPOSITORY_URL "https://github.com/ASTRA-Core/lux/releases.atom"
 
 std::atomic<bool> isUpdaterRunning(false);
 
-using namespace QtLuxUpdater;
+using namespace QtAstraUpdater;
 
-Q_LOGGING_CATEGORY(logLuxUpdater, "LuxUpdater")
+Q_LOGGING_CATEGORY(logAstraUpdater, "AstraUpdater")
 
-LuxUpdaterPrivate::LuxUpdaterPrivate(LuxUpdater *q_ptr) :
+AstraUpdaterPrivate::AstraUpdaterPrivate(AstraUpdater *q_ptr) :
 	QObject(nullptr),
 	q(q_ptr),
 	currentVersion(),
@@ -33,16 +33,16 @@ LuxUpdaterPrivate::LuxUpdaterPrivate(LuxUpdater *q_ptr) :
 {
 	isUpdaterRunning = false;
 	connect(qApp, &QCoreApplication::aboutToQuit,
-			this, &LuxUpdaterPrivate::onAppAboutToExit,
+			this, &AstraUpdaterPrivate::onAppAboutToExit,
 			Qt::DirectConnection);
 	connect(scheduler, &SimpleScheduler::scheduleTriggered,
-			this, &LuxUpdaterPrivate::startUpdateCheck);
+			this, &AstraUpdaterPrivate::startUpdateCheck);
 }
 
-LuxUpdaterPrivate::~LuxUpdaterPrivate()
+AstraUpdaterPrivate::~AstraUpdaterPrivate()
 {
 	if (runOnExit)
-		qCWarning(logLuxUpdater) << "LuxUpdater destroyed with run on exit active before the application quit";
+		qCWarning(logAstraUpdater) << "AstraUpdater destroyed with run on exit active before the application quit";
 
 	if (atomFeeder) {
 		delete atomFeeder;
@@ -55,7 +55,7 @@ LuxUpdaterPrivate::~LuxUpdaterPrivate()
 	}
 }
 
-bool LuxUpdaterPrivate::startUpdateCheck()
+bool AstraUpdaterPrivate::startUpdateCheck()
 {
 	if (isUpdaterRunning) {
 		return false;
@@ -70,7 +70,7 @@ bool LuxUpdaterPrivate::startUpdateCheck()
 	atomFeeder = new AtomFeeder(REPOSITORY_URL);
 
 	connect(atomFeeder, &AtomFeeder::getVersionListDone,
-			this, &LuxUpdaterPrivate::onUpdaterReady);
+			this, &AstraUpdaterPrivate::onUpdaterReady);
 
 	atomFeeder->start();
 
@@ -81,7 +81,7 @@ bool LuxUpdaterPrivate::startUpdateCheck()
 	return true;
 }
 
-void LuxUpdaterPrivate::stopUpdateCheck(int delay, bool async)
+void AstraUpdaterPrivate::stopUpdateCheck(int delay, bool async)
 {
 	if (atomFeeder) {
 		if (delay > 0) {
@@ -99,7 +99,7 @@ void LuxUpdaterPrivate::stopUpdateCheck(int delay, bool async)
 	}
 }
 
-QString LuxUpdaterPrivate::getDownloadUrl(QString version)
+QString AstraUpdaterPrivate::getDownloadUrl(QString version)
 {
 #if defined(Q_OS_WIN32)
 	//QString fileName = "lux-qt-win32.zip";
@@ -112,23 +112,23 @@ QString LuxUpdaterPrivate::getDownloadUrl(QString version)
 #else
 	QString fileName = 1 ? "lux-qt-linux-16.zip" : "lux-qt-linux-18.zip";
 #endif
-	return "https://github.com/LUX-Core/lux/releases/download/" + version + "/" + fileName;
+	return "https://github.com/ASTRA-Core/lux/releases/download/" + version + "/" + fileName;
 }
 
-void LuxUpdaterPrivate::onDownloadProgress(DownloadManager::DownloadProgress progress)
+void AstraUpdaterPrivate::onDownloadProgress(DownloadManager::DownloadProgress progress)
 {
 
 }
 
-void LuxUpdaterPrivate::onDownloadFinished(DownloadManager::DownloadProgress progress)
+void AstraUpdaterPrivate::onDownloadFinished(DownloadManager::DownloadProgress progress)
 {
 
 }
 
-void LuxUpdaterPrivate::onDownloadCheckSize(DownloadManager::DownloadProgress progress)
+void AstraUpdaterPrivate::onDownloadCheckSize(DownloadManager::DownloadProgress progress)
 {
 	if (progress.totalSize > 0) {
-		LuxUpdater::LuxUpdateInfo updateInfo("Lux wallet", newVersion, progress.totalSize);
+		AstraUpdater::AstraUpdateInfo updateInfo("Astra wallet", newVersion, progress.totalSize);
 		updateInfos.append(updateInfo);
 
 		if (downloadManager) {
@@ -150,7 +150,7 @@ void LuxUpdaterPrivate::onDownloadCheckSize(DownloadManager::DownloadProgress pr
 	}
 }
 
-void LuxUpdaterPrivate::onUpdaterReady()
+void AstraUpdaterPrivate::onUpdaterReady()
 {
 	if (atomFeeder) {
 		normalExit = true;
@@ -164,7 +164,7 @@ void LuxUpdaterPrivate::onUpdaterReady()
 				if (downloadManager == nullptr) {
 					downloadManager = new DownloadManager(this);
 					connect(downloadManager, &DownloadManager::downloadFinished,
-							this, &LuxUpdaterPrivate::onDownloadCheckSize);
+							this, &AstraUpdaterPrivate::onDownloadCheckSize);
 				}
 				newVersion = version;
 				downloadManager->append(getDownloadUrl(version), true);
@@ -186,7 +186,7 @@ void LuxUpdaterPrivate::onUpdaterReady()
 	}
 }
 
-void LuxUpdaterPrivate::updaterError()
+void AstraUpdaterPrivate::updaterError()
 {
 	if (atomFeeder) {
 		normalExit = false;
@@ -201,7 +201,7 @@ void LuxUpdaterPrivate::updaterError()
 	}
 }
 
-void LuxUpdaterPrivate::onAppAboutToExit()
+void AstraUpdaterPrivate::onAppAboutToExit()
 {
 	if (runOnExit) {
 		QFileInfo appInfo(QCoreApplication::applicationFilePath());
@@ -215,7 +215,7 @@ void LuxUpdaterPrivate::onAppAboutToExit()
 		}
 
 		if (!ok) {
-			qCWarning(logLuxUpdater) << "Unable to start" << appInfo.absoluteFilePath()
+			qCWarning(logAstraUpdater) << "Unable to start" << appInfo.absoluteFilePath()
 										<< "with arguments" << runArguments
 										<< "as" << (adminAuth ? "admin/root" : "current user");
 		}

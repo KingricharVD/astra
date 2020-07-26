@@ -25,7 +25,7 @@
 +Fixed wallet lagging
 +Reduced cpu threads usage
 +Show Masternode List & (Keep updating actived masternode)
-+Fixed PoS 1.2LUX instead of 2LUX  
++Fixed PoS 1.2ASTRA instead of 2ASTRA  
 
 # Version 3.0.2
 ===============
@@ -35,8 +35,8 @@
 ===============
 +Fix for init_blockindex bug
 +Updated bootstrap (15 nov)
-+Windows version for first time users of Lux Wallet (fixes statup issue from version 3.0.0)
-+For users of previous Lux Wallets this update is not required
++Windows version for first time users of Astra Wallet (fixes statup issue from version 3.0.0)
++For users of previous Astra Wallets this update is not required
 
 
 # Version 3.0.0
@@ -51,7 +51,7 @@
 
 # Version 2.2.4
 ===============
-+Updated Lux Logo
++Updated Astra Logo
 +Reduced masternode expiration second
 +Reduced masternode removal second
 +Changed  payee = winner.payee to Tx

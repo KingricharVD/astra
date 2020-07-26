@@ -26,9 +26,9 @@ A Docker configuration with luxd node by default.
     
     mkdir lux-mounted-data
     docker run --name lux -d \
-     --env 'LUX_RPCUSER=rpciser' \
-     --env 'LUX_RPCPASSWORD=rpcpassword' \
-     --env 'LUX_TXINDEX=1' \
+     --env 'ASTRA_RPCUSER=rpciser' \
+     --env 'ASTRA_RPCPASSWORD=rpcpassword' \
+     --env 'ASTRA_TXINDEX=1' \
      --volume ~/lux-mounted-data:~/.lux \
      -p 9888:9888 \
      --publish 9888:9888 \
@@ -74,7 +74,7 @@ $ cat /etc/systemd/system/luxd.service
 
 # luxd.service #######################################################################
 [Unit]
-Description=Lux
+Description=Astra
 After=docker.service
 Requires=docker.service
 

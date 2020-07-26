@@ -10,7 +10,7 @@ forward all unrecognized arguments onto the individual test scripts.
 Functional tests are disabled on Windows by default. Use --force to run them anyway.
 
 For a description of arguments recognized by test scripts, see
-`test/functional/test_framework/test_framework.py:LuxTestFramework.main`.
+`test/functional/test_framework/test_framework.py:AstraTestFramework.main`.
 
 """
 
@@ -120,7 +120,7 @@ BASE_SCRIPTS= [
     'minchainwork.py',
 
     # lux - smartcontract
-    # TODO: Lux smartcontract
+    # TODO: Astra smartcontract
 
 EXTENDED_SCRIPTS = [
     # These tests are not run by the travis build process.
@@ -206,7 +206,7 @@ def main():
 
     enable_wallet = config["components"].getboolean("ENABLE_WALLET")
     enable_utils = config["components"].getboolean("ENABLE_UTILS")
-    enable_luxd = config["components"].getboolean("ENABLE_LUXD")
+    enable_luxd = config["components"].getboolean("ENABLE_ASTRAD")
 
     if config["environment"]["EXEEXT"] == ".exe" and not args.force:
         # https://github.com/lux/lux/commit/d52802551752140cf41f0d9a225a43e84404d3e9
@@ -280,9 +280,9 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_cove
         print("%sWARNING!%s There is a cache directory here: %s. If tests fail unexpectedly, try deleting the cache directory." % (BOLD[1], BOLD[0], cache_dir))
 
     #Set env vars
-    if "LUXD" not in os.environ:
-        os.environ["LUXD"] = build_dir + '/src/luxd' + exeext
-        os.environ["LUXCLI"] = build_dir + '/src/lux-cli' + exeext
+    if "ASTRAD" not in os.environ:
+        os.environ["ASTRAD"] = build_dir + '/src/luxd' + exeext
+        os.environ["ASTRACLI"] = build_dir + '/src/lux-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'
 

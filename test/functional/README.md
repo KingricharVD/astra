@@ -23,7 +23,7 @@ don't have test cases for.
 - Avoid wildcard imports where possible
 - Use a module-level docstring to describe what the test is testing, and how it
   is testing it.
-- When subclassing the LuxTestFramwork, place overrides for the
+- When subclassing the AstraTestFramwork, place overrides for the
   `set_test_params()`, `add_options()` and `setup_xxxx()` methods at the top of
   the subclass, then locally-defined helper methods, then the `run_test()` method.
 
@@ -80,7 +80,7 @@ Examples tests are `p2p-accept-block.py`, `p2p-compactblocks.py`.
 - Comptool is a Testing framework for writing tests that compare the block/tx acceptance
 behavior of a luxd against 1 or more other luxd instances. It should not be used
 to write static tests with known outcomes, since that type of test is easier to write and
-maintain using the standard LuxTestFramework.
+maintain using the standard AstraTestFramework.
 
 - Set the `num_nodes` variable (defined in `ComparisonTestFramework`) to start up
 1 or more nodes.  If using 1 node, then `--testbinary` can be used as a command line

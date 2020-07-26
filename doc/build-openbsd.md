@@ -18,7 +18,7 @@ pkg_add automake # (select highest version, e.g. 1.15)
 pkg_add python # (select highest version, e.g. 3.6)
 pkg_add boost
 
-git clone https://github.com/LUX-Core/lux.git
+git clone https://github.com/ASTRA-Core/lux.git
 ```
 
 See [dependencies.md](dependencies.md) for a complete overview.
@@ -49,7 +49,7 @@ from the root of the repository. Then set `BDB_PREFIX` for the next section:
 export BDB_PREFIX="$PWD/db4"
 ```
 
-### Building Luxcore
+### Building Astracore
 
 **Important**: use `gmake`, not `make`. The non-GNU `make` will exit with a horrible error.
 
@@ -89,7 +89,7 @@ The standard ulimit restrictions in OpenBSD are very strict:
     data(kbytes)         1572864
 
 This, unfortunately, in some cases not enough to compile some `.cpp` files in the project,
-(see issue [#6658](https://github.com/LUX-Core/lux/issues/)).
+(see issue [#6658](https://github.com/ASTRA-Core/lux/issues/)).
 If your user is in the `staff` group the limit can be raised with:
 
     ulimit -d 3000000

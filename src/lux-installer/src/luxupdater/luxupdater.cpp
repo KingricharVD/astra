@@ -6,102 +6,102 @@
 #include <QtCore/QList>
 #include <QtCore/QMap>
 
-using namespace QtLuxUpdater;
+using namespace QtAstraUpdater;
 
-const QStringList LuxUpdater::NormalUpdateArguments = {QStringLiteral("--updater")};
-const QStringList LuxUpdater::PassiveUpdateArguments = {QStringLiteral("--updater"), QStringLiteral("skipPrompt=true")};
-const QStringList LuxUpdater::HiddenUpdateArguments = {QStringLiteral("--silentUpdate")};
+const QStringList AstraUpdater::NormalUpdateArguments = {QStringLiteral("--updater")};
+const QStringList AstraUpdater::PassiveUpdateArguments = {QStringLiteral("--updater"), QStringLiteral("skipPrompt=true")};
+const QStringList AstraUpdater::HiddenUpdateArguments = {QStringLiteral("--silentUpdate")};
 
-LuxUpdater::LuxUpdater(QObject *parent) :
-	LuxUpdater("", parent)
+AstraUpdater::AstraUpdater(QObject *parent) :
+	AstraUpdater("", parent)
 {}
 
-LuxUpdater::LuxUpdater(const QString &currentVersion, QObject *parent) :
+AstraUpdater::AstraUpdater(const QString &currentVersion, QObject *parent) :
 	QObject(parent),
-	d(new LuxUpdaterPrivate(this))
+	d(new AstraUpdaterPrivate(this))
 {
 	d->currentVersion = currentVersion;
 }
 
-LuxUpdater::~LuxUpdater() {}
+AstraUpdater::~AstraUpdater() {}
 
-bool LuxUpdater::exitedNormally() const
+bool AstraUpdater::exitedNormally() const
 {
 	return d->normalExit;
 }
 
-int LuxUpdater::errorCode() const
+int AstraUpdater::errorCode() const
 {
 	return d->lastErrorCode;
 }
 
-QByteArray LuxUpdater::errorLog() const
+QByteArray AstraUpdater::errorLog() const
 {
 	return d->lastErrorLog;
 }
 
-bool LuxUpdater::willRunOnExit() const
+bool AstraUpdater::willRunOnExit() const
 {
 	return d->runOnExit;
 }
 
-QString LuxUpdater::currentVersion() const
+QString AstraUpdater::currentVersion() const
 {
 	return d->currentVersion;
 }
 
-bool LuxUpdater::isRunning() const
+bool AstraUpdater::isRunning() const
 {
 	return isUpdaterRunning;
 }
 
-QList<LuxUpdater::LuxUpdateInfo> LuxUpdater::updateInfo() const
+QList<AstraUpdater::AstraUpdateInfo> AstraUpdater::updateInfo() const
 {
 	return d->updateInfos;
 }
 
-bool LuxUpdater::checkForUpdates()
+bool AstraUpdater::checkForUpdates()
 {
 	return d->startUpdateCheck();
 }
 
-void LuxUpdater::abortUpdateCheck(int maxDelay, bool async)
+void AstraUpdater::abortUpdateCheck(int maxDelay, bool async)
 {
 	d->stopUpdateCheck(maxDelay, async);
 }
 
-int LuxUpdater::scheduleUpdate(int delaySeconds, bool repeated)
+int AstraUpdater::scheduleUpdate(int delaySeconds, bool repeated)
 {
 	if((((qint64)delaySeconds) * 1000ll) > (qint64)INT_MAX) {
-		qCWarning(logLuxUpdater) << "delaySeconds to big to be converted to msecs";
+		qCWarning(logAstraUpdater) << "delaySeconds to big to be converted to msecs";
 		return 0;
 	}
 	return d->scheduler->startSchedule(delaySeconds * 1000, repeated);
 }
 
-int LuxUpdater::scheduleUpdate(const QDateTime &when)
+int AstraUpdater::scheduleUpdate(const QDateTime &when)
 {
 	return d->scheduler->startSchedule(when);
 }
 
-void LuxUpdater::cancelScheduledUpdate(int taskId)
+void AstraUpdater::cancelScheduledUpdate(int taskId)
 {
 	d->scheduler->cancelSchedule(taskId);
 }
 
-void LuxUpdater::runUpdaterOnExit(AdminAuthoriser *authoriser)
+void AstraUpdater::runUpdaterOnExit(AdminAuthoriser *authoriser)
 {
 	runUpdaterOnExit(NormalUpdateArguments, authoriser);
 }
 
-void LuxUpdater::runUpdaterOnExit(const QStringList &arguments, AdminAuthoriser *authoriser)
+void AstraUpdater::runUpdaterOnExit(const QStringList &arguments, AdminAuthoriser *authoriser)
 {
 	d->runOnExit = true;
 	d->runArguments = arguments;
 	d->adminAuth.reset(authoriser);
 }
 
-void LuxUpdater::cancelExitRun()
+void AstraUpdater::cancelExitRun()
 {
 	d->runOnExit = false;
 	d->adminAuth.reset();
@@ -109,25 +109,25 @@ void LuxUpdater::cancelExitRun()
 
 
 
-LuxUpdater::LuxUpdateInfo::LuxUpdateInfo() :
+AstraUpdater::AstraUpdateInfo::AstraUpdateInfo() :
 	name(),
 	version(),
 	size(0ull)
 {}
 
-LuxUpdater::LuxUpdateInfo::LuxUpdateInfo(const LuxUpdater::LuxUpdateInfo &other) :
+AstraUpdater::AstraUpdateInfo::AstraUpdateInfo(const AstraUpdater::AstraUpdateInfo &other) :
 	name(other.name),
 	version(other.version),
 	size(other.size)
 {}
 
-LuxUpdater::LuxUpdateInfo::LuxUpdateInfo(QString name, QString version, quint64 size) :
+AstraUpdater::AstraUpdateInfo::AstraUpdateInfo(QString name, QString version, quint64 size) :
 	name(name),
 	version(version),
 	size(size)
 {}
 
-QDebug &operator<<(QDebug &debug, const LuxUpdater::LuxUpdateInfo &info)
+QDebug &operator<<(QDebug &debug, const AstraUpdater::AstraUpdateInfo &info)
 {
 	QDebugStateSaver state(debug);
 	Q_UNUSED(state);

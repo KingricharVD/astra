@@ -75,13 +75,13 @@ contract LSRStandardToken is StandardToken {
     //LSRToken 0.1 standard.
     string public version = 'I0.1';
 
-    //fancy name: eg Luxcore
+    //fancy name: eg Astracore
     string public name;
 
     //How many decimals to show.
     uint8 public decimals;
 
-    //An identifier: eg LUX
+    //An identifier: eg ASTRA
     string public symbol;
 
     function LSRStandardToken(uint256 initialSupply, string tokenName, uint8 decimalUnits, string tokenSymbol) {
