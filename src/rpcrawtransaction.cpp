@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -198,7 +198,7 @@ UniValue getrawtransaction(const UniValue& params, bool fHelp)
             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"astraaddress\"        (string) astra address\n"
+            "           \"luxaddress\"        (string) lux address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -250,9 +250,9 @@ UniValue listunspent(const UniValue& params, bool fHelp)
             "\nArguments:\n"
             "1. minconf          (numeric, optional, default=1) The minimum confirmations to filter\n"
             "2. maxconf          (numeric, optional, default=9999999) The maximum confirmations to filter\n"
-            "3. \"addresses\"    (string) A json array of astra addresses to filter\n"
+            "3. \"addresses\"    (string) A json array of lux addresses to filter\n"
             "    [\n"
-            "      \"address\"   (string) astra address\n"
+            "      \"address\"   (string) lux address\n"
             "      ,...\n"
             "    ]\n"
             "\nResult\n"
@@ -260,7 +260,7 @@ UniValue listunspent(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"txid\" : \"txid\",        (string) the transaction id \n"
             "    \"vout\" : n,               (numeric) the vout value\n"
-            "    \"address\" : \"address\",  (string) the astra address\n"
+            "    \"address\" : \"address\",  (string) the lux address\n"
             "    \"account\" : \"account\",  (string) The associated account, or \"\" for the default account\n"
             "    \"scriptPubKey\" : \"key\", (string) the script key\n"
             "    \"amount\" : x.xxx,         (numeric) the transaction amount in btc\n"
@@ -364,7 +364,7 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
             "1. \"hexstring\"           (string, required) The hex string of the raw transaction\n"
             "2. options                 (object, optional)\n"
             "   {\n"
-            "     \"changeAddress\"          (string, optional, default pool address) The astra address to receive the change\n"
+            "     \"changeAddress\"          (string, optional, default pool address) The lux address to receive the change\n"
             "     \"changePosition\"         (numeric, optional, default random) The index of the change output\n"
             "     \"includeWatching\"        (boolean, optional, default false) Also select inputs which are watch only\n"
             "     \"lockUnspents\"           (boolean, optional, default false) Lock selected unspent outputs\n"
@@ -372,7 +372,7 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
             "     \"subtractFeeFromOutputs\" (array, optional) A json array of integers.\n"
             "                              The fee will be equally deducted from the amount of each specified output.\n"
             "                              The outputs are specified by their zero-based index, before any change output is added.\n"
-            "                              Those recipients will receive less astra than you enter in their corresponding amount field.\n"
+            "                              Those recipients will receive less lux than you enter in their corresponding amount field.\n"
             "                              If no outputs are specified here, the sender pays the fee.\n"
             "                                  [vout_index,...]\n"
             "   }\n"
@@ -437,7 +437,7 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
                 CTxDestination dest = DecodeDestination(options["changeAddress"].get_str());
 
                 if (!IsValidDestination(dest)) {
-                    throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "changeAddress must be a valid astra address");
+                    throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "changeAddress must be a valid lux address");
                 }
 
                 coinControl.destChange = dest;
@@ -529,12 +529,12 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
             "     ]\n"
             "2. \"outputs\"               (object, required) a json object with outputs\n"
             "    {\n"
-            "      \"address\": x.xxx,    (numeric or string, required) The key is the astra address, the numeric value (can be string) is the " + CURRENCY_UNIT + " amount\n"
+            "      \"address\": x.xxx,    (numeric or string, required) The key is the lux address, the numeric value (can be string) is the " + CURRENCY_UNIT + " amount\n"
             "      \"data\": \"hex\"      (string, required) The key is \"data\", the value is hex encoded data\n"
             "      \"contract\":{\n"
             "         \"contractAddress\":\"address\", (string, required) Valid contract address (valid hash160 hex data)\n"
             "         \"data\":\"hex\",                (string, required) Hex data to add in the call output\n"
-            "         \"amount\":x.xxx,                (numeric, optional) Value in ASTRA to send with the call, should be a valid amount, default 0\n"
+            "         \"amount\":x.xxx,                (numeric, optional) Value in LUX to send with the call, should be a valid amount, default 0\n"
             "         \"gasLimit\":x,                  (numeric, optional) The gas limit for the transaction\n"
             "         \"gasPrice\":x.xxx               (numeric, optional) The gas price for the transaction\n"
             "       } \n"
@@ -591,9 +591,9 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
 
             // Get dgp gas limit and gas price
             LOCK(cs_main);
-            AstraDGP astraDGP(globalState.get(), fGettingValuesDGP);
-            uint64_t blockGasLimit = astraDGP.getBlockGasLimit(chainActive.Height());
-            uint64_t minGasPrice = CAmount(astraDGP.getMinGasPrice(chainActive.Height()));
+            LuxDGP luxDGP(globalState.get(), fGettingValuesDGP);
+            uint64_t blockGasLimit = luxDGP.getBlockGasLimit(chainActive.Height());
+            uint64_t minGasPrice = CAmount(luxDGP.getMinGasPrice(chainActive.Height()));
             CAmount nGasPrice = (minGasPrice>DEFAULT_GAS_PRICE)?minGasPrice:DEFAULT_GAS_PRICE;
 
             // Get the contract address
@@ -656,7 +656,7 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
         } else {
             CTxDestination destination = DecodeDestination(name_);
             if (!IsValidDestination(destination)) {
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Astra address: ")+name_);
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Lux address: ")+name_);
             }
 
             if (!destinations.insert(destination).second) {
@@ -714,7 +714,7 @@ UniValue decoderawtransaction(const UniValue& params, bool fHelp)
             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc\"   (string) astra address\n"
+            "           \"12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc\"   (string) lux address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -756,7 +756,7 @@ UniValue decodescript(const UniValue& params, bool fHelp)
             "  \"type\":\"type\", (string) The output type\n"
             "  \"reqSigs\": n,    (numeric) The required signatures\n"
             "  \"addresses\": [   (json array of string)\n"
-            "     \"address\"     (string) astra address\n"
+            "     \"address\"     (string) lux address\n"
             "     ,...\n"
             "  ],\n"
             "  \"p2sh\",\"address\" (string) script address\n"
@@ -1097,7 +1097,7 @@ UniValue gethexaddress(const UniValue& params, bool fHelp) {
 
     CTxDestination address = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(address))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astracore address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Luxcore address");
 
     CKeyID *keyid = boost::get<CKeyID>(&address);
 
@@ -1131,7 +1131,7 @@ UniValue fromhexaddress(const UniValue& params, bool fHelp) {
     CKeyID keyid(key);
 
     if(!IsValidDestination(CTxDestination(keyid)))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astracore address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Luxcore address");
 
     return EncodeDestination(CTxDestination(keyid));
 }

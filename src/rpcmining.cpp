@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The ASTRA developers
+// Copyright (c) 2015-2017 The LUX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -107,7 +107,7 @@ UniValue getgenerate(const UniValue& params, bool fHelp)
         throw runtime_error(
             "getgenerate\n"
             "\nReturn if the server is set to generate coins or not. The default is false.\n"
-            "It is set with the command line argument -gen (or astra.conf setting gen)\n"
+            "It is set with the command line argument -gen (or lux.conf setting gen)\n"
             "It can also be set with the setgenerate call.\n"
             "\nResult\n"
             "true|false      (boolean) If the server is set to generate coins or not\n"
@@ -495,10 +495,10 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
     // because it is tested locally, without any nodes connected, and with significant amount of time between blocks
     if (Params().NetworkID() != CBaseChainParams::SEGWITTEST) {
         if (vNodes.empty())
-            throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "ASTRA is not connected!");
+            throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "LUX is not connected!");
 
         if (IsInitialBlockDownload())
-            throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "ASTRA is downloading blocks...");
+            throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "LUX is downloading blocks...");
     }
 
     static unsigned int nTransactionsUpdatedLast;
@@ -810,10 +810,10 @@ UniValue getwork(const UniValue& params, bool fHelp) {
     // because it is tested locally, without any nodes connected, and with significant amount of time between blocks
     if (Params().NetworkID() != CBaseChainParams::SEGWITTEST) {
          if (vNodes.empty())
-             throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Astra is not connected!");
+             throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Lux is not connected!");
 
          if (IsInitialBlockDownload())
-             throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Astra is downloading blocks...");
+             throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Lux is downloading blocks...");
     }
 
     if (chainActive.Height() >= Params().LAST_POW_BLOCK())

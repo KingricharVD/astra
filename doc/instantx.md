@@ -11,9 +11,9 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubrawtxlock`: publishes the raw transaction when locked via InstanTX
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via InstanTX
 
-This mechanism has been integrated into Bitcore-Node-ASTRA which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/ASTRA-Project/insight-api-astra#web-socket-api](https://github.com/ASTRA-Project/insight-api-astra#web-socket-api) 
-* API: [https://github.com/ASTRA-Project/insight-api-astra#instantx-transactions](https://github.com/ASTRA-Project/insight-api-astra#instantx-transactions)
+This mechanism has been integrated into Bitcore-Node-LUX which allows for notification to be broadcast through Insight API in one of two ways:
+* WebSocket: [https://github.com/LUX-Project/insight-api-lux#web-socket-api](https://github.com/LUX-Project/insight-api-lux#web-socket-api) 
+* API: [https://github.com/LUX-Project/insight-api-lux#instantx-transactions](https://github.com/LUX-Project/insight-api-lux#instantx-transactions)
 
 ####Command line option
 
@@ -27,13 +27,13 @@ When a wallet InstanTX transaction is successfully locked a shell command provid
 
 Details pertaining to an observed "Transaction Lock" can also be retrieved through RPC, it’s important however to understand the underlying mechanism.
 
-By default, the Astracore daemon will launch using the following constant:
+By default, the Luxcore daemon will launch using the following constant:
 
 ```
 static const int DEFAULT_INSTANTX_DEPTH = 5;
 ```
 
-This value can be overridden by passing the following argument to the Astracore daemon:
+This value can be overridden by passing the following argument to the Luxcore daemon:
 
 ```
 -instantxdepth=<n>

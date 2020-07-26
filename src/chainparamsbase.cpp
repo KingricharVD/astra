@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,7 +23,7 @@ public:
     CBaseMainParams()
     {
         networkID = CBaseChainParams::MAIN;
-        nRPCPort = 9878;
+        nRPCPort = 9888;
     }
 };
 static CBaseMainParams mainParams;
@@ -37,7 +37,7 @@ public:
     CBaseTestNetParams()
     {
         networkID = CBaseChainParams::TESTNET;
-        nRPCPort = 9747;
+        nRPCPort = 9777;
         strDataDir = "testnet4";
     }
 };
@@ -76,7 +76,7 @@ public:
     CBaseSegwitTestParams() {
         networkID = CBaseChainParams::SEGWITTEST;
         strDataDir = "segwittest";
-        nRPCPort = 9366;
+        nRPCPort = 9666;
     }
 };
 static CBaseSegwitTestParams segwitTestParams;

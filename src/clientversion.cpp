@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,10 +12,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both astrad and astra-qt, to make it harder for attackers to
+ * for both luxd and lux-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Astracore");
+const std::string CLIENT_NAME("Luxcore");
 
 /**
  * Client version number
@@ -46,8 +46,8 @@ const std::string CLIENT_NAME("Astracore");
 
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives.
 #ifdef GIT_ARCHIVE
-#define GIT_COMMIT_ID "356bf67e0"
-#define GIT_COMMIT_DATE "Sun, 12 Jul 2020 11:42:01 -1000"
+#define GIT_COMMIT_ID "$Format:%h$"
+#define GIT_COMMIT_DATE "$Format:%cD$"
 #endif
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix) \

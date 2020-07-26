@@ -1,4 +1,4 @@
-Quick Docker image for astrad
+Quick Docker image for luxd
 ---------------------------
 
 Build docker image:
@@ -9,41 +9,41 @@ Push docker image:
 
     docker/push.sh
 
-Pull astracore/astra:latest from docker hub  at [astra-dockerhub](https://hub.docker.com/r/astracore/astra/)
+Pull luxcore/lux:latest from docker hub  at [lux-dockerhub](https://hub.docker.com/r/luxcore/lux/)
 
-    sudo docker pull astracore/astra
+    sudo docker pull luxcore/lux
     
 Run docker image
 
-    sudo docker run astracore/astra
+    sudo docker run luxcore/lux
 
-Build docker for astrad
+Build docker for luxd
 ----------
-A Docker configuration with astrad node by default.
+A Docker configuration with luxd node by default.
 
     sudo apt install apt-transport-https ca-certificates curl software-properties-common; curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -; sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"; sudo apt-get update; sudo apt install docker-ce   
 ---------------------------------------------------        
     
-    mkdir astra-mounted-data
-    docker run --name astra -d \
-     --env 'ASTRA_RPCUSER=rpciser' \
-     --env 'ASTRA_RPCPASSWORD=rpcpassword' \
-     --env 'ASTRA_TXINDEX=1' \
-     --volume ~/astra-mounted-data:~/.astra \
+    mkdir lux-mounted-data
+    docker run --name lux -d \
+     --env 'LUX_RPCUSER=rpciser' \
+     --env 'LUX_RPCPASSWORD=rpcpassword' \
+     --env 'LUX_TXINDEX=1' \
+     --volume ~/lux-mounted-data:~/.lux \
      -p 9888:9888 \
      --publish 9888:9888 \
-     astracore/astra
+     luxcore/lux
 ----------------------------------------------------
 Logs
 
-    docker logs -f astra
+    docker logs -f lux
 
 ----------------------------------------------------
 
 ## Configuration
 
-Set your `astra.conf` file can be placed in the `astra-mounted data` dir.
-Otherwise, a default `astra.conf` file will be automatically generated based
+Set your `lux.conf` file can be placed in the `lux-mounted data` dir.
+Otherwise, a default `lux.conf` file will be automatically generated based
 on environment variables passed to the container:
 
 | name | default |
@@ -70,23 +70,23 @@ If you're daemonizing is to use Docker's
 but if you're insistent on using systemd, you could do something like
 
 ```
-$ cat /etc/systemd/system/astrad.service
+$ cat /etc/systemd/system/luxd.service
 
-# astrad.service #######################################################################
+# luxd.service #######################################################################
 [Unit]
-Description=Astra
+Description=Lux
 After=docker.service
 Requires=docker.service
 
 [Service]
-ExecStartPre=-/usr/bin/docker kill astra
-ExecStartPre=-/usr/bin/docker rm astra
-ExecStartPre=/usr/bin/docker pull astracore/astra
+ExecStartPre=-/usr/bin/docker kill lux
+ExecStartPre=-/usr/bin/docker rm lux
+ExecStartPre=/usr/bin/docker pull luxcore/lux
 ExecStart=/usr/bin/docker run \
-    --name astra \
+    --name lux \
     -p 9888:9888 \
     -p 9888:9888 \
-    -v /data/astrad:/root/.astra \
-    astracore/astra
-ExecStop=/usr/bin/docker stop astra
+    -v /data/luxd:/root/.lux \
+    luxcore/lux
+ExecStop=/usr/bin/docker stop lux
 ```

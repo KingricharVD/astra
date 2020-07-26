@@ -409,7 +409,7 @@ AC_DEFUN([_BITCOIN_QT_FIND_STATIC_PLUGINS],[
              BITCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}FbSupport],[main],,BITCOIN_QT_FAIL(lib$QT_LIB_PREFIXFbSupport not found)))
              BITCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}DeviceDiscoverySupport],[main],,BITCOIN_QT_FAIL(lib$QT_LIB_PREFIXDeviceDiscoverySupport not found)))
              BITCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}AccessibilitySupport],[main],,BITCOIN_QT_FAIL(lib$QT_LIB_PREFIXAccessibilitySupport not found)))
-             QT_LIBS="$QT_LIBS -lversion -ldwmapi -astratheme"
+             QT_LIBS="$QT_LIBS -lversion -ldwmapi -luxtheme"
            fi
          fi
        fi

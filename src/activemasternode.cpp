@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,7 +10,7 @@
 #include "clientversion.h"
 
 //
-// Bootup the masternode, look for a 20000 Astra input and register on the network
+// Bootup the masternode, look for a 16120 Lux input and register on the network
 //
 void CActiveMasternode::ManageStatus() {
     std::string errorMessage;
@@ -425,7 +425,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode() {
 
     // Filter
     for (const COutput& out : vCoins) {
-        if (out.tx->vout[out.i].nValue == GetMNCollateral(chainActive.Height()) * COIN) {  //exactly DARKSEND_COLLATERAL ASTRA
+        if (out.tx->vout[out.i].nValue == GetMNCollateral(chainActive.Height()) * COIN) {  //exactly DARKSEND_COLLATERAL LUX
             filteredCoins.push_back(out);
         }
     }
@@ -444,7 +444,7 @@ vector <COutput> CActiveMasternode::SelectCoinsMasternodeForPubKey(std::string c
 
     // Filter
     for (const COutput& out : vCoins) {
-        if (out.tx->vout[out.i].scriptPubKey == scriptPubKey && out.tx->vout[out.i].nValue == DARKSEND_COLLATERAL) { //exactly 161.200 ASTRA
+        if (out.tx->vout[out.i].scriptPubKey == scriptPubKey && out.tx->vout[out.i].nValue == DARKSEND_COLLATERAL) { //exactly 161.200 LUX
             filteredCoins.push_back(out);
         }
     }

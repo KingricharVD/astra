@@ -14,7 +14,7 @@ from decimal import Decimal
 
 from test_framework.blocktools import create_coinbase
 from test_framework.mininode import CBlock
-from test_framework.test_framework import AstraTestFramework
+from test_framework.test_framework import LuxTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 
 def b2x(b):
@@ -26,7 +26,7 @@ def assert_template(node, block, expect, rehash=True):
     rsp = node.getblocktemplate({'data': b2x(block.serialize()), 'mode': 'proposal'})
     assert_equal(rsp, expect)
 
-class MiningTest(AstraTestFramework):
+class MiningTest(LuxTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = False
@@ -119,7 +119,7 @@ class MiningTest(AstraTestFramework):
         bad_block.hashMerkleRoot += 1
         assert_template(node, bad_block, 'bad-txnmrklroot', False)
 
-        # These tests do not apply to astra since the timestamps are only checked for PoS blocks.
+        # These tests do not apply to lux since the timestamps are only checked for PoS blocks.
         #self.log.info("getblocktemplate: Test bad timestamps")
         #bad_block = copy.deepcopy(block)
         #bad_block.nTime = 2 ** 31 - 1

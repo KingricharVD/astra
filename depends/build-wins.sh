@@ -1,6 +1,6 @@
 #!/bin/sh
 #-###############################################-#
-# C++ Cross-Compiler - The Astracore Developer-2018 #
+# C++ Cross-Compiler - The Luxcore Developer-2018 #
 #-###############################################-#
 
 # Set platform variables
@@ -80,9 +80,9 @@ RELEASE="$OLD_PATH/Release"
 mkdir -p "$RELEASE"
 
 # Remove the symbols for release
-[ -f "./src/qt/astra-qt.exe" ] && cp "./src/qt/astra-qt.exe" "$RELEASE"
-[ -f "./src/astrad.exe" ] && cp "./src/astrad.exe" "$RELEASE"
-[ -f "./src/astra-cli.exe" ] && cp "./src/astra-cli.exe" "$RELEASE"
+[ -f "./src/qt/lux-qt.exe" ] && cp "./src/qt/lux-qt.exe" "$RELEASE"
+[ -f "./src/luxd.exe" ] && cp "./src/luxd.exe" "$RELEASE"
+[ -f "./src/lux-cli.exe" ] && cp "./src/lux-cli.exe" "$RELEASE"
 
 
 cd "$RELEASE"

@@ -1,23 +1,23 @@
 dnl require autoconf 2.60 (AS_ECHO/AS_ECHO_N)
 AC_PREREQ([2.60])
-define(_CLIENT_VERSION_MAJOR, 2)
-define(_CLIENT_VERSION_MINOR, 0)
-define(_CLIENT_VERSION_REVISION, 0)
+define(_CLIENT_VERSION_MAJOR, 5)
+define(_CLIENT_VERSION_MINOR, 3)
+define(_CLIENT_VERSION_REVISION, 3)
 define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2019)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Astracore]])
-AC_INIT([Astracore],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/astra-core/astra/issues],[astra],[https://astracore.io/])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Luxcore]])
+AC_INIT([Luxcore],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/lux-core/lux/issues],[lux],[https://luxcore.io/])
 AC_CONFIG_SRCDIR([src/main.cpp])
-AC_CONFIG_HEADERS([src/config/astra-config.h])
+AC_CONFIG_HEADERS([src/config/lux-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=astrad
-BITCOIN_GUI_NAME=astra-qt
-BITCOIN_CLI_NAME=astra-cli
-BITCOIN_TX_NAME=astra-tx
+BITCOIN_DAEMON_NAME=luxd
+BITCOIN_GUI_NAME=lux-qt
+BITCOIN_CLI_NAME=lux-cli
+BITCOIN_TX_NAME=lux-tx
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
@@ -27,9 +27,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef ASTRA_CONFIG_H])
-AH_TOP([#define ASTRA_CONFIG_H])
-AH_BOTTOM([#endif //ASTRA_CONFIG_H])
+AH_TOP([#ifndef LUX_CONFIG_H])
+AH_TOP([#define LUX_CONFIG_H])
+AH_BOTTOM([#endif //LUX_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -294,7 +294,7 @@ CPPFLAGS="$CPPFLAGS -DBOOST_SPIRIT_THREADSAFE -DHAVE_BUILD_INFO -D__STDC_FORMAT_
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build astra-cli astra-tx (default=yes)])],
+  [build lux-cli lux-tx (default=yes)])],
   [build_bitcoin_utils=$withval],
   [build_bitcoin_utils=yes])
 
@@ -306,7 +306,7 @@ AC_ARG_WITH([libs],
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build astrad daemon (default=yes)])],
+  [build luxd daemon (default=yes)])],
   [build_bitcoind=$withval],
   [build_bitcoind=yes])
 
@@ -453,13 +453,13 @@ case $host in
 esac
 
 if test x$TARGET_OS = xwindows; then
-	CPPFLAGS="-Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-deprecated -Wno-cpp $CPPFLAGS -DASTRA_BUILD"
+	CPPFLAGS="-Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-deprecated -Wno-cpp $CPPFLAGS -DLUX_BUILD"
 	CXXFLAGS="-Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-deprecated -Wno-cpp $CXXFLAGS"
 elif test x$TARGET_OS = xdarwin; then
-	CPPFLAGS="-Wno-inconsistent-missing-override -Wno-deprecated-declarations -Wno-unknown-pragmas -Wno-implicit-fallthrough $CPPFLAGS -DASTRA_BUILD"
+	CPPFLAGS="-Wno-inconsistent-missing-override -Wno-deprecated-declarations -Wno-unknown-pragmas -Wno-implicit-fallthrough $CPPFLAGS -DLUX_BUILD"
 	CXXFLAGS="-Wno-inconsistent-missing-override -Wno-deprecated-declarations -Wno-unknown-pragmas -Wno-implicit-fallthrough $CXXFLAGS"
 else
-	CPPFLAGS="-Wno-unknown-pragmas -Wno-deprecated -Wno-deprecated-declarations -Wno-cpp -Wno-implicit-fallthrough $CPPFLAGS -DASTRA_BUILD"
+	CPPFLAGS="-Wno-unknown-pragmas -Wno-deprecated -Wno-deprecated-declarations -Wno-cpp -Wno-implicit-fallthrough $CPPFLAGS -DLUX_BUILD"
 	CXXFLAGS="-Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-cpp $CXXFLAGS"
 fi
 
@@ -519,7 +519,7 @@ dnl Check for pthread compile/link requirements
 AX_PTHREAD
 INCLUDES="$INCLUDES $PTHREAD_CFLAGS"
 
-# The following macro will add the necessary defines to astra-config.h, but
+# The following macro will add the necessary defines to lux-config.h, but
 # they also need to be passed down to any subprojects. Pull the results out of
 # the cache and add them to CPPFLAGS.
 AC_SYS_LARGEFILE
@@ -1046,11 +1046,11 @@ AC_SUBST(UNIVALUE_LIBS)
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build astrad])
+AC_MSG_CHECKING([whether to build luxd])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (astra-cli astra-tx)])
+AC_MSG_CHECKING([whether to build utils (lux-cli lux-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
@@ -1170,7 +1170,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_astra-qt])
+  AC_MSG_CHECKING([whether to build test_lux-qt])
   if test x$use_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -1181,7 +1181,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_astra])
+AC_MSG_CHECKING([whether to build test_lux])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="test"

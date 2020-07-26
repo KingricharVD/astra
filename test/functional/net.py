@@ -9,7 +9,7 @@ Tests correspond to code in rpcnet.cpp.
 
 import time
 
-from test_framework.test_framework import AstraTestFramework
+from test_framework.test_framework import LuxTestFramework
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
@@ -17,7 +17,7 @@ from test_framework.util import (
     p2p_port,
 )
 
-class NetTest(AstraTestFramework):
+class NetTest(LuxTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

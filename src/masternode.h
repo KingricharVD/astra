@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef MASTERNODE_H
@@ -59,7 +59,7 @@ int CountMasternodesAboveProtocol(int protocolVersion);
 void ProcessMasternode(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, bool &isMasternodeCommand);
 
 //
-// The Masternode Class. For managing the darksend process. It contains the input of the 1000Astra, signature to prove
+// The Masternode Class. For managing the darksend process. It contains the input of the 1000Lux, signature to prove
 // it's the one who own that ip address and code for calculating the payment election.
 //
 class CMasterNode

@@ -2,7 +2,7 @@ NetBSD build guide
 ======================
 (updated for NetBSD 7.0)
 
-This guide describes how to build astrad and command-line utilities on NetBSD.
+This guide describes how to build luxd and command-line utilities on NetBSD.
 
 This guide does not contain instructions for building the GUI.
 
@@ -25,12 +25,12 @@ python27
 
 Download the source code:
 ```
-git clone https://github.com/ASTRA-Core/astra
+git clone https://github.com/LUX-Core/lux
 ```
 
 See [dependencies.md](dependencies.md) for a complete overview.
 
-### Building Astracore
+### Building Luxcore
 
 **Important**: Use `gmake` (the non-GNU `make` will exit with an error).
 

@@ -856,12 +856,12 @@ QDialog#HelpMessageDialog QScrollBar:vertical, QDialog#HelpMessageDialog QScroll
     border:0;
 }
 
-/* About Astra Dialog */
-QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About Astra Contents */
+/* About Lux Dialog */
+QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About Lux Contents */
     margin-left:10px;
 }
 
-QDialog#AboutDialog QLabel#label_2 { /* Margin for About Astra text */
+QDialog#AboutDialog QLabel#label_2 { /* Margin for About Lux text */
     margin-right:10px;
 }
 
@@ -1143,7 +1143,7 @@ QWidget .QFrame#frameDarksend .QPushButton#runAutoDenom { /* No idea why this bu
     qproperty-geometry: rect(0 0 0 0);
 }
 
-QWidget .QFrame#frameDarksend .QPushButton#toggleDarksend { /* Start Astrasend Mixing */
+QWidget .QFrame#frameDarksend .QPushButton#toggleDarksend { /* Start Luxsend Mixing */
     qproperty-geometry: rect(115 268 295 40);
     font-size:15px;
     font-weight:bold;

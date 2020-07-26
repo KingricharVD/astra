@@ -39,7 +39,7 @@ public:
 
 public slots:
     void updateNodeList();
-    void updateAstraNode(QString alias, QString addr, QString privkey, QString collateral);
+    void updateLuxNode(QString alias, QString addr, QString privkey, QString collateral);
     
 Q_SIGNALS:
 
@@ -48,7 +48,7 @@ private:
     Ui::MasternodeManager *ui;
     ClientModel *clientModel;
     WalletModel *walletModel;
-    CCriticalSection cs_astra;
+    CCriticalSection cs_lux;
     QString strCurrentFilter;
     int64_t nTimeFilterUpdated;
     bool fFilterUpdated;

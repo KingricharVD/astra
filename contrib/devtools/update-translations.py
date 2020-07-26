@@ -26,7 +26,7 @@ import xml.etree.ElementTree as ET
 # Name of transifex tool
 TX = 'tx'
 # Name of source language file
-SOURCE_LANG = 'astra_en.ts'
+SOURCE_LANG = 'lux_en.ts'
 # Directory with locale files
 LOCALE_DIR = 'src/qt/locale'
 # Minimum number of messages for translation to be considered at all

@@ -92,8 +92,8 @@ Darwin)
     brew -v > /dev/null 2>&1 || { echo >&2 "ERROR - cpp-ethereum requires a Homebrew install.  See http://brew.sh."; exit 1; }
 
     # And finally install all the external dependencies.
-    brew tap astraproject/homebrew-astra
-    brew reinstall astraproject/homebrew-astra/leveldb -s 
+    brew tap luxproject/homebrew-lux
+    brew reinstall luxproject/homebrew-lux/leveldb -s 
     brew install \
         libmicrohttpd \
         miniupnpc

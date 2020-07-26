@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/astra-config.h"
+#include "config/lux-config.h"
 #endif
 
 #include "amount.h"
@@ -20,7 +20,7 @@
 #include <QSystemTrayIcon>
 
 #ifdef ENABLE_UPDATER
-#include "astra-installer/src/updatecontroller.h"
+#include "lux-installer/src/updatecontroller.h"
 #endif
 
 class ClientModel;
@@ -97,7 +97,7 @@ private:
     WalletFrame* walletFrame;
 
 #ifdef ENABLE_UPDATER
-    QtAstraUpdater::UpdateController *controller;
+    QtLuxUpdater::UpdateController *controller;
 #endif
 
     UnitDisplayStatusBarControl* unitDisplayControl;

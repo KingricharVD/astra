@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Astracore developers
+// Copyright (c) 2015-2018 The Luxcore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -188,8 +188,8 @@ public:
     unsigned int nTime;
     unsigned int nBits;
     unsigned int nNonce;
-    uint256 hashStateRoot; // astra
-    uint256 hashUTXORoot; // astra
+    uint256 hashStateRoot; // lux
+    uint256 hashUTXORoot; // lux
 
     //! (memory only) Sequential id assigned to distinguish order in which blocks are received.
     uint32_t nSequenceId;
@@ -227,8 +227,8 @@ public:
         nTime = 0;
         nBits = 0;
         nNonce = 0;
-        hashStateRoot  = uint256(); // astra
-        hashUTXORoot   = uint256(); // astra
+        hashStateRoot  = uint256(); // lux
+        hashUTXORoot   = uint256(); // lux
     }
 
     CBlockIndex()
@@ -245,8 +245,8 @@ public:
         nTime = block.nTime;
         nBits = block.nBits;
         nNonce = block.nNonce;
-        hashStateRoot  = block.hashStateRoot; // astra
-        hashUTXORoot   = block.hashUTXORoot; // astra
+        hashStateRoot  = block.hashStateRoot; // lux
+        hashUTXORoot   = block.hashUTXORoot; // lux
 
         //Proof of Stake
         bnChainTrust = 0;
@@ -297,8 +297,8 @@ public:
         block.nTime = nTime;
         block.nBits = nBits;
         block.nNonce = nNonce;
-        block.hashStateRoot  = hashStateRoot; // astra
-        block.hashUTXORoot   = hashUTXORoot; // astra
+        block.hashStateRoot  = hashStateRoot; // lux
+        block.hashUTXORoot   = hashUTXORoot; // lux
         return block;
     }
 
@@ -484,8 +484,8 @@ public:
         //When it is fixed, this check should look like this
         //if(this->nVersion & VersionBitsMask(Params().GetConsensus(), Consensus::SMART_CONTRACTS_HARDFORK))
         if ((this->nVersion & (1 << 30)) != 0) {
-            READWRITE(hashStateRoot);       // astra
-            READWRITE(hashUTXORoot);        // astra
+            READWRITE(hashStateRoot);       // lux
+            READWRITE(hashUTXORoot);        // lux
         }
     }
 
@@ -498,8 +498,8 @@ public:
         block.nTime = nTime;
         block.nBits = nBits;
         block.nNonce = nNonce;
-        block.hashStateRoot   = hashStateRoot; // astra
-        block.hashUTXORoot    = hashUTXORoot; // astra
+        block.hashStateRoot   = hashStateRoot; // lux
+        block.hashUTXORoot    = hashUTXORoot; // lux
         return block.GetHash(nHeight >= Params().SwitchPhi2Block());
     }
 
