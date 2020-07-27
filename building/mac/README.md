@@ -1,18 +1,18 @@
 ### Building Astra OS X Qt Wallet
 
 1. Ensure you have git installed
-
+    
     ```shell
     brew install git
     ```
 2. Clone astra repository
-
+    
     ```shell
     git clone https://github.com/ASTRA-Core/astra
     ```
 
 3. Ensure mysql and boost installed.
-
+    
     ```shell
     brew install mysql boost
     ```
@@ -38,9 +38,10 @@
     ./building/mac/requirements.sh
     ./building/mac/build.sh
     ```
-
+    
 8. Create the `.dmg` file
 
     ```shell
     ./building/mac/dist.sh
     ```
+

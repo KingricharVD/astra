@@ -58,53 +58,41 @@ bool CheckProof(uint256 hash, unsigned int nBits)
 // + Contains no strange transactions
 // + Should be a PoW block with a low hash (higher difficulty, starts with a lot of zeros)
 static Checkpoints::MapCheckpoints mapCheckpoints = boost::assign::map_list_of
-    (       0, uint256("0x00000759bb3da130d7c9aedae170da8335f5a0d01a9007e4c8d3ccd08ace6a42") )
-    (     175, uint256("0x000000000002611e8e3c2e460e7fcd0a39ee210b9915fc76a5573a0704bb2b33") )
-    (    2241, uint256("0x69e2e47fb84085c4b82b6090f701c7ac03a4e510bd1f41cc072c33061cf83a0d") )
-    (    6901, uint256("0x0000000000034bab666179e364e0cce7c19eaa255f1e4afd2170356acfa1a3ac") )
-    (   97176, uint256("0x000000000004e4aac7926e7dbd778f21b15b62f0e4c1d424ac9e5a9889c1724a") )
-    (  203690, uint256("0x00000000000180e78502c3c952f00bf8bba2bc9ffef60e7188c8763582f26ef4") )
-    (  303112, uint256("0x0000000000026621b448ad1288a7f9762e78a0ef5ab87fcbc016cddc3ded4356") )
-    (  350095, uint256("0x000000000007726c464bbdb9bcffc3baf044333f88b79882aa0aefcbe6f0f881") )
-    (  410000, uint256("0x000000000008d3f413fdad9d3bf3403d4ea78a7ba94eaf442593ffc4535d4f3d") )
-    (  520000, uint256("0x0000000000005f31a949ac51bacd2dff29aa4df5892f5fc4dd3580d6f8dfe079") )
-    (  621950, uint256("0x000000000009fa3ac44eaf8bb925e6f64aa5ceff8ae775748babda89e278222a") )
-    (  733000, uint256("0x0000000000086dd3f294d990c326814b8f2d77fa0d789483941d48b3eee20c74") )
-    (  828281, uint256("0x000000000005af3236a72266831b2389ff6faf7709e2e342b292dd747d3068fc") )
-;
+    (       0, uint256("0x00000ccb59f25c293d40f2b4a3032ce28536d79c2d25c1cde119688aa0c0c1b4") );
+
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1563986787, // * UNIX timestamp of last checkpoint block
-    1530692,    // * total number of transactions between genesis and last checkpoint
+    1594699017, // * UNIX timestamp of last checkpoint block
+    2862573,    // * total number of transactions between genesis and last checkpoint
     //               (the tx=... number in UpdateTip debug.log lines)
-    2347.797395 // * estimated number of transactions per day after checkpoint
+    2350 // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0"));
+    boost::assign::map_list_of(0, uint256("0x00000a8aad6f63a67578d5b8b1f521dd730867f4ce6b089c9e324016fa993b6b"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    0,
-    0,
+    1594699059,
+    7852759,
     0
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0"));
+    boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    0,
+    1594699123,
     0,
     0
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsSegWittest =
-        boost::assign::map_list_of(0, uint256("0"));
+        boost::assign::map_list_of(0, uint256("0x0000041515df9f68cf04df48f1e00544133fe30918f4f4599448638ece0c2385"));
 static const Checkpoints::CCheckpointData dataSegwittest = {
         &mapCheckpointsSegWittest,
-        0,
-        0,
+        1594699196,
+        793370,
         0
 };
 
@@ -148,9 +136,9 @@ public:
         nPruneAfterHeight = 300000;
         nSplitRewardBlock = 300000;
         nPreminePaymentandHardForkBlock = 621950;
-        
+
         /** Devfee vars */
-        
+
         nStartDevfeeBlock = 828100; //Starting block
 
         /**
@@ -158,19 +146,19 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x6a;
-        pchMessageStart[1] = 0xb3;
-        pchMessageStart[2] = 0xc8;
-        pchMessageStart[3] = 0xa9;
+        pchMessageStart[0] = 0x7b;
+        pchMessageStart[1] = 0xc5;
+        pchMessageStart[2] = 0xa3;
+        pchMessageStart[3] = 0xd7;
         vAlertPubKey = ParseHex("042d13c016ed91528241bcff222989769417eb10cdb679228c91e26e26900eb9fd053cd9f16a9a2894ad5ebbd551be1a4bd23bd55023679be17f0bd3a16e6fbeba");
-        nDefaultPort = 26969;
+        nDefaultPort = 1939;
         nMaxReorganizationDepth = 100;
         nMinerThreads = 0;
         nMaturity = 79;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
 
-        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybird - Parallel Masternode - ThankYou - 216k155"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybird - Parallel Masternode - ThankYou"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
         txNew.nTime = 1507656633;
@@ -184,23 +172,25 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
         genesis.nVersion = 1;
-        genesis.nTime = 1507656633; //10/10/2017
+        genesis.nTime = 1594699017; //
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 986946;
-        genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // astra
-        genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // astra
+        genesis.nNonce = 2862573;
+       genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // astra
+       genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // astra
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256("0x00000759bb3da130d7c9aedae170da8335f5a0d01a9007e4c8d3ccd08ace6a42"));
-        assert(genesis.hashMerkleRoot == uint256("0xe08ae0cfc35a1d70e6764f347fdc54355206adeb382446dd54c32cd0201000d3"));
+        assert(consensus.hashGenesisBlock == uint256("0x00000ccb59f25c293d40f2b4a3032ce28536d79c2d25c1cde119688aa0c0c1b4"));
+        assert(genesis.hashMerkleRoot == uint256("0xe7883a57a75c3f0a9d216c085cadf2a9998405ddb9c73839dc51a01a3cff38790"));
 
         ////////////////////////////////////////////////////////////////////////////////////////////////
-        vSeeds.push_back(CDNSSeedData("Seed1", "seed.astracore.tech"));       // ASTRA seeder
-        vSeeds.push_back(CDNSSeedData("Seed2", "seed.astraseeds.nl"));        // ASTRA seeder
-        vSeeds.push_back(CDNSSeedData("Seed3", "astra.yiimp.eu"));            // ASTRA seeder with IPv6
+        vFixedSeeds.clear();
+        vSeeds.clear();
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // ASTRA address start with 'L'
+      //  vSeeds.push_back(CDNSSeedData("Seed1", ""));       // ASTRA seednode
+      //  vSeeds.push_back(CDNSSeedData("Seed2", ""));        // ASTRA seednode
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,787786); // ASTRA address start with 'astc'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63); // ASTRA script addresses start with 'S'
         base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1,155);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x07)(0x28)(0xA2)(0x4E).convert_to_container<std::vector<unsigned char> >();
@@ -209,7 +199,7 @@ public:
         // ASTRA BIP44 coin type is '3003'
         nExtCoinType = 3003;
 
-        bech32_hrp = "bc";
+        bech32_hrp = "astc";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
         vDevfeeAddress = "Laqt6GdG615kHonGcp3mkH2KMP4WZwsZhQ";
@@ -280,12 +270,12 @@ public:
 
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0x54;
-        pchMessageStart[1] = 0x67;
-        pchMessageStart[2] = 0x51;
-        pchMessageStart[3] = 0xab;
+        pchMessageStart[0] = 0x22;
+        pchMessageStart[1] = 0x39;
+        pchMessageStart[2] = 0xe8;
+        pchMessageStart[3] = 0xc9;
         vAlertPubKey = ParseHex("000010e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9");
-        nDefaultPort = 28333;
+        nDefaultPort = 13767;
         nMinerThreads = 0;
         nMaturity = 10;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
@@ -306,9 +296,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
         genesis.nVersion = 1;
-        genesis.nTime = 1528954643; // 14 June 2018 @ 5:37am (UTC)
+        genesis.nTime = 1594699059; //
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 7170961;
+        genesis.nNonce = 7852759;
         genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // astra
         genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // astra
 
@@ -328,15 +318,15 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256("0x00000b773a72afd051c6fe34c6d9c8e1ba78b1556263c807a1ca7d7a200cda82"));
-        assert(genesis.hashMerkleRoot == uint256("0xd158bc48409667ffc5c66829d53aa6d1f241ce4984f54d8685b16d234ef78b3f"));
+       assert(consensus.hashGenesisBlock == uint256("0x00000a8aad6f63a67578d5b8b1f521dd730867f4ce6b089c9e324016fa993b6b"));
+       assert(genesis.hashMerkleRoot == uint256("0xf9dc5252f031d2cd928d449e7211cf87c3554ff06e50175e6eca7a871ec6121e"));
 
-        //vFixedSeeds.clear();
-        //vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("51.15.76.137", "51.15.76.137"));
-        vSeeds.push_back(CDNSSeedData("89.3.178.185", "89.3.178.185"));
+        vFixedSeeds.clear();
+        vSeeds.clear();
+        // vSeeds.push_back(CDNSSeedData("Seed1", ""));       // ASTRA seednode
+      //  vSeeds.push_back(CDNSSeedData("Seed2", ""));        // ASTRA seednode
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48); // Testnet astra addresses start with 'l'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 755018); // Testnet astra addresses start with 'astb'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 63);  // Testnet astra script addresses start with 'S'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 155);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         // Testnet astra BIP32 pubkeys start with 'DRKV'
@@ -346,7 +336,7 @@ public:
         // Testnet astra BIP44 coin type is '1' (All coin's testnet default)
         // ASTRA BIP44 coin type is '1'
         nExtCoinType = 1;
-        bech32_hrp = "tb";
+        bech32_hrp = "astb";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
         fMiningRequiresPeers = true;
@@ -411,19 +401,20 @@ public:
         nFirstSCBlock = 350000;
         nSplitRewardBlock = 50;
 
-        pchMessageStart[0] = 0xa1;
-        pchMessageStart[1] = 0xcf;
-        pchMessageStart[2] = 0x7e;
-        pchMessageStart[3] = 0xac;
+        pchMessageStart[0] = 0xd4;
+        pchMessageStart[1] = 0xaf;
+        pchMessageStart[2] = 0x9e;
+        pchMessageStart[3] = 0xaf;
         nMinerThreads = 1;
         nMaturity = 2;
         genesis.nTime = 1454124731;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 1;
-
+        nDefaultPort = 51376;
         consensus.hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 51476;
-//        assert(hashGenesisBlock == uint256("0"));
+
+      //  assert(consensus.hashGenesisBlock == uint256("0x00000ccb59f25c293d40f2b4a3032ce28536d79c2d25c1cde119688aa0c0c1b4"));
+    //    assert(genesis.hashMerkleRoot == uint256("0xe7883a57a75c3f0a9d216c085cadf2a9998405ddb9c73839dc51a01a3cff38790"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
@@ -451,7 +442,7 @@ public:
     {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 51478;
+        nDefaultPort = 51488;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Unit test mode doesn't have any DNS seeds.
 
@@ -513,12 +504,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xf9;
-        pchMessageStart[1] = 0x73;
-        pchMessageStart[2] = 0xc9;
-        pchMessageStart[3] = 0xa7;
+        pchMessageStart[0] = 0xe9;
+        pchMessageStart[1] = 0x7e;
+        pchMessageStart[2] = 0xa9;
+        pchMessageStart[3] = 0xa3;
         vAlertPubKey = ParseHex("042d13c016ed91528241bcff222989769417eb10cdb679228c91e26e26900eb9fd053cd9f16a9a2894ad5ebbd551be1a4bd23bd55023679be17f0bd3a16e6fbeba");
-        nDefaultPort = 25666;
+        nDefaultPort = 25676;
         nMaxReorganizationDepth = 100;
         nMinerThreads = 0;
         nMaturity = 5;
@@ -526,7 +517,7 @@ public:
         nModifierUpdateBlock = 615800;
         bech32_hrp = "bcst";
 
-        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybrid - Parallel Masternode - ThankYou - 216k155"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Astra - Implemented New PHI Algo PoW/PoS Hybrid - Parallel Masternode - ThankYou"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
         txNew.nTime = 1524645689;
@@ -542,9 +533,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
         genesis.nVersion = 1;
-        genesis.nTime = 1524645689;
+        genesis.nTime = 1594699196;
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 729147;
+        genesis.nNonce = 793370;
 
         /*while (!CheckProof(genesis.GetHash(), genesis.nBits)) {
             genesis.nNonce ++;
@@ -555,9 +546,11 @@ public:
         std::cout << genesis.hashMerkleRoot.GetHex() << std::endl;*/
 
         consensus.hashGenesisBlock = genesis.GetHash();
+            vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
+        vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
 
-        assert(consensus.hashGenesisBlock == uint256("0x00000a1a2a728145f14f873037b5f4188c1b36d20f8187d329e412b97cdbaabf"));
-        assert(genesis.hashMerkleRoot == uint256("0xb35719fbe3e4d52f06d791e938de406d48defadb83beeb1fdd10c7ef52a481c2"));
+      assert(consensus.hashGenesisBlock == uint256("0x0000041515df9f68cf04df48f1e00544133fe30918f4f4599448638ece0c2385"));
+      assert(genesis.hashMerkleRoot == uint256("0x4b40891137e176182253f7ad386b83c24721f02c0e6df1ec2eae7e38c62112c4"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // ASTRA Start letter L
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,64);
@@ -573,7 +566,8 @@ public:
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
         fHeadersFirstSyncingActive = false;
-
+        vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
+                vSeeds.clear();      //! Regtest mode doesn't have any DNS seeds.
         nPoolMaxTransactions = 3;
         strSporkKey = "04a983220ea7a38a7106385003fef77896538a382a0dcc389cc45f3c98751d9af423a097789757556259351198a8aaa628a1fd644c3232678c5845384c744ff8d7";
 

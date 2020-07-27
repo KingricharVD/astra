@@ -46,8 +46,8 @@ const std::string CLIENT_NAME("Astracore");
 
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives.
 #ifdef GIT_ARCHIVE
-#define GIT_COMMIT_ID "$Format:%h$"
-#define GIT_COMMIT_DATE "$Format:%cD$"
+#define GIT_COMMIT_ID "356bf67e0"
+#define GIT_COMMIT_DATE "Sun, 12 Jul 2020 11:42:01 -1000"
 #endif
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix) \

@@ -94,7 +94,7 @@ struct CNodeStateStats;
 #define WORKING_VERSION "/Astracore:5.3.0/"
 #endif
 
-static const int64_t DARKSEND_COLLATERAL = (16120*COIN); //16120 ASTRA
+static const int64_t DARKSEND_COLLATERAL = (20000*COIN); //20000 ASTRA
 static const int64_t DARKSEND_FEE = (0.002*COIN); // reward masternode
 static const int64_t DARKSEND_POOL_MAX = (1999999.99*COIN);
 
@@ -202,7 +202,7 @@ void updateBlockSizeParams(unsigned int newBlockSize);
 inline bool IsProtocolV2(int nHeight) { return IsTestNet() || nHeight > 0; }
 inline int64_t GetMNCollateral(int nHeight) {
     if (IsTestNet() || Params().NetworkID() == CBaseChainParams::SEGWITTEST || Params().NetworkID() == CBaseChainParams::REGTEST) return 50;
-    return nHeight>=30000 ? 16120 : 1999999;
+    return nHeight>=30000 ? 20000 : 1999999;
 }
 
 struct BlockHasher {

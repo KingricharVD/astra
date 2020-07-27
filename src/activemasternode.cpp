@@ -10,7 +10,7 @@
 #include "clientversion.h"
 
 //
-// Bootup the masternode, look for a 16120 Astra input and register on the network
+// Bootup the masternode, look for a 20000 Astra input and register on the network
 //
 void CActiveMasternode::ManageStatus() {
     std::string errorMessage;

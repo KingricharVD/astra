@@ -3,8 +3,8 @@ dist: trusty
 
 addons:
   hosts:
-    - astra-tester
-  hostname: astra-tester
+    - lux-tester
+  hostname: lux-tester
 
 git:
   submodules: false
@@ -37,11 +37,11 @@ env:
 # ARM
     - HOST=arm-linux-gnueabihf PACKAGES="g++-arm-linux-gnueabihf libprotobuf-dev protobuf-compiler libqrencode-dev" CHECK_DOC=0 GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat --enable-reduce-exports --disable-tests --disable-zmq --disable-updater"
 # Win32
-#   - HOST=i686-w64-mingw32 DPKG_ADD_ARCH="i386" PACKAGES="nsis wine1.6 cmake libevent-dev libminiupnpc-dev libzmq3-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev g++-mingw-w64-i686 mingw-w64-i686-dev libqrencode-dev qttools5-dev-tools qttools5-dev qtbase5-dev libprotobuf-dev -y" RUN_TESTS=false BITCOIN_CONFIG="--with-gui=qt5 --disable-shared --enable-reduce-exports --disable-updater" GOAL="src/qt/astra-qt.exe"
+#   - HOST=i686-w64-mingw32 DPKG_ADD_ARCH="i386" PACKAGES="nsis wine1.6 cmake libevent-dev libminiupnpc-dev libzmq3-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev g++-mingw-w64-i686 mingw-w64-i686-dev libqrencode-dev qttools5-dev-tools qttools5-dev qtbase5-dev libprotobuf-dev -y" RUN_TESTS=false BITCOIN_CONFIG="--with-gui=qt5 --disable-shared --enable-reduce-exports --disable-updater" GOAL="src/qt/lux-qt.exe"
     - HOST=i686-w64-mingw32 DPKG_ADD_ARCH="i386" DEP_OPTS="NO_QT=0" PACKAGES="nsis wine1.6 cmake g++-mingw-w64-x86-64 mingw-w64-x86-64-dev g++-mingw-w64-i686 mingw-w64-i686-dev -y" RUN_TESTS=false BITCOIN_CONFIG="--enable-reduce-exports --disable-zmq --without-miniupnpc --disable-updater" GOAL="install"
 # Cross-Mac
-#   - HOST=x86_64-apple-darwin14 PPA="ppa:bitcoin/bitcoin" PACKAGES="cmake libcap-dev librsvg2-bin libz-dev libtiff-tools python3-setuptools-git" BITCOIN_CONFIG="--with-gui=qt5 --enable-reduce-exports --disable-tests --disable-zmq --disable-updater" OSX_SDK=10.11 GOAL="src/qt/astra-qt"
-    - HOST=x86_64-apple-darwin14 PPA="ppa:bitcoin/bitcoin" DEP_OPTS="NO_QT=1" PACKAGES="cmake libcap-dev librsvg2-bin libz-dev libtiff-tools" BITCOIN_CONFIG="--without-gui --enable-reduce-exports --disable-tests --disable-zmq --disable-updater" OSX_SDK=10.11 GOAL="src/astrad"
+#   - HOST=x86_64-apple-darwin14 PPA="ppa:bitcoin/bitcoin" PACKAGES="cmake libcap-dev librsvg2-bin libz-dev libtiff-tools python3-setuptools-git" BITCOIN_CONFIG="--with-gui=qt5 --enable-reduce-exports --disable-tests --disable-zmq --disable-updater" OSX_SDK=10.11 GOAL="src/qt/lux-qt"
+    - HOST=x86_64-apple-darwin14 PPA="ppa:bitcoin/bitcoin" DEP_OPTS="NO_QT=1" PACKAGES="cmake libcap-dev librsvg2-bin libz-dev libtiff-tools" BITCOIN_CONFIG="--without-gui --enable-reduce-exports --disable-tests --disable-zmq --disable-updater" OSX_SDK=10.11 GOAL="src/luxd"
 
 before_install:
     - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
@@ -58,7 +58,7 @@ before_script:
     - if [ -n "$OSX_SDK" -a -f depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz ]; then tar -C depends/SDKs -xf depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz; fi
     - make $MAKEJOBS -C depends HOST=$HOST $DEP_OPTS
 
-
+  
 script:
     - export TRAVIS_COMMIT_LOG=`git log --format=fuller -1`
     - if [ -n "$USE_SHELL" ]; then export CONFIG_SHELL="$USE_SHELL"; fi
