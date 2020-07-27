@@ -17,7 +17,7 @@
 #include "util.h"
 #include <utilstrencodings.h>
 
-#include "test/test_lux.cpp"
+#include "test/test_astra.cpp"
 #include "../miner.h"
 
 #include <boost/test/unit_test.hpp>

@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Lux
-Comment=Lux P2P Cryptocurrency
-Exec=lux-qt %u
+Name=Astra
+Comment=Astra P2P Cryptocurrency
+Exec=astra-qt %u
 Terminal=false
 Type=Application
-Icon=lux128
-MimeType=x-scheme-handler/lux;
+Icon=astra128
+MimeType=x-scheme-handler/astra;
 Categories=Office;Finance;
-Name[en_AU]=Lux
+Name[en_AU]=Astra

@@ -1,5 +1,5 @@
-// Copyright (c) 2018 The Luxcore Developer
-// Copyright (c) 2018 The Luxcore Developer
+// Copyright (c) 2018 The Astracore Developer
+// Copyright (c) 2018 The Astracore Developer
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -150,7 +150,7 @@ public Q_SLOTS:
     /** User has requested more information about the out of sync state */
     void requestedSyncWarningInfo();
 
-    /** Update selected LUX amount from transactionview */
+    /** Update selected ASTRA amount from transactionview */
     void trxAmount(QString amount);
 
 signals:

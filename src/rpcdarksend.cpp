@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The Luxcore developers
+// Copyright (c) 2015-2018 The Astracore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -38,7 +38,7 @@ void SendMoney(const CTxDestination& address, CAmount nValue, CWalletTx& wtxNew,
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
     }
 
-    // Parse Lux address
+    // Parse Astra address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -62,8 +62,8 @@ void SendMoney(const CTxDestination& address, CAmount nValue, CWalletTx& wtxNew,
 UniValue darksend(const UniValue& params, bool fHelp) {
     if (fHelp || params.size() == 0)
         throw runtime_error(
-            "darksend <Luxaddress> <amount>\n"
-            "Luxaddress, reset, or auto (AutoDenominate)"
+            "darksend <Astraaddress> <amount>\n"
+            "Astraaddress, reset, or auto (AutoDenominate)"
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
@@ -86,14 +86,14 @@ UniValue darksend(const UniValue& params, bool fHelp) {
 
     if (params.size() != 2)
         throw runtime_error(
-            "darksend <Luxaddress> <amount>\n"
-            "Luxaddress, denominate, or auto (AutoDenominate)"
+            "darksend <Astraaddress> <amount>\n"
+            "Astraaddress, denominate, or auto (AutoDenominate)"
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Lux address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Astra address");
 
     // Amount
     int64_t nAmount = AmountFromValue(params[1]);

@@ -60,7 +60,7 @@
                <cursorShape>WhatsThisCursor</cursorShape>
               </property>
               <property name="toolTip">
-               <string>The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</string>
+               <string>The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QLabel { color: red; }</string>
@@ -464,7 +464,7 @@
            <item row="2" column="0">
             <widget class="QLabel" name="labelAnonymizedText">
              <property name="text">
-              <string>Luxsend Balance:</string>
+              <string>Astrasend Balance:</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -480,7 +480,7 @@
               </font>
              </property>
              <property name="text">
-              <string notr="true">0 LUX</string>
+              <string notr="true">0 ASTRA</string>
              </property>
             </widget>
            </item>
@@ -497,7 +497,7 @@
            <item row="3" column="1">
             <widget class="QLabel" name="labelAmountRounds">
              <property name="text">
-              <string>0 LUX / 0 Rounds</string>
+              <string>0 ASTRA / 0 Rounds</string>
              </property>
             </widget>
            </item>
@@ -1033,7 +1033,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Try to manually submit a Luxsend request.</string>
+           <string>Try to manually submit a Astrasend request.</string>
           </property>
           <property name="text">
            <string>Try Mix</string>
@@ -1055,7 +1055,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Reset the current status of Luxsend (can interrupt Luxsend if it's in the process of Mixing, which can cost you money!)</string>
+           <string>Reset the current status of Astrasend (can interrupt Astrasend if it's in the process of Mixing, which can cost you money!)</string>
           </property>
           <property name="autoFillBackground">
            <bool>false</bool>
@@ -1083,14 +1083,14 @@
               </font>
              </property>
              <property name="text">
-              <string>Luxsend</string>
+              <string>Astrasend</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="labelDarksendSyncStatus">
              <property name="toolTip">
-              <string>The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</string>
+              <string>The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</string>
              </property>
              <property name="styleSheet">
               <string notr="true">QLabel { color: red; }</string>
@@ -1236,7 +1236,7 @@
                 <cursorShape>WhatsThisCursor</cursorShape>
                </property>
                <property name="toolTip">
-                <string>The displayed information may be out of date. Your wallet automatically synchronizes with the LUX network after a connection is established, but this process has not completed yet.</string>
+                <string>The displayed information may be out of date. Your wallet automatically synchronizes with the ASTRA network after a connection is established, but this process has not completed yet.</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">QLabel { color: red; }</string>

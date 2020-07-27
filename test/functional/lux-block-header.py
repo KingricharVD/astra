@@ -9,7 +9,7 @@ from test_framework.comptool import TestManager, TestInstance, RejectResult
 from test_framework.blocktools import *
 from test_framework.mininode import *
 from test_framework.address import *
-from test_framework.lux import *
+from test_framework.astra import *
 import time
 from test_framework.key import CECKey
 from test_framework.script import *
@@ -24,7 +24,7 @@ def find_unspent(node, amount):
     assert(False)
 
 
-class LuxBlockHeaderTest(ComparisonTestFramework):
+class AstraBlockHeaderTest(ComparisonTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.tip = None
@@ -81,7 +81,7 @@ class LuxBlockHeaderTest(ComparisonTestFramework):
                 function() payable {}
             }
         """
-        tx_hex = node.createcontract("60606040523415600b57fe5b5b60398060196000396000f30060606040525b600b5b5b565b0000a165627a7a72305820693c4900c412f72a51f8c01a36d38d9038d822d953faf5a5b28e40ec6e1a25020029", 1000000, LUX_MIN_GAS_PRICE_STR, spendable_addresses.pop(-1), False)['raw transaction']
+        tx_hex = node.createcontract("60606040523415600b57fe5b5b60398060196000396000f30060606040525b600b5b5b565b0000a165627a7a72305820693c4900c412f72a51f8c01a36d38d9038d822d953faf5a5b28e40ec6e1a25020029", 1000000, ASTRA_MIN_GAS_PRICE_STR, spendable_addresses.pop(-1), False)['raw transaction']
         f = io.BytesIO(hex_str_to_bytes(tx_hex))
         tx = CTransaction()
         tx.deserialize(f)
@@ -120,7 +120,7 @@ class LuxBlockHeaderTest(ComparisonTestFramework):
 
 
         # A block with a tx, but without updated state hashes
-        tx_hex = node.sendtocontract(contract_address, "00", 1, 100000, LUX_MIN_GAS_PRICE_STR, spendable_addresses.pop(-1), False)['raw transaction']
+        tx_hex = node.sendtocontract(contract_address, "00", 1, 100000, ASTRA_MIN_GAS_PRICE_STR, spendable_addresses.pop(-1), False)['raw transaction']
         f = io.BytesIO(hex_str_to_bytes(tx_hex))
         tx = CTransaction()
         tx.deserialize(f)
@@ -167,4 +167,4 @@ class LuxBlockHeaderTest(ComparisonTestFramework):
 
 
 if __name__ == '__main__':
-    LuxBlockHeaderTest().main()
+    AstraBlockHeaderTest().main()

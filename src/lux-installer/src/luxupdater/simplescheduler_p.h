@@ -1,5 +1,5 @@
-#ifndef LUXUPDATER_SIMPLESCHEDULER_P_H
-#define LUXUPDATER_SIMPLESCHEDULER_P_H
+#ifndef ASTRAUPDATER_SIMPLESCHEDULER_P_H
+#define ASTRAUPDATER_SIMPLESCHEDULER_P_H
 
 #include <QtCore/QObject>
 #include <QtCore/QVariant>
@@ -7,7 +7,7 @@
 #include <QtCore/QPair>
 #include <QtCore/QHash>
 
-namespace QtLuxUpdater {
+namespace QtAstraUpdater {
 
 class SimpleScheduler : public QObject
 {
@@ -35,4 +35,4 @@ private:
 
 }
 
-#endif // LUXUPDATER_SIMPLESCHEDULER_P_H
+#endif // ASTRAUPDATER_SIMPLESCHEDULER_P_H

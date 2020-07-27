@@ -6,7 +6,7 @@
 #include <crypto/ripemd160.h>
 #include <uint256.h>
 #include <primitives/transaction.h>
-#include <lux/luxtransaction.h>
+#include <astra/astratransaction.h>
 
 #include <libethereum/Executive.h>
 #include <libethcore/SealEngine.h>
@@ -37,7 +37,7 @@ struct ResultExecute{
     CTransaction tx;
 };
 
-namespace lux{
+namespace astra{
     template <class DB>
     dev::AddressHash commit(std::unordered_map<dev::Address, Vin> const& _cache, dev::eth::SecureTrieDB<dev::Address, DB>& _state, std::unordered_map<dev::Address, dev::eth::Account> const& _cacheAcc)
     {
@@ -58,15 +58,15 @@ namespace lux{
 
 class CondensingTX;
 
-class LuxState : public dev::eth::State {
+class AstraState : public dev::eth::State {
     
 public:
 
-    LuxState();
+    AstraState();
 
-    LuxState(dev::u256 const& _accountStartNonce, dev::OverlayDB const& _db, const std::string& _path, dev::eth::BaseState _bs = dev::eth::BaseState::PreExisting);
+    AstraState(dev::u256 const& _accountStartNonce, dev::OverlayDB const& _db, const std::string& _path, dev::eth::BaseState _bs = dev::eth::BaseState::PreExisting);
 
-    ResultExecute execute(dev::eth::EnvInfo const& _envInfo, dev::eth::SealEngineFace const& _sealEngine, LuxTransaction const& _t, dev::eth::Permanence _p = dev::eth::Permanence::Committed, dev::eth::OnOpFunc const& _onOp = OnOpFunc());
+    ResultExecute execute(dev::eth::EnvInfo const& _envInfo, dev::eth::SealEngineFace const& _sealEngine, AstraTransaction const& _t, dev::eth::Permanence _p = dev::eth::Permanence::Committed, dev::eth::OnOpFunc const& _onOp = OnOpFunc());
 
     void setRootUTXO(dev::h256 const& _r) { cacheUTXO.clear(); stateUTXO.setRoot(_r); }
 
@@ -80,9 +80,9 @@ public:
 
     dev::OverlayDB& dbUtxo() { return dbUTXO; }
 
-    static const dev::Address createLuxAddress(dev::h256 hashTx, uint32_t voutNumber);
+    static const dev::Address createAstraAddress(dev::h256 hashTx, uint32_t voutNumber);
 
-    virtual ~LuxState(){}
+    virtual ~AstraState(){}
 
     friend CondensingTX;
 
@@ -119,11 +119,11 @@ private:
 
 
 struct TemporaryState{
-    std::unique_ptr<LuxState>& globalStateRef;
+    std::unique_ptr<AstraState>& globalStateRef;
     dev::h256 oldHashStateRoot;
     dev::h256 oldHashUTXORoot;
 
-    TemporaryState(std::unique_ptr<LuxState>& _globalStateRef) : 
+    TemporaryState(std::unique_ptr<AstraState>& _globalStateRef) : 
         globalStateRef(_globalStateRef),
         oldHashStateRoot(globalStateRef->rootHash()), 
         oldHashUTXORoot(globalStateRef->rootHashUTXO()) {}
@@ -151,7 +151,7 @@ class CondensingTX{
 
 public:
 
-    CondensingTX(LuxState* _state, const std::vector<TransferInfo>& _transfers, const LuxTransaction& _transaction, std::set<dev::Address> _deleteAddresses = std::set<dev::Address>()) : transfers(_transfers), deleteAddresses(_deleteAddresses), transaction(_transaction), state(_state){}
+    CondensingTX(AstraState* _state, const std::vector<TransferInfo>& _transfers, const AstraTransaction& _transaction, std::set<dev::Address> _deleteAddresses = std::set<dev::Address>()) : transfers(_transfers), deleteAddresses(_deleteAddresses), transaction(_transaction), state(_state){}
 
     CTransaction createCondensingTX();
 
@@ -187,9 +187,9 @@ private:
     //So, making this unordered_set could be an attack vector
     const std::set<dev::Address> deleteAddresses;
 
-    const LuxTransaction& transaction;
+    const AstraTransaction& transaction;
 
-    LuxState* state;
+    AstraState* state;
 
     bool voutOverflow = false;
 

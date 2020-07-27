@@ -42,7 +42,7 @@
       <number>1</number>
      </property>
      <property name="text">
-      <string>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other LUX addresses after it matures.</string>
+      <string>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other ASTRA addresses after it matures.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -172,7 +172,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../lux.qrc">
+        <iconset resource="../astra.qrc">
          <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
        </property>
        <property name="shortcut">
@@ -244,7 +244,7 @@
         <string>Add</string>
        </property>
        <property name="icon">
-        <iconset resource="../lux.qrc">
+        <iconset resource="../astra.qrc">
          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
        </property>
       </widget>
@@ -261,7 +261,7 @@
         <string>Delete</string>
        </property>
        <property name="icon">
-        <iconset resource="../lux.qrc">
+        <iconset resource="../astra.qrc">
          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
        </property>
       </widget>
@@ -310,7 +310,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../lux.qrc"/>
+  <include location="../astra.qrc"/>
  </resources>
  <connections/>
 </ui>

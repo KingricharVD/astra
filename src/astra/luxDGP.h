@@ -1,7 +1,7 @@
-#ifndef LUXDGP_H
-#define LUXDGP_H
+#ifndef ASTRADGP_H
+#define ASTRADGP_H
 
-#include "luxstate.h"
+#include "astrastate.h"
 #include "primitives/block.h"
 #include "main.h"
 #include "utilstrencodings.h"
@@ -24,11 +24,11 @@ static const uint64_t MIN_BLOCK_GAS_LIMIT_DGP = 1000000;
 static const uint64_t MAX_BLOCK_GAS_LIMIT_DGP = 1000000000;
 static const uint64_t DEFAULT_BLOCK_GAS_LIMIT_DGP = 40000000;
 
-class LuxDGP {
+class AstraDGP {
     
 public:
 
-    LuxDGP(LuxState* _state, bool _dgpevm = true) : dgpevm(_dgpevm), state(_state) { initDataEIP158(); }
+    AstraDGP(AstraState* _state, bool _dgpevm = true) : dgpevm(_dgpevm), state(_state) { initDataEIP158(); }
 
     dev::eth::EVMSchedule getGasSchedule(unsigned int blockHeight);
 
@@ -74,7 +74,7 @@ private:
 
     bool dgpevm;
 
-    const LuxState* state;
+    const AstraState* state;
 
     dev::Address templateContract;
 
