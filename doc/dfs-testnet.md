@@ -7,7 +7,7 @@ Astracore is GNU AGPLv3 licensed.
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F216k155%2Fastra.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2F216k155%2Fastra?ref=badge_shield) [![Build Status](https://travis-ci.org/ASTRA-Core/astra.svg?branch=master)](https://travis-ci.org/ASTRA-Core/astra) [![GitHub version](https://badge.fury.io/gh/ASTRA-Core%2Fastra.png)](https://badge.fury.io/gh/ASTRA-Core%2Fastra.png) [![HitCount](http://hits.dwyl.io/216k155/astra.svg)](http://hits.dwyl.io/216k155/astra)
 <a href="https://discord.gg/A6YW6uh"><img src="https://discordapp.com/api/guilds/364500397999652866/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=ASTRA_COIN"><img src="https://img.shields.io/twitter/follow/ASTRA_COIN.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
-                                                                                                                                                     
+
 [Website](https://astracore.io) — [ASTRAtre + ASTRAGate](https://github.com/ASTRA-Core/astratre) - [PoS Web Wallet](https://astra.poswallet.io) — [Block Explorer](https://explorer.astracore.io/) — [Blog](https://reddit.com/r/ASTRACoin) — [Forum](https://bitcointalk.org/index.php?topic=2254046.0) — [Telegram](https://t.me/ASTRAcoinOfficialChat) — [Twitter](https://twitter.com/ASTRA_Coin)
 
 Technical description of the Distributed File System (Testnet)
@@ -29,7 +29,7 @@ List of `RPC commands`:
 | dfssetparams | Setting storage parameters `[for pmn]` (price, frequency of evidence) |
 | dfssetfolder & dfssettempfolder | Select storage and temporary storage `[for pmn]` |
 | dfsremoveoldorders | Delete old queries |
-| dfslistorders | List of orders | 
+| dfslistorders | List of orders |
 | dfslistproposals | List of proposals |
 | dfsacceptproposal | Selection of offer for order |
 | dfslocalstorage | List of local files |
@@ -37,21 +37,21 @@ List of `RPC commands`:
 
 ---------------------------------------------------------------------
 
-* servers 
+* servers
 
         45.32.245.24 (root@45.32.245.24 pass: please contact dev)
-    
+
         66.42.51.223 (root@66.42.51.223 pass: please contact dev)
-         
+
 Both servers are equivalent and can act as "Alice" and "Bob" when requested to save the file (from one of them you can send a request to save the file to another).
 
-* Demons are used in general testnet, with the key 
+* Demons are used in general testnet, with the key
 
          --datadir =" / root / astratestnet / "
 
 To execute any rpc command on these servers you should specify the `testnet` and `rpcpassword = 123456` keys.
 
-Example: 
+Example:
 
         astra / src / astra-cli -testnet = 1 -rpcpassword = 123456 dfsgetinfo
 
@@ -59,7 +59,7 @@ As a result, you should see:
 
         {
         "enabled": true,
-        "myip": "45.32.245.24:28333",
+        "myip": "45.32.245.24:13767",
          "dfsfolder": "/root/astratestnet/testnet4/dfs",
          "dfstempfolder": "/root/astratestnet/testnet4/dfstemp",
          "rate": 1,
@@ -78,31 +78,31 @@ The function should return a unique hash order like the example below:
 
 Then you need to wait a little more than `1 minute`, during this time all dfs nodes connected to the network (at least the 2nd server) will send their proposal to this order.
 
-You can view a list of all proposals for this order with the command: 
-        
-    dfslistproposals <order hash> 
-    
+You can view a list of all proposals for this order with the command:
+
+    dfslistproposals <order hash>
+
 Example:
- 
-    astra/src/astra-cli -testnet=1 -rpcpassword=123456 dfslistproposals f37996a118cc14e16a300503ef23062f6711721ebcce1ed9df91680cdeee0c40 
+
+    astra/src/astra-cli -testnet=1 -rpcpassword=123456 dfslistproposals f37996a118cc14e16a300503ef23062f6711721ebcce1ed9df91680cdeee0c40
 
 There should be such an array of objects:
-    
+
     [
         {
             "orderhash": "f37996a118cc14e16a300503ef23062f6711721ebcce1ed9df91680cdeee0c40",
             "proposalhash": "7a0bfcff85874200a180476211a2edf01eee1d9a6a43cb20e0652e94977c3040",
             "time": "1548331925",
-            "address": "66.42.51.223:28333",
+            "address": "66.42.51.223:13767",
             "rate": 4
         }
     ]
 
 Then (within a minute) an object with the minimum parameter `"rate"` will be automatically selected among all requests and a crypto-replica source file (encrypted with AES and RSA algorithms) will be created for it and transmitted to the specified address. If it turns out that this address has a "fake IP", then the actual file transfer will not occur. However, both hetzners haven't this problem, so the transfer must end in a regular way.
 
-If everything all good, the other server should appear entry in `dfslocalstorage` in the `storage chunk` section. 
+If everything all good, the other server should appear entry in `dfslocalstorage` in the `storage chunk` section.
 
-Moreover, You can check it with corresponding command below: 
+Moreover, You can check it with corresponding command below:
 
     astra/src/astra-cli -testnet=1 -rpcpassword=123456 dfslocalstorage
 
@@ -119,8 +119,8 @@ You should see:
        "filename": "/root/astratestnet/testnet4/dfs/667cb29cf32f3bb48d875d33e2b61d16996b606d0f42acdd6b254ba1ce3cd8ac_1548331987.astrafs",
        "uri": "667cb29cf32f3bb48d875d33e2b61d16996b606d0f42acdd6b254ba1ce3cd8ac",
        "size": "67712" }]
-     }, 
-     
+     },
+
      {
        "index": 0,
        "type": "temp chunk",
@@ -137,7 +137,7 @@ Also, the actual availability of this file and its size can be inspected using t
 
 The file will be encrypted and have a size: the original file size is `126` divided, rounded up, multiplied by `128`.
 
-You can decrypt it by running the command `dfsdecrypt`. 
+You can decrypt it by running the command `dfsdecrypt`.
 
 Example:
 
@@ -147,15 +147,14 @@ Then you can look at the contents of the file `/root/file.test` and compare it w
 
 For example on one server was:
 
-    md5sum ~/file.test 
+    md5sum ~/file.test
 
     f17211fa8630cadc9851894b74034948  /root/file.test
 
 On the second server decrypted:
 
     md5sum ~/test
-    
+
     f17211fa8630cadc9851894b74034948  /root/test
 
 As you can see the hash sums of files are the same.
-

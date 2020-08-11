@@ -244,7 +244,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
     connect(pushButtonWalletHDStatusIcon, &QPushButton::clicked, this, [this]() {
         int hdEnabled = this->pushButtonWalletHDStatusIcon->property("hdEnabled").toInt();
         if(!hdEnabled) {
-            if (!pwalletMain->IsCrypted()) 
+            if (!pwalletMain->IsCrypted())
             {
                 auto button = QMessageBox::warning(this, "HD Wallet",
                         tr("Do you really want to enable hd-wallet? You will no more be able to disable it. "
@@ -304,33 +304,33 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
         pushButtonTelegram = new QPushButton(frameSocMedia);
         pushButtonTelegram->setToolTip(tr("Go to")+" Telegram");
         connect(pushButtonTelegram, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://t.me/ASTRAcoreOfficial"));});
+                this, [](){QDesktopServices::openUrl(QUrl("https://t.me/AstraCore"));});
         pushButtonTelegram->setIcon(QIcon(QPixmap(":/icons/res/icons/telegram.png").scaledToHeight(STATUSBAR_ICONSIZE,Qt::SmoothTransformation)));
 
         pushButtonDiscord = new QPushButton(frameSocMedia);
         pushButtonDiscord->setToolTip(tr("Go to")+" Discord");
         connect(pushButtonDiscord, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://discord.gg/ndUg9va"));});
+                this, [](){QDesktopServices::openUrl(QUrl("https://discord.gg/ffrubHU"));});
         pushButtonDiscord->setIcon(QIcon(":/icons/res/icons/discord.png").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
         pushButtonTwitter = new QPushButton(frameSocMedia);
         pushButtonTwitter->setToolTip(tr("Go to")+" Twitter");
         connect(pushButtonTwitter, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://twitter.com/ASTRA_Coin"));});
+                this, [](){QDesktopServices::openUrl(QUrl("https://twitter.com/CryptoLover705"));});
         pushButtonTwitter->setIcon(QIcon(":/icons/res/icons/twitter.png").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
         pushButtonGithub = new QPushButton(frameSocMedia);
         pushButtonGithub->setToolTip(tr("Go to")+" GitHub");
         connect(pushButtonGithub, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://github.com/astra-core"));});
+                this, [](){QDesktopServices::openUrl(QUrl("https://github.com/AstraCore"));});
         pushButtonGithub->setIcon(QIcon(":/icons/res/icons/github.png").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
-        pushButtonHelp = new QPushButton(frameSocMedia);
-        pushButtonHelp->setToolTip(tr("Go to")+" Documentation Hub");
-        connect(pushButtonHelp, &QPushButton::clicked,
-                this, [](){QDesktopServices::openUrl(QUrl("https://docs.astracore.io/"));});
-        pushButtonHelp->setIcon(QIcon(":/icons/res/icons/hub.png").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));		
-		
+      //  pushButtonHelp = new QPushButton(frameSocMedia);
+      //  pushButtonHelp->setToolTip(tr("Go to")+" Documentation Hub");
+      //  connect(pushButtonHelp, &QPushButton::clicked,
+      //          this, [](){QDesktopServices::openUrl(QUrl("https://docs.astracore.io/"));});
+      //  pushButtonHelp->setIcon(QIcon(":/icons/res/icons/hub.png").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+
         auto buttons = frameSocMedia->findChildren<QPushButton* >();
         QString styleSheet = ".QPushButton { background-color: transparent;"
                                         "border: none;"
@@ -360,7 +360,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle* n
     // See https://qt-project.org/doc/qt-4.8/gallery.html
     QString curStyle = QApplication::style()->metaObject()->className();
     if (curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle") {
-        
+
     }
 
     statusBar()->addWidget(progressBarLabel);
@@ -485,8 +485,8 @@ void BitcoinGUI::createActions() {
 #endif
     tabGroup->addAction(historyAction);
 
-    LSRTokenAction = new QAction(QIcon(":/icons/lsrtoken"), tr("&LSR Token"), this);
-    LSRTokenAction->setStatusTip(tr("LSR Token (send, receive or add Token in list)"));
+    LSRTokenAction = new QAction(QIcon(":/icons/lsrtoken"), tr("&ASTC20 Token"), this);
+    LSRTokenAction->setStatusTip(tr("ASTC20 Token (send, receive or add Token in list)"));
     LSRTokenAction->setToolTip(LSRTokenAction->statusTip());
     LSRTokenAction->setCheckable(true);
 #ifdef Q_OS_MAC

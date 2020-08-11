@@ -935,11 +935,11 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;LSR Token</source>
+        <source>&amp;ASTC20 Token</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LSR Token (send, receive or add Token in list)</source>
+        <source>ASTC20 Token (send, receive or add Token in list)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3512,7 +3512,7 @@ https://www.transifex.com/astracore/astracore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LSR Tokens</source>
+        <source>ASTC20 Tokens</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5327,7 +5327,7 @@ https://www.transifex.com/astracore/astracore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The amount in LSR Token to send.</source>
+        <source>The amount in ASTC20 Token to send.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

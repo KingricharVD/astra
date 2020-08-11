@@ -1378,9 +1378,9 @@ public:
             if (nDepth > 0) nHeight -= nDepth;
             CAmount blockReward = GetProofOfWorkReward(0, nHeight);
             if (nHeight >= Params().FirstSplitRewardBlock() && nHeight < Params().StartDevfeeBlock()) {
-                blockReward = blockReward * 0.2; // MN reward
+                blockReward = blockReward * 0.1; // MN reward
             } else if (nHeight >= Params().StartDevfeeBlock() && nHeight < 6000000) {
-                blockReward = blockReward * 0.25; // MN reward after the reward changes
+                blockReward = blockReward * 0.20; // MN reward after the reward changes
             }
             if (credit < blockReward)
                 ret = true;

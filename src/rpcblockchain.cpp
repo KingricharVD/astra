@@ -29,10 +29,10 @@ int getBlockTimeByHeight(int nHeight);
 double GetDifficulty(const CBlockIndex* blockindex)
 {
     // Floating point number that is a multiple of the minimum difficulty,
-    // minimum difficulty = 1.0.
+    // minimum difficulty = 5.0.
     if (blockindex == NULL) {
         if (chainActive.Tip() == NULL)
-            return 1.0;
+            return 5.0;
         else
             blockindex = chainActive.Tip();
     }
@@ -421,7 +421,7 @@ UniValue getstorage(const UniValue& params, bool fHelp)
 
     std::string strAddr = params[0].get_str();
     if(strAddr.size() != 40 || !regex_match(strAddr, hexData))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Incorrect address"); 
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Incorrect address");
 
     TemporaryState ts(globalState);
     if (params.size() > 1)
@@ -434,7 +434,7 @@ UniValue getstorage(const UniValue& params, bool fHelp)
 
             if(blockNum != -1)
                 ts.SetRoot(uintToh256(chainActive[blockNum]->hashStateRoot), uintToh256(chainActive[blockNum]->hashUTXORoot));
-                
+
         } else {
             throw JSONRPCError(RPC_INVALID_PARAMS, "Incorrect block number");
         }
@@ -443,7 +443,7 @@ UniValue getstorage(const UniValue& params, bool fHelp)
     dev::Address addrAccount(strAddr);
     if(!globalState->addressInUse(addrAccount))
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Address does not exist");
-    
+
     UniValue result(UniValue::VOBJ);
 
     bool onlyIndex = params.size() > 2;
@@ -465,7 +465,7 @@ UniValue getstorage(const UniValue& params, bool fHelp)
         UniValue e(UniValue::VOBJ);
 
         storage = {{elem->first, {elem->second.first, elem->second.second}}};
-    } 
+    }
     for (const auto& j: storage)
     {
         UniValue e(UniValue::VOBJ);

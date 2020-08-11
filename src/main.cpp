@@ -91,7 +91,7 @@ bool fRecordLogOpcodes = false;
 bool fIsVMlogFile = false;
 bool fGettingValuesDGP = false;
 
-std::string SCVersion ("/Astracore:5.2.5/");
+std::string SCVersion ("/Astracore:2.0.0/");
 
 
 /** The maximum allowed size for a serialized block, in bytes (only for buffer size limits) */
@@ -134,13 +134,13 @@ CConditionVariable cvBlockChange;
 int nScriptCheckThreads = 0;
 std::atomic_bool fImporting(false);
 std::atomic_bool fReindex(false);
-bool fLogEvents = false;
+bool fLogEvents = true;
 bool fTxIndex = true;
-bool fAddressIndex = false;
-bool fSpentIndex = false;
+bool fAddressIndex = true;
+bool fSpentIndex = true;
 //bool fIsBareMultisigStd = true; already defined in script.cpp
 bool fRequireStandard = true;
-bool fCheckBlockIndex = false;
+bool fCheckBlockIndex = true;
 size_t nCoinCacheUsage = 5000 * 300;
 unsigned int nBytesPerSigOp = DEFAULT_BYTES_PER_SIGOP;
 bool fAlerts = DEFAULT_ALERTS;
@@ -320,17 +320,17 @@ struct CNodeState {
 
     CNodeState()
     {
-        fCurrentlyConnected = false;
+        fCurrentlyConnected = true;
         nMisbehavior = 0;
         fShouldBan = false;
         pindexBestKnownBlock = NULL;
         hashLastUnknownBlock = uint256(0);
         pindexLastCommonBlock = NULL;
-        fSyncStarted = false;
+        fSyncStarted = true;
         nStallingSince = 0;
         nBlocksInFlight = 0;
-        fPreferredDownload = false;
-        fHaveWitness = false;
+        fPreferredDownload = true;
+        fHaveWitness = true;
     }
 };
 
@@ -1043,7 +1043,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
            return error("AcceptToMemoryPool : not accepting transaction %s with mempoolbanned output (%s)", tx.GetHash().ToString().c_str(), mempoolbanname);
         }
     }
-    
+
     BOOST_FOREACH(const CTxIn txin, tx.vin) {
         const COutPoint &outpoint = txin.prevout;
 
@@ -1365,19 +1365,19 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
             if (nDeltaFees < ::minRelayTxFee.GetFee(nSize)){
                 return state.DoS(0, error("AcceptToMemoryPool: rejecting replacement %s, not enough additional fees to relay; %s < %s",hash.ToString(),FormatMoney(nDeltaFees),FormatMoney(::minRelayTxFee.GetFee(nSize))),REJECT_INSUFFICIENTFEE, "insufficient fee");
             }
-        
+
         // Make flag logic a little easier
         uint32_t standardFlags = STANDARD_SCRIPT_VERIFY_FLAGS;
         uint32_t additionalFlags = SCRIPT_VERIFY_NONE;
-        
+
         // Add Schnorr flags only after fork
         if (chainActive.Height() >= chainParams.StartDevfeeBlock()) {
             additionalFlags |= SCRIPT_ENABLE_SCHNORR;
         }
-        
+
         // Make sure we're using the correct flags
         standardFlags |= additionalFlags;
-        
+
         // Check against previous transactions
         // This is done last to help prevent CPU exhaustion denial-of-service attacks.
         PrecomputedTransactionData txdata(tx);
@@ -1940,7 +1940,7 @@ CAmount GetProofOfWorkReward(int64_t nFees, int nHeight)
 {
     CAmount nSubsidy = 1 * COIN;
     const CChainParams& chainParams = Params();
-        
+
     if (Params().NetworkID() == CBaseChainParams::TESTNET) {
         if (nHeight < 200) return 250000 * COIN;
     }
@@ -1959,11 +1959,11 @@ CAmount GetProofOfWorkReward(int64_t nFees, int nHeight)
     } else if (nHeight < 500) {
         nSubsidy = 1 * COIN;
     } else if (nHeight == 501) {
-        nSubsidy = 1000 * COIN;
-    } else if (nHeight >= 500 && nHeight < chainParams.StartDevfeeBlock()) {
         nSubsidy = 10 * COIN;
+    } else if (nHeight >= 500 && nHeight < chainParams.StartDevfeeBlock()) {
+        nSubsidy = 5 * COIN;
     } else if (nHeight >= chainParams.StartDevfeeBlock() && nHeight < 6000000) {
-        nSubsidy = 8 * COIN;
+        nSubsidy = 3 * COIN;
     } else {
         nSubsidy = 1 * COIN;
     }
@@ -1992,7 +1992,7 @@ CAmount GetProofOfStakeReward(int64_t nFees, int nHeight)
     } else {
         nSubsidy = 1 * COIN;
     }
-    
+
     return nSubsidy + nFees;
 }
 
@@ -2017,7 +2017,7 @@ CAmount GetMasternodePosReward(int nHeight, CAmount blockValue)
 bool IsInitialBlockDownload()
 {
     const CChainParams& chainParams = Params();
-    
+
     // Once this function has returned false, it must remain false.
     static std::atomic<bool> latchToFalse{false};
     // Optimization: pre-test latch before taking the lock.
@@ -6662,7 +6662,7 @@ static bool ProcessMessage(CNode* pfrom, const string &strCommand, CDataStream& 
         if (fDebug) {
             LogPrintf("getblocks %d to %s limit %d from peer=%d\n", (pindex ? pindex->nHeight : -1), hashStop == uint256(0) ? "end" : hashStop.ToString(), nLimit, pfrom->id);
         }
-        
+
         for (; pindex; pindex = chainActive.Next(pindex)) {
             if (pindex->GetBlockHash() == hashStop) {
                 LogPrint("net", "  getblocks stopping at %d %s\n", pindex->nHeight, pindex->GetBlockHash().ToString());
@@ -7682,18 +7682,18 @@ bool CheckRefund(const CBlock& block, const std::vector<CTxOut>& vouts){
         if(it==vTempVouts.end()) {
             bool IsRefundValid = false;
             int nMaxDriftAllowed = 1;
-            for(it=vTempVouts.begin(); it!=vTempVouts.end(); it++) {    
-                if (vouts[i].scriptPubKey == it->scriptPubKey && it->nValue - vouts[i].nValue < nMaxDriftAllowed) { 
-                    LogPrintf("%s: found vout %s (%s)\n", __func__, it->ToString().c_str(), FormatMoney(it->nValue));   
-                    IsRefundValid = true; 
-                    break;  
-                }   
-            }   
-            if (!IsRefundValid) { 
-                LogPrintf("%s: unable to find a suitable vout %s\n", __func__, vouts[i].ToString().c_str());   
-                LogPrintf("%s: current best vout %s\n", __func__, vTempVouts.at(0).ToString().c_str());   
-                RefundFound = false;   
-                break;  
+            for(it=vTempVouts.begin(); it!=vTempVouts.end(); it++) {
+                if (vouts[i].scriptPubKey == it->scriptPubKey && it->nValue - vouts[i].nValue < nMaxDriftAllowed) {
+                    LogPrintf("%s: found vout %s (%s)\n", __func__, it->ToString().c_str(), FormatMoney(it->nValue));
+                    IsRefundValid = true;
+                    break;
+                }
+            }
+            if (!IsRefundValid) {
+                LogPrintf("%s: unable to find a suitable vout %s\n", __func__, vouts[i].ToString().c_str());
+                LogPrintf("%s: current best vout %s\n", __func__, vTempVouts.at(0).ToString().c_str());
+                RefundFound = false;
+                break;
             }
         } else {
             vTempVouts.erase(it);

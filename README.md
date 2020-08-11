@@ -4,12 +4,12 @@
 
 Astracore is GNU AGPLv3 licensed.
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fastra-Core%2Fastra.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fastra-Core%2Fastra?ref=badge_shield) [![Build Status](https://travis-ci.org/astra-Core/astra.svg?branch=master)](https://travis-ci.org/astra-Core/astra) [![GitHub version](https://badge.fury.io/gh/astra-Core%2Fastra.png)](https://badge.fury.io/gh/astra-Core%2Fastra.png) [![HitCount](http://hits.dwyl.io/astra-Core/astra.svg)](http://hits.dwyl.io/astra-Core/astra)
-<a href="https://discord.gg/4jaVvTN"><img src="https://discordapp.com/api/guilds/632270260040368138/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=astra_Astra"><img src="https://img.shields.io/twitter/follow/TR3B_Astra.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
-                                                                                                                                                     
-[![Build history](https://buildstats.info/travisci/chart/astra-Core/astra?branch=master)](https://travis-ci.org/astra-Core/astra?branch=master)
+ [![Build Status](https://travis-ci.org/AstraCore/AstraCoin_2.0.svg?branch=master)](https://travis-ci.org/AstraCore/AstraCoin_2.0) [![GitHub version](https://badge.fury.io/gh/AstraCore%2FAstraCoin_2.0.png)](https://badge.fury.io/gh/AstraCore%2FAstraCoin_2.0.png) [![HitCount](http://hits.dwyl.io/AstraCore/AstraCoin_2.0.svg)](http://hits.dwyl.io/AstraCore/AstraCoin_2.0)
+<a href="https://discord.gg/ffrubHU"><img src="https://discordapp.com/api/guilds/721057795876716595/embed.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=CryptoLover705"><img src="https://img.shields.io/twitter/follow/CryptoLover705.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
 
-[Website](https://astracore.io) — [ASTRAtre + ASTRAGate](https://github.com/astra-Core/astratre) - [PoS Web Wallet](https://astra.poswallet.io) — [Block Explorer](https://explorer.astracore.io/)  — [Telegram](https://t.me/ASTRA_Allegiance) — [Twitter](https://twitter.com/TR3B_Astra)
+[![Build history](https://buildstats.info/travisci/chart/AstraCore/AstraCoin_2.0?branch=master)](https://travis-ci.org/AstraCore/AstraCoin_2.0?branch=master)
+
+[Website](https://astracore.io) — [ASTRAtre + ASTRAGate](https://github.com/AstraCore/astratre) - [PoS Web Wallet](https://astra.poswallet.io) — [Block Explorer](https://explorer.astracore.io/)  — [Telegram](https://t.me/ASTRA_Allegiance) — [Twitter](https://twitter.com/CryptoLover705)
 
 Features
 =============
@@ -24,11 +24,11 @@ Features
 * Parallel masternode (PMN)
 
   * [Banking layer](#)
-  
+
   * [Proof of file storage (Distributed file storage (DFS))](doc/Technical-description-of-the-implementation-of-a-distributed-file-storage.md)
-   
+
     * [DFS Testnet](doc/dfs-testnet.md)
-    
+
 * ~~PHI1612 PoW/PoS hybrid algorithm~~
 
 
@@ -44,23 +44,23 @@ In addition, without astragate and PMN, Bitcoin and Ethereum cannot interact wit
 
 | Specification | Value |
 |:-----------|:-----------|
-| Total Blocks | `6,000,000` |
+| Total Blocks | `50,000,000` |
 | Block Size | `4MB` |
 | Block Time | `60s` |
 | PoW Block Time | `120s`   |
 | PoW Reward | `10 astra` |
 | PoS Reward | `1 astra` |
-| Stake Time | `36 hours` | 
+| Stake Time | `36 hours` |
 | Masternode Requirement | `16,120 astra` |
 | Masternode Reward | `20% PoW/PoS` |
-| Port | `26969` |
-| RPC Port | `9888` |
-| Masternode Port | `26969` |
-| astra legacy address start with | `L` |
+| Port | `6940` |
+| RPC Port | `5878` |
+| Masternode Port | `6940` |
+| astra legacy address start with | `W` |
 | p2sh-segwit address start with | `S` |
-| Bech32 address start with | `bc` |
+| Bech32 address start with | `astc` |
 
-* NOTE: "getrawchangeaddress p2sh-segwit" to get p2sh-segwit address 
+* NOTE: "getrawchangeaddress p2sh-segwit" to get p2sh-segwit address
 
 Instructions
 -----------
@@ -113,9 +113,6 @@ not straightforward.
 
  We try to prompt our users for the basic information We always need for new issues.
  Please fill out the issue template below and submit it to our discord channel
-  <a href="https://discord.gg/ndUg9va"><img src="https://discordapp.com/api/guilds/364500397999652866/embed.png" alt="Discord server" /></a>
- 
- [ISSUE_TEMPLATE](doc/template/ISSUE_TEMPLATE_example.md)
+  <a href="https://discord.gg/ndUg9va"><img src="https://discordapp.com/api/guilds/721057795876716595/embed.png" alt="Discord server" /></a>
 
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fastra-Core%2Fastra.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fastra-Core%2Fastra?ref=badge_large)
+ [ISSUE_TEMPLATE](doc/template/ISSUE_TEMPLATE_example.md)

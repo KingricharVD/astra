@@ -75,7 +75,7 @@ void checkCalculatedDifficulty(BlockHeader const& _bi, BlockHeader const& _paren
 	case Network::Ropsten:
 	case Network::TransitionnetTest:
 		durationLimit = 13;
-		minimumDifficulty = 131072;
+		minimumDifficulty = 1310729283;
 		difficultyBoundDivisor = 2048;
 	break;
 	default:
@@ -139,7 +139,7 @@ void fillDifficulty(string const& _testFileFullName, Ethash& _sealEngine)
 			replaceMap["[PSTAMP]"] = toCompactHex(pStamp, HexPrefix::Add);
 			replaceMap["[СSTAMP]"] = toCompactHex(cStamp, HexPrefix::Add);
 			replaceMap["[CNUM]"] = toCompactHex(cNum, HexPrefix::Add);
-			replaceMap["[CDIFF]"] = toCompactHex(_sealEngine.calculateDifficulty(current, parent), HexPrefix::Add);			
+			replaceMap["[CDIFF]"] = toCompactHex(_sealEngine.calculateDifficulty(current, parent), HexPrefix::Add);
 
 			dev::test::RandomCode::parseTestWithTypes(tmptest, replaceMap);
 			finalTest << tmptest;

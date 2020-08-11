@@ -12,9 +12,9 @@ RUN cp astrad /usr/local/bin
 
 VOLUME ["/opt/astra"]
 
-EXPOSE 9888
-EXPOSE 9888
-EXPOSE 9777
-EXPOSE 9777
+EXPOSE 5878
+EXPOSE 5878
+EXPOSE 15878
+EXPOSE 15878
 
 CMD ["astrad", "--conf=/opt/astra/astra.conf", "--printtoconsole"]

@@ -682,7 +682,7 @@ double GetPoWMHashPS() {
         }
         pindex = pindex->pnext;
     }
-    return GetDifficulty() * 4294.967296 / nTargetSpacingWork;
+    return GetDifficulty() * 42944967296.967296 / nTargetSpacingWork;
 }
 
 double GetPoSKernelPS() {

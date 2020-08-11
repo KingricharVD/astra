@@ -554,12 +554,12 @@ Cliquer sur &quot;Crypter la clé&quot; pour signer et encrypter la clé privée
         <translation>Afficher l&apos;historique de transactions</translation>
     </message>
     <message>
-        <source>&amp;LSR Token</source>
+        <source>&amp;ASTC20 Token</source>
         <translation>&amp;Jetons LSR</translation>
     </message>
     <message>
-        <source>LSR Token (send, receive or add Token in list)</source>
-        <translation>Envoi et réception de jetons (LSR Tokens)</translation>
+        <source>ASTC20 Token (send, receive or add Token in list)</source>
+        <translation>Envoi et réception de jetons (ASTC20 Tokens)</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -3357,7 +3357,7 @@ https://www.transifex.com/astracore/astracore</source>
         <translation>Transactions récentes</translation>
     </message>
     <message>
-        <source>LSR Tokens</source>
+        <source>ASTC20 Tokens</source>
         <translation>Jetons LSR</translation>
     </message>
     <message>
@@ -5198,7 +5198,7 @@ https://www.transifex.com/astracore/astracore</source>
         <translation>L&apos;adresse qui va recevoir les tokens.</translation>
     </message>
     <message>
-        <source>The amount in LSR Token to send.</source>
+        <source>The amount in ASTC20 Token to send.</source>
         <translation>Le montant de jetons LSR à envoyer.</translation>
     </message>
     <message>

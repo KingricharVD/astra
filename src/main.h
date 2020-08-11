@@ -91,7 +91,7 @@ struct CNodeStateStats;
 #endif
 
 #ifndef WORKING_VERSION
-#define WORKING_VERSION "/Astracore:5.3.0/"
+#define WORKING_VERSION "/Astracore:2.0.0/"
 #endif
 
 static const int64_t DARKSEND_COLLATERAL = (20000*COIN); //20000 ASTRA

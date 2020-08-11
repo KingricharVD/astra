@@ -40,7 +40,7 @@ SendTokenPage::SendTokenPage(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->labelPayTo->setToolTip(tr("The address that will receive the tokens."));
-    ui->labelAmount->setToolTip(tr("The amount in LSR Token to send."));
+    ui->labelAmount->setToolTip(tr("The amount in ASTC20 Token to send."));
     ui->labelDescription->setToolTip(tr("Optional description for transaction."));
     m_tokenABI = new Token();
     m_selectedToken = new SelectedToken();

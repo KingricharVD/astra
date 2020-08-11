@@ -17,7 +17,7 @@ class AstraNodeConfigDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit AstraNodeConfigDialog(QWidget *parent = 0, QString nodeAddress = "123.456.789.123:28666", QString privkey="MASTERNODEPRIVKEY");
+    explicit AstraNodeConfigDialog(QWidget *parent = 0, QString nodeAddress = "123.456.789.123:5878", QString privkey="MASTERNODEPRIVKEY");
     ~AstraNodeConfigDialog();
 
 private:

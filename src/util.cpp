@@ -115,7 +115,7 @@ int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
 bool fSucessfullyLoaded = false;
-bool fEnableDarksend = false;
+bool fEnableDarksend = true;
 /** All denominations used by darksend */
 std::vector<int64_t> darkSendDenominations;
 string strBudgetMode = "";
@@ -126,8 +126,8 @@ bool fDebug = false;
 bool fDebugMnSecurity = false;
 bool fPrintToConsole = false;
 bool fPrintToDebugLog = true;
-bool fDaemon = false;
-bool fServer = false;
+bool fDaemon = true;
+bool fServer = true;
 string strMiscWarning;
 bool fLogTimestamps = false;
 bool fLogIPs = false;
@@ -624,7 +624,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     ClearDatadirCache();
 }
 
-void WriteConfigToFile(std::string strKey, std::string strValue) 
+void WriteConfigToFile(std::string strKey, std::string strValue)
 {
     std::ifstream fin(GetConfigFile().string().c_str());
     std::string line;

@@ -1310,7 +1310,7 @@
             </font>
            </property>
            <property name="text">
-            <string>LSR Tokens</string>
+            <string>ASTC20 Tokens</string>
            </property>
            <property name="leftMargin" stdset="0">
             <number>0</number>

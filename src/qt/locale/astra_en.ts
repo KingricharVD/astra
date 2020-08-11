@@ -774,12 +774,12 @@
     </message>
     <message>
         <location line="+10"/>
-        <source>&amp;LSR Token</source>
+        <source>&amp;ASTC20 Token</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>LSR Token (send, receive or add Token in list)</source>
+        <source>ASTC20 Token (send, receive or add Token in list)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4499,7 +4499,7 @@ https://www.transifex.com/astracore/astracore</source>
     <message>
         <location line="+886"/>
         <location filename="../forms/ui_overviewpage.h" line="+31"/>
-        <source>LSR Tokens</source>
+        <source>ASTC20 Tokens</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7155,7 +7155,7 @@ https://www.transifex.com/astracore/astracore</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>The amount in LSR Token to send.</source>
+        <source>The amount in ASTC20 Token to send.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
