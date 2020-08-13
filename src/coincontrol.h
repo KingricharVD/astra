@@ -41,7 +41,7 @@ public:
     {
         destChange = CNoDestination();
         setSelected.clear();
-        useInstanTX = false;
+        useInstanTX = true;
         useDarksend = true;
         fAllowOtherInputs = false;
         fAllowWatchOnly = false;
